@@ -1,9 +1,4 @@
-# ConDr (Consumer Decision Maker)
-
-## Introducere
-
-### Tehnologii folosite
- * https://stackshare.io/adrianharabula/condr/details
+# ConDr (Consumer Decision Maker) [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/adrianharabula/condr)
 
 ## Enunţ
 
