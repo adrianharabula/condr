@@ -14,4 +14,4 @@ Grupa B2, an univ. 2016-2017:
  * Bulbuc-Aioanei Elisa
  * Harabulă Adrian adrian.harabula@gmail.com 0772200141
  * Anghelina Elena
- * Buza Mădălina
+ * Buza Mădălina-Gabriela
