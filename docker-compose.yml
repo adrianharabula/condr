@@ -27,7 +27,7 @@ services:
      volumes:
       - ./api:/var/www/html
      ports:
-      - "8080:80"
+      - "80:80"
 
    psgbd_etapa2:
      depends_on:
