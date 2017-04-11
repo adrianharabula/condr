@@ -14,7 +14,7 @@ services:
      links:
       - oracledb
      volumes:
-      - ./api:/var/www/html
+      - ./app:/var/www/html
      ports:
       - "8080:80"
 
