@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ConDr - Consumer Decision Maker</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" type="text/css"  href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/responsive.css">
+
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+
+<link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+</head>
+
+<body>
+
+	<div id="tf-home">
+			<div class="overlay">
+					<div id="sticky-anchor"></div>
+					<nav id="tf-menu" class="navbar navbar-default">
+							<div class="container">
+									<!-- Brand and toggle get grouped for better mobile display -->
+									<div class="navbar-header">
+										<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+											<span class="sr-only">Toggle navigation</span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+										</button>
+										<a class="navbar-brand logo" href="index.html">ConDr</a>
+									</div>
+
+									<!-- Collect the nav links, forms, and other content for toggling -->
+									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+										<ul class="nav navbar-nav navbar-right">
+											<li><a href="index.html">Home</a></li>
+											<li><a href="about.html">About</a></li>
+											<li><a href="statistics.html">Statistics</a></li>
+											<li><a href="forms.html">Preferences</a></li>
+											<li><a href="contact.html">Contact</a></li>
+											<li><a href="login.html">Login In</a></li>
+											<li><a href="register.html">Register</a></li>
+										</ul>
+									</div><!-- /.navbar-collapse -->
+							</div><!-- /.container-fluid -->
+					</nav>
+				</div>
+		</div>
+
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">Enter your preferences here and let's get started!</div>
+				<div class="panel-body">
+					<div class="col-md-6">
+						<form role="form">
+
+							<div class="form-group">
+								<label>Product name*</label>
+								<input class="form-control" placeholder="Enter the name of the desired product">
+							</div>
+
+							<div class="form-group">
+								<label>Provider</label>
+								<input type="password" class="form-control">
+							</div>
+
+							<div class="form-group checkbox">
+								<label>
+									<input type="checkbox">Add product to my history</label>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+
+							<div class="form-group">
+								<label>Tell us what to look after!</label>
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" value="">I am searching for the following characteristics
+									</label>
+								</div>
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" value="">I do not want the following characteristics
+									</label>
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<label>Select your preferences from our predefined list...</label>
+								<select multiple class="form-control">
+									<option>Allergy: nuts</option>
+									<option>Allergy: gluten</option>
+									<option>Battery: good</option>
+									<option>Charging time: 1h</option>
+									<option>Charging time: <1h</option>
+									<option>Color: black</option>
+									<option>Color: white</option>
+									<option>Color: blue</option>
+									<option>Dimension: 13"</option>
+									<option>Dimension: 15"</option>
+									<option>Dimension: 17"</option>
+									<option>Size: small</option>
+									<option>Size: medium</option>
+									<option>Size: large</option>
+									<option>Taste: sweet</option>
+									<option>Taste: sour</option>
+									<option>Taste: chilli</option>
+								</select>
+							</div>
+
+							<div class="form-group">
+								<label><br>...or enter your own preferences!*</label>
+
+									<div class="container">
+										<div class="row">
+											<input type="hidden" name="count" value="1" />
+													<div class="control-group" id="fields">
+															<div class="controls" id="profs">
+																	<form class="input-append">
+																			<div id="field"><input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Add your preferences" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
+																	</form>
+															<small>Press + to add another preference field :)</small>
+															</div>
+													</div>
+										<small>*Your preferences must consist from a noun and an attribute, separated by : and one space, as showed before!</small>
+									</div>
+
+							</div>
+
+							<button type="submit" class="btn btn-primary">Get the results!</button>
+							<a href="forms.html">
+								<button type="reset" class="btn btn-default">Reset form</button>
+							</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div><!-- /.col-->
+	</div><!-- /.row -->
+
+
+	</div><!--/.main-->
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script>
+		!function ($) {
+			$(document).on("click","ul.nav li.parent > a > span.icon", function(){
+				$(this).find('em:first').toggleClass("glyphicon-minus");
+			});
+			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+		}(window.jQuery);
+
+		$(window).on('resize', function () {
+		  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+		})
+		$(window).on('resize', function () {
+		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+		})
+	</script>
+</body>
+
+</html>
