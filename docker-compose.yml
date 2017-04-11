@@ -7,7 +7,7 @@ services:
      ports:
       - "1521:1521"
 
-   api:
+   app:
      depends_on:
        - oracledb
      image: adrianharabula/php7-with-oci8
@@ -18,7 +18,7 @@ services:
      ports:
       - "8080:80"
 
-   app:
+   api:
      depends_on:
        - oracledb
      image: adrianharabula/php7-with-oci8
@@ -27,7 +27,7 @@ services:
      volumes:
       - ./api:/var/www/html
      ports:
-      - "80:80"
+      - "8181:80"
 
    psgbd_etapa2:
      depends_on:
@@ -38,7 +38,7 @@ services:
      volumes:
       - ./database_design/psgbd-etapa2:/var/www/html
      ports:
-      - "8181:80"
+      - "8282:80"
 
 volumes:
     www:
