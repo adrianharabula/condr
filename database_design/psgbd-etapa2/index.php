@@ -7,12 +7,20 @@ function my_autoloader($class)
 }
 spl_autoload_register('my_autoloader');
 
-
-use Database as db;
 $db = new Database\Database;
+$utils = new Utils\Utils;
 
 // get all users in $res
-$res = $db->plainQuery("select * from users");
+// WARNING! Vulnerable to SQL Injection!
+$result1 = $db->plainQuery("select * from users");
+$utils->debug($result1);
 
-// print firs result
-print_r($res[0]->USERNAME);
+// The updated query
+// non-vulnerable to sql injection
+$db->query("SELECT * FROM users WHERE user_id in (:p1, :p2, :p3)");
+$db->bind(":p1", "1");
+$db->bind(":p2", "4");
+$db->bind(":p3", "5");
+$result2 = $db->execute();
+
+$utils->debug($result2);
