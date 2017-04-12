@@ -1,9 +1,0 @@
-<?php
-
-return (object) array(
-    'host' => 'host',
-    'port' => '1521',
-    'user' => 'system',
-    'pass' => 'oracle',
-    'sid' => 'xe'
-);
