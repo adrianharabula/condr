@@ -2,10 +2,19 @@
 namespace Database;
 use Config\Config as cfg;
 
+/*
+* Database class
+* Used for database operations between PHP and Oracle Database
+* Uses OCI8 library for communication
+*/
 class Database {
   private $conn;
   private $stid;
 
+  /*
+  * Initialize database connection
+  * USAGE EXAMPLE: $db = new Database\Database; // this creates a conn to db
+  */
   public function __construct(){
       // Initiate database connection
       $this->conn = oci_connect(cfg::$DB_USER, cfg::$DB_PASS,
@@ -21,48 +30,10 @@ class Database {
 
   /*
   * WARNING! Do not use this!
-  * vulnerable to sql injection
+  * Vulnerable to SQL Injection
   * USAGE EXAMPLE: $res = $db->plainQuery("select * from users");
   */
   public function plainQuery($statement) {
-    // parse query
-    $stid = oci_parse($this->conn, $statement);
-
-    // if error on parse
-    if (!$stid) {
-       $oerr = oci_error($this->conn);
-       echo "Query parse error:".$oerr["message"];
-       exit;
-    }
-
-    // execute query
-    $stmt = oci_execute($stid);
-
-    // if error on execution
-    if (!$stmt) {
-       $oerr = oci_error($stid);
-       echo "Query execution error: " . $oerr["message"];
-       exit;
-    }
-
-    // parse all rows in res
-    while ( $res[] = oci_fetch_object($stid) ) ;
-
-    // return res
-    return $res;
-  }
-
-  /*
-  * Updated function
-  * sql injection proof
-  * USE this!
-  * USAGE EXAMPLE: $res = $db->query("select * from users");
-  */
-  public function query($statement) {
-
-    // empty previous query
-    //$this->stid = NULL;
-
     // parse query
     $this->stid = oci_parse($this->conn, $statement);
 
@@ -73,15 +44,15 @@ class Database {
        exit;
     }
 
-    return $this;
+    return $this->execute();
   }
 
-  public function bind($parameter, $value) {
-    oci_bind_by_name($this->stid, $parameter, $value);
-    return $this;
-  }
-
-  public function execute() {
+  /*
+  * Used to execute query
+  * USAGE EXAMPLE: $result = $db->plainQuery("select * from users");
+                   $utils->debug($result);
+  */
+   public function execute() {
     // execute query
     $stmt = oci_execute($this->stid);
 
@@ -100,5 +71,38 @@ class Database {
 
     // return res
     return $res;
+  }
+
+  /*
+  * Updated function
+  * SQL Injection proof
+  * USAGE EXAMPLE: $db->query("select * from users where id = :p1");
+  *                $db->bind(":p1", "4");
+  *                $utils->debug($db->execute());
+  */
+  public function query($statement) {
+
+    // parse query
+    $this->stid = oci_parse($this->conn, $statement);
+
+    // if error on parse
+    if (!$this->stid) {
+       $oerr = oci_error($this->conn);
+       echo "Query parse error:".$oerr["message"];
+       exit;
+    }
+
+    return $this;
+  }
+
+  /*
+  * Used to bind parameters
+  * USAGE EXAMPLE: $db->query("select * from users where user_id = :p1 ");
+  *                $db->bind(":p1", "4");
+  *                $db->execute();
+  */
+  public function bind($parameter, $value) {
+    oci_bind_by_name($this->stid, $parameter, $value);
+    return $this;
   }
 }
