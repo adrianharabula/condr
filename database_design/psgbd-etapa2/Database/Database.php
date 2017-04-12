@@ -18,9 +18,14 @@ class Database {
       }
   }
 
-  public function getVersion() {
+  /*
+  * WARNING! Do not use this!
+  * vulnerable to sql injection
+  * USAGE EXAMPLE: $res = $db->plainQuery("select * from users");
+  */
+  public function plainQuery($statement) {
     // parse query
-    $stid = oci_parse($this->conn, 'SELECT * FROM V$VERSION');
+    $stid = oci_parse($this->conn, $statement);
 
     // if error on parse
     if (!$stid) {

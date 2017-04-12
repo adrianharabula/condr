@@ -7,7 +7,12 @@ function my_autoloader($class)
 }
 spl_autoload_register('my_autoloader');
 
-use Database as db;
-$db = new db\Database;
 
-print_r($db->getVersion());
+use Database as db;
+$db = new Database\Database;
+
+// get all users in $res
+$res = $db->plainQuery("select * from users");
+
+// print firs result
+print_r($res[0]->USERNAME);
