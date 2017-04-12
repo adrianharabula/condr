@@ -10,4 +10,4 @@ spl_autoload_register('my_autoloader');
 use Database as db;
 $db = new db\Database;
 
-$db->getVersion();
+print_r($db->getVersion());

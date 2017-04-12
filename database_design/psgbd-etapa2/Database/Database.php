@@ -39,11 +39,10 @@ class Database {
        exit;
     }
 
-    // parse all rows and print them
-    while ( $res = oci_fetch_object($stid) ) {
-      print_r($res);
-      echo '<br />';
-    }
+    // parse all rows in res
+    while ( $res[] = oci_fetch_object($stid) ) ;
 
+    // return res
+    return $res;
   }
 }
