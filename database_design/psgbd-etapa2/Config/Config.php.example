@@ -1,0 +1,10 @@
+<?php
+namespace Config;
+
+class Config {
+    static $DB_HOST = 'localhost';
+    static $DB_PORT = '1521';
+    static $DB_USER = 'system';
+    static $DB_PASS = 'oracle';
+    static $DB_SID  = 'xe';
+}

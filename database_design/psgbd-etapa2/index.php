@@ -1,2 +1,11 @@
 <?php
-echo '<h1>Hello world, etapa II PSGBD 2017.</h1>';
+define('BASE_PATH', realpath(dirname(__FILE__)));
+function my_autoloader($class)
+{
+    $filename = BASE_PATH . '/' . str_replace('\\', '/', $class) . '.php';
+    include($filename);
+}
+spl_autoload_register('my_autoloader');
+
+use Database as db;
+$db = new db\Database;
