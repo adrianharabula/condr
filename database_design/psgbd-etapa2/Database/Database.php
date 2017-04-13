@@ -44,7 +44,7 @@ class Database {
        exit;
     }
 
-    return $this->execute();
+    return $this->execute()->result();
   }
 
   /*
@@ -63,6 +63,15 @@ class Database {
        exit;
     }
 
+    return $this;
+  }
+
+  /*
+  * Used to execute query
+  * USAGE EXAMPLE: $result = $db->plainQuery("select * from users");
+                   $utils->debug($result);
+  */
+  public function result() {
     // parse all rows in res
     while ( $res[] = oci_fetch_object($this->stid) ) ;
 
@@ -102,7 +111,7 @@ class Database {
   *                $db->execute();
   */
   public function bind($parameter, $value) {
-    oci_bind_by_name($this->stid, $parameter, $value);
+    oci_bind_by_name($this->stid, $parameter, $value, 200);
     return $this;
   }
 }
