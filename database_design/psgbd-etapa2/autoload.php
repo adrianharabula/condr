@@ -6,3 +6,6 @@ function my_autoloader($class)
     include($filename);
 }
 spl_autoload_register('my_autoloader');
+
+// hide all PHP errors
+error_reporting(0);
