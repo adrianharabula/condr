@@ -24,11 +24,11 @@ if (isset($_REQUEST['submit'])) {
 
   $username = $_REQUEST['username'];
   $password = $_REQUEST['password'];
-  $password = $_REQUEST['email'];
+  $email = $_REQUEST['email'];
 
-  $db->query("BEGIN user_manager.register(:username, :password, :email); END;");
+  $db->query("DECLARE v_res number; BEGIN v_res := user_manager.register(:username, :password, :email); END;");
   $db->bind(":username", $username);
   $db->bind(":password", $password);
-  $db->bind(":email", $password);
+  $db->bind(":email", $email);
   $result = $db->execute();
 }
