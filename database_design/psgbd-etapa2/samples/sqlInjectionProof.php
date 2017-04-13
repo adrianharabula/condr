@@ -45,7 +45,7 @@ if (isset($_REQUEST['submit'])) {
   $db->query("select * from users where username = :p1 and password = :p2");
   $db->bind("p1", $username);
   $db->bind("p2", $password);
-  $result = $db->execute();
+  $result = $db->execute()->result();
 
   $utils->debug($result);
 }
