@@ -1,11 +1,16 @@
 <?php
 require('autoload.php');
 
+// Load Database class
 $db = new Database\Database;
+// Load Utils class, contains debug function
 $utils = new Utils\Utils;
 
-$db->query("SELECT :p1 FROM users;");
-$db->bind(":p1", $var);
-$result2 = $db->execute();
+// make the query
+$db->plainQuery("SELECT * FROM users");
 
-$utils->debug($result2);
+// store result as an object in $result
+$result = $db->execute()->result();
+
+// print result
+$utils->debug($result);
