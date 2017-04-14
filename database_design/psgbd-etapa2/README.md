@@ -19,10 +19,10 @@ A on-line version is available at [ii.condr.me](http://ii.condr.me).
 For login use
 
 ```
-user: _elisa_
-pass: _elis47_
+user: elisa
+pass: elis47
 ```
 
 More code, scripts and samples [here](http://ii.condr.me/App).  
 
-SQL code used is located in [sqlScripts](http://ii.condr.me/SqlScripts) folder.  
+SQL code used is located in [SqlScripts](http://ii.condr.me/SqlScripts) folder.  
