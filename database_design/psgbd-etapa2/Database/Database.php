@@ -106,12 +106,13 @@ class Database {
 
   /*
   * Used to bind parameters
-  * USAGE EXAMPLE: $db->query("select * from users where user_id = :p1 ");
-  *                $db->bind(":p1", "4");
-  *                $db->execute();
+  * USAGE EXAMPLE The same as oci_bind_by_name, it just ads chaining capability
+  *               $db->query("select * from users where user_id = :p1 ");
+  *               db->bind(":p1", "4");
+  *               $db->execute();
   */
-  public function bind($parameter, $value) {
-    oci_bind_by_name($this->stid, $parameter, $value, 200);
+  public function bind($bv_name, &$variable, ...$params) {
+    oci_bind_by_name($this->stid, $bv_name, $variable, ...$params);
     return $this;
   }
 }
