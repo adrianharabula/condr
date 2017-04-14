@@ -1,4 +1,8 @@
-<h1> Login Form vulnerable to SQL Injection Sample </h1>
+<?php
+require('../autoload.php');
+?>
+
+<!-- <h1> Login Form vulnerable to SQL Injection Sample </h1>
 <h4> The input field is vulnerable to SQL Injection <br />
      It uses unsanitized input from user </h4>
 
@@ -12,7 +16,7 @@
 <p>
     On invalid login credentials it return an empy object; <br />
     <a href="?submit=submit&username=AdrianHarabula&password=pass637486"> Login wrong password </a> <br />
-</p>
+</p> -->
 
 <h2> SQL Injection example </h2>
 <p>
@@ -21,14 +25,12 @@
 </p>
 
 <form action="sqlInjection.php" method="get">
-    <input type="text" name="username" />
-    <input type="password" name="password" />
+    <input type="text" name="username" value="<?=$_REQUEST['username']?>" />
+    <input type="password" name="password" value="<?=$_REQUEST['password']?>" />
     <input type="submit" name="submit" />
 </form>
 
-<?php
-require('../autoload.php');
-
+<?
 $db = new Database\Database;
 $utils = new Utils\Utils;
 
@@ -42,6 +44,8 @@ if (isset($_REQUEST['submit'])) {
     $password = $_REQUEST['password'];
   }
 
-  $result1 = $db->plainQuery("select * from users where username = '$username' and password = '$password'");
+  $result1 = $db->query("select * from users where username = '$username' and password = '$password'")
+                ->execute()
+                ->result();
   $utils->debug($result1);
 }

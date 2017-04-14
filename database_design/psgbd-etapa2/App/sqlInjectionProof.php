@@ -1,3 +1,7 @@
+<?php
+require('../autoload.php');
+?>
+
 <h1> Login Form NOT vulnerable to SQL Injection Sample </h1>
 <h4> The input field is vulnerable to SQL Injection <br />
      It uses unsanitized input from user </h4>
@@ -27,8 +31,6 @@
 </form>
 
 <?php
-require('../autoload.php');
-
 $db = new Database\Database;
 $utils = new Utils\Utils;
 
