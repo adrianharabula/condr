@@ -1,3 +1,9 @@
+-- =============================================
+-- Authors: Bulbuc-Aioanei Elisa, Buza Mădălina-Gabriela
+-- Create date: Week 13-19 March 2017
+-- Context: Creating tables
+-- =============================================
+
 set serveroutput on;
 
 DROP TABLE USERS CASCADE CONSTRAINTS;
@@ -22,7 +28,7 @@ CREATE TABLE USERS
 
 /
 
-CREATE TABLE GROUPS 
+CREATE TABLE GROUPS
 (
   GROUP_ID NUMBER(10) PRIMARY KEY,
   NAME VARCHAR(50) NOT NULL UNIQUE,
@@ -91,7 +97,7 @@ CREATE TABLE COMPANY
 (
   RECORD_ID NUMBER(10) PRIMARY KEY,
   NAME VARCHAR(30) NOT NULL UNIQUE,
-  DESCRIPTION VARCHAR2(100) 
+  DESCRIPTION VARCHAR2(100)
 );
 
 COMMIT;
@@ -180,7 +186,7 @@ INSERT INTO COMPANY VALUES (31,'EASport','Feel everything!');
 INSERT INTO COMPANY VALUES (32,'Centric','Feel the succes!');
 INSERT INTO COMPANY VALUES (33,'Romsoft','Improve yourself!');
 -----------Education------
-INSERT INTO COMPANY VALUES (34,'Editura Cartex','Don�t forget to read more!');
+INSERT INTO COMPANY VALUES (34,'Editura Cartex','Don�t forget to read more!');
 INSERT INTO COMPANY VALUES (35,'Editura Librex','Reading shapes you!');
 INSERT INTO COMPANY VALUES (36,'Editura Artemis','Escape into a book!');
 INSERT INTO COMPANY VALUES (37,'Editura Astra','Burn after reading!');
@@ -197,7 +203,11 @@ INSERT INTO CATEGORY VALUES (7,'Education','Education category consists of produ
 
 COMMIT;
 
--------populare tabel users----------
+-- =============================================
+-- Authors: Buza Mădălina-Gabriela
+-- Updated on Week 10-16 April 2017
+-- Context: Populating database with random relevant entries
+-- =============================================
 DECLARE
 v_user_id  NUMBER(10) := 1 ;
 v_username_user VARCHAR(30) ;
@@ -221,11 +231,11 @@ BEGIN
     for i in lista_nume.first..lista_nume.last loop
         if lista_nume.exists(i) then
           for j in lista_prenume.first..lista_prenume.last loop
-              if lista_prenume.exists(j) then 
-               INSERT INTO USERS VALUES (v_user_id,concat(concat(lower(trim(lista_prenume(j).prenume)),'.'),lower(trim(lista_nume(i).nume))),concat(concat(concat(lower(trim(lista_prenume(j).prenume)),'.'),lower(trim(lista_nume(i).nume))),v_user_id),concat(concat(concat(lower(trim(lista_prenume(j).prenume)),'-'),lower(trim(lista_nume(i).nume))),'@yahoo.com'));             
+              if lista_prenume.exists(j) then
+               INSERT INTO USERS VALUES (v_user_id,concat(concat(lower(trim(lista_prenume(j).prenume)),'.'),lower(trim(lista_nume(i).nume))),concat(concat(concat(lower(trim(lista_prenume(j).prenume)),'.'),lower(trim(lista_nume(i).nume))),v_user_id),concat(concat(concat(lower(trim(lista_prenume(j).prenume)),'-'),lower(trim(lista_nume(i).nume))),'@yahoo.com'));
                v_user_id := v_user_id + 1;
                end if;
-           end loop; 
+           end loop;
         end if;
     end loop;
 END;
