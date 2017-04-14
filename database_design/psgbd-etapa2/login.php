@@ -1,5 +1,5 @@
 <?php
-require('../autoload.php');
+require('autoload.php');
 
 $db = new Database\Database;
 $utils = new Utils\Utils;
@@ -24,7 +24,7 @@ if(isset($_REQUEST['submitLogin']))
 }
 
 $pageTitle = "Login";
-require('../Parts/header.php');
+require('Parts/header.php');
 ?>
 
 <?php if ($_REQUEST['submitLogin']): ?>
@@ -71,4 +71,4 @@ require('../Parts/header.php');
 </div><!-- /.row -->
 <?php endif; ?>
 
-<?php require('../Parts/footer.php'); ?>
+<?php require('Parts/footer.php'); ?>

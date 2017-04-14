@@ -1,5 +1,5 @@
 <?php
-require('../autoload.php');
+require('autoload.php');
 
 $db = new Database\Database;
 $utils = new Utils\Utils;
@@ -33,7 +33,7 @@ $db->bind(":p2", $lastIndex);
 $paginatedEntries = $db->execute()->result();
 
 $pageTitle = "Paginaţie produse";
-require('../Parts/header.php');
+require('Parts/header.php');
 ?>
     <div class="row">
       <div class="col-md-6 col-md-offset-3 ">
@@ -66,4 +66,4 @@ require('../Parts/header.php');
         </nav>
       </div>
     </div>
-<?php require('../Parts/footer.php'); ?>
+<?php require('Parts/footer.php'); ?>
