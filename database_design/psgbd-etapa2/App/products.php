@@ -26,7 +26,7 @@ if ($page > $nrPages) exit('Invalid page!');
 $firstIndex = $perPage * ($page - 1) + 1;
 $lastIndex = $perPage * $page;
 
-// Load paginated entries into $paginatedEntries
+// Load results into $paginatedEntries
 $db->query("SELECT * FROM (SELECT a.*, ROW_NUMBER() OVER (ORDER BY product_id asc) AS rnum FROM products a) WHERE rnum BETWEEN :p1 AND :p2" );
 $db->bind(":p1", $firstIndex);
 $db->bind(":p2", $lastIndex);
@@ -68,9 +68,7 @@ require('../Parts/header.php');
             </nav>
         </div>
     </div>
-
     <br />
-
     <div class="row">
       <div class="col-md-6 col-md-offset-3 ">
         <h2 style="color: white;">Paginated Products</h2> <br />
