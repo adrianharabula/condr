@@ -1,6 +1,6 @@
 # Instructions
 
-1. Put all the content in this folder in www folder
+1. Put root folder in www folder
 2. Copy __Config.php.example__ to __Config.php__ and complete with correct credentials:
 
 ```
