@@ -1,8 +1,8 @@
 <?php
-require('../autoload.php');
+require('autoload.php');
 
 $pageTitle = "Welcome Page";
-require('../Parts/header.php');
+require('Parts/header.php');
 ?>
 
   <div class="row">
@@ -13,4 +13,4 @@ require('../Parts/header.php');
     </div>
   </div>
 
-<?php require('../Parts/footer.php'); ?>
+<?php require('Parts/footer.php'); ?>
