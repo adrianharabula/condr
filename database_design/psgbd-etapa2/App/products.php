@@ -35,40 +35,6 @@ $paginatedEntries = $db->execute()->result();
 $pageTitle = "Paginaţie produse";
 require('../Parts/header.php');
 ?>
-    <div id="tf-home">
-        <div class="overlay">
-            <div id="sticky-anchor"></div>
-            <nav id="tf-menu" class="navbar navbar-default">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                      <a class="navbar-brand logo" href="index.html">Consumer Decision Maker</a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                      <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="statistics.html">Statistics</a></li>
-                        <li><a href="forms.html">Preferences</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="login.html">Login In</a></li>
-                        <li><a href="register.html">Register</a></li>
-                      </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-        </div>
-    </div>
-    <br />
     <div class="row">
       <div class="col-md-6 col-md-offset-3 ">
         <h2 style="color: white;">Paginated Products</h2> <br />
