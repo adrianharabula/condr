@@ -25,4 +25,4 @@ pass: _elis47_
 
 More code, scripts and samples [here](http://ii.condr.me/App).  
 
-SQL code used is located in [sqlScripts](http://ii.condr.me/Scripts) folder.  
+SQL code used is located in [sqlScripts](http://ii.condr.me/SqlScripts) folder.  
