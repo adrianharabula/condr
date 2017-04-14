@@ -29,11 +29,14 @@ class Database {
   }
 
   /*
-  * WARNING! Do not use this!
-  * Vulnerable to SQL Injection
-  * USAGE EXAMPLE: $res = $db->plainQuery("select * from users");
+  * Updated function
+  * SQL Injection proof
+  * USAGE EXAMPLE: $db->query("select * from users where id = :p1");
+  *                $db->bind(":p1", "4");
+  *                $utils->debug($db->execute());
   */
-  public function plainQuery($statement) {
+  public function query($statement) {
+
     // parse query
     $this->stid = oci_parse($this->conn, $statement);
 
@@ -44,7 +47,7 @@ class Database {
        exit;
     }
 
-    return $this->execute()->result();
+    return $this;
   }
 
   /*
@@ -68,7 +71,7 @@ class Database {
 
   /*
   * Used to execute query
-  * USAGE EXAMPLE: $result = $db->plainQuery("select * from users");
+  * USAGE EXAMPLE: $result = $db->query("select * from users")->execute()->result();
                    $utils->debug($result);
   */
   public function result() {
@@ -82,27 +85,6 @@ class Database {
     return $res;
   }
 
-  /*
-  * Updated function
-  * SQL Injection proof
-  * USAGE EXAMPLE: $db->query("select * from users where id = :p1");
-  *                $db->bind(":p1", "4");
-  *                $utils->debug($db->execute());
-  */
-  public function query($statement) {
-
-    // parse query
-    $this->stid = oci_parse($this->conn, $statement);
-
-    // if error on parse
-    if (!$this->stid) {
-       $oerr = oci_error($this->conn);
-       echo "Query parse error:".$oerr["message"];
-       exit;
-    }
-
-    return $this;
-  }
 
   /*
   * Used to bind parameters
