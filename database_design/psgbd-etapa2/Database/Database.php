@@ -70,7 +70,7 @@ class Database {
   }
 
   /*
-  * Used to execute query
+  * Return result as a array of objects
   * USAGE EXAMPLE: $result = $db->query("select * from users")->execute()->result();
                    $utils->debug($result);
   */
@@ -83,6 +83,15 @@ class Database {
 
     // return res
     return $res;
+  }
+
+  /*
+  * Return first row as an obj
+  * USAGE EXAMPLE: $result = $db->query("select * from users")->execute()->result();
+                   $utils->debug($result);
+  */
+  public function firstResult() {
+    return oci_fetch_object($this->stid);
   }
 
 
