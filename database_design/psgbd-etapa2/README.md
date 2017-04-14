@@ -1,7 +1,7 @@
 # Instructions
 
 1. Put all the content in this folder in www folder
-2. Copy Config.php.example to Config.php and complete with correct dates
+2. Copy __Config.php.example__ to __Config.php__ and complete with correct credentials:
 
 ```
 class Config {
