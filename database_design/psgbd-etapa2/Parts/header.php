@@ -30,7 +30,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand logo" href="index.html">Consumer Decision Maker</a>
+                      <a class="navbar-brand logo" href="index.php">Consumer Decision Maker</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -38,9 +38,9 @@
                       <ul class="nav navbar-nav navbar-right">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="login.html">Login In</a></li>
-                        <li><a href="register.html">Register</a></li>
+                        <li><a href="products.php">Pagination</a></li>
+                        <li><?=isset($_SESSION['username'])? "<a href='logout.php'>Log Out</a>":"<a href='login.php'>Log In</a>"?></li>
+                        <?=!isset($_SESSION['username'])? "<li><a href='register.php'>Register</a></li>":""?>
                       </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
