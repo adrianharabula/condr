@@ -15,7 +15,14 @@ class Config {
 
 ## Running code
 
-A on-line version is available at [ii.condr.me](http://ii.condr.me)  
-For login use sample user: _elisa_, pass: _elis47_  
+A on-line version is available at [ii.condr.me](http://ii.condr.me).
+For login use
+
+```
+user: _elisa_
+pass: _elis47_
+```
+
 More code, scripts and samples [here](http://ii.condr.me/App).  
+
 SQL code used is located in [sqlScripts](http://ii.condr.me/Scripts) folder.  
