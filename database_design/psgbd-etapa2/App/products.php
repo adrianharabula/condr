@@ -6,40 +6,35 @@ $utils = new Utils\Utils;
 
 // set default values for page and perPage
 $page = empty($_REQUEST['page']) ? 1 : $_REQUEST['page'];
-$perPage = empty($_REQUEST['perPage']) ? 5 : $_REQUEST['perPage'];
+$perPage = empty($_REQUEST['perPage']) ? 7 : $_REQUEST['perPage'];
 
 // count products from database
 $nrProducts = $db->query("select count(*) as nr from PRODUCTS")
                   ->execute()
-                  ->result()
-                  [0]->NR;
+                  ->firstResult()
+                  ->NR;
 
 // cout total pages number
-$nrPages = $nrProducts / $perPage;
+$nrPages = ceil($nrProducts / $perPage);
 
 // if out of bound return error
 if ($page > $nrPages) exit('Invalid page!');
+
+/*
+ * Pagination code
+ */
+$firstIndex = $perPage * ($page - 1) + 1;
+$lastIndex = $perPage * $page;
+
+// Load paginated entries into $paginatedEntries
+$db->query("SELECT * FROM (SELECT a.*, ROW_NUMBER() OVER (ORDER BY product_id asc) AS rnum FROM products a) WHERE rnum BETWEEN :p1 AND :p2" );
+$db->bind(":p1", $firstIndex);
+$db->bind(":p2", $lastIndex);
+$paginatedEntries = $db->execute()->result();
+
+$pageTitle = "Paginaţie produse";
+require('../Parts/header.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="/Assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/Assets/css/datepicker3.css" rel="stylesheet">
-		<link href="/Assets/css/styles.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css"  href="/Assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/Assets/fonts/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css"  href="/Assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/Assets/css/responsive.css">
-    <script type="text/javascript" src="/Assets/js/modernizr.custom.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
-
-  </head>
-  <body background="img/bp_background_2_blue1.jpg">
-
     <div id="tf-home">
         <div class="overlay">
             <div id="sticky-anchor"></div>
@@ -74,30 +69,18 @@ if ($page > $nrPages) exit('Invalid page!');
         </div>
     </div>
 
-<?php
-
-  // Show paginated result
-  $db->query("SELECT * FROM (SELECT a.*, ROW_NUMBER() OVER (ORDER BY product_id asc) AS rnum FROM products a) WHERE rnum BETWEEN :p1 AND :p2" );
-  $db->bind(":p1", $perPage * ($page - 1) + 1);
-  $db->bind(":p2", $perPage * $page);
-  $result = $db->execute()->result();
-?>
-
     <br />
 
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 ">
-
-        <h1>Paginatd List Products</h1>
-
+      <div class="col-md-6 col-md-offset-3 ">
+        <h2 style="color: white;">Paginated Products</h2> <br />
         <div class="list-group">
           <?php
-            foreach($result as $obj) {
-              echo '<a href="#" class="list-group-item">' . $obj->NAME . ' <span class="badge">' . $obj->PRODUCT_ID . '</span></a>';
+            foreach($paginatedEntries as $item) {
+              echo '<a href="#" class="list-group-item">' . $item->NAME . ' <span class="badge">' . $item->PRODUCT_ID . '</span></a>';
             }
           ?>
         </div>
-
         <nav aria-label="Product navigation" class="text-center">
           <ul class="pagination">
             <li class="page-item <?=($page == 1)?'hidden':'';?>">
@@ -117,13 +100,6 @@ if ($page > $nrPages) exit('Invalid page!');
             </li>
           </ul>
         </nav>
+      </div>
     </div>
-    </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/Assets/js/jquery.1.11.1.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script type="text/javascript" src="/Assets/js/bootstrap.js"></script>
-  </body>
-</html>
+<?php require('../Parts/footer.php'); ?>
