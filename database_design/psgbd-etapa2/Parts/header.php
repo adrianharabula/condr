@@ -37,7 +37,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul class="nav navbar-nav navbar-right">
                         <!-- <li><a href="index.html">Home</a></li> -->
-                        <li><a href="about.html">About</a></li>
+                        <!-- <li><a href="about.html">About</a></li> -->
                         <li><a href="products.php">Pagination</a></li>
                         <li><?=isset($_SESSION['username'])? "<a href='logout.php'>Log Out</a>":"<a href='login.php'>Log In</a>"?></li>
                         <?=!isset($_SESSION['username'])? "<li><a href='register.php'>Register</a></li>":""?>
