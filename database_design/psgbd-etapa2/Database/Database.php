@@ -17,7 +17,7 @@ class Database {
   */
   public function __construct(){
       // Initiate database connection
-      $this->conn = oci_connect(cfg::$DB_USER, cfg::$DB_PASS,
+      $this->conn = oci_pconnect(cfg::$DB_USER, cfg::$DB_PASS,
                           cfg::$DB_HOST.':'.cfg::$DB_PORT.'/'.cfg::$DB_SID);
 
       // On connection error
