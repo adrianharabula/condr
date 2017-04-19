@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css"  href="/Assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/Assets/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css"  href="/Assets/css/style.css">
+    <link href="/Assets/css/contact.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/Assets/css/responsive.css">
     <script type="text/javascript" src="/Assets/js/modernizr.custom.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300' rel='stylesheet' type='text/css'>
@@ -36,9 +37,10 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul class="nav navbar-nav navbar-right">
-                        <!-- <li><a href="index.html">Home</a></li> -->
-                        <!-- <li><a href="about.html">About</a></li> -->
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
                         <li><a href="products.php">Products</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <?=isset($_SESSION['username'])? "<li><a href='myprofile.php'>My profile</a></li>":""?>
                         <li><?=isset($_SESSION['username'])? "<a href='logout.php'>Log Out</a>":"<a href='login.php'>Log In</a>"?></li>
                         <?=!isset($_SESSION['username'])? "<li><a href='register.php'>Register</a></li>":""?>
