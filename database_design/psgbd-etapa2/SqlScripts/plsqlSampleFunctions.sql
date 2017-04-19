@@ -4,6 +4,8 @@
 -- Context: Working with plsql functions from PHP
 -- =============================================
 
+CONN condr/condr;
+
 CREATE OR REPLACE FUNCTION users_groups(v_user_name USERS.USERNAME%TYPE)
 RETURN INTEGER AS
 

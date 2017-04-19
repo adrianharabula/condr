@@ -4,6 +4,8 @@
 -- Context: Working with plsql packages from PHP
 -- =============================================
 
+CONN condr/condr;
+
 CREATE OR REPLACE PACKAGE user_manager IS
      PROCEDURE add_user (p_username users.username%type,p_password users.password%type, p_email users.email%type);
      PROCEDURE delete_user (p_username users.username%type);
