@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css"  href="/Assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/Assets/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css"  href="/Assets/css/style.css">
+    <link href="/Assets/css/contact.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/Assets/css/responsive.css">
     <script type="text/javascript" src="/Assets/js/modernizr.custom.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300' rel='stylesheet' type='text/css'>

@@ -29,7 +29,7 @@ CREATE UNDO TABLESPACE aplicatie
 
 drop user condr cascade;
 create user condr identified by condr;
-# alter user condr identified by new_password; # change user password
+-- alter user condr identified by new_password; # change user password
 alter user condr default tablespace aplicatie quota 1990M on aplicatie;
 
 grant connect to condr;
