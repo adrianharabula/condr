@@ -29,10 +29,10 @@ BEGIN
           for j in lista_prenume.first..lista_prenume.last loop
               if lista_prenume.exists(j) then
                INSERT INTO USERS VALUES (v_user_id,concat(concat(lower(trim(lista_prenume(j).prenume)),'.'),lower(trim(lista_nume(i).nume))),concat(concat(concat(lower(trim(lista_prenume(j).prenume)),'.'),lower(trim(lista_nume(i).nume))),v_user_id),concat(concat(concat(lower(trim(lista_prenume(j).prenume)),'-'),lower(trim(lista_nume(i).nume))),'@yahoo.com'));
-               COMMIT; -- IMPORTANT! altfel nu merge;
                v_user_id := v_user_id + 1;
                end if;
            end loop;
         end if;
     end loop;
 END;
+/

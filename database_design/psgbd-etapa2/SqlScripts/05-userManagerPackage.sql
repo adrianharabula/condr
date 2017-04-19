@@ -146,3 +146,4 @@ AS
   END update_product;
 
 END products_manager;
+/

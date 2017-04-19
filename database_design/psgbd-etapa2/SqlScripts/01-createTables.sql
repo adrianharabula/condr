@@ -111,75 +111,72 @@ ALTER TABLE PRODUCTS ADD CONSTRAINT company_fk FOREIGN KEY(COMPANY_ID) REFERENCE
 
 /
 
-BEGIN
-  INSERT INTO CARACTERISTICS VALUES (1,'Allergy','gluten');
-  INSERT INTO CARACTERISTICS VALUES (2,'Allergy','lactose');
-  INSERT INTO CARACTERISTICS VALUES (3,'Color','blue');
-  INSERT INTO CARACTERISTICS VALUES (4,'Color','white');
-  INSERT INTO CARACTERISTICS VALUES (5,'Diagonal','15"');
-  INSERT INTO CARACTERISTICS VALUES (6,'Dimension','large');
-  INSERT INTO CARACTERISTICS VALUES (7,'Size','small');
-  INSERT INTO CARACTERISTICS VALUES (8,'Taste','sour');
-  INSERT INTO CARACTERISTICS VALUES (9,'Taste','sweet');
-  INSERT INTO CARACTERISTICS VALUES (10,'Taste','chilli');
-  INSERT INTO CARACTERISTICS VALUES (11,'Battery','good');
-  INSERT INTO CARACTERISTICS VALUES (12,'Processor','2.7Ghz');
-  INSERT INTO CARACTERISTICS VALUES (13,'Size','high');
-  INSERT INTO CARACTERISTICS VALUES (14,'Texture','soft');
+INSERT INTO CARACTERISTICS VALUES (1,'Allergy','gluten');
+INSERT INTO CARACTERISTICS VALUES (2,'Allergy','lactose');
+INSERT INTO CARACTERISTICS VALUES (3,'Color','blue');
+INSERT INTO CARACTERISTICS VALUES (4,'Color','white');
+INSERT INTO CARACTERISTICS VALUES (5,'Diagonal','15"');
+INSERT INTO CARACTERISTICS VALUES (6,'Dimension','large');
+INSERT INTO CARACTERISTICS VALUES (7,'Size','small');
+INSERT INTO CARACTERISTICS VALUES (8,'Taste','sour');
+INSERT INTO CARACTERISTICS VALUES (9,'Taste','sweet');
+INSERT INTO CARACTERISTICS VALUES (10,'Taste','chilli');
+INSERT INTO CARACTERISTICS VALUES (11,'Battery','good');
+INSERT INTO CARACTERISTICS VALUES (12,'Processor','2.7Ghz');
+INSERT INTO CARACTERISTICS VALUES (13,'Size','high');
+INSERT INTO CARACTERISTICS VALUES (14,'Texture','soft');
 
-  --------Electronics----
-  INSERT INTO COMPANY VALUES (1,'Elefant','Think different!');
-  INSERT INTO COMPANY VALUES (2,'Emag','We control everything.');
-  INSERT INTO COMPANY VALUES (3,'Carreffour','Think.');
-  INSERT INTO COMPANY VALUES (4,'Praktiker','Leading innovation.');
-  INSERT INTO COMPANY VALUES (5,'Dedeman','Imagine the possbilities!');
-  INSERT INTO COMPANY VALUES (6,'Leroy Merilyn','Explore beyond limits');
-  INSERT INTO COMPANY VALUES (7,'Kaufland','In search of incredible');
-  INSERT INTO COMPANY VALUES (8,'ASOS','Awesome clothes never come in single pieces!');
-  INSERT INTO COMPANY VALUES (9,'Amazon','Be practic!');
-  ----------Clothes--------
-  INSERT INTO COMPANY VALUES (10,'NewYorker','Be fashion!');
-  INSERT INTO COMPANY VALUES (11,'Bershka','A classic never goes out of style.');
-  INSERT INTO COMPANY VALUES (12,'Zara','Quality never goes out of style.');
-  INSERT INTO COMPANY VALUES (13,'Stradivarius','Smart clothing. Everyday living.');
-  ---------Foot wear-----------
-  INSERT INTO COMPANY VALUES (14,'Puma','Falke. Soul texture.');
-  INSERT INTO COMPANY VALUES (15,'Adidas','Form follows you.');
-  INSERT INTO COMPANY VALUES (16,'Nike','Keep it simple.');
-  --------Food-------------
-  INSERT INTO COMPANY VALUES (17,'Panoramic','Always on time!');
-  INSERT INTO COMPANY VALUES (18,'Alilla','Faster is better!');
-  INSERT INTO COMPANY VALUES (19,'Mamma Mia','So fast so hot!');
-  INSERT INTO COMPANY VALUES (20,'La Palia','Already ready!');
-  INSERT INTO COMPANY VALUES (21,'Little Texas','Stop, eat and go!');
-  INSERT INTO COMPANY VALUES (22,'Cavalerul Medieval','Eat and dream!');
-  ---------Games--------------
-  INSERT INTO COMPANY VALUES (23,'UbiSoft','Adrenaline inside!');
-  INSERT INTO COMPANY VALUES (24,'EASport','Feel everything!');
-  INSERT INTO COMPANY VALUES (25,'Blizzard Entertainment','Let the game begin!');
-  INSERT INTO COMPANY VALUES (26,'Blue Tongue Entertainment','enjoy the game!');
-  ---------Services--------------
-  INSERT INTO COMPANY VALUES (27,'Centric','Feel the succes!');
-  INSERT INTO COMPANY VALUES (28,'Romsoft','Improve yourself!');
-  -----------Education------
-  INSERT INTO COMPANY VALUES (29,'Editura Cartex','Don’t forget to read more!');
-  INSERT INTO COMPANY VALUES (30,'Editura Librex','Reading shapes you!');
-  INSERT INTO COMPANY VALUES (31,'Editura Artemis','Escape into a book!');
-  INSERT INTO COMPANY VALUES (32,'Editura Astra','Burn after reading!');
-  INSERT INTO COMPANY VALUES (33,'Editura Paralela48','The right book will always keep you company!');
+--------Electronics----
+INSERT INTO COMPANY VALUES (1,'Elefant','Think different!');
+INSERT INTO COMPANY VALUES (2,'Emag','We control everything.');
+INSERT INTO COMPANY VALUES (3,'Carreffour','Think.');
+INSERT INTO COMPANY VALUES (4,'Praktiker','Leading innovation.');
+INSERT INTO COMPANY VALUES (5,'Dedeman','Imagine the possbilities!');
+INSERT INTO COMPANY VALUES (6,'Leroy Merilyn','Explore beyond limits');
+INSERT INTO COMPANY VALUES (7,'Kaufland','In search of incredible');
+INSERT INTO COMPANY VALUES (8,'ASOS','Awesome clothes never come in single pieces!');
+INSERT INTO COMPANY VALUES (9,'Amazon','Be practic!');
+----------Clothes--------
+INSERT INTO COMPANY VALUES (10,'NewYorker','Be fashion!');
+INSERT INTO COMPANY VALUES (11,'Bershka','A classic never goes out of style.');
+INSERT INTO COMPANY VALUES (12,'Zara','Quality never goes out of style.');
+INSERT INTO COMPANY VALUES (13,'Stradivarius','Smart clothing. Everyday living.');
+---------Foot wear-----------
+INSERT INTO COMPANY VALUES (14,'Puma','Falke. Soul texture.');
+INSERT INTO COMPANY VALUES (15,'Adidas','Form follows you.');
+INSERT INTO COMPANY VALUES (16,'Nike','Keep it simple.');
+--------Food-------------
+INSERT INTO COMPANY VALUES (17,'Panoramic','Always on time!');
+INSERT INTO COMPANY VALUES (18,'Alilla','Faster is better!');
+INSERT INTO COMPANY VALUES (19,'Mamma Mia','So fast so hot!');
+INSERT INTO COMPANY VALUES (20,'La Palia','Already ready!');
+INSERT INTO COMPANY VALUES (21,'Little Texas','Stop, eat and go!');
+INSERT INTO COMPANY VALUES (22,'Cavalerul Medieval','Eat and dream!');
+---------Games--------------
+INSERT INTO COMPANY VALUES (23,'UbiSoft','Adrenaline inside!');
+INSERT INTO COMPANY VALUES (24,'EASport','Feel everything!');
+INSERT INTO COMPANY VALUES (25,'Blizzard Entertainment','Let the game begin!');
+INSERT INTO COMPANY VALUES (26,'Blue Tongue Entertainment','enjoy the game!');
+---------Services--------------
+INSERT INTO COMPANY VALUES (27,'Centric','Feel the succes!');
+INSERT INTO COMPANY VALUES (28,'Romsoft','Improve yourself!');
+-----------Education------
+INSERT INTO COMPANY VALUES (29,'Editura Cartex','Don’t forget to read more!');
+INSERT INTO COMPANY VALUES (30,'Editura Librex','Reading shapes you!');
+INSERT INTO COMPANY VALUES (31,'Editura Artemis','Escape into a book!');
+INSERT INTO COMPANY VALUES (32,'Editura Astra','Burn after reading!');
+INSERT INTO COMPANY VALUES (33,'Editura Paralela48','The right book will always keep you company!');
 
-  INSERT INTO CATEGORY VALUES (1,'Electronics','Electronics can cover a large area of products that work based on electric devices, cables, circuits or others. Usually describes the house keeping or personal use devices that an user may need.');
-  INSERT INTO CATEGORY VALUES (2,'Clothes','Clothes describe a category that includes jackets, sweaters, t-shirts, pants, skirts, hats, accesories and other clothing items.');
-  INSERT INTO CATEGORY VALUES (3,'Foot wear','Foot wear category includes all items that someone may walk into, like heeled shoes, platforms, casual shoes, sport shoes and others.');
-  INSERT INTO CATEGORY VALUES (4,'Food','Food describes a very large area consisting of fruits, vegetables, meat, lactates, specific recipes and others. Here you may find the best recipes for your regarding your allergies and tastes.');
-  INSERT INTO CATEGORY VALUES (5,'Games','Games category includes games, recreational activities and relaxation technique in order to help you release the stress and gain a new fresh attitude');
-  INSERT INTO CATEGORY VALUES (6,'Services','Services describe a large area of interests that a person may need or want, like internet, TV cable, mobile services, electricity, water and others.');
-  INSERT INTO CATEGORY VALUES (7,'Education','Education category consists of products that a person may need for educational purposes,like books, records, maps etc, but also includes services that an university can provide, like scholarships, training programs and other.');
+INSERT INTO CATEGORY VALUES (1,'Electronics','Electronics can cover a large area of products that work based on electric devices, cables, circuits or others. Usually describes the house keeping or personal use devices that an user may need.');
+INSERT INTO CATEGORY VALUES (2,'Clothes','Clothes describe a category that includes jackets, sweaters, t-shirts, pants, skirts, hats, accesories and other clothing items.');
+INSERT INTO CATEGORY VALUES (3,'Foot wear','Foot wear category includes all items that someone may walk into, like heeled shoes, platforms, casual shoes, sport shoes and others.');
+INSERT INTO CATEGORY VALUES (4,'Food','Food describes a very large area consisting of fruits, vegetables, meat, lactates, specific recipes and others. Here you may find the best recipes for your regarding your allergies and tastes.');
+INSERT INTO CATEGORY VALUES (5,'Games','Games category includes games, recreational activities and relaxation technique in order to help you release the stress and gain a new fresh attitude');
+INSERT INTO CATEGORY VALUES (6,'Services','Services describe a large area of interests that a person may need or want, like internet, TV cable, mobile services, electricity, water and others.');
+INSERT INTO CATEGORY VALUES (7,'Education','Education category consists of products that a person may need for educational purposes,like books, records, maps etc, but also includes services that an university can provide, like scholarships, training programs and other.');
 
-  COMMIT;
-END;
+/
 
--- /
 -- DECLARE
 -- v_caracteristic_id  NUMBER(10) := 1 ;
 -- v_name VARCHAR(30) ;
