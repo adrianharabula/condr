@@ -4,6 +4,8 @@
 -- Context: Creating tables
 -- =============================================
 
+CONN condr/condr;
+
 set serveroutput on;
 
 DROP TABLE USERS CASCADE CONSTRAINTS;

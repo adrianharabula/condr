@@ -2,7 +2,10 @@ version: '3'
 
 services:
    oracledb:
-     image: wnameless/oracle-xe-11g
+     build:
+       context: .
+       dockerfile: oracle-Dockerfile
+     image: condr/databse
      restart: always
      ports:
       - "1521:1521"
