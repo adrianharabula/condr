@@ -17,7 +17,6 @@ BEGIN
                       IF(j.ELECTRONICS IS NOT NULL)
                       THEN
                             INSERT INTO PRODUCTS(PRODUCT_ID,CATEGORY_ID,NAME,COMPANY_ID) VALUES (v_product_id,1,j.ELECTRONICS,i);
-                            COMMIT;
                             v_product_id := v_product_id + 1;
                       END IF;
                 END LOOP;
@@ -41,7 +40,6 @@ BEGIN
                       THEN
                              v_name := v_name || k.COLORS || ' ' || j.CLOTHES;
                              INSERT INTO PRODUCTS(PRODUCT_ID,CATEGORY_ID,NAME,COMPANY_ID) VALUES (v_product_id,2,v_name,i);
-                             COMMIT;
                              v_product_id := v_product_id + 1;
                       END IF;
 
@@ -66,7 +64,6 @@ BEGIN
                       THEN
                              v_name := v_name || k.COLORS || ' ' || j.FOOT_WEAR;
                              INSERT INTO PRODUCTS(PRODUCT_ID,CATEGORY_ID,NAME,COMPANY_ID) VALUES (v_product_id,3,v_name,i);
-                             COMMIT;
                              v_product_id := v_product_id + 1;
                       END IF;
 
@@ -84,7 +81,6 @@ BEGIN
                       IF(j.FOOD IS NOT NULL)
                       THEN
                              INSERT INTO PRODUCTS(PRODUCT_ID,CATEGORY_ID,NAME,COMPANY_ID) VALUES (v_product_id,4,j.FOOD,i);
-                             COMMIT;
                              v_product_id := v_product_id + 1;
                       END IF;
                 END LOOP;
@@ -100,7 +96,6 @@ BEGIN
                       IF(j.GAMES IS NOT NULL)
                       THEN
                              INSERT INTO PRODUCTS(PRODUCT_ID,CATEGORY_ID,NAME,COMPANY_ID) VALUES (v_product_id,5,j.GAMES,i);
-                             COMMIT;
                              v_product_id := v_product_id + 1;
                       END IF;
                 END LOOP;
@@ -117,9 +112,9 @@ BEGIN
                       IF(j.BOOKS IS NOT NULL)
                       THEN
                              INSERT INTO PRODUCTS(PRODUCT_ID,CATEGORY_ID,NAME,COMPANY_ID) VALUES (v_product_id,3,j.BOOKS,i);
-                             COMMIT;
                              v_product_id := v_product_id + 1;
                       END IF;
                 END LOOP;
          END LOOP;
 END;
+/
