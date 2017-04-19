@@ -7,6 +7,18 @@ services:
      ports:
       - "1521:1521"
 
+   webhook:
+     image: adrianharabula/webhook
+     restart: always
+     volumes:
+       - "./webhook/hooks.json:/etc/webhook/hooks.json"
+       - "./webhook/scripts:/var/scripts"
+       - "./webhook/.ssh:/root/.ssh"
+       - ".:/root/condr"
+     command: "-verbose -hooks=/etc/webhook/hooks.json -hotreload"
+     ports:
+      - "9000:9000"
+
    app:
      depends_on:
        - oracledb
