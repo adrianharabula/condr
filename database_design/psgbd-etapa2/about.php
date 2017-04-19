@@ -1,7 +1,7 @@
 <?php
 require('autoload.php');
 
-$pageTitle = "Welcome Page";
+$pageTitle = "About";
 require('Parts/header.php');
 ?>
 
