@@ -22,4 +22,10 @@ require('Parts/header.php');
     </div>
 </div>
 
+<nav id="tf-footer">
+    <div class="container">
+         <div class="pull-left">
+            <p>2017 © ConDr. All Rights Reserved.</p>
+</nav>
+
 <?php require('Parts/footer.php'); ?>
