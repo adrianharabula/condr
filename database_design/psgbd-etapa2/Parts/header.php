@@ -40,6 +40,8 @@
                         <li><a href="about.php">About</a></li>
                         <li><a href="products.php">Products</a></li>
                         <li><a href="groups.php">Groups</a></li>
+                        <li><a href="statistics.php">Statistics</a></li>
+                        <?=isset($_SESSION['username'])? "<li><a href='preferences.php'>Preferences</a></li>":""?>
                         <li><a href="contact.php">Contact</a></li>
                         <?=isset($_SESSION['username'])? "<li><a href='myprofile.php'>My profile</a></li>":""?>
                         <li><?=isset($_SESSION['username'])? "<a href='logout.php'>Log Out</a>":"<a href='login.php'>Log In</a>"?></li>
