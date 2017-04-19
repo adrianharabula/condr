@@ -9,4 +9,4 @@ function my_autoloader($class)
 spl_autoload_register('my_autoloader');
 
 // hide all PHP errors
-// error_reporting(0);
+error_reporting(0);

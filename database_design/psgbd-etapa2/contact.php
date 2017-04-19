@@ -1,12 +1,12 @@
 <?php
 require('autoload.php');
 
-$pageTitle = "Welcome Page";
+$pageTitle = "Contact us!";
 require('Parts/header.php');
 ?>
 
 
-
+<link href="/Assets/css/contact.css" rel="stylesheet">
 <div class="container contact">
   <form id="contact" action="" method="post">
     <h3>ConDr Contact Form</h3>

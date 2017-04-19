@@ -78,6 +78,7 @@ require('Parts/header.php');
       </div>
     </div><!-- /.col-->
   </div><!-- /.row -->
+
 <?php endif; ?>
 
 <?php require('Parts/footer.php'); ?>

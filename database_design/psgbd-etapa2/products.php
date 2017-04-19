@@ -32,12 +32,13 @@ $db->bind(":p1", $firstIndex);
 $db->bind(":p2", $lastIndex);
 $paginatedEntries = $db->execute()->result();
 
-$pageTitle = "Paginaţie produse";
+$pageTitle = "Products list";
 require('Parts/header.php');
 ?>
+    <br>
     <div class="row">
       <div class="col-md-6 col-md-offset-3 ">
-        <h2 style="color: white;">Paginated Products</h2> <br />
+        <h2 style="color: white;">Products list</h2> <br />
         <div class="list-group">
           <?php
             foreach($paginatedEntries as $item) {
