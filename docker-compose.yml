@@ -3,20 +3,22 @@ version: '3'
 services:
    oracledb:
      build:
-       context: .
-       dockerfile: oracle-Dockerfile
+       context: ./Dockerfiles/oracledb/
+       dockerfile: Dockerfile
      image: condr/databse
      restart: always
      ports:
       - "1521:1521"
 
-   webhook:
-     image: adrianharabula/webhook
+   webhooks:
+     build:
+       context: ./Dockerfiles/git-webhook/
+       dockerfile: Dockerfile
+     image: adrianharabula/git-webhook
      restart: always
      volumes:
-       - "./webhook/hooks.json:/etc/webhook/hooks.json"
-       - "./webhook/scripts:/var/scripts"
-       - "./webhook/.ssh:/root/.ssh"
+       - "./Dockerfiles/git-webhook/webhook/hooks.json:/etc/webhook/hooks.json"
+       - "./Dockerfiles/git-webhook/webhook/scripts:/var/scripts"
        - ".:/root/condr"
      command: "-verbose -hooks=/etc/webhook/hooks.json -hotreload"
      ports:
@@ -54,6 +56,19 @@ services:
       - ./database_design/psgbd-etapa2:/var/www/html
      ports:
       - "8282:80"
+
+   virtualhosts:
+     build:
+      context: ./Dockerfiles/apache-virtualhosts/
+      dockerfile: Dockerfile
+     image: apache-virtualhosts
+     links:
+      - psgbd_etapa2
+      - app
+      - api
+      - webhooks
+     ports:
+      - "80:80"
 
 volumes:
     www:

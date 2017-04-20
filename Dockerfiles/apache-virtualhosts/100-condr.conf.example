@@ -1,0 +1,24 @@
+<VirtualHost *:80>
+  ServerName default
+  ErrorDocument 403 "Sorry, can't allow you access today."
+</VirtualHost>
+
+<VirtualHost *:80>
+   ServerName condr
+   ProxyPass / http://app/
+</VirtualHost>
+
+<VirtualHost *:80>
+   ServerName api.condr
+   ProxyPass / http://api/public/
+</VirtualHost>
+
+<VirtualHost *:80>
+   ServerName ii.condr
+   ProxyPass / http://psgbd_etapa2/
+</VirtualHost>
+
+<VirtualHost *:80>
+   ServerName webhooks.condr
+   ProxyPass / http://webhooks:9000/hooks/
+</VirtualHost>

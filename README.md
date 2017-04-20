@@ -12,17 +12,18 @@
  
 ## Instrucțiuni instalare
 Imediat după ce se face clone la repo:
- - adăugați cheia privată pentru deploy în _webhook/.ssh/id_rsa_
- - marcați script pull ca executabil `chmod +x webhook/scripts/pull.sh`
- - marcați script inițializare bd ca executabil `chmod +x database_design/psgbd-etapa2/SqlScripts/startup.sh`
+ - adăugați cheia privată pentru deploy în `Dockerfiles/git-webhook/webhook/.ssh/`; Exemplu: `cp ~/.ssh/id_rsa ~/.ssh/known_hosts Dockerfiles/git-webhook/webhook/.ssh/`.
+ - Copiați `database_design/psgbd-etapa2/Config/Config.php.example` în __Config.php__ și completați cu datele de conectare la baza de date.
+ - Copiați `Dockerfiles/apache-virtualhosts/100-condr.conf.example` în __100-condr.conf__ și completați cu date valide sau lăsați nemodificat dacă nu doriți virtualhosts.
  
-Pentru pornire server:
- - `docker-compose up -d psgbd_etapa2`
- - Prima pornire populează baza de date cu scripturile din [SqlScripts](https://github.com/adrianharabula/condr/tree/master/database_design/psgbd-etapa2/SqlScripts)
- - Pentru reinițializare baza de date rulați `docker-compose stop && docker-compose rm -v && docker-compose build && docker-compose up -d psgbd_etapa2`
+### Pentru pornire server:
+ - `docker-compose up -d`
+ - Prima pornire populează baza de date cu scripturile din [sqlscripts](https://github.com/adrianharabula/condr/tree/master/Dockerfiles/oracledb/sqlscripts).
+ - O versiune permanent actualizată a acestor scripturi se regăsește [aici](https://webhooks.condr.me/sqlconcat). Se poate folosi în SQL Developer.
+ - Pentru reinițializare baza de date rulați `docker-compose stop && docker-compose rm -v && docker-compose build && docker-compose up -d`.
 
-Pentru pornire webhook:
- - `docker-compose up -d webhook`, a se seta [IP:9000/hooks/pull](http://localhost:9000/hooks/pull) ca webhook din github/bitbucket/gitlab
+### Info webhook:
+ - La adresa [IP:9000/hooks/pull](http://localhost:9000/hooks/pull) aveți un endpoint pentru pull, se setează ca webhook din github/bitbucket/gitlab.
 
 ### Resurse
  * https://www.programmableweb.com/category/ecommerce/api
