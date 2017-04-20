@@ -2,6 +2,13 @@
   {
     "id": "pull",
     "execute-command": "/var/scripts/pull.sh",
-    "command-working-directory": "/root/condr"
+    "command-working-directory": "/root/condr",
+    "include-command-output-in-response": true
+  },
+  {
+    "id": "sqlconcat",
+    "execute-command": "/var/scripts/sqlconcat.sh",
+    "command-working-directory": "/root/condr",
+    "include-command-output-in-response": true
   }
 ]

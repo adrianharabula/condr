@@ -18,6 +18,7 @@ services:
      restart: always
      volumes:
        - "./Dockerfiles/git-webhook/webhook/hooks.json:/etc/webhook/hooks.json"
+       - "./Dockerfiles/git-webhook/webhook/scripts:/var/scripts"
        - ".:/root/condr"
      command: "-verbose -hooks=/etc/webhook/hooks.json -hotreload"
      ports:
