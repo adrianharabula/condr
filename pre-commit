@@ -1,4 +1,0 @@
-#!/bin/sh
-cd Dockerfiles/oracledb/sqlscripts
-cat [0-9][0-9]*.sql > sqlconcat.sql
-git add sqlconcat.sql
