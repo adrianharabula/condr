@@ -7,4 +7,3 @@ ADD webhook/.ssh /root/.ssh
 RUN chmod 400 /root/.ssh/id_rsa
 
 ADD webhook/scripts/*.sh /var/scripts/
-RUN chmod +x /var/scripts/*.sh
