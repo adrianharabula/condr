@@ -22,7 +22,7 @@ Pentru pornire server:
  - Pentru reinițializare baza de date rulați `docker-compose stop && docker-compose rm -v && docker-compose build && docker-compose up -d psgbd_etapa2`
 
 Pentru pornire webhook:
- - `docker-compose up -d psgbd_etapa2`, a se seta [IP:9000/hooks/pull](http://localhost:9000/hooks/pull) ca webhook din github/bitbucket/gitlab
+ - `docker-compose up -d webhook`, a se seta [IP:9000/hooks/pull](http://localhost:9000/hooks/pull) ca webhook din github/bitbucket/gitlab
 
 ### Resurse
  * https://www.programmableweb.com/category/ecommerce/api
