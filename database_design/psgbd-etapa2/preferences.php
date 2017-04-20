@@ -1,17 +1,16 @@
 <?php
 require('autoload.php');
-
 $pageTitle = "Preferences";
 require('Parts/header.php');
 ?>
 
-
+  <div class="container contact">
     <div class="panel panel-default">
       <div class="panel-heading">
         <label>Enter your preferences here and let's get started!</label>
       </div>
       <div class="panel-body">
-        <div class="col-md-6 col-md-offset-2">
+        <div class="col-md-7 col-md-offset-1">
           <form role="form">
 
             <div class="form-group">
@@ -45,7 +44,7 @@ require('Parts/header.php');
             </div><br><br>
 
           </div>
-          <div class="col-md-6 col-md-offset-2">
+          <div class="col-md-7 col-md-offset-1">
             <div class="form-group">
               <label>Tell us what to look after!</label>
               <p>*Pay attention! If you want to enter your own preferences, you must provide them consisting in a noun and an attribute, separated by : and one space, as showed below!</p>
@@ -143,6 +142,7 @@ require('Parts/header.php');
         </form>
       </div>
     </div>
+  </div>
 
 
 <?php require('Parts/footer.php'); ?>
