@@ -1,0 +1,22 @@
+/*Custom styles here*/
+
+.equal {
+  display: flex;
+  display: -webkit-flex;
+}
+
+.black-bg {
+  background-color: #111;
+}
+
+.black-bg p {
+  color: white;
+}
+
+a.btn-groups {
+  margin: 0;
+}
+
+.page-item {
+  color: #2F937B; 
+}

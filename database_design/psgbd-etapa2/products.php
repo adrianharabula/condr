@@ -35,36 +35,41 @@ $paginatedEntries = $db->execute()->result();
 $pageTitle = "Products list";
 require('Parts/header.php');
 ?>
-    <br>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3 ">
-        <h2 style="color: white;">Products list</h2> <br />
-        <div class="list-group">
-          <?php
-            foreach($paginatedEntries as $item) {
-              echo '<a href="#" class="list-group-item">' . $item->NAME . ' <span class="badge">' . $item->PRODUCT_ID . '</span></a>';
-            }
-          ?>
-        </div>
-        <nav aria-label="Product navigation" class="text-center">
-          <ul class="pagination">
-            <li class="page-item <?=($page == 1)?'hidden':'';?>">
-              <a class="page-link" href="products.php" tabindex="-1">First</a>
-            </li>
-            <li class="page-item <?=($page == 1)?'hidden':'';?>">
-              <a class="page-link" href="products.php?page=<?=$page-1?>&perPage=<?=$perPage?>" tabindex="-1">Previous</a>
-            </li>
-            <li class="page-item <?=($page == 1)?'hidden':'';?>"><a class="page-link" href="products.php?page=<?=$page-1?>&perPage=<?=$perPage?>"><?=$page-1?></a></li>
-            <li class="page-item active"><a class="page-link" href="products.php?page=<?=$page?>&perPage=<?=$perPage?>"><?=$page?></a></li>
-            <li class="page-item <?=($page == $nrPages)?'hidden':'';?>"><a class="page-link" href="products.php?page=<?=$page+1?>&perPage=<?=$perPage?>"><?=$page+1?></a></li>
-            <li class="page-item <?=($page == $nrPages)?'hidden':'';?>">
-              <a class="page-link" href="products.php?page=<?=$page+1?>&perPage=<?=$perPage?>" tabindex="-1">Next</a>
-            </li>
-            <li class="page-item <?=($page == $nrPages)?'hidden':'';?>">
-              <a class="page-link" href="products.php?page=<?=$nrPages?>&perPage=<?=$perPage?>">Last</a>
-            </li>
-          </ul>
-        </nav>
+
+
+
+
+<br>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 ">
+      <h2 style="color: white;">Products list</h2> <br />
+      <div class="list-group">
+        <?php
+          foreach($paginatedEntries as $item) {
+            echo '<a href="#" class="list-group-item">' . $item->NAME . ' <span class="badge">' . $item->PRODUCT_ID . '</span></a>';
+          }
+        ?>
       </div>
+      <nav aria-label="Product navigation" class="text-center">
+        <ul class="pagination">
+          <li class="page-item <?=($page == 1)?'hidden':'';?>">
+            <a class="page-link" href="products.php" tabindex="-1">First</a>
+          </li>
+          <li class="page-item <?=($page == 1)?'hidden':'';?>">
+            <a class="page-link" href="products.php?page=<?=$page-1?>&perPage=<?=$perPage?>" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item <?=($page == 1)?'hidden':'';?>"><a class="page-link" href="products.php?page=<?=$page-1?>&perPage=<?=$perPage?>"><?=$page-1?></a></li>
+          <li class="page-item active"><a class="page-link" href="products.php?page=<?=$page?>&perPage=<?=$perPage?>"><?=$page?></a></li>
+          <li class="page-item <?=($page == $nrPages)?'hidden':'';?>"><a class="page-link" href="products.php?page=<?=$page+1?>&perPage=<?=$perPage?>"><?=$page+1?></a></li>
+          <li class="page-item <?=($page == $nrPages)?'hidden':'';?>">
+            <a class="page-link" href="products.php?page=<?=$page+1?>&perPage=<?=$perPage?>" tabindex="-1">Next</a>
+          </li>
+          <li class="page-item <?=($page == $nrPages)?'hidden':'';?>">
+            <a class="page-link" href="products.php?page=<?=$nrPages?>&perPage=<?=$perPage?>">Last</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+</div>
+
 <?php require('Parts/footer.php'); ?>

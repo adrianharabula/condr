@@ -6,7 +6,7 @@ $utils = new Utils\Utils;
 
 // set default values for page and perPage
 $page = empty($_REQUEST['page']) ? 1 : $_REQUEST['page'];
-$perPage = empty($_REQUEST['perPage']) ? 5 : $_REQUEST['perPage'];
+$perPage = empty($_REQUEST['perPage']) ? 7 : $_REQUEST['perPage'];
 
 // count groups from database
 $nrGroups = $db->query("select count(*) as nr from GROUPS")
@@ -37,18 +37,27 @@ require('Parts/header.php');
 
 <br>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3 ">
+  <div class="col-md-8 col-md-offset-2 ">
     <h2 style="color: white;">Groups list</h2> <br />
+    <!-- <ul class="list-group row"> -->
     <div class="list-group">
-      <?php
-        foreach($paginatedEntries as $item) {
-          echo '<a href="#" class="list-group-item">' . $item->NAME .' - '.$item->DESCRIPTION.' <span class="badge">' . $item->GROUP_ID . '</span></a>';
-          echo '<div class="content content-nopad">
-          <a href="viewgroups.php" class="btn btn-primary my-btn">Join</a>
-          <a href="viewgroups.php" class="btn btn-primary my-btn">View</a></div>';
-        }
-      ?>
+      <?php foreach($paginatedEntries as $item) : ?>
+        <div class="list-group-item black-bg equal">
+        <!-- <li class="list-group-item col-md-12"> -->
+          <div class="col-md-8">
+            <a href="#" class=""><b><?=$item->NAME?></b></a>
+            <p><?=$item->DESCRIPTION?> <span class="badge"><?=$item->GROUP_ID?></span></p>
+          </div>
+
+          <!-- <div class="content content-nopad"> -->
+            <div class="col-md-2"><a href="viewgroups.php" class="btn btn-primary my-btn btn-groups">Join</a></div>
+            <div class="col-md-2"><a href="viewgroups.php" class="btn btn-primary my-btn btn-groups">View</a></div>
+          <!-- </div> -->
+        <!-- </li> -->
+      </div>
+      <?php endforeach ?>
     </div>
+    <!-- </ul> -->
     <nav aria-label="Product navigation" class="text-center">
       <ul class="pagination">
         <li class="page-item <?=($page == 1)?'hidden':'';?>">
