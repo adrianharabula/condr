@@ -12,11 +12,11 @@ if(isset($_REQUEST['submitLogin']))
 {
   if(isset($username) && isset($password))
   {
-    $db->query("begin :ret :=user_manager.login(:p1,:p2); end;");
-    $db->bind(':p1', $username);
-    $db->bind(':p2', $password);
-    $db->bind(':ret', $loginResult, 10);
-    $db->execute();
+    $db->query("select count(*) as NR from users where username=:p1 and password=:p2")
+       ->bind(':p1', $username)
+       ->bind(':p2', $password)
+       ->execute();
+    $loginResult = $db->firstResult()->NR;
 
     // log in the user on valid credentials
     if($loginResult) $_SESSION['username'] = $username;
