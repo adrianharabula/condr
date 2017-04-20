@@ -1,17 +1,16 @@
 <?php
 require('autoload.php');
-
 $pageTitle = "Preferences";
 require('Parts/header.php');
 ?>
 
-
+  <div class="container contact">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <label>Enter your preferences here and let's get started!</label>
+        <h4>Enter your preferences here and let's get started!</h4>
       </div>
       <div class="panel-body">
-        <div class="col-md-6 col-md-offset-2">
+        <div class="col-md-7 col-md-offset-1">
           <form role="form">
 
             <div class="form-group">
@@ -45,9 +44,9 @@ require('Parts/header.php');
             </div><br><br>
 
           </div>
-          <div class="col-md-6 col-md-offset-2">
+          <div class="col-md-7 col-md-offset-1">
             <div class="form-group">
-              <label>Tell us what to look after!</label>
+              <h3>Tell us what to look after!</h3>
               <p>*Pay attention! If you want to enter your own preferences, you must provide them consisting in a noun and an attribute, separated by : and one space, as showed below!</p>
               <p>**Press + to add another preference field :)</p><br>
               <div class="checkbox">
@@ -80,19 +79,16 @@ require('Parts/header.php');
 
             <div class="form-group">
               <label>...or enter your own wanted preferences!*</label>
+              <input type="hidden" name="count" value="1" />
+              <div class="control-group" id="fields">
+                  <div class="controls" id="profs">
+                      <form class="input-append">
+                          <div id="field"><input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Type something" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
+                      </form>
+                  </div>
+              </div>
+            </div>
 
-                <div class="container">
-                  <div class="row">
-                    <input type="hidden" name="count" value="1" />
-                        <div class="control-group" id="fields">
-                            <div class="controls" id="profs">
-                                <form class="input-append">
-                                    <div id="field"><input autocomplete="off" class="input" id="field1" name="preference1" type="text" placeholder="Add preference" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
-                                </form>
-                            </div>
-                        </div>
-                </div>
-            </div><br>
             <label>AND/OR...</label><br><br>
             <div class="form-group">
               <div class="checkbox">
@@ -121,28 +117,24 @@ require('Parts/header.php');
 
             <div class="form-group">
               <label>...or enter your own unwanted preferences!*</label>
-                <div class="container">
-                  <div class="row">
-                    <input type="hidden" name="count" value="1" />
-                        <div class="control-group" id="fields">
-                            <div class="controls" id="profs">
-                                <form class="input-append">
-                                    <div id="field"><input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Add preference" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
-                                </form>
-                            </div>
-                        </div>
-                </div>
+              <input type="hidden" name="count" value="1" />
+              <div class="control-group" id="fields">
+                  <div class="controls" id="profs">
+                      <form class="input-append">
+                          <div id="field"><input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Type something" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
+                      </form>
+                  </div>
+              </div>
             </div>
 
-
-            <button name="submitPreferences" type="submit" class="btn btn-primary">Get the results!</button>
+            <button name="submitPreferences" type="submit" class="btn btn-primary my-btn">Get the results!</button>
             <a href="forms.html">
-              <button type="reset" class="btn btn-default">Reset form</button>
+              <button type="reset" class="btn btn-primary my-btn">Reset form</button>
             </a>
           </div>
         </form>
       </div>
     </div>
-
+  </div>
 
 <?php require('Parts/footer.php'); ?>
