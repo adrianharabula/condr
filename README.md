@@ -11,15 +11,15 @@
  * tema PSGBD, etapa II, conectare la baza de date cu PHP şi oci8, queriuri pe baza de date, cod sursă [aici](https://github.com/adrianharabula/condr/tree/master/database_design/psgbd-etapa2)
  
 ## Instrucțiuni instalare
-Imediat după clone la repo:
- - adaugă cheie privată în webhook/.ssh/id_rsa, este cheia cu care se face pull la repo din webhook
- - `chmod +x webhook/scripts/pull.sh`
- - `chmod +x database_design/psgbd-etapa2/SqlScripts/startup.sh`
+Imediat după ce se face clone la repo:
+ - adăugați cheia privată pentru deploy în _webhook/.ssh/id_rsa_
+ - marcați script pull ca executabil `chmod +x webhook/scripts/pull.sh`
+ - marcați script inițializare bd ca executabil `chmod +x database_design/psgbd-etapa2/SqlScripts/startup.sh`
  
 Pentru pornire server:
  - `docker-compose up -d psgbd_etapa2`
  - Prima pornire populează baza de date cu scripturile din [SqlScripts](https://github.com/adrianharabula/condr/tree/master/database_design/psgbd-etapa2/SqlScripts)
- - Pentru reinițializare baza de date `docker-compose stop && docker-compose rm -v && docker-compose build && docker-compose up -d psgbd_etapa2`
+ - Pentru reinițializare baza de date rulați `docker-compose stop && docker-compose rm -v && docker-compose build && docker-compose up -d psgbd_etapa2`
 
 Pentru pornire webhook:
  - `docker-compose up -d psgbd_etapa2`, a se seta [IP:9000/hooks/pull](http://localhost:9000/hooks/pull) ca webhook din github/bitbucket/gitlab
