@@ -15,5 +15,5 @@
 
 <VirtualHost *:80>
    ServerName webhooks.condr
-   ProxyPass / http://webhook:9000/hooks/
+   ProxyPass / http://webhooks:9000/hooks/
 </VirtualHost>
