@@ -1,4 +1,9 @@
 <VirtualHost *:80>
+  ServerName default
+  ErrorDocument 403 "Sorry, can't allow you access today."
+</VirtualHost>
+
+<VirtualHost *:80>
    ServerName condr
    ProxyPass / http://app/
 </VirtualHost>
