@@ -28,6 +28,14 @@ $pageTitle = "Products list";
 require('Parts/header.php');
 ?>
 
+<<<<<<< Temporary merge branch 1
+  <form>
+    <input type="text" name="search" placeholder="Search products by name">
+  </form>
+
+<div class="col-md-2 col-md-offset-4">
+  <form role="form">
+=======
 <form>
   <input type="text" name="search" placeholder="Search products by name">
 </form>
@@ -36,6 +44,7 @@ require('Parts/header.php');
 <div class="col-md-2 col-md-offset-4">
   <form role="form">
     <div class="form-group">
+>>>>>>> Temporary merge branch 2
       <select class="form-control">
         <option>Select category</option>
         <option>Electronics</option>
