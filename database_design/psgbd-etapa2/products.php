@@ -40,7 +40,7 @@ require('Parts/header.php');
 <form>
   <input type="text" name="search" placeholder="Search product">
     <div class="form-options">
-      <label for="filter" style="font-family: 'Playball', cursive; font-size: 20px;">Filter by:</label>
+      <label for="filter" style="font-size: 20px;">Filter by:</label>
       <select class="form-control" id="filter">
         <option>Electronics</option>
         <option>Clothes</option>
@@ -55,7 +55,6 @@ require('Parts/header.php');
 
 <style>  
 input[type=text] {
-    font-family: 'Playball', cursive;
     margin: 10px 0;
     width: 20%;
     box-sizing: border-box;
@@ -86,7 +85,6 @@ input[type=text] {
 }
 
 select{
-font-family: 'Playball', cursive;
 font-size: 40 px;
 }
 
@@ -99,20 +97,14 @@ input[type=text]:focus {
 }
 
 h2{
-  font-family: 'Playball', cursive;
   color: white; 
   text-align:center;
 }
 
 .list-group-item{
-  font-family: 'Playball', cursive;
   width: 700px;
   height: 40px;
   font-size: 20px;
-}
-
-.page-link{
- font-family: 'Playball', cursive;
 }
 
 </style>
