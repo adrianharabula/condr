@@ -38,82 +38,59 @@ require('Parts/header.php');
 ?>
 
 <form>
-  <input type="text" name="search" placeholder="Search product">
-    <div class="form-options">
-      <label for="filter" style="font-size: 20px;">Filter by:</label>
-      <select class="form-control" id="filter">
+  <input type="text" name="search" placeholder="Search products by name">
+</form>
+
+<div class="col-md-2 col-md-offset-4">
+  <form role="form">
+    <div class="form-group">
+      <select class="form-control">
+        <option>Select category</option>
         <option>Electronics</option>
         <option>Clothes</option>
-        <option>Foot wear</option>
+        <option>Footwear</option>
         <option>Food</option>
         <option>Games</option>
         <option>Services</option>
         <option>Education</option>
-      </select>    
+        <option>Other</<option>
+      </select>
     </div>
   </form>
+</div>
 
-<style>  
+<br><a href="register.php" class="btn btn-primary my-btn">Search</a>
+
+<style>
 input[type=text] {
     margin: 10px 0;
-    width: 20%;
+    width: 28%;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     font-size: 16px;
     background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 10px 10px; 
+    background-position: 10px 10px;
     background-repeat: no-repeat;
-    padding: 8px 8px;
+    padding: 10px 40px 10px 10px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
-    margin-top:20px; 
+    margin-top:20px;
 }
-
-.form-options{
-  margin: 10px 0;
-  padding: 8px 8px; 
-  width: 20%;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 4px;
-  border: 4px solid white;
-  color: white;
-  text-align: center;
-  margin-left:60px;
-}
-
-select{
-font-size: 40 px;
-}
-
 form {
     text-align: center;
-    }
-
-input[type=text]:focus {
-    width: 30%;
 }
 
 h2{
-  color: white; 
+  color: white;
   text-align:center;
 }
-
-.list-group-item{
-  width: 700px;
-  height: 40px;
-  font-size: 20px;
-}
-
 </style>
 
-
-<br>
+<br><br><br>
 <div class="row">
   <div class="col-md-6 col-md-offset-3 ">
-      <h2>Products list</h2> <br />
+      <h2>A few products...</h2> <br />
       <div class="list-group">
         <?php
           foreach($paginatedEntries as $item) {
