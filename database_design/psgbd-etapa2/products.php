@@ -37,12 +37,22 @@ require('Parts/header.php');
 
 ?>
 
+<<<<<<< HEAD
   <form>
     <input type="text" name="search" placeholder="Search products by name">
   </form>
 
 <div class="col-md-2 col-md-offset-4">
   <form role="form">
+=======
+<form>
+  <input type="text" name="search" placeholder="Search products by name">
+</form>
+
+<div class="col-md-2 col-md-offset-4">
+  <form role="form">
+    <div class="form-group">
+>>>>>>> master
       <select class="form-control">
         <option>Select category</option>
         <option>Electronics</option>
