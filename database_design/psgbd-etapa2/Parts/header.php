@@ -6,7 +6,7 @@
     <title><?=$pageTitle?></title>
 		<link href="/Assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/Assets/css/datepicker3.css" rel="stylesheet">
-		<link href="/Assets/css/styles.css" rel="stylesheet">
+		<!--<link href="/Assets/css/styles.css" rel="stylesheet">-->
     <link rel="stylesheet" type="text/css"  href="/Assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/Assets/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css"  href="/Assets/css/style.css">
