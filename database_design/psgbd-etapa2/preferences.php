@@ -128,10 +128,14 @@ require('Parts/header.php');
               </div>
             </div>
 
+            <a href="preferences.php">
             <button name="submitPreferences" type="submit" class="btn btn-primary my-btn">Get the results!</button>
-            <a href="forms.html">
+            </a>
+
+            <a href="preferences.php">
               <button type="reset" class="btn btn-primary my-btn">Reset form</button>
             </a>
+            
           </div>
         </form>
       </div>

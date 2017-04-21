@@ -54,10 +54,10 @@
                          <li class="dropdown">
                            <a href="#" class="btn btn-xs btn-primary my-btn" style="margin: 3px;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My profile <span class="caret"></span></a>
                            <ul class="dropdown-menu">
-                             <li><a href="#">Details</a></li>
-                             <li><a href="#">Preferences</a></li>
-                             <li><a href="#">Products</a></li>
-                             <li><a href="#">Groups</a></li>
+                             <li><a href="mydetails.php">Details</a></li>
+                             <li><a href="mypreferences.php">Preferences</a></li>
+                             <li><a href="myproducts.php">Products</a></li>
+                             <li><a href="mygroups">Groups</a></li>
                              <li role="separator" class="divider"></li>
                              <li><a href="logout.php">Log Out</a></li>
                            </ul>
