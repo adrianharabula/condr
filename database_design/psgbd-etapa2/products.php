@@ -31,6 +31,7 @@ require('Parts/header.php');
 <form>
   <input type="text" name="search" placeholder="Search products by name">
 </form>
+
 <div class="col-md-2 col-md-offset-4">
   <form role="form">
     <div class="form-group">
