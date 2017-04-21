@@ -88,7 +88,9 @@ CREATE TABLE USER_CARACTERISTICS
 (
   RECORD_ID NUMBER(10) PRIMARY KEY,
   USER_ID NUMBER(10) NOT NULL,
-  CARACTERISTIC_ID NUMBER(10) NOT NULL
+  CARACTERISTIC_ID NUMBER(10) NOT NULL,
+  PRODUCT_ID NUMBER(10) NOT NULL,
+  DESIRED NUMBER(1) NOT NULL
 );
 
 /
@@ -138,10 +140,21 @@ INSERT INTO CARACTERISTICS VALUES (7,'Size','small');
 INSERT INTO CARACTERISTICS VALUES (8,'Taste','sour');
 INSERT INTO CARACTERISTICS VALUES (9,'Taste','sweet');
 INSERT INTO CARACTERISTICS VALUES (10,'Taste','chilli');
-INSERT INTO CARACTERISTICS VALUES (11,'Battery','good');
+INSERT INTO CARACTERISTICS VALUES (11,'Battery','15A');
 INSERT INTO CARACTERISTICS VALUES (12,'Processor','2.7Ghz');
-INSERT INTO CARACTERISTICS VALUES (13,'Size','high');
+INSERT INTO CARACTERISTICS VALUES (13,'Size','large');
 INSERT INTO CARACTERISTICS VALUES (14,'Texture','soft');
+INSERT INTO CARACTERISTICS VALUES (15,'Diagonal','165cm');
+INSERT INTO CARACTERISTICS VALUES (16,'Diagonal','80cm');
+INSERT INTO CARACTERISTICS VALUES (17,'Diagonal','121cm');
+INSERT INTO CARACTERISTICS VALUES (18,'Processor','i7');
+INSERT INTO CARACTERISTICS VALUES (19,'Processor','i5');
+INSERT INTO CARACTERISTICS VALUES (20,'Processor','3.1GHz');
+INSERT INTO CARACTERISTICS VALUES (21,'Processor','3.5GHz');
+INSERT INTO CARACTERISTICS VALUES (22,'Operating system','Windows');
+INSERT INTO CARACTERISTICS VALUES (23,'Operating system','Mac OS');
+INSERT INTO CARACTERISTICS VALUES (24,'Operating system','Linux');
+
 
 --------Electronics----
 INSERT INTO COMPANY VALUES (1,'Elefant','Think different!');
@@ -191,7 +204,7 @@ INSERT INTO CATEGORY VALUES (4,'Food','Food describes a very large area consisti
 INSERT INTO CATEGORY VALUES (5,'Games','Games category includes games, recreational activities and relaxation technique in order to help you release the stress and gain a new fresh attitude');
 INSERT INTO CATEGORY VALUES (6,'Services','Services describe a large area of interests that a person may need or want, like internet, TV cable, mobile services, electricity, water and others.');
 INSERT INTO CATEGORY VALUES (7,'Education','Education category consists of products that a person may need for educational purposes,like books, records, maps etc, but also includes services that an university can provide, like scholarships, training programs and other.');
-
+INSERT INTO CATEGORY VALUES (8,'Other','Here you find everything you could not find in the other categories!');
 /
 
 -- DECLARE
