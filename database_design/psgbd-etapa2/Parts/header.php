@@ -37,26 +37,7 @@
                       <a class="navbar-brand logo" href="index.php">Consumer Decision Maker</a>
                     </div>
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <?php if(isset($_SESSION['username'])) : ?>
-
-                            <div class="nav navbar-nav navbar-right">
-                                        <div class="dropdown">
-                            <button class="btn btn-primary my-btn" type="button" data-toggle="dropdown">My Profile
-                            </button>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Details</a></li>
-                                <li><a href="#">Preferences</a></li>
-                                <li><a href="#">Products</a></li>
-                                <li><a href="#">Groups</a></li>
-                                <li><a href="logout.php">Log Out</a></li>
-                              </ul>
-                            </div>
-                            </div>
-                    <?php endif; ?>
-
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
                       <ul class="nav navbar-nav navbar-right">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="about.php">About</a></li>
@@ -65,14 +46,28 @@
                         <li><a href="groups.php">Groups</a></li>
                         <li><a href="statistics.php">Statistics</a></li>
                         <li><a href="contact.php">Contact</a></li>
-                        <?=!isset($_SESSION['username'])? 
+                        <?=!isset($_SESSION['username'])?
                         "<li><a href='login.php'>Log In</a></li>
                          <li><a href='register.php'>Register</a></li>":""?>
+
+                         <?php if(isset($_SESSION['username'])) : ?>
+                         <li class="dropdown">
+                           <a href="#" class="btn btn-xs btn-primary my-btn" style="margin: 3px;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My profile <span class="caret"></span></a>
+                           <ul class="dropdown-menu">
+                             <li><a href="#">Details</a></li>
+                             <li><a href="#">Preferences</a></li>
+                             <li><a href="#">Products</a></li>
+                             <li><a href="#">Groups</a></li>
+                             <li role="separator" class="divider"></li>
+                             <li><a href="logout.php">Log Out</a></li>
+                           </ul>
+                         </li>
+                         <?php endif; ?>
                       </ul>
-                        
+
                     </div><!-- /.navbar-collapse -->
 
-                    
+
 
                 </div><!-- /.container-fluid -->
 
