@@ -17,6 +17,8 @@
     <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
 
   </head>
+
+
   <body background="/Assets/img/bp_background_2_blue1.jpg">
     <div id="tf-home">
         <div class="overlay">
@@ -25,6 +27,7 @@
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
+
                       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -35,7 +38,25 @@
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
+                    <?php if(isset($_SESSION['username'])) : ?>
+
+                            <div class="nav navbar-nav navbar-right">
+                                        <div class="dropdown">
+                            <button class="btn btn-primary my-btn" type="button" data-toggle="dropdown">My Profile
+                            </button>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Details</a></li>
+                                <li><a href="#">Preferences</a></li>
+                                <li><a href="#">Products</a></li>
+                                <li><a href="#">Groups</a></li>
+                                <li><a href="logout.php">Log Out</a></li>
+                              </ul>
+                            </div>
+                            </div>
+                    <?php endif; ?>
+
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
                       <ul class="nav navbar-nav navbar-right">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="about.php">About</a></li>
@@ -44,12 +65,17 @@
                         <li><a href="groups.php">Groups</a></li>
                         <li><a href="statistics.php">Statistics</a></li>
                         <li><a href="contact.php">Contact</a></li>
-                        <?=isset($_SESSION['username'])? "<li><a href='myprofile.php'>My profile</a></li>":""?>
-                        <li><?=isset($_SESSION['username'])? "<a href='logout.php'>Log Out</a>":"<a href='login.php'>Log In</a>"?></li>
-                        <?=!isset($_SESSION['username'])? "<li><a href='register.php'>Register</a></li>":""?>
+                        <?=!isset($_SESSION['username'])? 
+                        "<li><a href='login.php'>Log In</a></li>
+                         <li><a href='register.php'>Register</a></li>":""?>
                       </ul>
+                        
                     </div><!-- /.navbar-collapse -->
+
+                    
+
                 </div><!-- /.container-fluid -->
+
             </nav>
         </div>
     </div>
