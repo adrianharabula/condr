@@ -115,26 +115,6 @@ h2{
  font-family: 'Playball', cursive;
 }
 
-.pagination > .active > a, 
-.pagination > .active > span, 
-.pagination > .active > a:hover, 
-.pagination > .active > span:hover, 
-.pagination > .active > a:focus, 
-.pagination > .active > span:focus {
-    background-color: transparent;
-    border-color: white;
-}
-.pagination > li > a, 
-.pagination > li > span {
-    color: #685f5f;
-}
-.pagination > li > a:hover, 
-.pagination > li > span:hover, 
-.pagination > li > a:focus, 
-.pagination > li > span:focus {
-    color: black;
-}
-
 </style>
 
 
