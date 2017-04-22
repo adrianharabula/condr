@@ -9,28 +9,8 @@ require('Parts/header.php');
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-<!-- Personalised chart....
-<script type="text/javascript">
-  $(function () {
-        var myData = new Array(['Jan', 2], ['Feb', 1], ['Mar', 3], ['Apr', 6], ['May', 8], ['Jun', 10], ['Jul', 9], ['Aug', 8], ['Sep', 5], ['Oct', 6], ['Nov', 2], ['Dec', 4]);
-        var colors = ['#FFCC00', '#FFFF00', '#CCFF00', '#99FF00', '#33FF00', '#00FF66', '#00FF99', '#00FFCC', '#FF0000', '#FF3300', '#FF6600', '#FF9900'];
-        var myChart = new JSChart('chartid', 'pie');
 
-        myChart.setDataArray(myData);
-      	myChart.colorizePie(colors);
-      	myChart.setPiePosition(308, 170);
-      	myChart.setPieRadius(95);
-      	myChart.setPieUnitsFontSize(8);
-      	myChart.setPieUnitsColor('#474747');
-      	myChart.setPieValuesColor('#474747');
-      	myChart.setPieValuesOffset(-10);
-      	myChart.setTitleColor('#fff');
-      	myChart.setSize(616, 321);
-      	myChart.setBackgroundImage('path/background.jpg');
-        myChart.draw();
-    });
-</script>
--->
+
 
 
 
@@ -46,10 +26,10 @@ require('Parts/header.php');
 <div id="maxPreferencesChart" style="width: 80%; height:400px;"></div>
 <div id="minPreferencesChart" style="width: 80%; height:400px;"></div>
 
--->
+
 
 <div class="container">
-  <?php
+  <?php /*
       $dataPoints1 = array(
         array("y" => 35, "name" => "Black color"),
         array("y" => 20, "name" => "3.5Ghz processor"),
@@ -76,9 +56,11 @@ require('Parts/header.php');
                     showInLegend: true,
                     toolTipContent: "{name}: <strong>{y}%</strong>",
                     indexLabel: "{name} {y}%",
-                    dataPoints: <?php  echo json_encode($dataPoints1, JSON_NUMERIC_CHECK); ?>
+                    dataPoints: <?php  echo json_encode($dataPoints1, JSON_NUMERIC_CHECK); ?>,
+                    backgroundColor: ["#FF6384","#36A2EB","#FFCE56","#FFCE56","#FFCE56","#FFCE56","#FFCE56","#FFCE56"]
                 }]
             });
+            // chart1.colorize();
             chart1.render();
         });
       </script>
@@ -112,7 +94,7 @@ require('Parts/header.php');
                       showInLegend: true,
                       toolTipContent: "{name}: <strong>{y}%</strong>",
                       indexLabel: "{name} {y}%",
-                      dataPoints: <?php echo json_encode($dataPoints2, JSON_NUMERIC_CHECK); ?>
+                      dataPoints: <?php echo json_encode($dataPoints2, JSON_NUMERIC_CHECK); */?>
                   }]
               });
               chart2.render();
@@ -126,5 +108,16 @@ require('Parts/header.php');
   <p> I just wanna see if the browser prints this in a container.....But i guess not...</p>
 </div>
 
+<style>
+#chartContainerPie
+{
+      margin-top: 30px;
+}
+#chartContainerLine
+{
+  margin-top:450px;
+}
+</style>
+-->
 
 <?php require('Parts/footer.php'); ?>
