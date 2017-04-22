@@ -18,5 +18,12 @@ a.btn-groups {
 }
 
 .page-item {
-  color: #2F937B; 
+  color: #2F937B;
+}
+
+.header_search {
+    margin-top: 24px;
+    width: 600px;
+    margin-right: 20px;
+    float: left;
 }

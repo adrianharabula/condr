@@ -28,54 +28,78 @@ $pageTitle = "Products list";
 require('Parts/header.php');
 ?>
 
-<form>
-  <input type="text" name="search" placeholder="Search products by name">
-</form>
-
-<div class="col-md-2 col-md-offset-4">
-  <form role="form">
-    <div class="form-group">
-      <select class="form-control">
-        <option>Select category</option>
-        <option>Electronics</option>
-        <option>Clothes</option>
-        <option>Footwear</option>
-        <option>Food</option>
-        <option>Games</option>
-        <option>Services</option>
-        <option>Education</option>
-        <option>Other</<option>
-      </select>
-    </div>
-  </form>
-</div>
-
-<br><a href="register.php" class="btn btn-primary my-btn">Search</a>
-
 <style>
 input[type=text] {
-    margin: 10px 0;
-    width: 28%;
+    width: 95%;
     box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: white;
+    border: 2px solid #2F937B;
+    border-radius: 0px;
+    font-size: 17px;
+    background-color: whitesmoke;
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    padding: 10px 40px 10px 10px;
+    padding: 8px 10px 10px 10px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
-    margin-top:20px;
 }
 form {
-    text-align: center;
+    text-align: left;
 }
 h2{
   color: white;
   text-align:center;
 }
 </style>
+
+<div class="row">
+  <div class="col-md-2 col-md-offset-3">
+    <form>
+      <input type="text" name="search" placeholder="Enter product here">
+    </form>
+  </div>
+
+  <div class="col-md-2">
+    <li class="dropdown">
+      <a href="#" class="btn btn-xs btn-primary my-btn" style="margin: 1px;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter by<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Name</a></li>
+        <li><a href="#">Category</a></li>
+        <li><a href="#">Company</a></li>
+      </ul>
+    </li>
+  </div>
+
+  <div class="col-md-2">
+      <a href="#" class="btn btn-xs btn-primary my-btn" style="margin: 3px;" role="button">Search</a>
+  </div>
+</div>
+
+
+
+<!--
+<div class="col-md-4 col-md-offset-3">
+  <div class="row">
+    <div class="header_search">
+      <div class="input-group">
+          <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle search-button-style" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="active_search_type">Search by</span> <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li data-attr-type="Name" data-attr-name="Name" data-attr-placeholder="Search name"><a class="dropdown_item" href="#">Product name</a></li>
+                <li data-attr-type="Company" data-attr-name="Company" data-attr-placeholder="Search company"><a class="dropdown_item" href="#">Product company</a></li>
+                <li data-attr-type="Category" data-attr-name="Category" data-attr-placeholder="Search category"><a class="dropdown_item" href="#">Product category</a></li>
+              </ul>
+          </div>
+      </div>
+      <form id="nav_search_form" action="/search">
+        <input type="text" name="term" class="form-control" id="nav_search" placeholder="Search products" value="" aria-label="...">
+        <a href="#" id="nav_search_button"></a>
+        <input type="hidden" id="search_type" name="type" value="product">
+      </form>
+    </div>
+  </div>
+</div>
+-->
+
 
 <br><br><br>
 <div class="row">
