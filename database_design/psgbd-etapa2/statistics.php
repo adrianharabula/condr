@@ -128,4 +128,6 @@ require('Parts/header.php');
 
 
 
+            var chart2 = new CanvasJS.Chart("chartContainerLine",
+<div id="similarPreferencesChart" style="width: 80%; height:400px;"></div>
 <?php require('Parts/footer.php'); ?>
