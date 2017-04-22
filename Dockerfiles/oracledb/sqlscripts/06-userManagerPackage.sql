@@ -7,7 +7,7 @@
 CREATE OR REPLACE PACKAGE user_manager IS
      PROCEDURE add_user (p_username users.username%type,p_password users.password%type, p_email users.email%type);
      PROCEDURE delete_user (p_username users.username%type);
-     PROCEDURE update_user (p_username users.username%type,p_password users.password%type, p_email users.email%type);
+     PROCEDURE update_user (p_username users.username%type,p_password users.password%type);
 
      FUNCTION login(p_username users.username%type,p_password users.password%type) RETURN NUMBER;
      FUNCTION register(p_username users.username%type,p_password users.password%type, p_email users.email%type) RETURN NUMBER;
@@ -30,9 +30,9 @@ CREATE OR REPLACE PACKAGE BODY user_manager IS
     END delete_user;
 
 
-    PROCEDURE update_user (p_username users.username%type,p_password users.password%type, p_email users.email%type) IS
+    PROCEDURE update_user (p_username users.username%type,p_password users.password%type) IS
     BEGIN
-       UPDATE USERS SET username = p_username, password = p_password, email = p_email WHERE username = p_username;
+       UPDATE USERS SET username = p_username, password = p_password WHERE username = p_username;
     END update_user;
 
 
