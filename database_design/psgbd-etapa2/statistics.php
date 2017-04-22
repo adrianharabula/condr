@@ -50,7 +50,7 @@ require('Parts/header.php');
 
 <div class="container">
   <?php
-      $dataPoints = array(
+      $dataPoints1 = array(
         array("y" => 35, "name" => "Black color"),
         array("y" => 20, "name" => "3.5Ghz processor"),
         array("y" => 18, "name" => "165cm diagonal"),
@@ -60,10 +60,10 @@ require('Parts/header.php');
         array("y" => 5, "name" => "Linux OS")
       );
   ?>
-  <div id="chartContainerPie"></div>
+  <div id="chartContainerPie">
     <script type="text/javascript">
         $(function () {
-            var chart2 = new CanvasJS.Chart("chartContainerPie",
+            var chart1 = new CanvasJS.Chart("chartContainerPie",
             {
                 theme: "theme4",
                 title:{
@@ -76,58 +76,55 @@ require('Parts/header.php');
                     showInLegend: true,
                     toolTipContent: "{name}: <strong>{y}%</strong>",
                     indexLabel: "{name} {y}%",
-                    dataPoints: <?php  echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-                }]
-            });
-            chart2.render();
-        });
-    </script>
-</div>
-
-
-<div class="container">
-  <?php
-      $dataPoints = array(
-        array("y" => 25, "name" => "Macbook Air"),
-        array("y" => 28, "name" => "Asus Zenbook"),
-        array("y" => 20, "name" => "Iphone 7"),
-        array("y" => 8, "name" => "Samsung Galaxy S6"),
-        array("y" => 7, "name" => "Toshiba notebook"),
-        array("y" => 6, "name" => "Iphone 6S"),
-        array("y" => 6, "name" => "Samsung UHD TV")
-      );
-  ?>
-  <div id="chartContainerLine"></div>
-    <script type="text/javascript">
-        $(function () {
-            var chart1 = new CanvasJS.Chart("chartContainerLine",
-            {
-                theme: "theme4",
-                title:{
-                    text: "Most wanted products"
-                },
-                animationEnabled: true,
-                data: [
-                {
-                    type: "line",
-                    showInLegend: true,
-                    toolTipContent: "{name}: <strong>{y}%</strong>",
-                    indexLabel: "{name} {y}%",
-                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                    dataPoints: <?php  echo json_encode($dataPoints1, JSON_NUMERIC_CHECK); ?>
                 }]
             });
             chart1.render();
-            chart1 = {};
         });
-    </script>
+      </script>
+    </div>
+
+
+    <?php
+        $dataPoints2 = array(
+          array("y" => 25, "name" => "Macbook Air"),
+          array("y" => 28, "name" => "Asus Zenbook"),
+          array("y" => 20, "name" => "Iphone 7"),
+          array("y" => 8, "name" => "Samsung Galaxy S6"),
+          array("y" => 7, "name" => "Toshiba notebook"),
+          array("y" => 6, "name" => "Iphone 6S"),
+          array("y" => 6, "name" => "Samsung UHD TV")
+        );
+    ?>
+    <div id="chartContainerLine">
+      <script type="text/javascript">
+          $(function () {
+              var chart2 = new CanvasJS.Chart("chartContainerLine",
+              {
+                  theme: "theme4",
+                  title:{
+                      text: "Most wanted products"
+                  },
+                  animationEnabled: true,
+                  data: [
+                  {
+                      type: "line",
+                      showInLegend: true,
+                      toolTipContent: "{name}: <strong>{y}%</strong>",
+                      indexLabel: "{name} {y}%",
+                      dataPoints: <?php echo json_encode($dataPoints2, JSON_NUMERIC_CHECK); ?>
+                  }]
+              });
+              chart2.render();
+          });
+      </script>
+   </div>
 </div>
+
 
 <div class="container">
   <p> I just wanna see if the browser prints this in a container.....But i guess not...</p>
 </div>
 
 
-
-            var chart2 = new CanvasJS.Chart("chartContainerLine",
-<div id="similarPreferencesChart" style="width: 80%; height:400px;"></div>
 <?php require('Parts/footer.php'); ?>
