@@ -80,4 +80,12 @@ require('Parts/header.php');
   </div>
 </div>
 
+<style>
+h2{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: white;
+  text-align:center;
+}
+</style>
 <?php require('Parts/footer.php'); ?>
