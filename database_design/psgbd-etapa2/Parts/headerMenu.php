@@ -5,27 +5,18 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
 
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
 
-                <div class="row">
-                  <div class="col-sm-12 custom white">
-                    <a href="/"><i class="fa fa-money fa-3x pull-left fa-custom"></i></a>
-                    <div class="text">
-                      <h6 class="cust-margin">Consumer Decision Maker</h6>
-                      Good decisions have never been so easy to take
-                    </div>
-                  </div>
-                </div>
-
-              <!-- <a class="navbar-brand logo" href="/"><i class="fa fa-money"></i> Consumer Decision Maker</a> -->
+              <a class="navbar-brand logo hidden-xs hidden-sm" href="/"><i class="fa fa-money fa-custom"></i> Consumer Decision Maker</a>
+              <a class="navbar-brand logo visible-xs visible-sm" href="/"><i class="fa fa-money fa-custom"></i> ConDr</a>
             </div>
 
-            <div class="collapse navbar-collapse">
+            <div id="menu" class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
                 <!-- <li><a href="index.php">Home</a></li> -->
                 <!-- <li><a href="about.php">About</a></li> -->

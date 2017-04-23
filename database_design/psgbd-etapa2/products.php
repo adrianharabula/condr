@@ -48,7 +48,7 @@
     </form>
   </div>
 
-  <div class="row">
+  <div class="row maroon">
     <div class="col-md-6 col-md-offset-3 ">
         <h2>A few products...</h2><br>
 
