@@ -7,6 +7,8 @@ $utils = new Utils\Utils;
 
 
 $verifyResult = 0;
+$allfields = 0;
+$equals = 0;
 $changeResult = 0;
 $username = $_SESSION['username'];
 $password = $_REQUEST['oldpass'];
@@ -17,7 +19,7 @@ if(isset($_REQUEST['submitPassword']))
 {
   if (empty($_REQUEST['oldpass']) || empty($_REQUEST['newpass']) || empty($_REQUEST['newpass2'])) 
   {
-  	exit("Please fill all fields!");
+    $allfields = 1;
   }
     
   if(isset($password) && isset($newpass) && isset($newpass2))
@@ -30,13 +32,13 @@ if(isset($_REQUEST['submitPassword']))
 
     	if($verifyResult && ($newpass == $newpass2))
     		{
+          $equals = 1;
     			$db->query("begin :ret :=user_manager.update_user(:u1,:u2); end;");
     			$db->bind(':u1', $username);
-       			$db->bind(':u2', $newpass);
+       		$db->bind(':u2', $newpass);
 			    $db->bind(':ret', $changeResult, 10);
 			    $db->execute();
     		}
-    	if($changeResult) $_SESSION['username'] = $username;
 
   }
 }
@@ -52,23 +54,29 @@ require('Parts/header.php');
   <div class="row">
 	<div class="col-md-4 col-md-offset-4">
 
-      <?php if ($changeResult): ?>
+      <?php if ($allfields): ?>
+        <div class="panel panel-danger">
+          <div class="panel-heading">Please fill all fields!</div>
+        </div>
+
+      <?php elseif (!$verifyResult): ?>
+        <div class="panel panel-danger">
+          <div class="panel-heading">The current password is not correct!</div>
+        </div>
+      
+
+      <?php elseif ($changeResult): ?>
         <div class="panel panel-success">
-        	<div class="panel-heading">Password changed successfully!</div>
+          <div class="panel-heading">Password changed successfully!</div>
         </div>
 
-      <?php else: ?>
+      <?php elseif (!$equals): ?>
         <div class="panel panel-danger">
-  				<div class="panel-heading">Changing error!</div>
+  				<div class="panel-heading">The new password doesn't match!!</div>
         </div>
 
       <? endif; ?>
 
-      <?php if (!$verifyResult): ?>
-        <div class="panel panel-danger">
-        	<div class="panel-heading">The current password is not correct!</div>
-        </div>
-      <? endif; ?>
     </div>
   </div>
 <?php endif; ?>
@@ -82,13 +90,13 @@ require('Parts/header.php');
           <form role="form" action="editpassword.php" method="post">
             <fieldset>
               <div class="form-group">
-                <input class="form-control" placeholder="Type the current password" name="oldpass" type="password" value="" autofocus="">
+                <input class="form-control" placeholder="Type the current password" name="oldpass" type="password" >
               </div>
               <div class="form-group">
-                <input class="form-control" placeholder="Type the new password" name="newpass" type="password" value="">
+                <input class="form-control" placeholder="Type the new password" name="newpass" type="password">
               </div>
               <div class="form-group">
-                <input class="form-control" placeholder="Retype the new password" name="newpass2" type="password" value="" autofocus="">
+                <input class="form-control" placeholder="Retype the new password" name="newpass2" type="password" >
               </div>
               <input name="submitPassword" class="btn btn-primary my-btn" type="submit" value="Change">
             </fieldset>
