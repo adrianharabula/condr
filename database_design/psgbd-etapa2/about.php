@@ -3,6 +3,7 @@ require('autoload.php');
 
 $pageTitle = "About";
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 ?>
 
 <section class="container-fluid" id="section1"><br><br>

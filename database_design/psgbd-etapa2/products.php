@@ -26,11 +26,12 @@
   $paginatedEntries = $db->execute()->result();
   $pageTitle = "Products list";
   require('Parts/header.php');
+  require('Parts/headerMenu.php');
   ?>
 
   <link href="/Assets/css/products.css" rel="stylesheet">
 
-  <div class="container center_div">
+  <div class="row">
     <form class="form-inline">
       <div class="form-group">
         <input type="text" class="form-control" id="name" placeholder="Enter name">
@@ -47,7 +48,6 @@
     </form>
   </div>
 
-  <br><br><br>
   <div class="row">
     <div class="col-md-6 col-md-offset-3 ">
         <h2>A few products...</h2><br>

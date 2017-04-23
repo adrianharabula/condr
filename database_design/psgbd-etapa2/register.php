@@ -31,6 +31,7 @@ if(isset($_REQUEST['submitRegister']))
 
 $pageTitle = "Register";
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 ?>
 
 <?php if ($_REQUEST['submitRegister']): ?>

@@ -3,6 +3,7 @@ require('autoload.php');
 
 $pageTitle = "Contact us!";
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 ?>
 
 

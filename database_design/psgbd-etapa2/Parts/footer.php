@@ -1,7 +1,19 @@
 
+    <nav id="tf-footer" class="bg-black white">
+        <div class="container">
+            <div class="pull-left">
+                <p>&copy; <?=date('Y')?> ConDr, theme <a href="http://themeforces.com/preview/?theme=free-awesomess-portfolio">Awesomess</a> by <a href="https://dribbble.com/jennpereira">Jenn</a></p>
+            </div>
+            <div class="pull-right">
+                <ul class="social-media list-inline">
+                    <li><a href="https://github.com/adrianharabula/condr"><span class="fa fa-github"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/Assets/js/jquery.1.11.1.js"></script>
+    <script type="text/javascript" src="/Assets/js/jquery-1.11.2.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script type="text/javascript" src="/Assets/js/bootstrap.js"></script>
     <script type="text/javascript" src="/Assets/js/main.js"></script>

@@ -17,8 +17,10 @@ function main() {
       var div_top = $('#sticky-anchor').offset().top;
       if (window_top > div_top) {
           $('#tf-menu').addClass('stick');
+          // $('#tf-menu').removeClass('bg-black');
       } else {
           $('#tf-menu').removeClass('stick');
+          // $('#tf-menu').addClass('bg-black');
       }
   }
 
@@ -27,7 +29,7 @@ function main() {
       sticky_relocate();
   });
 
-    
+
  $(function() {
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -43,7 +45,7 @@ function main() {
   });
 });
 
- 
+
 
 
 }());

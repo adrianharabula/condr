@@ -1,7 +1,9 @@
 <?php
 require('autoload.php');
 $pageTitle = "Preferences";
+$bodyClass = "bg-black black";
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 ?>
 
   <div class="container contact">
@@ -135,7 +137,7 @@ require('Parts/header.php');
             <a href="preferences.php">
               <button type="reset" class="btn btn-primary my-btn">Reset form</button>
             </a>
-            
+
           </div>
         </form>
       </div>
