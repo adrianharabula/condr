@@ -41,3 +41,9 @@ h2{
   width: 108px;
   height: 100px;
 }
+.media-body h4 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 700;
+}
