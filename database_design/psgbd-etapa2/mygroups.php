@@ -59,17 +59,12 @@ require('Parts/header.php');
                                     </td>
                                     <td class="col-md-0">
 				                                <div class=" col-md-offset-2">
-				                                    <br><a href="#" style="color:green"><b><h5>Delete </h5></b></a>
+				                                    <br><a href="delete.php" style="color:green"><h5>Delete </h5></b></a>
 				                                </div>
 				                            </td>
-				                            <td class="col-md-0">
-				                                <div class="col-md-offset-2">
-				                                     <br><a href="#" style="color:green"><b><h5>View</h5></b></a>
-				                                </div>
-                                    </td>
                                     <td class="col-md-0">
 				                                <div class="col-md-offset-2">
-				                                    <br><a href="#" style="color:green"><b><h5>Add preferences</h5></b></a>
+				                                    <br><a href="preferences.php" style="color:green"><b><h5>Add preferences</h5></b></a>
 				                                </div>
                                     </td>
                                 </tr>
@@ -80,6 +75,7 @@ require('Parts/header.php');
             </div>
           <?php endforeach ?>
   </div>
+
 </div>
 
      	<nav aria-label="Product navigation" class="text-center">
