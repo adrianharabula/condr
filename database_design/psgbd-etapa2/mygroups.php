@@ -57,22 +57,19 @@ require('Parts/header.php');
                                             <h5><b>Name : </b><span><?=$item->NAME?></span></h5>
                                             <h5><b>Description : </b><span><?=$item->DESCRIPTION?></span></h5>
                                     </td>
-
                                     <td class="col-md-0">
 				                                <div class=" col-md-offset-2">
-				                                    <a href="#" style="color:green"><b><h5>Delete </h5></b></a>
+				                                    <br><a href="#" style="color:green"><b><h5>Delete </h5></b></a>
 				                                </div>
 				                            </td>
-
 				                            <td class="col-md-0">
 				                                <div class="col-md-offset-2">
-				                                     <a href="#" style="color:green"><b><h5>View</h5></b></a>
+				                                     <br><a href="#" style="color:green"><b><h5>View</h5></b></a>
 				                                </div>
                                     </td>
-
                                     <td class="col-md-0">
 				                                <div class="col-md-offset-2">
-				                                    <a href="#" style="color:green"><b><h5>Add preferences</h5></b></a>
+				                                    <br><a href="#" style="color:green"><b><h5>Add preferences</h5></b></a>
 				                                </div>
                                     </td>
                                 </tr>
