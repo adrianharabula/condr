@@ -6,7 +6,7 @@ $utils = new Utils\Utils;
 
 // set default values for page and perPage
 $page = empty($_REQUEST['page']) ? 1 : $_REQUEST['page'];
-$perPage = empty($_REQUEST['perPage']) ? 3 : $_REQUEST['perPage'];
+$perPage = empty($_REQUEST['perPage']) ? 7 : $_REQUEST['perPage'];
 
 // count groups from database
 $nrGroups = $db->query("select count(*) as nr from GROUPS")
@@ -54,9 +54,8 @@ require('Parts/header.php');
                             <tbody>
                                 <tr>
 									                  <td class="col-sm-8 col-md-6 col-md-offset-2">
-                                            <h5 class="media-heading"><b>Name : </b><span><?=$item->NAME?></span></h5>
-                                            <h5 class="media-heading"><b>ID : </b><span><?=$item->ID?></span></h5>
-                                            <h5 class="media-heading"><b>DESCRIPTION : </b><span><?=$item->DESCRIPTION?></span></h5>
+                                            <h5><b>Name : </b><span><?=$item->NAME?></span></h5>
+                                            <h5><b>Description : </b><span><?=$item->DESCRIPTION?></span></h5>
                                     </td>
 
                                     <td class="col-md-0">
@@ -107,4 +106,7 @@ require('Parts/header.php');
     </nav>
 </div>
 </div>
+
+
+
 <?php require('Parts/footer.php'); ?>
