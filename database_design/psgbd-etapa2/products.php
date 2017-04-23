@@ -47,17 +47,46 @@
     </form>
   </div>
 
+
+
   <br><br><br>
   <div class="row">
     <div class="col-md-6 col-md-offset-3 ">
         <h2>A few products...</h2><br>
-        <div class="list-group">
-          <?php
-            foreach($paginatedEntries as $item) {
-              echo '<a href="#" class="list-group-item">' . $item->NAME . ' <span class="badge">' . $item->PRODUCT_ID . '</span></a>';
-            }
-          ?>
-        </div>
+
+        <?php
+          foreach($paginatedEntries as $item) {
+            echo '<div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10 col-md-offset-1">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-sm-8 col-md-6 col-md-offset-2">
+                                    <div class="media">
+                                        <a class="thumbnail pull-left" href="#"> <img class="media-object" src="/Assets/img/Product-Icon.png" style="width: 72px; height: 72px;"> </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><a href="#">' . $item->NAME . '</a></h4>
+                                            <h5 class="media-heading"> by <a href="#">The company that sells everything</a></h5>
+                                        </div>
+                                    </div></td>
+                                    <td class="col-sm-1 col-md-1">
+                                      <button type="button" class="btn btn-primary my-btn">View details
+                                      </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>';
+          }
+        ?>
         <nav aria-label="Product navigation" class="text-center">
           <ul class="pagination">
             <li class="page-item <?=($page == 1)?'hidden':'';?> ">
