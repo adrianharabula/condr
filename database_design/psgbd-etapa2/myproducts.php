@@ -1,4 +1,4 @@
-  <?php
+<?php
   require('autoload.php');
   $db = new Database\Database;
   $utils = new Utils\Utils;
