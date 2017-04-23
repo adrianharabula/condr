@@ -28,7 +28,7 @@ require('Parts/headerMenu.php');
     </div>
 </div>
 
-<div id="tf-service" class="bg-lime maroon">
+<div id="tf-service" class="bg-maroon aqua">
     <div class="container">
 
         <div class="col-md-4">

@@ -1,5 +1,5 @@
 
-    <nav id="tf-footer" class="bg-navy">
+    <nav id="tf-footer" class="bg-black white">
         <div class="container">
             <div class="pull-left">
                 <p>&copy; <?=date('Y')?> ConDr, theme <a href="http://themeforces.com/preview/?theme=free-awesomess-portfolio">Awesomess</a> by <a href="https://dribbble.com/jennpereira">Jenn</a></p>
