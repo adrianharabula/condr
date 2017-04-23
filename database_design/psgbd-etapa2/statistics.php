@@ -6,8 +6,8 @@ require('Parts/header.php');
 ?>
 
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/jquery.canvasjs.min.js"></script>
 <link href="/Assets/css/statistics.css" rel="stylesheet">
 
 
