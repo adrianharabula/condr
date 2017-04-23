@@ -34,26 +34,30 @@ $paginatedEntries = $db->execute()->result();
 $pageTitle = "Groups list";
 require('Parts/header.php');
 ?>
+<link href="/Assets/css/groups.css" rel="stylesheet">
 
-<br>
+<div class="container center_div">
+  <form class="form-inline">
+    <div class="form-group">
+      <input type="text" class="form-control" id="name" placeholder="Enter the group's name">
+    </div>
+    <button type="submit" class="btn btn-primary my-btn">Search</button>
+  </form>
+</div>
+
+<br><br><br>
 <div class="row">
   <div class="col-md-8 col-md-offset-2 ">
-    <h2 style="color: white;">Groups list</h2> <br />
-    <!-- <ul class="list-group row"> -->
+    <h2 style="color: white;">A few groups you can join...</h2> <br />
     <div class="list-group">
       <?php foreach($paginatedEntries as $item) : ?>
         <div class="list-group-item black-bg equal">
-        <!-- <li class="list-group-item col-md-12"> -->
           <div class="col-md-8">
             <a href="#" class=""><b><?=$item->NAME?></b></a>
             <p><?=$item->DESCRIPTION?> <span class="badge"><?=$item->GROUP_ID?></span></p>
           </div>
-
-          <!-- <div class="content content-nopad"> -->
-            <div class="col-md-2"><a href="viewgroups.php" class="btn btn-primary my-btn btn-groups">Join</a></div>
-            <div class="col-md-2"><a href="viewgroups.php" class="btn btn-primary my-btn btn-groups">View</a></div>
-          <!-- </div> -->
-        <!-- </li> -->
+          <div class="col-md-2"><a href="viewgroups.php" class="btn btn-primary my-btn btn-groups">Join</a></div>
+          <div class="col-md-2"><a href="viewgroups.php" class="btn btn-primary my-btn btn-groups">View</a></div>
       </div>
       <?php endforeach ?>
     </div>
@@ -80,12 +84,4 @@ require('Parts/header.php');
   </div>
 </div>
 
-<style>
-h2{
-  margin-top: 30px;
-  margin-bottom: 30px;
-  color: white;
-  text-align:center;
-}
-</style>
 <?php require('Parts/footer.php'); ?>
