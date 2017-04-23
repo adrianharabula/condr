@@ -4,7 +4,7 @@
   $utils = new Utils\Utils;
   // set default values for page and perPage
   $page = empty($_REQUEST['page']) ? 1 : $_REQUEST['page'];
-  $perPage = empty($_REQUEST['perPage']) ? 7 : $_REQUEST['perPage'];
+  $perPage = empty($_REQUEST['perPage']) ? 5 : $_REQUEST['perPage'];
   // count products from database
   $nrProducts = $db->query("select count(*) as nr from PRODUCTS")
                     ->execute()
