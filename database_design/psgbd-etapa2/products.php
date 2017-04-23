@@ -47,8 +47,6 @@
     </form>
   </div>
 
-
-
   <br><br><br>
   <div class="row">
     <div class="col-md-6 col-md-offset-3 ">
@@ -76,7 +74,7 @@
                                         </div>
                                     </div></td>
                                     <td class="col-sm-1 col-md-1">
-                                      <button type="button" class="btn btn-primary my-btn">View details
+                                      <button type="button" class="btn btn-primary my-btn"><a href="viewproducts.php">View details</a>
                                       </button>
                                     </td>
                                 </tr>

@@ -30,3 +30,14 @@ h2{
     margin-bottom: 10px;
     color:white;
 }
+.panel-body {
+  padding: 5px;
+  margin-top: 0%;
+}
+.pull-left {
+  margin-top: 10px;
+}
+.media-object {
+  width: 108px;
+  height: 100px;
+}
