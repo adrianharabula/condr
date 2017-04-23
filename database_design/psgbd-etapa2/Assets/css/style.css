@@ -26,14 +26,14 @@ h4 {
 	margin-bottom: 20px;
 	font-size: 16px;
 	font-weight: 700;
-	color: rgb(47, 147, 123);
+	/*color: rgb(47, 147, 123);*/
 }
 p{
 	font-size: 13px;
 }
 
 a {
-	color: #ffffff;
+	/*color: #ffffff;*/
 	transition: all 0.8;
 }
 a:hover,
@@ -61,7 +61,7 @@ a:focus{
 	background-position: center;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	color: #cfcfcf;
+	/*color: #cfcfcf;*/
 }
 
 #tf-home .overlay{
@@ -83,16 +83,16 @@ a:focus{
 /* Navigation */
 #tf-menu {
 	margin-bottom: 0;
-	background: transparent;
+	/*background: transparent;*/
 	border: 0;
-	color: #fff !important;
+	/*color: #fff !important;*/
 	padding: 2% 0;
 	transition: all 0.5s;
 }
 #sticky {
     padding: 0.5ex;
     background-color: #333;
-    color: #fff;
+    /*color: #fff;*/
     font-size: 2em;
     border-radius: 0.5ex;
 }
@@ -101,11 +101,11 @@ a:focus{
     top: 0;
     width: 100%;
     z-index: 10000;
-    background: #222222;
+    /*background: #222222;*/
     padding: 1% 0;
 }
-#tf-menu.navbar-default .navbar-nav > li > a {
-	color: #C5C5C5;
+#tf-menu.navbar-inverse .navbar-nav > li > a {
+	/*color: #C5C5C5;*/
 	text-transform: uppercase;
 	font-size: 12px;
 	font-weight: 700;
@@ -129,7 +129,7 @@ a:focus{
 .media-left.media-middle i {
 	padding: 20px 30px 20px 0;
 	font-size: 30px;
-	color: rgb(47, 147, 123);
+	/*color: rgb(47, 147, 123);*/
 
 }
 
@@ -137,11 +137,11 @@ a:focus{
 	margin-bottom: 20px;
 	font-size: 16px;
 	font-weight: 700;
-	color: rgb(47, 147, 123);
+	/*color: rgb(47, 147, 123);*/
 }
 
 #tf-portfolio{
-	background: #f1f1f1;
+	/*background: #f1f1f1;*/
 	padding: 5%  0 8% 0;
 	text-align: center;
 }
@@ -226,7 +226,7 @@ ul.cat.list-inline li a:hover{
 	background-position: center;
 	background-attachment: scroll;
 	background-repeat: no-repeat;
-	color: #222222;
+	/*color: #222222;*/
 }
 
 #tf-about .overlay{
@@ -241,7 +241,7 @@ ul.cat.list-inline li a:hover{
 	background-position: center;
 	background-attachment: scroll;
 	background-repeat: no-repeat;
-	color: #222222;
+	/*color: #222222;*/
 }
 
 #tf-why-me .overlay{
@@ -279,8 +279,8 @@ form#contact {
 	padding: 16px 12px;
 	font-size: 14px;
 	line-height: 1.42857143;
-	color: #555;
-	background-color: #FFF;
+	/*color: #555;*/
+	/*background-color: #FFF;*/
 	background-image: none;
 	border: 1px solid #FFF;
 	border-radius: 0;
@@ -296,9 +296,9 @@ form#contact {
 	border-top: 2px solid #2F937B;
 }
 nav#tf-footer {
-	background: #222222;
+	/*background: #222222;*/
 	padding: 3% 0 2% 0;
-	color: #f1f1f1;
+	/*color: #f1f1f1;*/
 }
 
 #main-logo {

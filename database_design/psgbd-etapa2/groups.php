@@ -33,6 +33,7 @@ $paginatedEntries = $db->execute()->result();
 
 $pageTitle = "Groups list";
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 ?>
 <link href="/Assets/css/groups.css" rel="stylesheet">
 
@@ -46,6 +47,7 @@ require('Parts/header.php');
 </div>
 
 <br><br><br>
+
 <div class="row">
   <div class="col-md-8 col-md-offset-2 ">
     <h2 style="color: white;">A few groups you can join...</h2> <br />

@@ -25,6 +25,7 @@ if(isset($_REQUEST['submitLogin']))
 
 $pageTitle = "Login";
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 ?>
 
 <?php if ($_REQUEST['submitLogin']): ?>

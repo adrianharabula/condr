@@ -1,6 +1,7 @@
 <?php
 require('autoload.php');
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 
 
 
@@ -25,7 +26,7 @@ $details = $db->execute()->result();
               <?php foreach($details as $user) : ?>
                   <div class="form-group">
                       <div class="form-group">
-                         <p><span style="color:green"><b>Username : </b></span><?=$user->USERNAME?></p> 
+                         <p><span style="color:green"><b>Username : </b></span><?=$user->USERNAME?></p>
                       </div>
                       <div class="form-group">
                          <p><span style="color:green"><b>Email : </b></span><?=$user->EMAIL?> </p>

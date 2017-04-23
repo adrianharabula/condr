@@ -5,20 +5,8 @@
   display: -webkit-flex;
 }
 
-.black-bg {
-  background-color: #111;
-}
-
-.black-bg p {
-  color: white;
-}
-
 a.btn-groups {
   margin: 0;
-}
-
-.page-item {
-  color: #2F937B;
 }
 
 .header_search {
@@ -26,4 +14,69 @@ a.btn-groups {
     width: 600px;
     margin-right: 20px;
     float: left;
+}
+
+#tf-menu.navbar {
+  border-radius: 0px;
+  background-color: black;
+}
+
+.navbar-inverse .navbar-nav > li > a.btn {
+  color: white;
+}
+
+.navbar-inverse .navbar-nav li a {
+  /*color: #01FF70;*/
+}
+
+/*set color for all links in dropdown*/
+.navbar-inverse .navbar-nav ul.my-profile li a {
+  color: black;
+}
+
+/*
+ * General settings for mybtn
+ */
+button.btn.btn-primary.my-btn, a.btn.btn-primary.my-btn {
+  padding: 10px 31px;
+}
+
+button.btn.my-btn, a.btn.my-btn {
+  margin: 4px 1px;
+}
+
+/*default button settings*/
+a.btn.btn-primary.my-btn-dropdown {
+  color: white;
+  background-color: #2F937B;
+}
+
+/*button color on active, focused and hover states*/
+a.btn.btn-primary.my-btn-dropdown:hover, a.btn.btn-primary.my-btn-dropdown:focus, a.btn.btn-primary.my-btn-dropdown:active {
+  background-color: #2ECC40;
+  color: white;
+}
+
+/*.custom{background:#888; height:80px; padding:16px}*/
+
+.text{
+  margin-left: 60px;
+  overflow: hidden;
+  }
+
+.cust-margin {
+  margin-top:6px;
+  margin-bottom:1px;
+}
+
+a.btn.my-btn.btn-start {
+  /*margin-top: 10px;*/
+}
+
+a .fa-custom {
+  color: #2F937B;
+}
+
+a .fa-custom:hover {
+  color: #2ECC40;
 }

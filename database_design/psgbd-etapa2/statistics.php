@@ -3,6 +3,7 @@ require('autoload.php');
 
 $pageTitle = "Statistics";
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 ?>
 
 
@@ -10,8 +11,8 @@ require('Parts/header.php');
 <script src="//cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/jquery.canvasjs.min.js"></script>
 <link href="/Assets/css/statistics.css" rel="stylesheet">
 
-
-<div class="col-md-7 col-md-offset-3">
+<div class="row">
+        <div class="col-md-7 col-md-offset-3">
 
   <!-- First chart -->
   <?php
@@ -367,6 +368,7 @@ require('Parts/header.php');
                 chart1.render();
             });
         </script>
+</div>
 </div>
 
 <?php require('Parts/footer.php'); ?>

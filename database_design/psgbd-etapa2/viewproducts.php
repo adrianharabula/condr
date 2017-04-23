@@ -3,6 +3,7 @@ require('autoload.php');
 
 $pageTitle = "Product details!";
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 ?>
 <link href="/Assets/css/products.css" rel="stylesheet">
 
