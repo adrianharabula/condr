@@ -75,7 +75,6 @@ foreach($paginatedEntries as $item) {
                    </tbody> 
                   </table>
                   <div class="row">
-                  <button id="principal-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Update</button>
                   <button id="principal-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Delete</button>
  
 
@@ -112,8 +111,8 @@ foreach($paginatedEntries as $item) {
 
 <style type="text/css">
 #principal-button{
-  width: 30%;
-  margin-left: 45px;
+  width: 60%;
+  margin-left: 70px;
 }
 #principal-button:hover{
    background-color: #2e6da4;
