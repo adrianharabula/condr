@@ -11,10 +11,8 @@ require('Parts/headerMenu.php');
 <script src="//cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/jquery.canvasjs.min.js"></script>
 <link href="/Assets/css/statistics.css" rel="stylesheet">
 
-<div class="row">
-        <div class="col-md-7 col-md-offset-3">
-
-  <!-- First chart -->
+<div class="container">
+  <div class="row white text-center">
   <?php
       $dataPoints1 = array(
         array("y" => 14, "name" => "Macbook Air"),
@@ -32,7 +30,7 @@ require('Parts/headerMenu.php');
         array("y" => 1, "name" => "Douglas Rimmel")
       );
   ?>
-  <div id="desiredProductsChart" style="width: 80%; height:400px;"></div>
+  <div id="desiredProductsChart" style="width: 100%; height:400px;"></div>
   <script type="text/javascript">
       $(function () {
           var chart1 = new CanvasJS.Chart("desiredProductsChart",
@@ -55,7 +53,6 @@ require('Parts/headerMenu.php');
       });
   </script>
 
-
   <!-- Second chart  -->
   <?php
       $dataPoints1 = array(
@@ -71,7 +68,7 @@ require('Parts/headerMenu.php');
         array("y" => 5, "name" => "SF Comic Books")
       );
   ?>
-  <div id="undesiredProductsChart" style="width: 80%; height:400px;"></div>
+  <div id="undesiredProductsChart" style="width: 100%; height:400px;"></div>
   <script type="text/javascript">
     $(function () {
         var chart1 = new CanvasJS.Chart("undesiredProductsChart",
@@ -94,7 +91,6 @@ require('Parts/headerMenu.php');
     });
   </script>
 
-
   <!-- Third chart.... -->
   <?php
       $dataPoints1 = array(
@@ -112,7 +108,7 @@ require('Parts/headerMenu.php');
         array("y" => 5, "name" => "Watermelon taste")
       );
   ?>
-  <div id="desiredPreferencesChart" style="width: 80%; height:400px;"></div>
+  <div id="desiredPreferencesChart" style="width: 100%; height:400px;"></div>
   <script type="text/javascript">
       $(function () {
           var chart1 = new CanvasJS.Chart("desiredPreferencesChart",
@@ -150,7 +146,7 @@ require('Parts/headerMenu.php');
           array("y" => 5, "name" => "Temperature high"),
         );
     ?>
-    <div id="undesiredPreferencesChart" style="width: 80%; height:400px;"></div>
+    <div id="undesiredPreferencesChart" style="width: 100%; height:400px;"></div>
     <script type="text/javascript">
         $(function () {
             var chart1 = new CanvasJS.Chart("undesiredPreferencesChart",
@@ -173,7 +169,6 @@ require('Parts/headerMenu.php');
         });
       </script>
 
-
       <!-- Fifth chart -->
       <?php
           $dataPoints1 = array(
@@ -188,7 +183,7 @@ require('Parts/headerMenu.php');
             array("y" => 6, "name" => "Martian123")
           );
       ?>
-      <div id="maxPreferencesChart" style="width: 80%; height:400px;"></div>
+      <div id="maxPreferencesChart" style="width: 100%; height:400px;"></div>
       <script type="text/javascript">
           $(function () {
               var chart1 = new CanvasJS.Chart("maxPreferencesChart",
@@ -211,7 +206,6 @@ require('Parts/headerMenu.php');
           });
       </script>
 
-
       <!-- Sixth chart  -->
       <?php
           $dataPoints1 = array(
@@ -226,7 +220,7 @@ require('Parts/headerMenu.php');
             array("y" => 9, "name" => "GeorgeDumitru")
           );
       ?>
-      <div id="minPreferencesChart" style="width: 80%; height:400px;"></div>
+      <div id="minPreferencesChart" style="width: 100%; height:400px;"></div>
       <script type="text/javascript">
           $(function () {
               var chart1 = new CanvasJS.Chart("minPreferencesChart",
@@ -249,7 +243,6 @@ require('Parts/headerMenu.php');
           });
         </script>
 
-
         <!-- Seventh chart -->
         <?php
             $dataPoints1 = array(
@@ -262,7 +255,7 @@ require('Parts/headerMenu.php');
               array("y" => 10, "name" => "Other")
             );
         ?>
-        <div id="categoryChart" style="width: 80%; height:400px;"></div>
+        <div id="categoryChart" style="width: 100%; height:400px;"></div>
         <script type="text/javascript">
             $(function () {
                 var chart1 = new CanvasJS.Chart("categoryChart",
@@ -285,7 +278,6 @@ require('Parts/headerMenu.php');
             });
         </script>
 
-
         <!-- Eight chart -->
         <?php
             $dataPoints1 = array(
@@ -304,7 +296,7 @@ require('Parts/headerMenu.php');
               array("y" => 3, "name" => "Douglas")
             );
         ?>
-        <div id="companyChart" style="width: 80%; height:400px;"></div>
+        <div id="companyChart" style="width: 100%; height:400px;"></div>
         <script type="text/javascript">
             $(function () {
                 var chart1 = new CanvasJS.Chart("companyChart",
@@ -327,7 +319,6 @@ require('Parts/headerMenu.php');
             });
         </script>
 
-
         <!-- Ninth chart -->
         <?php
             $dataPoints1 = array(
@@ -346,7 +337,7 @@ require('Parts/headerMenu.php');
               array("y" => 1, "name" => "NoOne1998")
             );
         ?>
-        <div id="similarPreferencesChart" style="width: 80%; height:400px;"></div>
+        <div id="similarPreferencesChart" style="width: 100%; height:400px;"></div>
         <script type="text/javascript">
             $(function () {
                 var chart1 = new CanvasJS.Chart("similarPreferencesChart",
@@ -368,7 +359,7 @@ require('Parts/headerMenu.php');
                 chart1.render();
             });
         </script>
-</div>
-</div>
+  </div> <!-- end row -->
+</div> <!-- end container -->
 
 <?php require('Parts/footer.php'); ?>
