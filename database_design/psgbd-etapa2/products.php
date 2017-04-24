@@ -37,7 +37,7 @@
           <h2>A few products...</h2>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-md-push-8 col-md-4 black">
         <div class="panel panel-info">
@@ -69,15 +69,15 @@
         <div class="row">
             <div class="col-md-9">
               <div class="media">
-                  <a class="thumbnail pull-left" href="#"> <img class="media-object" src="/Assets/img/Product-Icon.png" style="width: 72px; height: 72px;"> </a>
+                  <a class="thumbnail pull-left" href="viewproduct.php"> <img class="media-object" src="/Assets/img/Product-Icon.png" style="width: 72px; height: 72px;"> </a>
                   <div class="media-body">
-                      <h4 class="media-heading"><a href="#"><?=$item->NAME?></a></h4>
-                      <h5 class="media-heading"> by <a href="#">The company that sells everything</a></h5>
+                      <h4 class="media-heading"><a href="viewproduct.php"><?=$item->NAME?></a></h4>
+                      <h5 class="media-heading"> by <a href="viewproduct.php">The company that sells everything</a></h5>
                   </div>
               </div>
             </div>
             <div class="col-md-3">
-              <a href="viewproducts.php" class="btn btn-primary my-btn my-btn-dropdown btn-block btn-product pull-right">View details</a>
+              <a href="viewproduct.php" class="btn btn-primary my-btn my-btn-dropdown btn-block btn-product pull-right">View details</a>
             </div>
         </div>
         <?php endforeach ?>

@@ -5,7 +5,6 @@ $pageTitle = "Product details!";
 require('Parts/header.php');
 require('Parts/headerMenu.php');
 ?>
-<!-- <link href="/Assets/css/products.css" rel="stylesheet"> -->
 
 <div class="container">
   <div class="row page black">
@@ -15,10 +14,10 @@ require('Parts/headerMenu.php');
       </div>
 
       <div class="panel-body">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <a class="thumbnail pull-left" href="#"> <img class="media-object" src="/Assets/img/Product-Icon.png" style=""> </a>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-9">
           <h4>Product name: Iphone 4S</h4>
           <h5>by Apple </h5>
           <h4>Product category</h4>
