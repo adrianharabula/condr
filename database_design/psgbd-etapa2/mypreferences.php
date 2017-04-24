@@ -1,10 +1,11 @@
 <?php
 require('autoload.php');
 
-
 $pageTitle = "My preferences";
-require('Parts/header.php');
+$bodyClass = "bg-black black";
 
+require('Parts/header.php');
+require('Parts/headerMenu.php');
 ?>
 
 <div class="row">
