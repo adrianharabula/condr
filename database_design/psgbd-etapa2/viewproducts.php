@@ -7,7 +7,7 @@ require('Parts/headerMenu.php');
 ?>
 <link href="/Assets/css/products.css" rel="stylesheet">
 
-<div class="container">
+<div class="container black">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4>Details about the selected product...</h4>
