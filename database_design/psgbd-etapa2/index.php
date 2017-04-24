@@ -18,7 +18,7 @@ require('Parts/headerMenu.php');
                   <div class="col-md-6 col-md-offset-3">
                     <a href="preferences.php" class="btn btn-primary my-btn btn-start my-btn-dropdown">Let's get started!</a>
                     <a href="contact.php" class="btn btn-primary my-btn btn-start my-btn-dropdown">Contact us!</a>
-                    <?=!isset($_SESSION['username'])? "<a href='login.php' class='btn btn-primary my-btn2'>Login</a>":""?>
+                    
                   </div>
                 </div>
             </div>
