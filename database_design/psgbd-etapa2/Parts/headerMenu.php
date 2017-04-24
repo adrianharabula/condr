@@ -18,8 +18,8 @@
 
             <div id="menu" class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
-                <!-- <li><a href="index.php">Home</a></li> -->
-                <!-- <li><a href="about.php">About</a></li> -->
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
                 <?=isset($_SESSION['username'])? "<li><a href='preferences.php'>Preferences</a></li>":""?>
                 <li><a href="products.php">Products</a></li>
                 <li><a href="groups.php">Groups</a></li>
