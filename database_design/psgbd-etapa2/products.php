@@ -31,60 +31,57 @@
 
   <link href="/Assets/css/products.css" rel="stylesheet">
 
-  <div class="row">
-    <form class="form-inline">
-      <div class="form-group">
-        <input type="text" class="form-control" id="name" placeholder="Enter name">
+  <div class="container page white">
+    <div class="row">
+      <div class="col-md-12 text-center">
+          <h2>A few products...</h2>
       </div>
-      <div class="form-group">
-        <select class="form-control">
-          <option value="">Filter by</option>
-          <option value="name">Name</option>
-          <option value="category">Category</option>
-          <option value="company">Company</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary my-btn">Search</button>
-    </form>
-  </div>
-
-  <div class="row maroon">
-    <div class="col-md-6 col-md-offset-3 ">
-        <h2>A few products...</h2><br>
-
-        <?php
-          foreach($paginatedEntries as $item) {
-            echo '<div class="container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-10 col-md-offset-1">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="col-sm-8 col-md-6 col-md-offset-2">
-                                    <div class="media">
-                                        <a class="thumbnail pull-left" href="#"> <img class="media-object" src="/Assets/img/Product-Icon.png" style="width: 72px; height: 72px;"> </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a href="#">' . $item->NAME . '</a></h4>
-                                            <h5 class="media-heading"> by <a href="#">The company that sells everything</a></h5>
-                                        </div>
-                                    </div></td>
-                                    <td class="col-sm-1 col-md-1">
-                                      <button type="button" class="btn btn-primary my-btn"><a href="viewproducts.php">View details</a>
-                                      </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-push-8 col-md-4 black">
+        <div class="panel panel-info">
+          <div class="panel-heading">Advanced Search</div>
+          <div class="panel-body">
+            <div class="row">
+              <form class="form">
+                <div class="form-group col-md-12">
+                  <input type="text" class="form-control full-width" id="name" placeholder="Enter keywords">
                 </div>
-            </div>';
-          }
-        ?>
+                <div class="form-group col-md-12">
+                  <b>Filter by</b>: <br/>
+                  <label class="radio-inline"><input type="radio" name="optradio" checked="checked">Name</label>
+                  <label class="radio-inline"><input type="radio" name="optradio">Category</label>
+                  <label class="radio-inline"><input type="radio" name="optradio">Company</label>
+                </div>
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary my-btn btn-block">Search</button>
+                  <br/>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8 col-md-pull-4">
+        <?php foreach($paginatedEntries as $item) : ?>
+        <div class="row">
+            <div class="col-md-9">
+              <div class="media">
+                  <a class="thumbnail pull-left" href="#"> <img class="media-object" src="/Assets/img/Product-Icon.png" style="width: 72px; height: 72px;"> </a>
+                  <div class="media-body">
+                      <h4 class="media-heading"><a href="#"><?=$item->NAME?></a></h4>
+                      <h5 class="media-heading"> by <a href="#">The company that sells everything</a></h5>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <a href="viewproducts.php" class="btn btn-primary my-btn my-btn-dropdown btn-block btn-product pull-right">View details</a>
+            </div>
+        </div>
+        <?php endforeach ?>
+
         <nav aria-label="Product navigation" class="text-center">
           <ul class="pagination">
             <li class="page-item <?=($page == 1)?'hidden':'';?> ">
@@ -105,6 +102,8 @@
           </ul>
         </nav>
       </div>
+
+    </div> <!--end row -->
   </div>
 
   <?php require('Parts/footer.php'); ?>
