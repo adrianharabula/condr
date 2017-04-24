@@ -10,7 +10,7 @@ require('Parts/headerMenu.php');
     <div class="overlay">
         <div id="sticky-anchor"></div>
         <div class="container">
-            <div class="content">
+            <div class="content lets-start">
                 <h3 id="main-logo">Looking to buy something today?</h3>
                 <div class="row">
                   <div class="col-md-6 col-md-offset-3">
