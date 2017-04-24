@@ -50,9 +50,9 @@ require('Parts/header.php');
 require('Parts/headerMenu.php');
 ?>
 
-
+<div class="container">
 <?php if ($_REQUEST['submitPassword']): ?>
-  <div class="row">
+  <div class="row black">
 	<div class="col-md-4 col-md-offset-4">
 
       <?php if ($allfields): ?>
@@ -82,9 +82,8 @@ require('Parts/headerMenu.php');
   </div>
 <?php endif; ?>
 
-
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+  <div class="row black">
+    <div class="col-md-4 col-md-offset-4">
       <div class="login-panel panel panel-default">
         <div class="panel-heading"><b>Edit password </b></div>
         <div class="panel-body">
@@ -99,12 +98,14 @@ require('Parts/headerMenu.php');
               <div class="form-group">
                 <input class="form-control" placeholder="Retype the new password" name="newpass2" type="password" >
               </div>
-              <input name="submitPassword" class="btn btn-primary my-btn" type="submit" value="Change">
+              <input name="submitPassword" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown btn-block" type="submit" value="Change">
             </fieldset>
           </form>
         </div>
       </div>
     </div><!-- /.col-->
   </div><!-- /.row -->
+
+</div>
 
 <?php require('Parts/footer.php'); ?>
