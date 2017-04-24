@@ -25,7 +25,9 @@
   $db->bind(":p2", $lastIndex);
   $paginatedEntries = $db->execute()->result();
   $pageTitle = "Products list";
+  $bodyClass = "bg-black black";
   require('Parts/header.php');
+  require('Parts/headerMenu.php');
   ?>
 
   <link href="/Assets/css/products.css" rel="stylesheet">
