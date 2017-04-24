@@ -33,7 +33,7 @@
   <link href="/Assets/css/products.css" rel="stylesheet">
   <link href="/Assets/css/myproducts.css" rel="stylesheet">
   <br><br><br>
-<div class="container">
+<div class="container white">
   <div class="row">
     <div class="col-md-12 text-center">
       <h3>Search products...</h3>
@@ -52,7 +52,7 @@
       </form>
     </div>
   </div>
-</div>
+</div> <br />
    <?php
   foreach($paginatedEntries as $item) {
     echo '
