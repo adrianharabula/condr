@@ -37,22 +37,26 @@ a.btn-groups {
 /*
  * General settings for mybtn
  */
-button.btn.btn-primary.my-btn, a.btn.btn-primary.my-btn {
+button.btn.btn-primary.my-btn, a.btn.btn-primary.my-btn, input.btn.btn-primary.my-btn {
   padding: 10px 31px;
 }
 
-button.btn.my-btn, a.btn.my-btn {
+button.btn.my-btn, a.btn.my-btn, input.btn.my-btn {
   margin: 4px 1px;
+  /*border: none;*/
+  border-radius: 0;
+  /*border: none;*/
 }
 
 /*default button settings*/
-a.btn.btn-primary.my-btn-dropdown {
+a.btn.btn-primary.my-btn-dropdown, input.btn.btn-primary.my-btn-dropdown {
   color: white;
   background-color: #2F937B;
 }
 
 /*button color on active, focused and hover states*/
-a.btn.btn-primary.my-btn-dropdown:hover, a.btn.btn-primary.my-btn-dropdown:focus, a.btn.btn-primary.my-btn-dropdown:active {
+a.btn.btn-primary.my-btn-dropdown:hover, a.btn.btn-primary.my-btn-dropdown:focus, a.btn.btn-primary.my-btn-dropdown:active,
+input.btn.btn-primary.my-btn-dropdown:hover, input.btn.btn-primary.my-btn-dropdown:focus, input.btn.btn-primary.my-btn-dropdown:active {
   background-color: #85144B;
   color: white;
 }
@@ -88,6 +92,7 @@ nav#tf-footer {
 nav#tf-footer p, nav#tf-footer ul {
   margin: 0;
   padding: 0;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 767px) {
@@ -111,4 +116,8 @@ a:hover, a:active {
 
 .lets-start .row .col-md-6 {
   margin-top: 10px;
+}
+
+.content-custom {
+    padding-top: 45px;
 }
