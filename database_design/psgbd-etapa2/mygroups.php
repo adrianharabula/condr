@@ -32,7 +32,9 @@ $db->bind(":p2", $lastIndex);
 $paginatedEntries = $db->execute()->result();
 
 $pageTitle = "My groups!";
+$bodyClass = "bg-black black";
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 ?>
 
 
