@@ -6,6 +6,7 @@
             </div>
             <div class="pull-right">
                 <ul class="social-media list-inline">
+                    <li><a href="contact.php">Contact</a></li>
                     <li><a href="https://github.com/adrianharabula/condr"><span class="fa fa-github"></span></a></li>
                 </ul>
             </div>
