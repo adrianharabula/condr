@@ -8,7 +8,7 @@ require('Parts/headerMenu.php');
 
 
 <link href="/Assets/css/contact.css" rel="stylesheet">
-<div class="container contact">
+<div class="container contact black">
   <form id="contact" action="" method="post">
     <h3>ConDr Contact Form</h3>
     <h4>Tell us what you think! Your opinion matters!</h4>
