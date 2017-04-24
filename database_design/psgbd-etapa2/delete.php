@@ -3,7 +3,9 @@ require('autoload.php');
 
 
 $pageTitle = "My preferences";
+$bodyClass = "bg-black black";
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 
 ?>
 
