@@ -154,7 +154,7 @@ a:focus{
 .section-title h2{ font-weight: 700;}
 button.btn,
 a.btn {
-	margin: 15px 5px;
+	/*margin: 15px 5px;*/
 	transition: all 0.5s;
 }
 button.btn.btn-primary.my-btn,
