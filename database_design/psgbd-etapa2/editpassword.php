@@ -17,11 +17,11 @@ $newpass2 = $_REQUEST['newpass2'];
 
 if(isset($_REQUEST['submitPassword']))
 {
-  if (empty($_REQUEST['oldpass']) || empty($_REQUEST['newpass']) || empty($_REQUEST['newpass2'])) 
+  if (empty($_REQUEST['oldpass']) || empty($_REQUEST['newpass']) || empty($_REQUEST['newpass2']))
   {
     $allfields = 1;
   }
-    
+
   if(isset($password) && isset($newpass) && isset($newpass2))
   {
     $db->query("select count(*) as NR from users where username=:p1 and password=:p2");
@@ -47,6 +47,7 @@ if(isset($_REQUEST['submitPassword']))
 $pageTitle = "Change Password";
 
 require('Parts/header.php');
+require('Parts/headerMenu.php');
 ?>
 
 
@@ -63,7 +64,7 @@ require('Parts/header.php');
         <div class="panel panel-danger">
           <div class="panel-heading">The current password is not correct!</div>
         </div>
-      
+
 
       <?php elseif ($changeResult): ?>
         <div class="panel panel-success">
