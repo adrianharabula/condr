@@ -2,7 +2,7 @@
     <nav id="tf-footer" class="bg-black white">
         <div class="container">
             <div class="pull-left">
-                <p>&copy; <?=date('Y')?> ConDr using <a href="http://themeforces.com/preview/?theme=free-awesomess-portfolio">Awesomess</a> by <a href="https://dribbble.com/jennpereira">Jenn Pereira</a></p>
+                <p>&copy; <?=date('Y')?> ConDr using <a href="http://themeforces.com/preview/?theme=free-awesomess-portfolio">Awesomess</a> by <a href="https://dribbble.com/jennpereira">Jenn</a></p>
             </div>
             <div class="pull-right">
                 <ul class="social-media list-inline">
