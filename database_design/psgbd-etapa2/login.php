@@ -29,7 +29,7 @@ require('Parts/headerMenu.php');
 ?>
 
 <div class="container">
-  <div class="row content-custom black">
+  <div class="row page black">
 
     <?php if ($_REQUEST['submitLogin']): ?>
     <div class="col-md-4 col-md-offset-4">
