@@ -57,5 +57,8 @@ require('Parts/headerMenu.php');
 .container-fluid {
   background-color: white;
 }
+.content-nopad {
+  background-color: white;
+}
 </style>
 <?php require('Parts/footer.php'); ?>

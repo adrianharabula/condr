@@ -65,7 +65,7 @@ require('Parts/headerMenu.php');
             <a href="#" class="">Group name: <b><?=$item->NAME?></b></a>
             <p><?=$item->DESCRIPTION?> <span class="badge"><?=$item->GROUP_ID?></span></p>
           </div>
-          <div class="col-xs-6 col-md-2"><a href="viewgroups.php" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Join</a></div>
+          <div class="col-xs-6 col-md-2"><a href="joingroups.php" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Join</a></div>
           <div class="col-xs-6 col-md-2"><a href="viewgroups.php" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">View</a></div>
       </div> <br />
       <?php endforeach ?>

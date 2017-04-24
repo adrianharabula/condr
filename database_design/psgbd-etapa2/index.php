@@ -11,15 +11,13 @@ require('Parts/headerMenu.php');
         <div id="sticky-anchor"></div>
         <div class="container">
             <div class="content lets-start">
-                <h3 id="main-logo">Looking to buy something today?</h3>
+                <h3 id="main-logo">ConDr</h3>
+                <h3>Good decisions have never been so easy to take!</h3><br>
+
                 <div class="row">
                   <div class="col-md-6 col-md-offset-3">
-                    <input type="text" class="form-control" />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 col-md-offset-3">
-                    <a href="products.php" class="btn btn-primary my-btn btn-start my-btn-dropdown">Get characteristics</a>
+                    <a href="preferences.php" class="btn btn-primary my-btn btn-start my-btn-dropdown">Let's get started!</a>
+                    <a href="contact.php" class="btn btn-primary my-btn btn-start my-btn-dropdown">Contact us!</a>
                     <?=!isset($_SESSION['username'])? "<a href='login.php' class='btn btn-primary my-btn2'>Login</a>":""?>
                   </div>
                 </div>
@@ -69,5 +67,10 @@ require('Parts/headerMenu.php');
 
     </div>
 </div>
+<style>
+.btn btn-primary my-btn btn-start my-btn-dropdown {
+  margin-left: 15px;
+}
+</style>
 
 <?php require('Parts/footer.php'); ?>
