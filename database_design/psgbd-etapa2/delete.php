@@ -17,6 +17,14 @@ require('Parts/headerMenu.php');
     </div>
 </div>
 </div>
-
+<style>
+.panel-success {
+    margin-left:20px;
+    margin-right:20px;
+}
+.panel-heading {
+  text-align: center;
+}
+</style>
 
 <?php require('Parts/footer.php'); ?>
