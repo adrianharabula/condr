@@ -43,9 +43,7 @@ button.btn.btn-primary.my-btn, a.btn.btn-primary.my-btn, input.btn.btn-primary.m
 
 button.btn.my-btn, a.btn.my-btn, input.btn.my-btn {
   margin: 4px 1px;
-  /*border: none;*/
   border-radius: 0;
-  /*border: none;*/
 }
 
 /*default button settings*/
@@ -120,4 +118,12 @@ a:hover, a:active {
 
 .page {
     padding-top: 45px;
+}
+
+.form-control.full-width {
+  width: 100%;
+}
+
+.page > .row {
+  margin-bottom: 30px;
 }
