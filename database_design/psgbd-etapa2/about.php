@@ -50,7 +50,7 @@ require('Parts/headerMenu.php');
   </div>
 </section>
 <div class="content content-nopad">
-<a href="register.php" class="btn btn-primary my-btn">Let's get started!</a>
+<a href="contact.php" class="btn btn-primary my-btn btn-start my-btn-dropdown">Let's get started!</a>
 </div>
 
 <style>
