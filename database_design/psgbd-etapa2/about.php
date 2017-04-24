@@ -2,6 +2,7 @@
 require('autoload.php');
 
 $pageTitle = "About";
+$bodyClass = "bg-black black";
 require('Parts/header.php');
 require('Parts/headerMenu.php');
 ?>
@@ -56,4 +57,5 @@ require('Parts/headerMenu.php');
 .container-fluid {
   background-color: white;
 }
+</style>
 <?php require('Parts/footer.php'); ?>
