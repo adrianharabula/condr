@@ -33,18 +33,26 @@
   <link href="/Assets/css/products.css" rel="stylesheet">
   <link href="/Assets/css/myproducts.css" rel="stylesheet">
   <br><br><br>
-
-  <h2>Change/update your searched products</h2>
-
-  <div class="container center_div">
-      <form class="form-inline">
-        <div class="form-group">
-          <input type="text" class="form-control" id="name" placeholder="Search product">
-        </div>
-
-        <button type="submit" class="btn btn-primary my-btn">Search</button>
-      </form> <br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3>Search products...</h3>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 text-center">
+      <form class="form">
+        <div class="form-group col-md-12">
+          <input type="text" class="form-control" id="name" placeholder="Enter the product's name">
+        </div>
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
    <?php
   foreach($paginatedEntries as $item) {
     echo '
