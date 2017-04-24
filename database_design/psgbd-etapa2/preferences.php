@@ -130,7 +130,7 @@ require('Parts/headerMenu.php');
               </div>
             </div>
 
-            <a href="preferences.php">
+            <a href="sugestions.php">
             <button name="submitPreferences" type="submit" class="btn btn-primary my-btn">Get the results!</button>
             </a>
 
