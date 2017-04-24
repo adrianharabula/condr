@@ -26,7 +26,7 @@
                 <li><a href="statistics.php">Statistics</a></li>
                 <!-- <li><a href="contact.php">Contact</a></li> -->
                 <?=!isset($_SESSION['username'])?
-                "<li><a href='login.php'>Log In</a></li>
+                "<li><a href='login.php' class='btn btn-primary my-btn my-btn-dropdown'>Log In</a></li>
                  <li><a href='register.php'>Register</a></li>":""?>
 
                  <?php if(isset($_SESSION['username'])) : ?>
