@@ -36,7 +36,7 @@
                      <li><a href="mydetails.php">Details</a></li>
                      <li><a href="mypreferences.php">Preferences</a></li>
                      <li><a href="myproducts.php">Products</a></li>
-                     <li><a href="mygroups">Groups</a></li>
+                     <li><a href="mygroups.php">Groups</a></li>
                      <li role="separator" class="divider"></li>
                      <li><a href="logout.php">Log Out</a></li>
                    </ul>
