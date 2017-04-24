@@ -35,32 +35,39 @@ $pageTitle = "Groups list";
 require('Parts/header.php');
 require('Parts/headerMenu.php');
 ?>
-<link href="/Assets/css/groups.css" rel="stylesheet">
+<!-- <link href="/Assets/css/groups.css" rel="stylesheet"> -->
 
-<div class="container center_div">
-  <form class="form-inline">
-    <div class="form-group">
-      <input type="text" class="form-control" id="name" placeholder="Enter the group's name">
+<div class="container page">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3>A few groups you can join...</h3>
     </div>
-    <button type="submit" class="btn btn-primary my-btn">Search</button>
-  </form>
-</div>
+  </div>
 
-<br><br><br>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 text-center">
+      <form class="form">
+        <div class="form-group col-md-12">
+          <input type="text" class="form-control" id="name" placeholder="Enter the group's name">
+        </div>
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2 ">
-    <h2 style="color: white;">A few groups you can join...</h2> <br />
-    <div class="list-group">
+<div class="row bg-black">
+    <div class="col-md-12 bg-black white">
       <?php foreach($paginatedEntries as $item) : ?>
-        <div class="list-group-item black-bg equal">
-          <div class="col-md-8">
-            <a href="#" class=""><b><?=$item->NAME?></b></a>
+        <div class="row">
+          <div class="col-sm-12 col-md-8">
+            <a href="#" class="">Group name: <b><?=$item->NAME?></b></a>
             <p><?=$item->DESCRIPTION?> <span class="badge"><?=$item->GROUP_ID?></span></p>
           </div>
-          <div class="col-md-2"><a href="viewgroups.php" class="btn btn-primary my-btn btn-groups">Join</a></div>
-          <div class="col-md-2"><a href="viewgroups.php" class="btn btn-primary my-btn btn-groups">View</a></div>
-      </div>
+          <div class="col-xs-6 col-md-2"><a href="viewgroups.php" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Join</a></div>
+          <div class="col-xs-6 col-md-2"><a href="viewgroups.php" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">View</a></div>
+      </div> <br />
       <?php endforeach ?>
     </div>
     <!-- </ul> -->
@@ -83,7 +90,8 @@ require('Parts/headerMenu.php');
         </li>
       </ul>
     </nav>
-  </div>
+</div>
+
 </div>
 
 <?php require('Parts/footer.php'); ?>
