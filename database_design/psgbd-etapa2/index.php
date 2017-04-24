@@ -18,7 +18,7 @@ require('Parts/headerMenu.php');
                   <div class="col-md-6 col-md-offset-3">
                     <a href="preferences.php" class="btn btn-primary my-btn btn-start my-btn-dropdown">Let's get started!</a>
                     <a href="contact.php" class="btn btn-primary my-btn btn-start my-btn-dropdown">Contact us!</a>
-                    
+
                   </div>
                 </div>
             </div>
@@ -67,9 +67,10 @@ require('Parts/headerMenu.php');
 
     </div>
 </div>
+
 <style>
-.btn btn-primary my-btn btn-start my-btn-dropdown {
-  margin-left: 15px;
+.btn.btn-primary.my-btn.btn-start.my-btn-dropdown {
+  margin-left: 30px;
 }
 </style>
 
