@@ -19,6 +19,7 @@ require('Parts/headerMenu.php');
 </div>
 <style>
 .panel-success {
+		margin-top: 30px;
     margin-left:20px;
     margin-right:20px;
 }
