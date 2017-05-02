@@ -13,7 +13,6 @@
 
 // fix urls not generating correctly
 URL::forceRootUrl(env('APP_URL', ''));
-URL::forceSchema(env('APP_SCHEMA', 'http'));
 
 Auth::routes();
 
