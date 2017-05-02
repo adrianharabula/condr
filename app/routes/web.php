@@ -11,11 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 // fix urls not generating correctly
 URL::forceRootUrl(env('APP_URL', ''));
 URL::forceSchema(env('APP_SCHEMA', 'http'));
 
-Route::get('/home', 'Home@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
