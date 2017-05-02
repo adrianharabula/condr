@@ -16,4 +16,5 @@ URL::forceRootUrl(env('APP_URL', ''));
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'Home@index');
