@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Yajra\Oci8\Eloquent\OracleEloquent as Eloquent;
 
 class User extends Authenticatable
 {
