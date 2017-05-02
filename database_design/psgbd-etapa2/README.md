@@ -11,7 +11,7 @@ __Atentie__: pentru partea a doua, este obligatoriu ca datele sa aiba logica (da
 
 # Run Instructions
 
-1. Put root folder in www folder
+1. Set up [psgbd-etapa2](https://github.com/adrianharabula/condr/tree/master/database_design/psgbd-etapa2) folder as root www folder
 2. Copy __Config.php.example__ to __Config.php__ and complete with correct credentials:
 
 ```
@@ -24,7 +24,7 @@ class Config {
 }
 ```
 
-## Running code
+## Working code available online
 
 A on-line version is available at [ii.condr.me](http://ii.condr.me).
 For login use
