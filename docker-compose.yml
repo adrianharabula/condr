@@ -54,7 +54,6 @@ services:
      links:
       - psgbd_etapa2
       - app
-      - api
       - webhooks
      ports:
       - "80:80"
