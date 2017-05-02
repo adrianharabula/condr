@@ -34,6 +34,6 @@ user: elisa
 pass: elis47
 ```
 
-More code, scripts and samples [here](http://ii.condr.me/App).  
+More code, scripts and samples [here](http://ii.condr.me/App/).  
 
-SQL code used is located in [SqlScripts](http://ii.condr.me/SqlScripts) folder.  
+SQL code used can be located [here](https://webhooks.condr.me/sqlconcat) in one big file, or [here](https://github.com/adrianharabula/condr/tree/master/Dockerfiles/oracledb/sqlscripts).  
