@@ -12,7 +12,7 @@ __Atentie__: pentru partea a doua, este obligatoriu ca datele sa aiba logica (da
 # Run Instructions
 
 1. Set up [psgbd-etapa2](https://github.com/adrianharabula/condr/tree/master/database_design/psgbd-etapa2) folder as root www folder
-2. Copy __Config.php.example__ to __Config.php__ and complete with correct credentials:
+2. Copy [__Config.php.example__](https://github.com/adrianharabula/condr/blob/master/database_design/psgbd-etapa2/Config/Config.php.example) to __Config.php__ and complete with correct credentials:
 
 ```
 class Config {
