@@ -11,9 +11,6 @@
 |
 */
 
-// fix urls not generating correctly
-URL::forceRootUrl(env('APP_URL', ''));
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
