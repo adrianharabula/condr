@@ -10,15 +10,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    // deactivate timestamps for users table
-    // public $timestamps = false;
-
-    // set id column to user_id
-    // protected $primaryKey = 'user_id';
-
-    // set user_id seq
-    // public $sequence = 'users_user_id_seq';
-
     /**
      * The attributes that are mass assignable.
      *
