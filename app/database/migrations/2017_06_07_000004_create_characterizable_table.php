@@ -16,10 +16,17 @@ class CreateUsersTable extends Migration
         Schema::create('characterizable', function (Blueprint $table) {
             $table->integer('characteristic_id')->unsigned();
             $table->foreign('characteristic_id')->references('id')->on('characteristics');
-            $table->json('characteristic_values');
-            $table->integer('characterizable_id')->unsigned();
-            $table->string('characterizable_type');
+            // cannot use $table->json yet for characteristic_values because it's not implemented yet
+            // see here https://github.com/yajra/laravel-oci8/issues/283
+            // and here https://docs.oracle.com/database/122/ADJSN/creating-a-table-with-a-json-column.htm
+            $table->string('characteristic_values', 4000);
+            $table->morphs('characterizable');
             $table->timestamps();
+
+            // TODO: maybe add indexes for this table
+            // $table->index('characteristic_id');
+            // $table->index('characterizable_id');
+            // $table->index('characterizable_type');
         });
     }
 
