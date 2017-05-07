@@ -16,6 +16,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 //Route::get('/home', 'Home@index')->name('home');
 Route::get('/about', 'AboutController@index')->name('about');
+Route::get('/contact', 'ContactController@index')->name('contact');
 Route::get('/products', 'ProductsController@index')->name('products');
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');

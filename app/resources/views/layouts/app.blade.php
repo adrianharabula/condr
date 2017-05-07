@@ -58,6 +58,7 @@
                       <li><a href="{{ route('products') }}">Products</a></li>
                       <li><a href="{{ route('groups') }}">Groups</a></li>
                       <li><a href="{{ route('statistics') }}">Statistics</a></li>
+                      <li><a href="{{ route('contact') }}">Contact</a></li>
 
                       @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
@@ -88,6 +89,26 @@
     </div>
 
     @yield('content')
+
+    <nav id="tf-footer" class="bg-black white">
+        <div class="container">
+            <div class="pull-left">
+                <p>&copy; <?=date('Y')?> Consumer Decision Maker using <a href="http://themeforces.com/preview/?theme=free-awesomess-portfolio">Awesomess</a> by <a href="https://dribbble.com/jennpereira">Jenn</a> </p>
+            </div>
+            <div class="pull-right">
+                <ul class="social-media list-inline">
+                    <li class="hidden-xs"><a href="{{ route('contact') }}">Contact</a></li>
+                    <li><a href="https://github.com/adrianharabula/condr"><span class="fa fa-github"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script type="text/javascript" src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/plusbutton.js') }}"></script>
 
 </body>
 </html>
