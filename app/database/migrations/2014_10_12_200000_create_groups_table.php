@@ -13,7 +13,7 @@ class CreateGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('condrgroups', function (Blueprint $table) {
             $table->increments('group_id');
             $table->string('name')->unique();
             $table->string('description')->nullable();
@@ -27,6 +27,6 @@ class CreateGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('condrgroups');
     }
 }
