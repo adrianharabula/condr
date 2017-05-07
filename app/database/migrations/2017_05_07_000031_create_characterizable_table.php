@@ -14,6 +14,9 @@ class CreateCharacterizableTable extends Migration
     public function up()
     {
         Schema::create('characterizable', function (Blueprint $table) {
+            // TODO: maybe add primary key for this table
+            // $table->increments('id');
+
             $table->integer('characteristic_id')->unsigned();
             $table->foreign('characteristic_id')->references('id')->on('characteristics');
             // cannot use $table->json yet for characteristic_values because it's not implemented yet
