@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class PreferencesController extends Controller
 {
-    //
+  function index() {
+    return view('preferences');
+  }
 }
