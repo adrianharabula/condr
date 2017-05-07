@@ -5,21 +5,20 @@ $db = new Database\Database;
 $utils = new Utils\Utils;
 
 $loginResult = 0;
-$username = $_REQUEST['username'];
+$email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
 
 if(isset($_REQUEST['submitLogin']))
 {
-  if(isset($username) && isset($password))
+  if(isset($email) && isset($password))
   {
-    $db->query("select count(*) as NR from users where username=:p1 and password=:p2")
-       ->bind(':p1', $username)
-       ->bind(':p2', $password)
+    $db->query('select "password" from users where email=:p1')
+       ->bind(':p1', $email)
        ->execute();
-    $loginResult = $db->firstResult()->NR;
+    $loginResult = password_verify($password, $db->firstResult()->password);
 
     // log in the user on valid credentials
-    if($loginResult) $_SESSION['username'] = $username;
+    if($loginResult) $_SESSION['username'] = $email;
   }
 }
 
@@ -53,7 +52,7 @@ require('Parts/headerMenu.php');
           <form role="form" action="login.php" method="post">
             <fieldset>
               <div class="form-group">
-                <input class="form-control" placeholder="Enter your username" name="username" type="username" autofocus="">
+                <input class="form-control" placeholder="Enter your email" name="email" type="email" autofocus="">
               </div>
               <div class="form-group">
                 <input class="form-control" placeholder="Password" name="password" type="password" value="">
