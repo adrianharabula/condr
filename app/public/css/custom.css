@@ -1,0 +1,129 @@
+/*Custom styles here*/
+
+.equal {
+  display: flex;
+  display: -webkit-flex;
+}
+
+a.btn-groups {
+  margin: 0;
+}
+
+.header_search {
+    margin-top: 24px;
+    width: 600px;
+    margin-right: 20px;
+    float: left;
+}
+
+#tf-menu.navbar {
+  border-radius: 0px;
+  background-color: black;
+}
+
+.navbar-inverse .navbar-nav > li > a.btn {
+  color: white;
+}
+
+.navbar-inverse .navbar-nav li a {
+  /*color: #01FF70;*/
+}
+
+/*set color for all links in dropdown*/
+.navbar-inverse .navbar-nav ul.my-profile li a {
+  color: black;
+}
+
+/*
+ * General settings for mybtn
+ */
+button.btn.btn-primary.my-btn, a.btn.btn-primary.my-btn, input.btn.btn-primary.my-btn {
+  padding: 10px 31px;
+}
+
+button.btn.my-btn, a.btn.my-btn, input.btn.my-btn {
+  margin: 4px 1px;
+  border-radius: 0;
+}
+
+/*default button settings*/
+a.btn.btn-primary.my-btn-dropdown, input.btn.btn-primary.my-btn-dropdown {
+  color: white;
+  background-color: #2F937B;
+}
+
+/*button color on active, focused and hover states*/
+a.btn.btn-primary.my-btn-dropdown:hover, a.btn.btn-primary.my-btn-dropdown:focus, a.btn.btn-primary.my-btn-dropdown:active,
+input.btn.btn-primary.my-btn-dropdown:hover, input.btn.btn-primary.my-btn-dropdown:focus, input.btn.btn-primary.my-btn-dropdown:active {
+  background-color: #85144B;
+  color: white;
+}
+
+/*.custom{background:#888; height:80px; padding:16px}*/
+
+.text{
+  margin-left: 60px;
+  overflow: hidden;
+  }
+
+.cust-margin {
+  margin-top:6px;
+  margin-bottom:1px;
+}
+
+a.btn.my-btn.btn-start {
+  /*margin-top: 10px;*/
+}
+
+a .fa-custom {
+  color: #2F937B;
+}
+
+.logo a:hover {
+  color: #85144B;
+}
+
+nav#tf-footer {
+	padding: 40px 0;
+}
+
+nav#tf-footer p, nav#tf-footer ul {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  #tf-service .col-md-4 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}
+
+a, a:visited {
+    color: #9d9d9d;
+}
+
+a:hover, a:active {
+    color: #fff;
+}
+
+.active a {
+    color: #fff;
+}
+
+.lets-start .row .col-md-6 {
+  margin-top: 10px;
+}
+
+.page {
+    padding-top: 45px;
+}
+
+.form-control.full-width {
+  width: 100%;
+}
+
+.page > .row {
+  margin-bottom: 30px;
+}

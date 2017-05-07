@@ -1,0 +1,45 @@
+
+#principal-button{
+  width: 60%;
+  margin-left: 70px;
+}
+#principal-button:hover{
+   background-color: #2e6da4;
+    color: white;
+}
+.btn-default:hover{
+ background-color: #2e6da4;
+    color: #2F937B;
+}
+
+#buton{
+  width: 30%;
+  margin-right: 70px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+#exampleModal{
+  margin-top: 80px;
+}
+
+.table_product{
+  width: 41%;
+}
+.btn{
+  background-color: #2F937B;
+}
+td{
+  font-weight: bold;
+  padding: 8px;
+}
+#products{
+  margin-left: 30%;
+  width: 100%;
+}
+.image{
+    padding: 5px;
+    width: 30%;
+    filter: grayscale(50%);
+
+}
