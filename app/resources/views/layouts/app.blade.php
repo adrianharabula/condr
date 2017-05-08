@@ -14,7 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome/css/font-awesome.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}">
@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300'>
     <link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Playball'>
     <!-- <link href="/Assets/css/datepicker3.css" rel="stylesheet"> -->
-    <script type="text/javascript" src="/Assets/js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="{{ asset('js/modernizr.custom.js') }}"></script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
