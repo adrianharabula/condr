@@ -19,7 +19,11 @@ class UsersTableSeeder extends Seeder
       ]);
 
       // add user elisa
-
+      DB::table('users')->insert([
+          'name' => 'Elisa Aioanei',
+          'email' => 'elisa.aioanei@yahoo.com',
+          'password' => bcrypt('elisa'),
+      ]);
       // add user gabriela
       DB::table('users')->insert([
           'name' => 'Madalina Buza',
