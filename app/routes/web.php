@@ -27,8 +27,11 @@ Route::get('/contact', 'ContactController@index')->name('contact');
 Route::get('/products', 'ProductsController@index')->name('products');
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
-Route::get('/preferences', 'PreferencesController@index')->name('preferences');
-Route::get('/details', 'DetailsController@index')->name('details');
-Route::get('/myproducts', 'MyProductsController@index')->name('myproducts');
-Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
-Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
+
+Route::group(['middleware' => 'auth'], function () {
+  Route::get('/preferences', 'PreferencesController@index')->name('preferences');
+  Route::get('/details', 'DetailsController@index')->name('details');
+  Route::get('/myproducts', 'MyProductsController@index')->name('myproducts');
+  Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
+  Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
+});
