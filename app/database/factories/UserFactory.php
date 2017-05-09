@@ -5,7 +5,7 @@ $factory->define(App\User::class, function () {
 
     return [
         'name' => $roFaker->firstName. ' ' . $roFaker->lastName,
-        'email' => $roFaker->unique()->safeEmail,
+        'email' => $roFaker->unique()->freeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
