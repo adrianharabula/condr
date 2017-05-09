@@ -23,5 +23,8 @@ class UsersTableSeeder extends Seeder
       // add user gabriela
 
       // add user elena
+
+      // add 50 random users
+      factory(App\User::class, 50)->create();
     }
 }
