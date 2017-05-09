@@ -11,10 +11,17 @@
 |
 */
 
+// see https://github.com/adrianharabula/condr/issues/67
+// for more info on this routes
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-//Route::get('/home', 'Home@index')->name('home');
+
+// default route for laravel after login/recoverpassword
+Route::get('/home', function () {
+  return redirect()->route('home');
+});
+
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::get('/products', 'ProductsController@index')->name('products');
