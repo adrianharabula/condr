@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CondrgroupsTableSeeder extends Seeder
+class CategoriesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
