@@ -15,18 +15,15 @@ class GroupUserTableSeeder extends Seeder
      {
         DB::table('condrgroup_user')->delete();
 
-        $faker = Faker\Factory::create();
-
         $groups = Group::pluck('id');
-        $last_group = count($groups) - 1;
-
         $users = User::pluck('id');
-        $last_user = count($users) - 1;
 
         for ($i = 0; $i < 20; $i++) {
-          $user = User::find($users[rand(0,$last_user)]);
-          $group = Group::find($groups[rand(0,$last_group)]);
+          // select random user and group
+          $user = User::find($users[rand(0, count($groups) - 1)]);
+          $group = Group::find($groups[rand(0, count($users) - 1)]);
 
+          // attach a relationship between them
           $user->groups()->attach($group);
         }
     }
