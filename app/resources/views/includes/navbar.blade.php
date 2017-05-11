@@ -27,9 +27,11 @@
 
                 <!-- Authentication Links -->
                 @if (Auth::guest())
+
                     <li><a href="{{ route('login') }}" class='btn btn-primary my-btn my-btn-dropdown'>Login</a></li>
                     <li><a href="{{ route('register') }}">Register</a></li>
                 @else
+
                     <li class="dropdown">
                       <a href="#" class="btn btn-primary my-btn my-btn-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My profile <span class="caret"></span></a>
                       <ul class="dropdown-menu my-profile">
@@ -52,6 +54,7 @@
                       </ul>
                     </li>
                 @endif
+                
               </ul>
 
             </div><!-- /.navbar-collapse -->
