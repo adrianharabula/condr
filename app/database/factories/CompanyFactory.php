@@ -1,11 +1,10 @@
 <?php
-$factory->define(\App\Company::class, function () {
-    $roFaker = Faker\Factory::create("en_US");
-    static $password;
+$factory->define(App\Company::class, function () {
+    $faker = Faker\Factory::create("en_US");
 
     return [
-        'name' => $roFaker->unique()->company,
-        'description' => $roFaker->catchPhrase,
+        'name' => $faker->unique()->company,
+        'description' => $faker->catchPhrase,
         'views' => rand(1,1000),
     ];
 });
