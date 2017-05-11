@@ -32,6 +32,12 @@ class UsersTableSeeder extends Seeder
       ]);
 
       // add user elena
+      DB::table('users')->insert([
+          'name' => 'Anghelina Elena',
+          'email' => 'anghelinaelena96@gmail.com',
+          'password' => bcrypt('elena'),
+      ]);
+
 
       // add 50 random users
       factory(App\User::class, 50)->create();
