@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
-@section('title','Home Page')
+@section('page-colors', 'bg-black white')
 
 @section('content')
-
 <div id="tf-home">
     <div class="overlay">
         <div id="sticky-anchor"></div>
@@ -14,8 +13,8 @@
 
                 <div class="row">
                   <div class="col-md-6 col-md-offset-3">
-                    <a href="{{ route('preferences') }}" class="btn btn-primary my-btn btn-start my-btn-dropdown">Let's get started!</a>
-                    <a href="{{ route('contact') }}" class="btn btn-primary my-btn btn-start my-btn-dropdown">Contact us!</a>
+                    <a href="preferences.php" class="btn btn-primary my-btn btn-start my-btn-dropdown">Let's get started!</a>
+                    <a href="contact.php" class="btn btn-primary my-btn btn-start my-btn-dropdown">Contact us!</a>
 
                   </div>
                 </div>
@@ -65,11 +64,4 @@
 
     </div>
 </div>
-
-<style>
-.btn.btn-primary.my-btn.btn-start.my-btn-dropdown {
-  margin-left: 30px;
-}
-</style>
-
 @endsection

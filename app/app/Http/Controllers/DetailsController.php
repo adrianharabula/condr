@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class DetailsController extends Controller
 {
   function index() {
-    // return view('details');
+    return view('details');
   }
 }

@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
-@section('title','Contact')
+@section('title', 'Contact')
 
 @section('content')
-<link href="{{ asset('css/contact.css') }}" rel="stylesheet">
 <div class="container">
   <div class="row black">
     <form id="contact" action="" method="post">
@@ -30,5 +29,8 @@
     </form>
   </div>
 </div>
-
 @endsection
+
+@push('styles')
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/contact.css') }}">
+@endpush
