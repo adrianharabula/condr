@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use \App\Condrgroup as Group;
 use \App\User as User;
 
-class GroupUserTableSeeder extends Seeder
+class CondrgroupUserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
