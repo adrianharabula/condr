@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CondrGroupsTableSeeder::class);
         $this->call(CategoriesTableSeeder::class);
         $this->call(CondrgroupUserTableSeeder::class);
+        $this->call(CompaniesTableSeeder::class);
     }
 }
