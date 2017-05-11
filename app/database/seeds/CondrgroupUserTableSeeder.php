@@ -20,8 +20,8 @@ class CondrgroupUserTableSeeder extends Seeder
 
         for ($i = 0; $i < 20; $i++) {
           // select random user and group
-          $user = User::find($users[rand(0, count($groups) - 1)]);
-          $group = Group::find($groups[rand(0, count($users) - 1)]);
+          $user = User::find($users[rand(0, count($users) - 1)]);
+          $group = Group::find($groups[rand(0, count($groups) - 1)]);
 
           // attach a relationship between them
           $user->groups()->attach($group);
