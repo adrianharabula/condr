@@ -40,6 +40,10 @@ class CategoriesTableSeeder extends Seeder
           'description' => 'Education category consists of products that a person may need for educational purposes,like books, records, maps etc, but also includes services that an university can provide, like scholarships, training programs and other.',
       ]);
       DB::table('categories')->insert([
+          'name' => 'Entertainment',
+          'description' => 'Entertainment category consists of sports and shows  that anyone should watch after a hard day of work! Just relax and enjoy!',
+      ]);
+      DB::table('categories')->insert([
           'name' => 'Other',
           'description' => 'Here you find everything you could not find in the other categories!',
       ]);
