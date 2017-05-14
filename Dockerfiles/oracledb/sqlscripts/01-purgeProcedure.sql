@@ -1,3 +1,4 @@
+conn condr/condr;
 create or replace PROCEDURE purgedatabase AS
 begin
 
