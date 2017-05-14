@@ -5,7 +5,7 @@ services:
      build:
        context: ./Dockerfiles/oracledb/
        dockerfile: Dockerfile
-     image: condr/databse
+     image: condr/database
      restart: always
      ports:
       - "1521:1521"
