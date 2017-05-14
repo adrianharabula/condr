@@ -10,6 +10,17 @@ services:
      ports:
       - "1521:1521"
 
+   app:
+     depends_on:
+       - oracledb
+     image: adrianharabula/php7-with-oci8
+     links:
+      - oracledb
+     volumes:
+      - ./app:/var/www/html
+     ports:
+      - "8080:80"
+
    webhooks:
      build:
        context: ./Dockerfiles/git-webhook/
@@ -24,35 +35,12 @@ services:
      ports:
       - "9000:9000"
 
-   app:
-     depends_on:
-       - oracledb
-     image: adrianharabula/php7-with-oci8
-     links:
-      - oracledb
-     volumes:
-      - ./app:/var/www/html
-     ports:
-      - "8080:80"
-
-   psgbd_etapa2:
-     depends_on:
-       - oracledb
-     image: adrianharabula/php7-with-oci8
-     links:
-      - oracledb
-     volumes:
-      - ./psgbd/etapa2:/var/www/html
-     ports:
-      - "8282:80"
-
    virtualhosts:
      build:
       context: ./Dockerfiles/apache-virtualhosts/
       dockerfile: Dockerfile
      image: apache-virtualhosts
      links:
-      - psgbd_etapa2
       - app
       - webhooks
      ports:
