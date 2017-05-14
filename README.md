@@ -9,7 +9,7 @@
  * tema PSGBD, etapa II, conectare la baza de date cu PHP şi oci8, queriuri pe baza de date, cod sursă [aici](https://github.com/adrianharabula/condr/tree/master/psgbd/etapa2)
  
 ## Instrucțiuni instalare
-__TODO__: Aici va fi un link către o pagină de wiki probabil.
+Aplicaţia nu are nevoie decât de php (am folosit versiunile 7.0, 7.1, 7.1.5) şi librăria oci instalată pentru a funcţiona. Un mediu deja configurat pentru toată aplicaţia, care include şi o bază de date oracle gata configurată este aici [docker.compose.yml](https://github.com/adrianharabula/condr/blob/master/docker-compose.yml). Instrucţiunile detaliate pentru instalare sunt [aici](https://github.com/adrianharabula/condr/wiki/Install-instructions).
 
 ### Resurse
  * https://www.programmableweb.com/category/ecommerce/api
