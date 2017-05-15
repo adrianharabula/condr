@@ -35,6 +35,3 @@ alter user condr default tablespace aplicatie_condr quota 1990M on aplicatie_con
 grant connect to condr;
 grant all privileges to condr;
 /
-
-quit;
-/
