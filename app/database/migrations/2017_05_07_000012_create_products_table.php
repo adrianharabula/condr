@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->integer('company_id')->unsigned()->nullable();
             $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
