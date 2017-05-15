@@ -63,7 +63,7 @@ class CaracterizableTableSeeder extends Seeder
       ]);
       DB::table('characterizable')->insert([
           'characteristic_id' => 19,
-          'characteristic_values' => 80,
+          'characteristic_values' => '80',
           'characterizable_id' => 2,
           'characterizable_type' => 'product',
       ]);
