@@ -26,6 +26,8 @@ Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::get('/products', 'ProductsController@index')->name('products');
 Route::get('/groups', 'GroupsController@index')->name('groups');
+Route::get('/group/view', 'GroupsController@viewGroup')->name('viewGroup');
+Route::get('/group/join', 'GroupsController@joinGroup')->name('joinGroup');
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
 Route::group(['middleware' => 'auth'], function () {
@@ -35,4 +37,5 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
   Route::get('/details/editpassword', 'UsersController@editpassword')->name('editpassword');
   Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
+
 });
