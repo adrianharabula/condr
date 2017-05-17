@@ -33,5 +33,6 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/details', 'DetailsController@index')->name('details');
   Route::get('/myproducts', 'MyProductsController@index')->name('myproducts');
   Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
+  Route::get('/details/editpassword', 'UsersController@editpassword')->name('editpassword');
   Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
 });
