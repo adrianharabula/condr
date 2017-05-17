@@ -2,7 +2,7 @@
 
 
 @section('content')
-
+@section('title','Login')
 <br />
 <div class="container">
     <div class="row">
