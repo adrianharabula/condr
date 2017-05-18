@@ -17,11 +17,11 @@
             <h4>Product name: {{ $product->name }}</h4>
             <h5>by {{ $product->company->name }} </h5>
             <h4>Product category</h4>
-            {{-- <h5>{{ $product->category->name }}</h5> --}}
+            <h5>{{ $product->category->name }}</h5>
             <h4>Characteristics of the product:</h4>
-            @foreach ($product->characteristics() as $characteristic)
+            {{-- @foreach ($product->characteristics() as $characteristic)
                 <h5> {{ $characteristic->characteristic_values }}</h5>
-            @endforeach
+            @endforeach --}}
 
           </div>
 
