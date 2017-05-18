@@ -57,7 +57,7 @@
               </div>
             </div>
             <div class="col-md-3">
-              <a href={{ route('viewproduct') }} class="btn btn-primary my-btn my-btn-dropdown btn-block btn-product pull-right">View details</a>
+              <a href={{ route('viewproduct', $product->id) }} class="btn btn-primary my-btn my-btn-dropdown btn-block btn-product pull-right">View details</a>
             </div>
         </div>
      @endforeach
