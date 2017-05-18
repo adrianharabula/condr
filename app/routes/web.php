@@ -25,9 +25,10 @@ Route::get('/home', function () {
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::get('/products', 'ProductsController@index')->name('products');
+Route::get('/product/view/{product}', 'ProductsController@viewproduct')->name('viewproduct');
 Route::get('/groups', 'GroupsController@index')->name('groups');
-Route::get('/group/view', 'GroupsController@viewGroup')->name('viewGroup');
-Route::get('/group/join', 'GroupsController@joinGroup')->name('joinGroup');
+Route::get('/group/view/{group}', 'GroupsController@viewGroup')->name('viewGroup');
+Route::post('/group/join/{group}', 'GroupsController@store')->name('joinGroup');
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
 Route::group(['middleware' => 'auth'], function () {

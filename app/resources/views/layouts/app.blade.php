@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css"  href="{{ asset('/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/custom.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/products.css') }}">
     <link rel=stylesheet href="//s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
 
     <!-- Additional StyleSheets -->
@@ -30,7 +31,7 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-    
+
     <script type="text/javascript" src="{{ asset('/js/modernizr.custom.js') }}"></script>
 
     @include('includes.analytics')
@@ -42,7 +43,7 @@
         @include('includes.navbar')
 
         @yield('content')
-        
+
     </div>
 
     @include('includes.footer')

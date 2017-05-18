@@ -7,11 +7,11 @@
   	<div class="panel panel-success">
         <div class="panel-heading">Joined group successfully!</div>
     </div>
-    <div class="col-md-9"><a href={{ route('viewGroup') }} class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">View details</a></div>
+    <div class="col-md-9"><a href={{ route('viewGroup', $group->id) }} class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">View details</a></div>
   </div>
   </div>
 
-  
+
   <style>
   .col-md-9 {
       width: 97%;
