@@ -4,7 +4,6 @@
 @section('page-colors','bg-black white')
 
 @section('content')
-<link href="/Assets/css/products.css" rel="stylesheet">
 
 <div class="container page white">
     <div class="row">
@@ -63,5 +62,9 @@
      @endforeach
   </div>
 </div>
+
+@push('styles')
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/products.css') }}">
+@endpush
 
 @endsection
