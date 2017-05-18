@@ -32,10 +32,10 @@
               </div>
 
               <div class="col-xs-6 col-md-2">
-                <a href={{ route('viewGroup') }} class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">View</a>
+                <a href={{ route('viewGroup', $group->id) }} class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">View</a>
               </div>
               <div class="col-xs-6 col-md-2">
-                <a href={{ route('joinGroup') }} class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Join</a>
+                <a href={{ route('joinGroup', $group->id) }} class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Join</a>
               </div>
           </div> <br />
         @endforeach
