@@ -18,7 +18,7 @@ class CondrgroupUserTableSeeder extends Seeder
         $groups = Group::pluck('id');
         $users = User::pluck('id');
 
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 100; $i++) {
           // select random user and group
           $user = User::find($users[rand(0, count($users) - 1)]);
           $group = Group::find($groups[rand(0, count($groups) - 1)]);

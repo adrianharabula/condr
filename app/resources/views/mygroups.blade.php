@@ -39,17 +39,7 @@
           @endforeach
         </div>
      </div>
-
-     <nav aria-label="Product navigation" class="text-center">
-      <ul class="pagination">
-        <li class="page-item {{ $groups->currentPage() === 1 ? 'hidden' : '' }}">
-          <a class="page-link" href={{ route('mygroups') }} tabindex="-1">First</a>
-        </li>
-        {{-- <li class="page-item {{ $groups->currentPage() === 1 ? 'hidden' : '' }}">
-          <a class="page-link" href= {{ route('mygroups', ['page'=>$groups->currentPage()-1]) }} tabindex="-1">Previous</a>
-        </li> --}}
-      </ul>
-    </nav>
+     
 
   </div>
 </div>
