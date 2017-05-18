@@ -21,6 +21,6 @@ class Product extends Model
 
     public function characteristics()
     {
-        return $this->morphMany('\App\Characteristic', 'characterizable');
+        return $this->morphToMany('\App\Characteristic', 'characterizable');
     }
 }

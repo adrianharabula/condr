@@ -3,20 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Characteristic extends Model
 {
-  public function products()
+  public function characterizable()
   {
-      return $this->morphedByMany('\App\Product', 'characterizable');
-  }
-  public function users()
-  {
-      return $this->morphedByMany('\App\User', 'characterizable');
-  }
-  public function groups()
-  {
-      return $this->morphedByMany('\App\Condrgroup', 'characterizable');
+    return $this->morphTo();
   }
 
+  public function values() {
+    $characterizable = DB::table('characterizables')->where('characteristic_id', $this->id)->first();
+    return $characterizable->characteristic_values;
+  }
 }

@@ -16,6 +16,8 @@ class ProductsController extends Controller
   }
 
   function viewProduct(\App\Product $product) {
-    return view('viewProduct')->with('product', $product);
+    $group = \App\Condrgroup::find(1);
+    return view('viewProduct')->with('product', $product)
+                              ->with('group', $group);
   }
 }
