@@ -14,10 +14,10 @@ class Product extends Model
     {
          return $this->belongsTo('\App\Company');
     }
-    // public function category()
-    // {
-    //      return $this->belongsTo('\App\Category');
-    // }
+    public function category()
+    {
+         return $this->belongsTo('\App\Category');
+    }
     public function characteristics()
     {
         return $this->morphToMany('\App\Characteristics', 'characterizable');
