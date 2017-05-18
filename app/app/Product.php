@@ -18,8 +18,9 @@ class Product extends Model
     {
          return $this->belongsTo('\App\Category');
     }
+
     public function characteristics()
     {
-        return $this->morphToMany('\App\Characteristics', 'characterizable');
+        return $this->morphMany('\App\Characteristic', 'characterizable');
     }
 }
