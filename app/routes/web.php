@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
   Route::post('/group/join/{group}', 'GroupsController@store')->name('joinGroup');
   Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
   Route::get('/details/editpassword', 'UsersController@editpassword')->name('editpassword');
+  Route::post('/details/editpassword', 'UsersController@updatepassword')->name('editpassword');
   Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
 
 });
