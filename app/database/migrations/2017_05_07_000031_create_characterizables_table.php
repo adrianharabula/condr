@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCharacterizableTable extends Migration
+class CreateCharacterizablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCharacterizableTable extends Migration
      */
     public function up()
     {
-        Schema::create('characterizable', function (Blueprint $table) {
+        Schema::create('characterizables', function (Blueprint $table) {
             // TODO: maybe add primary key for this table
             // $table->increments('id');
 

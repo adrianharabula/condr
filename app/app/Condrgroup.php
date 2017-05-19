@@ -11,4 +11,9 @@ class Condrgroup extends Model
     {
          return $this->belongsToMany('\App\User');
     }
+
+    public function characteristics()
+    {
+        return $this->morphToMany('\App\Characteristic', 'characterizable');
+    }
 }

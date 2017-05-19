@@ -18,10 +18,14 @@
             <h5>by {{ $product->company->name }} </h5>
             <h4>Product category</h4>
             <h5>{{ $product->category->name }}</h5>
+
+
             <h4>Characteristics of the product:</h4>
-            {{-- @foreach ($product->characteristics() as $characteristic)
-                <h5> {{ $characteristic->characteristic_values }}</h5>
-            @endforeach --}}
+            @foreach ($product->characteristics as $characteristic)
+                <h5> {{ $characteristic->name }}: {{ $characteristic->values() }}</h5>
+            @endforeach
+
+          <h5>  {{ $group->characteristics[0]->name }}: {{ $group->characteristics[0]->values() }}</h5>
 
           </div>
 
