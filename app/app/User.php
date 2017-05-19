@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function characteristics()
     {
-        return $this->morphMany('\App\Characteristic', 'characterizable');
+        return $this->morphToMany('\App\Characteristic', 'characterizable');
     }
 }
