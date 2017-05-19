@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class MyPreferencesController extends Controller
 {
   function index() {
-    return view('mypreferences');
+    $user = Auth::user();
+    return view('mypreferences')->with('user',$user);
   }
+
 }
