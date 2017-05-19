@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Condrgroup as Groups;
+use App\Condrgroup as Group;
 Use Auth;
 
 class GroupsController extends Controller
 {
   function index() {
-    $groups = Groups::all();
+    $groups = Group::all();
     return view('groups')->with('groups', $groups);
   }
 
-  function viewGroup(\App\Condrgroup $group) {
+  function viewGroup(Group $group) {
     return view('viewGroup')->with('group', $group);
   }
 
-  function store(\App\Condrgroup $group, Request $request) {
+  function store(Group $group, Request $request) {
     Auth::user()->groups()->attach($group);
     $request->session()->flash('status', 'You have joined the group succesfully!');
     return redirect()->route('viewGroup', ['id' => $group->id]);
