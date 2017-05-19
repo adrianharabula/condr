@@ -28,13 +28,13 @@ Route::get('/products', 'ProductsController@index')->name('products');
 Route::get('/product/view/{product}', 'ProductsController@viewproduct')->name('viewproduct');
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::get('/group/view/{group}', 'GroupsController@viewGroup')->name('viewGroup');
-Route::post('/group/join/{group}', 'GroupsController@store')->name('joinGroup');
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/preferences', 'PreferencesController@index')->name('preferences');
   Route::get('/details', 'DetailsController@index')->name('details');
   Route::get('/myproducts', 'MyProductsController@index')->name('myproducts');
+  Route::post('/group/join/{group}', 'GroupsController@store')->name('joinGroup');
   Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
   Route::get('/details/editpassword', 'UsersController@editpassword')->name('editpassword');
   Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
