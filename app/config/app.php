@@ -165,6 +165,7 @@ return [
         Yajra\Oci8\Oci8ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Collective\Remote\RemoteServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -231,6 +232,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'SSH' => Collective\Remote\RemoteFacade::class,
     ],
 
 ];
