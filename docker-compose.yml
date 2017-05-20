@@ -21,6 +21,20 @@ services:
      ports:
       - "8080:80"
 
+   devapp:
+     depends_on:
+       - oracledb
+     build:
+       context: ./Dockerfiles/php7cli/
+       dockerfile: Dockerfile
+     image: condr/php7cli
+     links:
+      - oracledb
+     volumes:
+      - ./app:/root/app
+     ports:
+      - "8000:8000"
+
    webhooks:
      build:
        context: ./Dockerfiles/git-webhook/
