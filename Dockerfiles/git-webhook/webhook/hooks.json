@@ -10,5 +10,11 @@
     "execute-command": "/var/scripts/sqlconcat.sh",
     "command-working-directory": "/root/condr",
     "include-command-output-in-response": true
+  },
+  {
+    "id": "version",
+    "execute-command": "/var/scripts/version.sh",
+    "command-working-directory": "/root/condr",
+    "include-command-output-in-response": true
   }
 ]
