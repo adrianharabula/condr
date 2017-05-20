@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::group(['prefix' => 'scripts'], function () {
+    \Debugbar::disable();
+    
     /*
     * Webhook script;
     * It is called by GitHub on every new push
