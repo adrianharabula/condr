@@ -70,4 +70,14 @@ Route::group(['prefix' => 'scripts'], function () {
         ]);
     });
 
+    Route::get('migrate', function () {
+        Artisan::call('migrate:refresh');
+        echo '<pre>' . Artisan::output() . '</pre>';
+    });
+
+    Route::get('seed', function () {
+        Artisan::call('db:seed');
+        echo '<pre>' . Artisan::output() . '</pre>';
+    });
+
 });
