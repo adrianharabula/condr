@@ -40,6 +40,6 @@ class CreateCharacterizablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('characterizable');
+        Schema::dropIfExists('characterizables');
     }
 }
