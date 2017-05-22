@@ -32,6 +32,7 @@ Route::get('/products', 'ProductsController@index')->name('products');
 Route::post('/products', 'ProductsController@search')->name('products');
 Route::get('/product/view/{product}', 'ProductsController@viewproduct')->name('viewproduct');
 Route::get('/groups', 'GroupsController@index')->name('groups');
+Route::post('/groups', 'GroupsController@search')->name('groups');
 Route::get('/group/view/{group}', 'GroupsController@viewGroup')->name('viewGroup');
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
