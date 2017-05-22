@@ -158,6 +158,20 @@ class CharacteristicsTableSeeder extends Seeder
           'name' => 'Shipping costs', //value will be a number
       ]);
 
+      // characteristics for services (45,48)
+      DB::table('characteristics')->insert([
+          'name' => 'Room service', //value will be yes or no
+      ]);
+      DB::table('characteristics')->insert([
+          'name' => 'Close to town center', //value will be yes or no
+      ]);
+      DB::table('characteristics')->insert([
+          'name' => 'Has direct connection', //value will be yes or no
+      ]);
+      DB::table('characteristics')->insert([
+          'name' => 'Close to the beach', //value will be yes or no
+      ]);
+
       // etc.... mai adaugati voi....
 
     }

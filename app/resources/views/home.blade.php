@@ -2,6 +2,8 @@
 
 @section('page-colors', 'bg-black white')
 
+@section('title','Home page')
+
 @section('content')
 <div id="tf-home">
     <div class="overlay">

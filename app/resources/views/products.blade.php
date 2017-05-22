@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title','Products list')
+
 @section('page-colors','bg-black white')
 
 @section('content')

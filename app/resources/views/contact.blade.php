@@ -3,6 +3,7 @@
 @section('title', 'Contact')
 
 @section('content')
+  
 <div class="container">
   <div class="row black">
     <form id="contact" action="" method="post">

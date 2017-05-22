@@ -2,6 +2,8 @@
 
 @section('page-colors', 'bg-black black')
 
+@section('title','About us')
+
 @section('content')
 <section class="container-fluid" id="section1"><br><br>
     <h1 class="text-center v-center">Why this application?</h1>

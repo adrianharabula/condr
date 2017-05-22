@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','My products')
+
 @section('content')
 
 <div class="container white">

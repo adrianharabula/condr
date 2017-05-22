@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','Groups')
+
 @section('content')
 
   <div class="container page" style="background-color:grey;">

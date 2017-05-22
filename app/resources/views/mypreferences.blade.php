@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','My preferences')
+
 @section('content')
 
 <div class="row">
