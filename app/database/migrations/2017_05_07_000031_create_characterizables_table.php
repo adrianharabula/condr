@@ -23,8 +23,8 @@ class CreateCharacterizablesTable extends Migration
             // see here https://github.com/yajra/laravel-oci8/issues/283
             // and here https://docs.oracle.com/database/122/ADJSN/creating-a-table-with-a-json-column.htm
             $table->morphs('characterizable');
-            $table->string('characteristic_values', 4000);
-            $table->string('characteristic_value_votes', 4000);
+            $table->string('characteristic_values', 4000)->nullable();
+            $table->string('characteristic_value_votes', 4000)->nullable();
             $table->timestamps();
 
             // TODO: maybe add indexes for this table
