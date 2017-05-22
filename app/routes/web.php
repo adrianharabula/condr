@@ -42,8 +42,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
     Route::get('/details/editpassword', 'UsersController@editpassword')->name('editpassword');
     Route::get('/details/preferences', 'PreferencesController@index')->name('preferences');
+    Route::get('/preferences/suggestion', 'PreferencesController@suggestion')->name('suggestion');
     Route::post('/details/editpassword', 'UsersController@updatepassword')->name('editpassword');
     Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
+    Route::post('/products', 'ProductsController@index')->name('products');
+    Route::get('/mypreferences/addpreferences', 'MyPreferencesController@addPreferences')->name('addpreferences');
+
 });
 
 Route::group(['prefix' => 'scripts'], function () {

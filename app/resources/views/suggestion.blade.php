@@ -41,7 +41,7 @@
             <h5><b>IPHONE 6S</b> - The product matches 97% of your preferences!</h5>
             <h5><b>IPHONE 7</b> - The product matches 93% of your preferences!</h5>
             <h5><b>IPHONE 4</b> - The product matches 88% of your preferences!</h5>
-            <a href="products.php" class="btn btn-primary my-btn btn-start my-btn-dropdown">View the suggested products!</a>
+            <a href={{ route('products')}} class="btn btn-primary my-btn btn-start my-btn-dropdown">View the suggested products!</a>
 
           </div>
 
