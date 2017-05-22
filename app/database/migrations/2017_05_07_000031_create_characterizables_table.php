@@ -22,8 +22,9 @@ class CreateCharacterizablesTable extends Migration
             // cannot use $table->json yet for characteristic_values because it's not implemented yet
             // see here https://github.com/yajra/laravel-oci8/issues/283
             // and here https://docs.oracle.com/database/122/ADJSN/creating-a-table-with-a-json-column.htm
-            $table->string('characteristic_values', 4000);
             $table->morphs('characterizable');
+            $table->string('characteristic_values', 4000);
+            $table->string('characteristic_value_votes', 4000);
             $table->timestamps();
 
             // TODO: maybe add indexes for this table
@@ -40,6 +41,6 @@ class CreateCharacterizablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('characterizable');
+        Schema::dropIfExists('characterizables');
     }
 }
