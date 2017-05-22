@@ -16,4 +16,9 @@ class Characteristic extends Model
     $characterizable = DB::table('characterizables')->where('characteristic_id', $this->id)->first();
     return $characterizable->characteristic_values;
   }
+  
+  public function category()
+  {
+       return $this->belongsTo('\App\Category');
+  }
 }

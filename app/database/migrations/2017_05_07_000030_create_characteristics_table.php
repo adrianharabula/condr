@@ -16,6 +16,8 @@ class CreateCharacteristicsTable extends Migration
         Schema::create('characteristics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->integer('category_id')->unsigned()->nullable();
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
