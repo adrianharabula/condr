@@ -19,21 +19,22 @@
           <div class="panel-heading">Advanced Search</div>
           <div class="panel-body">
             <div class="row">
-              <form class="form">
+                {{ Form::open(array('url' => route('products'))) }}
+                {{ csrf_field() }}
                 <div class="form-group col-md-12">
-                  <input type="text" class="form-control full-width" id="name" placeholder="Enter keywords">
+                  <input type="text" class="form-control full-width" name="product_name" placeholder="Enter product name">
                 </div>
-                <div class="form-group col-md-12">
+                {{-- <div class="form-group col-md-12">
                   <b>Filter by</b>: <br/>
                   <label class="radio-inline"><input type="radio" name="optradio" checked="checked">Name</label>
                   <label class="radio-inline"><input type="radio" name="optradio">Category</label>
                   <label class="radio-inline"><input type="radio" name="optradio">Company</label>
-                </div>
+                </div> --}}
                 <div class="col-md-12">
                   <button type="submit" class="btn btn-primary my-btn btn-block">Search</button>
                   <br/>
                 </div>
-               </form>
+               {{Form::close()}}
             </div>
           </div>
         </div>
