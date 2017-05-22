@@ -22,6 +22,9 @@
                 <li><a href="{{ route('about') }}">About</a></li>
                 <li><a href="{{ route('products') }}">Products</a></li>
                 <li><a href="{{ route('groups') }}">Groups</a></li>
+                @if(!Auth::guest())
+                  <li><a href="{{ route('preferences') }}">Preferences</a></li>
+                @endif
                 <li><a href="{{ route('statistics') }}">Statistics</a></li>
                 <li class="hidden-sm"><a href="{{ route('contact') }}">Contact</a></li>
 
@@ -54,7 +57,7 @@
                       </ul>
                     </li>
                 @endif
-                
+
               </ul>
 
             </div><!-- /.navbar-collapse -->
