@@ -59,9 +59,6 @@
   </div>
 </div>
 
-@push('scripts')
-<script type="text/javascript" src="{{ asset('/js/plusbutton.js') }}"></script>
-@endpush
 <style>
  h4 {
    font-size: 18px;
@@ -73,7 +70,6 @@
  .panel-body {
    margin-top: 30px;
  }
-
 </style>
 
 @endsection

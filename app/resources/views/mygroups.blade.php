@@ -29,7 +29,7 @@
    				                            </td>
                                        <td class="col-md-0">
    				                                <div class="col-md-offset-2">
-   				                                    <br><a href={{ route('preferences') }} style="color:green"><b><h5>Add preferences</h5></b></a>
+   				                                    <br><a href={{ route('products') }} style="color:green"><b><h5>View products</h5></b></a>
    				                                </div>
                                        </td>
                                    </tr>

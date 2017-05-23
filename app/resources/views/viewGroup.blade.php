@@ -40,10 +40,12 @@
 
             <h4>Characteristics of the group: </h4>
             <h5>
-            @foreach ($group->characteristics as $characteristic)
+            @forelse ($group->characteristics as $characteristic)
               {{ $loop->first ? '' : ', '}}
               {{ $characteristic->name }}: {{$characteristic->values()}}
-            @endforeach
+            @empty
+               None
+            @endforelse
           </h5>
 
           </div>

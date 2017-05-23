@@ -6,7 +6,7 @@
 
   <div class="container contact">
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading text-center">
           <h4>Enter your preferences here and let's get started!</h4>
         </div>
         <div class="panel-body">
@@ -14,7 +14,7 @@
             <form role="form">
 
             </div>
-            <div class="col-md-7 col-md-offset-1">
+            <div class="col-md-8 col-md-offset-2">
               <div class="form-group">
                 <h3>Tell us what to look after!</h3>
                 <p>*Pay attention! If you want to enter your own preferences, you must provide them consisting in a noun and an attribute, separated by : and one space, as showed below!</p>
@@ -111,5 +111,22 @@
         </div>
       </div>
     </div>
+
+<style>
+ h4 {
+   font-size: 18px;
+   margin-top: 20px;
+ }
+ .panel.panel-default {
+   margin-top:30px;
+ }
+ .panel-body {
+   margin-top: 30px;
+ }
+</style>
+
+@push('scripts')
+<script type="text/javascript" src="{{ asset('/js/plusbutton.js') }}"></script>
+@endpush
 
 @endsection
