@@ -23,4 +23,10 @@ class GroupsController extends Controller
     return redirect()->route('viewGroup', ['id' => $group->id]);
   }
 
+  function search(Request $request) {
+    $name = $request->group_name;
+    $groups = Group::search($name)->get();
+    return view('groups')->with('groups',$groups);
+  }
+
 }

@@ -3,9 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+use AlgoliaSearch\Laravel\AlgoliaEloquentTrait;
 
 class Product extends Model
 {
+    use Searchable;
+    use AlgoliaEloquentTrait;
+
     public function users() {
       return $this->belongsToMany('\App\User');
     }
@@ -22,5 +27,9 @@ class Product extends Model
     public function characteristics()
     {
         return $this->morphToMany('\App\Characteristic', 'characterizable');
+    }
+    public function searchableAs()
+    {
+        return 'products_index';
     }
 }

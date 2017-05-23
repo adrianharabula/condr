@@ -13,14 +13,15 @@
 
       <div class="row">
         <div class="col-md-4 col-md-offset-4 text-center">
-          <form class="form">
+            {{ Form::open() }}
+            {{ csrf_field() }}
             <div class="form-group col-md-12">
-              <input type="text" class="form-control" id="name" placeholder="Enter the group's name">
+              <input type="text" class="form-control" name="group_name" placeholder="Enter the group's name">
             </div>
             <div class="col-md-12">
               <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Search</button>
             </div>
-          </form>
+          {{Form::close()}}
         </div>
       </div>
 

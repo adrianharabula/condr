@@ -19,6 +19,11 @@
                 <h3>Tell us what to look after!</h3>
                 <p>*Pay attention! If you want to enter your own preferences, you must provide them consisting in a noun and an attribute, separated by : and one space, as showed below!</p>
                 <p>**Press + to add another preference field :)</p><br>
+                <div class="checkbox">
+                  <label>
+                    <input name="wanted" type="checkbox" value="">I want the following characteristics
+                  </label>
+                </div>
               </div>
 
               <div class="form-group">
