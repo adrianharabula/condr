@@ -6,11 +6,11 @@
 
 <div class="container contact">
   <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4>Enter your preferences here and let's get started!</h4>
+    <div class="panel-heading text-center">
+      <h4>Search products and see if they match your preferences!</h4>
     </div>
     <div class="panel-body">
-      <div class="col-md-7 col-md-offset-1">
+      <div class="col-md-8 col-md-offset-2">
         <form role="form">
 
           <div class="form-group">
@@ -44,10 +44,13 @@
           </div><br><br>
         </div>
 
-        <div class="col-md-7 col-md-offset-1">
-          <a href={{ route('suggestion') }} name="submitPreferences" type="submit" class="btn btn-primary my-btn"> Get the results! </a>
-          <a href="{{ route('preferences') }}">
-            <button type="reset" class="btn btn-primary my-btn">Reset form</button>
+        <div class="col-md-6 col-md-offset-3">
+          {{-- <a href={{ route('suggestion') }} name="submitPreferences" type="submit" class="btn btn-primary my-btn"> Get the results! </a> --}}
+          <a href="{{ route('suggestion') }}" class="col-md-6">
+            <button type="submit" class="btn btn-primary my-btn btn-block">Get the results!</button>
+          </a>
+          <a href="{{ route('preferences') }}" class="col-md-6">
+            <button type="submit" class="btn btn-primary my-btn btn-block">Reset form</button>
           </a>
         </div>
 
@@ -59,5 +62,18 @@
 @push('scripts')
 <script type="text/javascript" src="{{ asset('/js/plusbutton.js') }}"></script>
 @endpush
+<style>
+ h4 {
+   font-size: 18px;
+   margin-top: 20px;
+ }
+ .panel.panel-default {
+   margin-top:30px;
+ }
+ .panel-body {
+   margin-top: 30px;
+ }
+
+</style>
 
 @endsection
