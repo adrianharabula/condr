@@ -15,7 +15,7 @@
           <div class="col-md-3">
             <a class="thumbnail pull-left" href="{{ asset($product->image_url) }}"> <img class="media-object" src="{{ asset($product->image_url) }}" style="width:100%;"> </a>
           </div>
-          <div class="col-md-9">
+          <div class="col-md-6">
             <h4>Product name: {{ $product->name }}</h4>
             <h5>by {{ $product->company->name }} </h5>
             <h4>Product category</h4>
@@ -27,8 +27,13 @@
             @empty
                 <h5> None </h5>
             @endforelse
-
           </div>
+          {{Form::open(array('url' => route('addproduct',$product->id)))}}
+          {{ csrf_field() }}
+          <div class="col-md-3">
+            <button class="btn btn-primary my-btn btn-start my-btn-dropdown">Add product!</button>
+          </div>
+          {{Form::close()}}
         </div>
       </div>
     </div>
