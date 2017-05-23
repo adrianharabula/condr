@@ -18,7 +18,7 @@ class GroupsController extends Controller
   }
 
   function store(Group $group, Request $request) {
-    Auth::user()->groups()->attach($group);
+    Auth::user()->groups()->syncWithoutDetaching($group);
     $request->session()->flash('status', 'You have joined the group succesfully!');
     return redirect()->route('viewGroup', ['id' => $group->id]);
   }
@@ -28,5 +28,4 @@ class GroupsController extends Controller
     $groups = Group::search($name)->get();
     return view('groups')->with('groups',$groups);
   }
-
 }
