@@ -25,15 +25,26 @@
 
         <div class="panel-body">
           <div class="col-md-3">
-            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="/Assets/img/Product-Icon.png" style=""> </a>
+            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://lorempixel.com/300/400/abstract/" style="width:100%;"> </a>
           </div>
           <div class="col-md-9">
-            <h4>Group name: {{ $group->name }}</h4>
-            <h4>Group description: {{ $group->description }}</h4>
-            <h4>Members of the group</h4>
+            <h3 style="text-align:center;"> *{{ $group->description }}* </h3><br><br>
+
+            <h4>Members of the group: </h4>
+            <h5>
             @foreach ($group->users as $user)
-                <h5> {{ $user->name }} </h5>
+              {{ $loop->first ? '' : ', '}}
+              {{ $user->name }}
             @endforeach
+          </h5>
+
+            <h4>Characteristics of the group: </h4>
+            <h5>
+            @foreach ($group->characteristics as $characteristic)
+              {{ $loop->first ? '' : ', '}}
+              {{ $characteristic->name }}: {{$characteristic->values()}}
+            @endforeach
+          </h5>
 
           </div>
 
@@ -44,6 +55,15 @@
   <style>
   .panel-heading {
     text-align: center;
+  }
+  h4 {
+  margin-bottom: 7px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2F937B;
+  }
+  h5 {
+    margin-bottom: 25px;
   }
   </style>
 

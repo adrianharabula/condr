@@ -308,3 +308,8 @@ nav#tf-footer {
 .content-nopad {
 	padding: 0px;
 }
+
+.panel-info>.panel-heading {
+	background-color: #85144B;
+	color: white;
+}
