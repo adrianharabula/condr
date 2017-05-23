@@ -1,1 +1,5 @@
 webhook/.ssh/
+
+app/config/algolia\.php
+
+app/config/scout\.php
