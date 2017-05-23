@@ -63,15 +63,16 @@
                   <div class="modal-content">
 
                     <div class="modal-body">
-                      <form>
+                      {{Form::open(array('url'=> route('deleteproduct',$product->id)))}}
+                      {{ csrf_field() }}
                         <div class="form-group">
                           <div style="font-weight:bold; font-size: 17px;text-align:center;">Are you sure that you want to delete this product?</div>
                         </div>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button id="buton" type="button" class="btn btn-block btn-primary my-btn" data-dismiss="modal">Yes</button>
-                      <button id="buton" type="button" class="btn btn-block btn-primary my-btn" data-dismiss="modal">No</button>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-block btn-primary my-btn">Yes</button>
+                          <button id="buton" class="btn btn-block btn-primary my-btn" data-dismiss="modal">No</button>
+                        </div>
+                      {{Form::close()}}
                     </div>
                   </div>
                 </div>

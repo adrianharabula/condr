@@ -24,7 +24,7 @@
                                        </td>
                                        <td class="col-md-0">
    				                                <div class=" col-md-offset-2">
-   				                                    <br><a href="delete.php" style="color:green"><h5>Delete </h5></b></a>
+   				                                    <br><a href={{route('groupdelete', $group->id)}} style="color:green"><h5>Delete </h5></b></a>
    				                                </div>
    				                            </td>
                                        <td class="col-md-0">
