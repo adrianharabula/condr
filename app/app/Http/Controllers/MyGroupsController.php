@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use \App\Condrgroup as Group;
 
 class MyGroupsController extends Controller
 {
@@ -14,4 +15,10 @@ class MyGroupsController extends Controller
     return view('mygroups')->with('user', $user)
                            ->with('groups', $groups);
   }
+  function delete(Group $group, Request $request) {
+    Auth::user()->groups()->detach($group);
+    $request->session()->flash('status', 'You have exited the group succesfully!');
+    return redirect()->route('viewGroup', ['id' => $group->id]);
+  }
+
 }

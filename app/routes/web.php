@@ -40,8 +40,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/preferences', 'PreferencesController@index')->name('preferences');
     Route::get('/details', 'DetailsController@index')->name('details');
     Route::get('/myproducts', 'MyProductsController@index')->name('myproducts');
+    Route::post('/myproducts/delete/{product}', 'MyProductsController@delete')->name('deleteproduct');
     Route::post('/group/join/{group}', 'GroupsController@store')->name('joinGroup');
     Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
+    Route::get('/mygroups/delete/{group}', 'MyGroupsController@delete')->name('groupdelete');
     Route::get('/details/editpassword', 'UsersController@editpassword')->name('editpassword');
     Route::get('/details/preferences', 'PreferencesController@index')->name('preferences');
     Route::get('/preferences/suggestion', 'PreferencesController@suggestion')->name('suggestion');
