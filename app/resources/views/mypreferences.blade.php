@@ -6,7 +6,7 @@
 
 <div class="col-md-4 col-md-offset-4 text-center" style="margin-top: 30px;margin-bottom:30px;">
   <div class="panel-heading">
-    <h4>Change/Update your preferences</h4>
+    <h4><b>Change/Update your preferences</b></h4>
   </div>
 
   <form class="form">
@@ -40,7 +40,7 @@
                   </tbody>
                 </table>
                 @endforeach
-                <div class="col-md-9 col-md-offset-3">
+                <div class="col-md-10 col-md-offset-2">
                   <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Search by selected preferences</button>
                 </div>
                 {{ Form::close() }}

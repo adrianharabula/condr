@@ -10,6 +10,7 @@ use Auth;
 
 class ProductsController extends Controller
 {
+
   function index() {
      $products = \App\Product::paginate(5);
     return view('products')->with('products',$products);
@@ -24,6 +25,7 @@ class ProductsController extends Controller
     $products = \App\Product::search($name)->get();
     return view('products')->with('products',$products);
   }
+
   function store(Product $product, Request $request) {
     Auth::user()->products()->syncWithoutDetaching($product);
     $request->session()->flash('status', 'You have added this product to your history!');

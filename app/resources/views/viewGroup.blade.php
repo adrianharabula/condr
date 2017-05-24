@@ -67,6 +67,11 @@
   h5 {
     margin-bottom: 25px;
   }
+  .panel-info>.panel-heading {
+    color: white;
+    background-color: #85144B;
+    border-color: #bce8f1;
+  }
   </style>
 
 @endsection
