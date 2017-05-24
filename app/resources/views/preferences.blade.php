@@ -7,7 +7,7 @@
 <div class="container contact">
   <div class="panel panel-default">
     <div class="panel-heading text-center">
-      <h4>Search products and see if they match your preferences!</h4>
+      <h4><b>Search products and see if they match your preferences!</b></h4>
     </div>
     <div class="panel-body">
       <div class="col-md-8 col-md-offset-2">

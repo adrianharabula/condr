@@ -24,9 +24,9 @@
 
         <div class="panel-body">
           <div class="col-md-3">
-            <a class="thumbnail pull-left" href="{{ asset($product->image_url) }}"> <img class="media-object" src="{{ asset($product->image_url) }}" style="width:100%;"> </a>
+            <a class="thumbnail pull-left"> <img class="media-object" src="{{ asset($product->image_url) }}" style="width:100%;"> </a>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <h4>Product name: {{ $product->name }}</h4>
             <h5>by {{ $product->company->name }} </h5>
             <h4>Product category</h4>
@@ -34,7 +34,6 @@
 
             <h4>Characteristics of the product:</h4>
             @forelse ($product->characteristics as $characteristic)
-
                 <h5> {{ $characteristic->name }}: {{ $characteristic->values() }}</h5>
 
               {{Form::open(array('url'=>route('addcharacteristics',$characteristic)))}}
@@ -43,7 +42,6 @@
                   <button class="btn btn-danger btn-circle" data-toggle="tooltip" title="Add me to your preferences!">
                     <span class="glyphicon glyphicon-heart"></span>{{ $characteristic->name }}: {{ $characteristic->values() }}
                   </button>
-
             @empty
                 <h5> None </h5>
             @endforelse
@@ -53,7 +51,7 @@
           {{Form::open(array('url' => route('addproduct',$product->id)))}}
           {{ csrf_field() }}
           <div class="col-md-3">
-            <button class="btn btn-primary my-btn btn-start my-btn-dropdown">Add product!</button>
+            <button class="btn btn-primary my-btn btn-start my-btn-dropdown">Add product to my history!</button>
           </div>
           {{Form::close()}}
         </div>
@@ -90,6 +88,7 @@
     background-color: #85144B;
     border-color: #bce8f1;
   }
+
   :after, :before {
     margin-right: 20px;
   }
@@ -103,8 +102,7 @@
     background-color: #2F937B;
     border-color: #2F937B;
   }
-
-
   </style>
+
 
 @endsection

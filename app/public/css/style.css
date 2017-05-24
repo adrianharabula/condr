@@ -171,8 +171,8 @@ a.btn.btn-primary.my-btn {
 }
 button.btn.btn-primary.my-btn:hover,
 a.btn.btn-primary.my-btn:hover{
-	background: #FFFFFF;
-	color: #2F937B;
+	background: #85144B;
+	color: white;
 	border-color: transparent;
 }
 button.btn.btn-primary.my-btn.dark:hover,
