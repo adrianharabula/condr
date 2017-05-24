@@ -11,7 +11,7 @@ class UsersController extends Controller
 {
     function editPassword (\App\User $user)
     {
-      return view('editpassword')->with('user',$user);
+        return view('editpassword')->with('user',$user);
     }
 
     function updatepassword(Request $request) {
