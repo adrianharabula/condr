@@ -19,4 +19,11 @@ class MyProductsController extends Controller
     $request->session()->flash('status', 'You have deleted this product from your history!');
     return redirect()->route('viewproduct', ['id' => $product->id]);
   }
+
+  function store(Product $product, Request $request) {
+    Auth::user()->products()->syncWithoutDetaching($product);
+    $request->session()->flash('status', 'You have added this product to your history!');
+    return redirect()->route('viewproduct', ['id' => $product->id]);
+  }
+
 }
