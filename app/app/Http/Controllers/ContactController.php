@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    function index() {
+    function index()
+    {
         return view('contact');
     }
 }

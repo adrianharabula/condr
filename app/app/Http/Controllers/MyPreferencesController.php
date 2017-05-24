@@ -7,7 +7,8 @@ use Auth;
 
 class MyPreferencesController extends Controller
 {
-    function index() {
+    function index()
+    {
         $user = Auth::user();
         $categories = \App\Category::all();
 
@@ -33,11 +34,13 @@ class MyPreferencesController extends Controller
         return view('mypreferences')->with('user',$user)->with('categories',$categories)->with('ucc',$user_characteristics_categories);
     }
 
-    function addPreferences() {
+    function addPreferences()
+    {
         return view('addpreferences');
     }
 
-    function store(\App\Characteristic $characteristic, Request $request) {
+    function store(\App\Characteristic $characteristic, Request $request)
+    {
         Auth::user()->characteristics()->syncWithoutDetaching($characteristic);
         $request->session()->flash('status', 'You have added the characteristic to your preferences!');
         return redirect()->route('mypreferences');

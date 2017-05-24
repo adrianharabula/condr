@@ -8,16 +8,19 @@ Use Auth;
 
 class GroupsController extends Controller
 {
-    function index() {
+    function index()
+    {
         $groups = Group::all();
         return view('groups')->with('groups', $groups);
     }
 
-    function viewGroup(Group $group) {
+    function viewGroup(Group $group)
+    {
         return view('viewGroup')->with('group', $group);
     }
 
-    function store(Group $group, Request $request) {
+    function store(Group $group, Request $request)
+    {
         if ($exists = Auth::user()->groups->contains($group->id)) {
             $request->session()->flash('message', 'You are already in the group!');
             $request->session()->flash('alert-class', 'alert-danger');
@@ -28,7 +31,8 @@ class GroupsController extends Controller
         return redirect()->route('viewGroup', ['id' => $group->id]);
     }
 
-    function search(Request $request) {
+    function search(Request $request)
+    {
         $name = $request->group_name;
         $groups = Group::search($name)->get();
         return view('groups')->with('groups',$groups);

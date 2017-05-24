@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 
 class PreferencesController extends Controller
 {
-    function index() {
+    function index()
+    {
         return view('preferences');
     }
-    function suggestion(\App\Product $product) {
+    
+    function suggestion(\App\Product $product)
+    {
         return view('suggestion')->with('product', $product);
     }
 }

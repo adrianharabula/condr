@@ -7,7 +7,8 @@ use Auth;
 
 class DetailsController extends Controller
 {
-    function index() {
+    function index()
+    {
         $user = Auth::user();
         return view('details')->with('user', $user);
     }
