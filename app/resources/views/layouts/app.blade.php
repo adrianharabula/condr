@@ -41,7 +41,7 @@
 
 </head>
 
-  <body class="@yield('page-colors')">
+<body class="@yield('page-colors')">
     <div id="app">
         @include('includes.navbar')
 

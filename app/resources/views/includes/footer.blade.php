@@ -13,4 +13,13 @@
             </ul>
         </div>
     </div>
+    <style>
+    a {
+      color: grey;
+      font-size: 16px;
+    }
+    a:hover {
+      color: #85144B;
+    }
+    </style>
 </nav>
