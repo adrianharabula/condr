@@ -26,3 +26,12 @@ h2 {
 .row div .col-sm-12 .col-md-8 {
   padding: 20px;
 }
+
+a:hover, a:active {
+  color: #85144B;
+}
+
+a {
+  font-size: 19px;
+  color: grey;
+}

@@ -18,10 +18,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/products.css') }}">
     <link rel=stylesheet href="//s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <!-- Additional StyleSheets -->
     @stack('styles')
 
     <!-- Fonts  -->
+
     <link href='//fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
 
