@@ -36,4 +36,10 @@ class MyPreferencesController extends Controller
   function addPreferences() {
     return view('addpreferences');
   }
+
+  function store(\App\Characteristic $characteristic, Request $request) {
+    Auth::user()->characteristics()->syncWithoutDetaching($characteristic);
+    $request->session()->flash('status', 'You have added the characteristic to your preferences!');
+    return redirect()->route('mypreferences');
+  }
 }
