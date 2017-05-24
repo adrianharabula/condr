@@ -40,7 +40,6 @@
                   </tbody>
                 </table>
                 @endforeach
-              <div class="col-md-9 col-md-offset-3">
 
                 <div class="col-md-6">
                   <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Search by selected preferences</button>
@@ -49,7 +48,6 @@
                   <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Delete selected preferences</button>
                 </div>
                 {{ Form::close() }}
-              </div>
             </div>
           </div>
         </div>
