@@ -12,11 +12,11 @@ class ProductsController extends Controller
 {
     function index()
     {
-        $products = \App\Product;
+        $products = Product::all();
         return view('products')->with('products',$products);
     }
 
-    function viewProduct(\App\Product $product)
+    function viewProduct(Product $product)
     {
         return view('viewProduct')->with('product', $product);
     }
@@ -24,8 +24,8 @@ class ProductsController extends Controller
     function search(Request $request)
     {
         $name = $request->product_name;
-        $products = \App\Product::search($name)->get();
-        return view('products')->with('products',$products);
+        $products = Product::search($name)->get();
+        return view('products')->with('products', $products);
     }
 
     function store(Product $product, Request $request)
