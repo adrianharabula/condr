@@ -20,7 +20,9 @@
   <div class="row page black">
       <div class="col-md-4 col-md-offset-4">
         <div class="login-panel panel panel-default">
-          <div class="panel-heading"><b>Details</b></div>
+          <div class="panel-heading text-center">
+            <b>Your details...</b>
+          </div>
           <div class="panel-body">
               <fieldset>
                     <div class="form-group">
