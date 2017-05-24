@@ -17,13 +17,13 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-10 col-md-offset-2">
     <div class="panel">
 
   	    <div class="panel-body">
           <div class="container">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-10">
 
                 {{ Form::open(array('url' => route('products'))) }}
                 {{ csrf_field() }}
@@ -40,8 +40,15 @@
                   </tbody>
                 </table>
                 @endforeach
+
                 <div class="col-md-9 col-md-offset-3">
+
+                <div class="col-md-6">
+
                   <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Search by selected preferences</button>
+                </div>
+                <div class="col-md-6">
+                  <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Delete selected preferences</button>
                 </div>
                 {{ Form::close() }}
               </div>

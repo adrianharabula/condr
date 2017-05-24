@@ -34,10 +34,21 @@
 
             <h4>Characteristics of the product:</h4>
             @forelse ($product->characteristics as $characteristic)
+
                 <h5> {{ $characteristic->name }}: {{ $characteristic->values() }}</h5>
+
+              {{Form::open(array('url'=>route('addcharacteristics',$characteristic)))}}
+              {{ csrf_field() }}
+                <h5>
+                  <button class="btn btn-danger btn-circle" data-toggle="tooltip" title="Add me to your preferences!">
+                    <span class="glyphicon glyphicon-heart"></span>{{ $characteristic->name }}: {{ $characteristic->values() }}
+                  </button>
+
             @empty
                 <h5> None </h5>
             @endforelse
+            {{Form::close()}}
+
           </div>
           {{Form::open(array('url' => route('addproduct',$product->id)))}}
           {{ csrf_field() }}
@@ -51,6 +62,16 @@
   </div>
 
   <style>
+
+  .btn-circle {
+    width: 57%;
+    height: 35px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 2px;
+  }
+
   .panel-heading {
     text-align: center;
   }
@@ -63,6 +84,27 @@
   h5 {
     margin-bottom: 25px;
   }
+
+  .panel-info>.panel-heading {
+    color: white;
+    background-color: #85144B;
+    border-color: #bce8f1;
+  }
+  :after, :before {
+    margin-right: 20px;
+  }
+  .btn-danger {
+    color: #fff;
+    background-color: #85144B;
+    border-color: #85144B;
+  }
+  .btn-danger:hover{
+    color: white;
+    background-color: #2F937B;
+    border-color: #2F937B;
+  }
+
+
   </style>
 
 @endsection
