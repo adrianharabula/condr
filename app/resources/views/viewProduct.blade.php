@@ -34,7 +34,6 @@
 
             <h4>Characteristics of the product:</h4>
             @forelse ($product->characteristics as $characteristic)
-                <h5> {{ $characteristic->name }}: {{ $characteristic->values() }}</h5>
 
               {{Form::open(array('url'=>route('addcharacteristics',$characteristic)))}}
               {{ csrf_field() }}
