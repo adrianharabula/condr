@@ -54,11 +54,7 @@
   </div>
 </section>
 <div class="content content-nopad">
-  @if (Auth::guest())
-    <a href="{{ route('login') }}" class="btn btn-primary my-btn btn-start my-btn-dropdown">Let's get started!</a> <br /> <br />
-  @else
-    <a href="{{ route('preferences') }}" class="btn btn-primary my-btn btn-start my-btn-dropdown">Let's get started!</a> <br /> <br />
-  @endif
+    <a href="{{ route('addpreferences') }}" class="btn btn-primary my-btn btn-start my-btn-dropdown">Let's get started!</a> <br /> <br />
 </div>
 
 <style>

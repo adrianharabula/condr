@@ -4,6 +4,17 @@
 
 @section('content')
 
+  @if(Session::has('status'))
+
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4" style="margin-top: 40px;">
+        <div class="panel panel-success">
+          <div class="panel-heading">{{ Session::get('status') }}</div>
+        </div>
+      </div>
+    </div>
+  @endif
+
   <div class="container">
     <div class="row page black">
       <div class="panel panel-info">
