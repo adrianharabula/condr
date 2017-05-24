@@ -18,10 +18,13 @@ class GroupsController extends Controller
     }
 
     function store(Group $group, Request $request) {
-        // TODO: check if user is already in the group
-        // throw an error if so
-        Auth::user()->groups()->syncWithoutDetaching($group);
-        $request->session()->flash('status', 'You have joined the group succesfully!');
+        if ($exists = Auth::user()->groups->contains($group->id)) {
+            $request->session()->flash('message', 'You are already in the group!');
+            $request->session()->flash('alert-class', 'alert-danger');
+        } else {
+            Auth::user()->groups()->syncWithoutDetaching($group);
+            $request->session()->flash('message', 'You have joined the group succesfully!');
+        }
         return redirect()->route('viewGroup', ['id' => $group->id]);
     }
 
