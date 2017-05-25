@@ -16,14 +16,12 @@
   </head>
 
   <body>
-    <span property="http://purl.org/dc/terms/title">ConDr</span>
-    <span property="http://purl.org/dc/terms/creator">Adrian Harabula, Elisa Aioanei, Elena Anghelina, Madalina Buza</span>
-    <span type=xsd:date>2017-05-25</span>
     <header>
       <div class="inner">
         <a href="{{ '/' | absolute_url }}">
-          <h1>{{ site.title | default: site.github.repository_name }}</h1>
+          <h1><span property="http://purl.org/dc/terms/title">{{ site.title | default: site.github.repository_name }}</span></h1>
         </a>
+        <span property="http://purl.org/dc/terms/creator">Adrian Harabula, Elisa Aioanei, Elena Anghelina, Madalina Buza</span>
         <h2>{{ site.description | default: site.github.project_tagline }}</h2>
         {% if site.github.is_project_page %}
           <a href="{{ site.github.repository_url }}" class="button"><small>View project on</small> GitHub</a>
@@ -31,6 +29,7 @@
         {% if site.github.is_user_page %}
           <a href="{{ site.github.repository_url }}" class="button"><small>Follow me on</small> GitHub</a>
         {% endif %}
+        Timestamp <span type=xsd:date>2017-05-25</span>
       </div>
     </header>
 
