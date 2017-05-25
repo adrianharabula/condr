@@ -18,8 +18,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/products.css') }}">
     <link rel=stylesheet href="//s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     <!-- Additional StyleSheets -->
     @stack('styles')
 

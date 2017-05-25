@@ -39,7 +39,7 @@
               {{ csrf_field() }}
                 <h5>
                   <button class="btn btn-danger btn-circle" data-toggle="tooltip" title="Add me to your preferences!">
-                    <span class="glyphicon glyphicon-heart"></span>{{ $characteristic->name }}: {{ $characteristic->values() }}
+                    <span class="fa fa-heart"></span>{{ $characteristic->name }}: {{ $characteristic->values() }}
                   </button>
             @empty
                 <h5> None </h5>
