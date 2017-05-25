@@ -6,18 +6,24 @@
 
   <div class="container">
 
-    @if(Session::has('status'))
+    <div class="row page black">
 
-      <div class="row">
-      	<div class="col-md-4 col-md-offset-4" style="margin-top: 40px;">
-        	<div class="panel panel-success">
-            <div class="panel-heading">{{ Session::get('status') }}</div>
+      @if(Session::has('message'))
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="alert {{ Session::get('alert-class', 'alert-success') }} alert-dismissable">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              @if(Session::get('alert-class') === 'alert-danger')
+                <strong>Error: </strong>
+              @else
+                <strong>Success: </strong>
+              @endif
+              {{ Session::get('message') }}
+            </div>
           </div>
         </div>
-      </div>
-    @endif
+      @endif
 
-    <div class="row page black">
       <div class="panel panel-info">
         <div class="panel-heading">
           <h1>{{ $group->name }}</h1>

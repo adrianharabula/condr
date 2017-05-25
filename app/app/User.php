@@ -28,13 +28,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function products() {
-      return $this->belongsToMany('\App\Product');
+    public function products()
+    {
+        return $this->belongsToMany('\App\Product');
     }
 
     public function groups()
     {
-       return $this->belongsToMany('\App\Condrgroup');
+        return $this->belongsToMany('\App\Condrgroup');
     }
 
     public function characteristics()

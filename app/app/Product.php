@@ -4,30 +4,31 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
-use AlgoliaSearch\Laravel\AlgoliaEloquentTrait;
 
 class Product extends Model
 {
     use Searchable;
-    use AlgoliaEloquentTrait;
 
-    public function users() {
-      return $this->belongsToMany('\App\User');
-    }
-
-	  public function company()
+    public function users()
     {
-         return $this->belongsTo('\App\Company');
+        return $this->belongsToMany('\App\User');
     }
+
+    public function company()
+    {
+        return $this->belongsTo('\App\Company');
+    }
+
     public function category()
     {
-         return $this->belongsTo('\App\Category');
+        return $this->belongsTo('\App\Category');
     }
 
     public function characteristics()
     {
         return $this->morphToMany('\App\Characteristic', 'characterizable');
     }
+
     public function searchableAs()
     {
         return 'products_index';

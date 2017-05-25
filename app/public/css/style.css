@@ -86,7 +86,7 @@ a:focus{
 	/*background: transparent;*/
 	border: 0;
 	/*color: #fff !important;*/
-	padding: 2% 0;
+	padding: 10px 0;
 	transition: all 0.5s;
 }
 #sticky {

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+VERSION=`git log --pretty="%h" -1`
+LASTEDIT=`git log --pretty="%ce - %s" -1`
+LASTEDITTIME=`git log --pretty="%ct" -1`
+echo "$VERSION" > app/storage/app/version
+echo "$LASTEDIT" > app/storage/app/version.lastedit
+echo "$LASTEDITTIME" > app/storage/app/version.lastedit.time
