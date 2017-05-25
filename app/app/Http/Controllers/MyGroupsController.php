@@ -20,7 +20,7 @@ class MyGroupsController extends Controller
     function delete(Group $group, Request $request)
     {
         Auth::user()->groups()->detach($group);
-        $request->session()->flash('status', 'You have exited the group succesfully!');
+        $request->session()->flash('message', 'You have exited the group succesfully!');
         return redirect()->route('viewGroup', ['id' => $group->id]);
     }
 }
