@@ -12,7 +12,7 @@ class MyGroupsController extends Controller
     function index()
     {
         $user = Auth::user();
-        $groups = $user->groups();
+        $groups = $user->groups;
         return view('mygroups')->with('user', $user)
                                 ->with('groups', $groups);
     }
