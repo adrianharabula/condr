@@ -77,6 +77,7 @@ Route::group(['prefix' => 'scripts'], function () {
         SSH::run([
             'cd /root/condr',
             'git pull origin master',
+            './version-update',
         ]);
     });
 
