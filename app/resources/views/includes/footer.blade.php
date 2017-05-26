@@ -3,7 +3,7 @@
         <div class="pull-left">
             <p>&copy; {{ date('Y') }} ConDr using <a href="http://themeforces.com/preview/?theme=free-awesomess-portfolio">Awesomess</a> by <a href="https://dribbble.com/jennpereira">Jenn</a> </p>
             @if (Storage::exists('version'))
-            <p style="font-size:60%">Version {{ Storage::get('version') }}, last modified {{ \Carbon\Carbon::createFromTimestamp((int)trim(Storage::get('version.lastedit.time')))->diffForHumans() }}</p>
+            <p>Version <a href="https://github.com/adrianharabula/condr/commit/{{ Storage::get('version') }}">{{ Storage::get('version') }}</a> last modified {{ \Carbon\Carbon::createFromTimestamp((int)trim(Storage::get('version.lastedit.time')))->diffForHumans() }}</p>
             @endif
         </div>
         <div class="pull-right">
