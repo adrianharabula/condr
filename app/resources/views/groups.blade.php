@@ -38,9 +38,7 @@
                 <a href={{ route('viewGroup', $group->id) }} class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown" style="margin-top:20px;">View</a>
               </div>
               <div class="col-xs-6 col-md-2">
-                {{ Form::open(array('url' => route('joinGroup', $group->id))) }}
-                  <input type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown" style="margin-top:20px;" value="JOIN" />
-                {{ Form::close() }}
+                  <a href="{{ route('joinGroup', $group->id) }}" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown" style="margin-top:20px;" > JOIN </a>
               </div>
           </div> <br />
         @endforeach
