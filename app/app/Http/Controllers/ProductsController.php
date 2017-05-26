@@ -60,10 +60,13 @@ class ProductsController extends Controller
     }
     public function getProductsList(ProductSearchRequest $data)
     {
-        return view('products')
+        return view('product.list')
             ->with('products',$this->_productRepository->searchProducts($data));
     }
     public function getProduct($id){
-        return view('product')->with('product',$this->_productRepository->find($id));
+        return view('product.view')->with('dataProduct',$this->_productRepository->findProduct($id));
+    }
+    public function postProductToFavorite(){
+
     }
 }

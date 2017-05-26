@@ -8,6 +8,6 @@ class StaticPageController extends Controller
 {
     public function staticPage()
     {
-        return view(request()->route()->getName());
+        return view('static'.request()->route()->getName());
     }
 }

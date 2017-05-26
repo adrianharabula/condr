@@ -46,6 +46,7 @@
                         <h5>by {{ $dataProduct->product->company->name }} </h5>
                         <h4>Product category</h4>
                         <h5>{{ $dataProduct->product->category->name }}</h5>
+{{dd($dataProduct)}}
                         <h4>Characteristics of the product:</h4>
                         @forelse ($dataProduct->product->characteristics as $characteristic)
                             {{ Form::open(array('url'=>route('addcharacteristics', $characteristic->id))) }}
@@ -53,7 +54,7 @@
                             <button class="btn btn-danger btn-circle" data-toggle="tooltip"
                                     title="Add me to your preferences!">
                                 <span class="fa fa-heart"></span>{{ $characteristic->name }}
-                                : {{ $characteristic->characteristic_value}}
+                                :
                             </button>
                             {{ Form::close() }}
                         @empty
