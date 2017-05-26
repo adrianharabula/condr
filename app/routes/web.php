@@ -16,24 +16,33 @@
 
 use Illuminate\Http\Request;
 
-
 Auth::routes();
 
-Route::get('/', 'StaticPageController@staticPage')->name('home');
-
-// default route for laravel after login/recoverpassword
-Route::get('/home', function () {
-    return redirect()->route('home');
+Route::get('/', function () {
+    return view('static.home');
+});
+Route::group(['prefix' => '/products', 'as' => 'products.'], function () {
+    Route::any('/', [
+        'uses' => 'ProductsController@getProductsList',
+        'as'   => 'list'
+    ]);
+    Route::get('/{product}', [
+        'uses' => 'ProductsController@getProduct',
+        'as'   => 'view'
+    ]);
 });
 
-Route::get('/about', 'StaticPageController@staticPage')->name('about');
-Route::get('/contact', 'StaticPageController@staticPage')->name('contact');
-Route::get('/statistics', 'StatisticsController@index')->name('statistics');
+Route::group(['middleware' => 'auth', 'prefix' => '/my-products', 'as' => 'myProducts.'], function () {
+    Route::get('/', [
+        'uses' => 'User\UserProductsController@getFavoriteProducts',
+        'as'   => 'list'
+    ]);
+    Route::get('{product}', [
+        'uses' => 'User\UserProductsController@postToggleFavoriteProduct',
+        'as'   => 'toggle'
+    ]);
 
-Route::any('/products', 'ProductsController@getProductsList')->name('products');
-
-Route::get('/product/view/{product}', 'ProductsController@getProduct')->name('viewproduct');
-
+});
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::post('/groups', 'GroupsController@search')->name('groups');
 
@@ -49,10 +58,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/group/join/{group}', 'GroupsController@store')->name('joinGroup');
     Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
     Route::get('/mygroups/delete/{group}', 'MyGroupsController@delete')->name('groupdelete');
-    Route::get('/details/editpassword', 'UsersController@editpassword')->name('editpassword');
+    Route::get('/details/editpassword', 'UserSettingsController@editpassword')->name('editpassword');
     Route::get('/details/preferences', 'PreferencesController@index')->name('preferences');
     Route::get('/preferences/suggestion', 'PreferencesController@suggestion')->name('suggestion');
-    Route::post('/details/editpassword', 'UsersController@updatepassword')->name('editpassword');
+    Route::post('/details/editpassword', 'UserSettingsController@updatepassword')->name('editpassword');
     Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
     Route::get('/mypreferences/addpreferences', 'MyPreferencesController@addPreferences')->name('addpreferences');
 
@@ -64,7 +73,7 @@ Route::group(['prefix' => 'scripts'], function () {
     * It is called by GitHub on every new push
     * This updates the server code to the latest code available on GitHub repo
     */
-    Route::post('webhook', function(Request $request){
+    Route::post('webhook', function (Request $request) {
         // get request body
         $content = $request->getContent();
 
@@ -73,8 +82,9 @@ Route::group(['prefix' => 'scripts'], function () {
         $hash = hash_hmac('sha1', $content, env('APP_WEBHOOKKEY'));
 
         // compare it with the one we have in X-Hub-Signature
-        if($request->header('X-Hub-Signature') !== 'sha1=' . $hash)
-        abort(403);
+        if ($request->header('X-Hub-Signature') !== 'sha1='.$hash) {
+            abort(403);
+        }
 
         // execute deploy command
         SSH::run([
@@ -86,12 +96,15 @@ Route::group(['prefix' => 'scripts'], function () {
 
     Route::get('migrate', function () {
         Artisan::call('migrate:refresh');
-        echo '<pre>' . Artisan::output() . '</pre>';
+        echo '<pre>'.Artisan::output().'</pre>';
     });
 
     Route::get('seed', function () {
         Artisan::call('db:seed');
-        echo '<pre>' . Artisan::output() . '</pre>';
+        echo '<pre>'.Artisan::output().'</pre>';
     });
 
+});
+Route::get('{route}', function ($route) {
+    return view('static.'.$route);
 });

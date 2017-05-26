@@ -19,7 +19,7 @@
           <div class="panel-heading text-center">Search for products!</div>
           <div class="panel-body">
             <div class="row">
-                {{ Form::open(array('url' => route('products'))) }}
+                {{ Form::open(array('url' => route('products.list'))) }}
                 {{ csrf_field() }}
                 <div class="form-group col-md-12">
                   <input type="text" class="form-control full-width" name="product_name" placeholder="Enter product name">
@@ -49,7 +49,7 @@
               </div>
             </div>
             <div class="col-md-3">
-              <a href={{ route('viewproduct', $product->id) }} class="btn btn-primary my-btn my-btn-dropdown btn-block btn-product pull-right">View details</a>
+              <a href={{ route('products.view', $product->id) }} class="btn btn-primary my-btn my-btn-dropdown btn-block btn-product pull-right">View details</a>
             </div>
         </div>
       @empty
