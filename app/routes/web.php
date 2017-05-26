@@ -26,15 +26,19 @@ Route::get('/home', function () {
     return redirect()->route('home');
 });
 
-Route::get('/about', 'AboutController@index')->name('about');
-Route::get('/contact', 'ContactController@index')->name('contact');
+Route::get('/about', 'StaticPageController@staticPage')->name('about');
+Route::get('/contact', 'StaticPageController@staticPage')->name('contact');
+Route::get('/statistics', 'StatisticsController@index')->name('statistics');
+
 Route::get('/products', 'ProductsController@index')->name('products');
 Route::post('/products', 'ProductsController@search')->name('products');
+
 Route::get('/product/view/{product}', 'ProductsController@viewproduct')->name('viewproduct');
+
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::post('/groups', 'GroupsController@search')->name('groups');
+
 Route::get('/group/view/{group}', 'GroupsController@viewGroup')->name('viewGroup');
-Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/preferences', 'PreferencesController@index')->name('preferences');
