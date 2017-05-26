@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'StaticPageController@staticPage')->name('home');
 
 // default route for laravel after login/recoverpassword
 Route::get('/home', function () {
