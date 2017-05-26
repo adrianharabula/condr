@@ -30,10 +30,9 @@ Route::get('/about', 'StaticPageController@staticPage')->name('about');
 Route::get('/contact', 'StaticPageController@staticPage')->name('contact');
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
-Route::get('/products', 'ProductsController@index')->name('products');
-Route::post('/products', 'ProductsController@search')->name('products');
+Route::any('/products', 'ProductsController@getProductsList')->name('products');
 
-Route::get('/product/view/{product}', 'ProductsController@viewproduct')->name('viewproduct');
+Route::get('/product/view/{product}', 'ProductsController@getProduct')->name('viewproduct');
 
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::post('/groups', 'GroupsController@search')->name('groups');
