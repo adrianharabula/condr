@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Eloquent;
 
-use App\Repositories\EloquentRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
-
 
 abstract class EloquentRepository implements EloquentRepositoryInterface
 {
@@ -29,7 +27,6 @@ abstract class EloquentRepository implements EloquentRepositoryInterface
      * @return string
      */
     abstract function getModel();
-
 
 
     /**
