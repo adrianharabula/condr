@@ -75,8 +75,8 @@ Route::group(['prefix' => 'scripts'], function () {
 
         // execute deploy command
         SSH::run([
-            'cd /root/condr/app',
-            '/root/.config/composer/vendor/laravel/envoy/envoy run deploy',
+            'cd /root/condr',
+            'git pull origin master',
         ]);
     });
 
