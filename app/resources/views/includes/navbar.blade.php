@@ -38,10 +38,10 @@
                     <li class="dropdown">
                       <a href="#" class="btn btn-primary my-btn my-btn-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My profile <span class="caret"></span></a>
                       <ul class="dropdown-menu my-profile">
-                        <li><a href="{{ route('details') }}">Details</a></li>
-                        <li><a href="{{ route('mypreferences') }}">Preferences</a></li>
-                        <li><a href="{{ route('myproducts') }}">Products</a></li>
-                        <li><a href="{{ route('mygroups') }}">Groups</a></li>
+                        <li><a href="{{ route('details') }}">Account Info</a></li>
+                        <li><a href="{{ route('mypreferences') }}">My Preferences</a></li>
+                        <li><a href="{{ route('myproducts') }}">My Products</a></li>
+                        <li><a href="{{ route('mygroups') }}">My Groups</a></li>
                         <li role="separator" class="divider"></li>
                         <li>
                           <a href="{{ route('logout') }}"
