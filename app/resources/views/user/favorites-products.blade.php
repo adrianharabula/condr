@@ -49,7 +49,7 @@
                   <tr>
                       <td><b>Characteristics: </b></td>
                       @foreach ($product->characteristics as $characteristic)
-                          <tr><td> {{ $characteristic->name }}: {{ $characteristic->values() }}</td></tr>
+                          <tr><td> {{ $characteristic->name }}: {{ $characteristic->votes()->first()->vote }}</td></tr>
                       @endforeach
                   </tr>
                 </tbody>
@@ -63,7 +63,7 @@
                       <div class="modal-content">
 
                         <div class="modal-body">
-                          {{Form::open(array('url'=> route('deleteproduct',$product->id)))}}
+                          {{Form::open(array('url'=> route('myProducts.toggle',$product->id)))}}
                           {{ csrf_field() }}
                             <div class="form-group">
                               <div style="font-weight:bold; font-size: 17px;text-align:center;">Are you sure that you want to delete this product?</div>

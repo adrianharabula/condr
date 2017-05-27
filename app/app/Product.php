@@ -29,14 +29,15 @@ class Product extends Model
     }
 
 
-    public function characteristics()
-    {
-        return $this->morphToMany(Characteristic::class, 'characterizable');
-    }
-
 
     public function searchableAs()
     {
         return 'products_index';
+    }
+
+
+    public function characteristics()
+    {
+        return $this->belongsToMany(Characteristic::class, 'product_characteristic_vote', 'product_id', 'characteristic_id');
     }
 }

@@ -21,10 +21,10 @@
                 <div class="panel-heading text-center">
                     <div class="row">
                         <div class="col-md-6 text-left">
-                            <h1>{{ $dataProduct->product->name}}</h1>
+                            <h1>{{ $product->name}}</h1>
                         </div>
                         <div class="col-md-6 text-right">
-                            {{Form::open(array('url' => route('myProducts.toggle', $dataProduct->product->id)))}}
+                            {{Form::open(array('url' => route('myProducts.toggle', $product->id)))}}
                             {{ csrf_field() }}
                             <div class="">
                                 <button class="btn btn-primary my-btn btn-start my-btn-dropdown my-btn-border"><i
@@ -38,23 +38,22 @@
 
                 <div class="panel-body">
                     <div class="col-md-3">
-                        <a class="thumbnail pull-left"> <img class="media-object" src="{{ asset($dataProduct->product->image_url) }}"
+                        <a class="thumbnail pull-left"> <img class="media-object" src="{{ asset($product->image_url) }}"
                                                              style="width:100%;"> </a>
                     </div>
                     <div class="col-md-9">
-                        <h4>Product name: {{ $dataProduct->product->name }}</h4>
-                        <h5>by {{ $dataProduct->product->company->name }} </h5>
+                        <h4>Product name: {{ $product->name }}</h4>
+                        <h5>by {{ $product->company->name }} </h5>
                         <h4>Product category</h4>
-                        <h5>{{ $dataProduct->product->category->name }}</h5>
-{{dd($dataProduct)}}
+                        <h5>{{ $product->category->name }}</h5>
                         <h4>Characteristics of the product:</h4>
-                        @forelse ($dataProduct->product->characteristics as $characteristic)
+                        @forelse ($product->characteristics as $characteristic)
                             {{ Form::open(array('url'=>route('addcharacteristics', $characteristic->id))) }}
                             {{ csrf_field() }}
                             <button class="btn btn-danger btn-circle" data-toggle="tooltip"
                                     title="Add me to your preferences!">
                                 <span class="fa fa-heart"></span>{{ $characteristic->name }}
-                                :
+                                {{$characteristic->votes()->first()->vote}}
                             </button>
                             {{ Form::close() }}
                         @empty
