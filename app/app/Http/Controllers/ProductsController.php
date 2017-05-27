@@ -64,7 +64,13 @@ class ProductsController extends Controller
             ->with('products',$this->_productRepository->searchProducts($data));
     }
     public function getProduct($id){
-        return view('product.view')->with('dataProduct',$this->_productRepository->findProduct($id));
+        //$x = $this->_productRepository->find($id);
+        //$z = $x->characteristics()->first();
+        //$f = $z->votes()->get();
+        //
+        //    dd($x,$z,$f);
+        //dd('wrong seed relation');
+        return view('product.view')->with('product',$this->_productRepository->find($id));
     }
     public function postProductToFavorite(){
 

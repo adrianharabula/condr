@@ -10,6 +10,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
 
 class UserProductsController extends Controller
 {
@@ -31,9 +32,9 @@ class UserProductsController extends Controller
     }
 
 
-    public function postToggleFavoriteProduct($id)
+    public function postToggleFavoriteProduct(Request $request)
     {
-        $this->_userRepository->toggleFavoriteProduct($id);
+        $this->_userRepository->toggleFavoriteProduct($request->id);
 
         return redirect()->route('myProducts.list');
     }
