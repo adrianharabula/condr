@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/my-products', 'as' => 'myPro
         'uses' => 'User\UserProductsController@getFavoriteProducts',
         'as'   => 'list'
     ]);
-    Route::get('{product}', [
+    Route::post('{id}', [
         'uses' => 'User\UserProductsController@postToggleFavoriteProduct',
         'as'   => 'toggle'
     ]);
