@@ -30,12 +30,10 @@ class UserRepository extends EloquentRepository
         $this->_productRepository = $_productRepository;
     }
 
-
     public function getModel()
     {
         return User::class;
     }
-
 
     public function toggleFavoriteProduct($productId)
     {
@@ -51,14 +49,12 @@ class UserRepository extends EloquentRepository
         return true;
     }
 
-
     public function getUserFavorites($userId = null)
     {
         $user = $this->getUser($userId);
 
         return $user->products;
     }
-
 
     private function getUser($userId = null)
     {

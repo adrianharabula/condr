@@ -21,6 +21,7 @@ Auth::routes();
 Route::get('/', function () {
     return view('static.home');
 });
+
 Route::group(['prefix' => '/products', 'as' => 'products.'], function () {
     Route::any('/', [
         'uses' => 'ProductsController@getProductsList',

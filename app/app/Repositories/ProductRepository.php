@@ -32,7 +32,6 @@ class ProductRepository extends EloquentRepository
         return Product::class;
     }
 
-
     public function searchProducts($data)
     {
         $cacheKey = 'productSearch'.$data->product_name;
