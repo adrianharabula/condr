@@ -2,31 +2,33 @@
 layout: default
 ---
 
-## Work log
+# Work log
 
 Here is the task everyone did
 
-### Adrian Harabula
+## Adrian Harabula
 
-#### Server
-#### Version hook
-#### Pull Hook
-#### Server
+### Server
+- docker
+- docker containers & images
+- github webhook 
+- version hook
 
-### Docker containers
+### Repo management
+- using git
+- working with work branches and pull requests
+- using reviewable
 
-### 
+### Best code practices
+- PSR-4 CODING STANDARDS
 
-#### Repo management
+### Frontend
 
-#### Best code practices
- PSR-4 CODE
+- Twitter Bootstrap v3.3.7
+- jQuery v3.0.0 Slim
+- theme by [Jenn](http://themeforces.com/preview/?theme=free-awesomess-portfolio)
 
-#### Frontend
-
-Bootstrap
-
-#### Backend
+### Backend
 Laravel
 
 At first we started from vanilla php. We build a class to operate with database queries.
@@ -35,7 +37,7 @@ Later we moved to use a mvc framework.
 
 
 
-#### Database
+### Database
 database documentation
 database schema
 database model
