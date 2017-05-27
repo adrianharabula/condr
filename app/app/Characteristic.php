@@ -7,13 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class Characteristic extends Model
 {
-    public function characterizable()
-    {
-        return $this->morphTo();
-    }
 
-    public function category()
+    public function votes()
     {
-        return $this->belongsTo('\App\Category');
+        return $this->belongsToMany(CharacteristicVote::class, 'product_characteristic_vote', 'characteristic_id', 'vote_id');
     }
 }
+

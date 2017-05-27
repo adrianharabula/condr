@@ -4,28 +4,28 @@ namespace App\Repositories;
 
 use App\Product;
 use App\Repositories\Eloquent\EloquentRepository;
+use App\SearchAnalytics;
 use stdClass;
 
 class ProductRepository extends EloquentRepository
 {
 
     /**
-     * @var \App\Repositories\CharacterizableRepository
+     * @var \App\SearchAnalytics
      */
-    private $_characterizableRepository;
+    private $_searchAnalytics;
 
 
     /**
      * ProductRepository constructor.
      *
-     * @param \App\Repositories\CharacterizableRepository $_characterizableRepository
+     * @param \App\SearchAnalytics $_searchAnalytics
      */
-    public function __construct(CharacterizableRepository $_characterizableRepository)
+    public function __construct(SearchAnalytics $_searchAnalytics)
     {
         parent::__construct();
-        $this->_characterizableRepository = $_characterizableRepository;
+        $this->_searchAnalytics = $_searchAnalytics;
     }
-
 
     public function getModel()
     {
@@ -45,34 +45,25 @@ class ProductRepository extends EloquentRepository
             cache()->put($cacheKey, $products, 1440);
         }
 
+        if($data->product_name!=""){
+            $this->incrementSearch($data->product_name);
+        }
+
         return $products;
     }
 
-
-    /**
-     * Get one product with characteristics
-     *
-     * @param       $id
-     *
-     * @param array $columns
-     *
-     * @return mixed
-     */
-    public function findProduct($id, $columns = ['*'])
+    private function incrementSearch($keyword)
     {
+        $analyze = $this->_searchAnalytics->where("keyword", "=", strtolower($keyword))->first();
 
-        $result                  = new stdClass();
-        $result->product         = $this->_model->find($id, $columns);
-        $result->characteristics = [];
-        foreach ($result->product->characteristics as $characteristic) {
-            $chars                      = [];
-            $chars[ 'characterizable' ] = $this->_characterizableRepository->_model->where('characterizable_id',
-                $characteristic->pivot->characterizable_id)->first();
-            $chars[ 'characteristics' ] = $characteristic;
-            dd('aa');
-            $result->characteristics[]  = $chars;
+        if($analyze) {
+            $analyze->increment("number");
+        } else {
+            $analyze=new SearchAnalytics();
+            $analyze->keyword=strtolower($keyword);
+            $analyze->number=1;
+            $analyze->save();
         }
-
-        return $result;
+        return true;
     }
 }
