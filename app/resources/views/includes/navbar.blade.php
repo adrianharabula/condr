@@ -23,7 +23,7 @@
                 <li><a href="{{ route('products.listproducts') }}">Products</a></li>
                 <li><a href="{{ route('groups') }}">Groups</a></li>
                 @if(!Auth::guest())
-                  <li><a href="{{ route('preferences') }}">Preferences</a></li>
+                  {{--<li><a href="{{ route('preferences') }}">Preferences</a></li>--}}
                 @endif
                 <li><a href="{{ url('statistics') }}">Statistics</a></li>
                 <li class="hidden-sm"><a href="{{ url('contact') }}">Contact</a></li>
@@ -38,10 +38,10 @@
                     <li class="dropdown">
                       <a href="#" class="btn btn-primary my-btn my-btn-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My profile <span class="caret"></span></a>
                       <ul class="dropdown-menu my-profile">
-                        <li><a href="{{ route('my.account.index') }}">My account</a></li>
-                        <li><a href="{{ route('mypreferences') }}">My Preferences</a></li>
-                        <li><a href="{{ route('myproducts') }}">My Products</a></li>
-                        <li><a href="{{ route('mygroups') }}">My Groups</a></li>
+                        <li><a href="{{ route('my.account.index') }}">My Account</a></li>
+                        {{--<li><a href="{{ route('mypreferences') }}">My Preferences</a></li>--}}
+                        <li><a href="{{ route('my.products.listproducts') }}">My Products</a></li>
+{{--                        <li><a href="{{ route('mygroups') }}">My Groups</a></li>--}}
                         <li role="separator" class="divider"></li>
                         <li>
                           <a href="{{ route('logout') }}"

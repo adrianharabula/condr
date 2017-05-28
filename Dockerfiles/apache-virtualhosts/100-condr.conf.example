@@ -6,9 +6,11 @@
 <VirtualHost *:80>
    ServerName condr.lan
    ProxyPass / http://app/public/
+   ProxyPassReverse / http://app/public/
 </VirtualHost>
 
 <VirtualHost *:80>
    ServerName webhooks.condr.lan
    ProxyPass / http://webhooks:9000/hooks/
+   ProxyPassReverse / http://webhooks:9000/hooks/
 </VirtualHost>
