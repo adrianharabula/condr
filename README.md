@@ -5,14 +5,11 @@
 
 ## About the app
 
-### Original request
- > A web tool is needed to provide consumers with advice on decisions to purchase goods / services in an ethical way. The system will be able to store and use the simple rules of the form "if <condition> then <action> - in our case, for example," we will not buy / use the product P because it contains / uses substance S, or "I will choose P instead of Q because of M (for example, low mobility or unreasonable price) "- to provide suggestions on personal or group resources. The application will also provide statistics on most of the desired resources, restrictions, people with similar preferences, etc. As a source of inspiration, see Buycott. Bonus: using web microservices.
-
 ## Contributing
 
 Thank you for considering contributing to the ConDr app! The contribution guide can be found in the [ConDr documentation](https://docs.condr.me/contributing).
 
-ConDr is using Laravel PHP, a web application framework with expressive, elegant syntax. Come and learn with us programming!
+ConDr is using [Laravel PHP](http://laravel.com), a web application framework with expressive, elegant syntax. Come and learn with us programming!
 
 ## License
 
