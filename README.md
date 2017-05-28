@@ -5,7 +5,7 @@
 
 ## The app
 
-Tell us your wishes and we'll help you decide! ConDr gives you sugsgestions whether to buy or not a product you are looking for by searching through our database.
+**Tell us your wishes and we'll help you decide!** ConDr gives you suggestions whether to buy or not a product you are looking for by searching through our database.
 
 ## Contributing
 
