@@ -34,7 +34,7 @@ Route::get('/product/{products}', [
 
 Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function () {
 
-    Route::group(['middleware' => 'auth', 'prefix' => 'account', 'as' => 'account.'], function () {
+    Route::group(['prefix' => 'account', 'as' => 'account.'], function () {
         Route::get('/', [
           'uses' => 'User\UserSettingsController@index',
           'as' => 'index'
@@ -70,23 +70,16 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
 
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::post('/groups', 'GroupsController@search')->name('groups');
-
 Route::get('/group/view/{group}', 'GroupsController@viewGroup')->name('viewGroup');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/preferences', 'PreferencesController@index')->name('preferences');
-    Route::get('/my-account', 'User\UserSettingsController@index')->name('myaccount');
-    Route::get('/myproducts', 'MyProductsController@index')->name('myproducts');
-    Route::post('/myproducts/add/{products}', 'MyProductsController@store')->name('addproduct');
-    Route::post('/myproducts/delete/{products}', 'MyProductsController@delete')->name('deleteproduct');
     Route::post('/mypreferences/add/{characteristic}', 'MyPreferencesController@store')->name('addcharacteristics');
     Route::get('/group/join/{group}', 'GroupsController@store')->name('joinGroup');
     Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
     Route::get('/mygroups/delete/{group}', 'MyGroupsController@delete')->name('groupdelete');
-    Route::get('/my-account/edit-password', 'User\UserSettingsController@getEditPassword')->name('edit-password');
     Route::get('/my-account/preferences', 'PreferencesController@index')->name('preferences');
     Route::get('/preferences/suggestion', 'PreferencesController@suggestion')->name('suggestion');
-    Route::post('/details/editpassword', 'UserSettingsController@updatepassword')->name('editpassword');
     Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
     Route::get('/mypreferences/addpreferences', 'MyPreferencesController@addPreferences')->name('addpreferences');
 
