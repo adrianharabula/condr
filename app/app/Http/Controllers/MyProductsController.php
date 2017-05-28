@@ -2,32 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 use Auth;
 use \App\Product as Product;
 
 class MyProductsController extends Controller
 {
-
-    /**
-     * @var \App\Repositories\ProductRepository
-     */
-    private $_productRepository;
-
-
-    /**
-     * MyProductsController constructor.
-     *
-     * @param \App\Repositories\ProductRepository $_productRepository
-     */
-    public function __construct(ProductRepository $_productRepository)
-    {
-        $this->_productRepository = $_productRepository;
-        $this->middleware('auth');
-    }
-
-
     function index()
     {
         $user = Auth::user();

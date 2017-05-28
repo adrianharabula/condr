@@ -19,7 +19,7 @@
           <div class="panel-heading text-center">Search for products!</div>
           <div class="panel-body">
             <div class="row">
-                {{ Form::open(array('url' => route('products.list'))) }}
+                {{ Form::open(array('url' => route('products'))) }}
                 {{ csrf_field() }}
                 <div class="form-group col-md-12">
                   <input type="text" class="form-control full-width" name="product_name" placeholder="Enter product name">
@@ -40,7 +40,7 @@
             <div class="col-md-9">
               <div class="media">
                   <a class="thumbnail pull-left">
-                     {{--<img class="media-object" src="{{ asset($product->image_url) }}" style="width: 72px; height: 72px;">--}}
+                     <img class="media-object" src="{{ asset($product->image_url) }}" style="width: 72px; height: 72px;">
                    </a>
                   <div class="media-body" style="padding-left: 10px; padding-top: 2px;">
                      <h5><b>Name : </b><span>{{ $product->name }}</span></h5>
@@ -49,7 +49,7 @@
               </div>
             </div>
             <div class="col-md-3">
-              <a href={{ route('products.view', $product->id) }} class="btn btn-primary my-btn my-btn-dropdown btn-block btn-product pull-right">View details</a>
+              <a href={{ route('viewproduct', $product->id) }} class="btn btn-primary my-btn my-btn-dropdown btn-block btn-product pull-right">View details</a>
             </div>
         </div>
       @empty

@@ -7,7 +7,7 @@ use Auth;
 use Hash;
 use Validator;
 
-class UserSettingsController extends Controller
+class UsersController extends Controller
 {
     function editPassword (\App\User $user)
     {

@@ -18,15 +18,15 @@
 
             <div id="menu" class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li class="hidden-sm"><a href="{{ url('home') }}">Home</a></li>
-                <li><a href="{{ url('about') }}">About</a></li>
-                <li><a href="{{ route('products.list') }}">Products</a></li>
+                <li class="hidden-sm"><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('about') }}">About</a></li>
+                <li><a href="{{ route('products') }}">Products</a></li>
                 <li><a href="{{ route('groups') }}">Groups</a></li>
                 @if(!Auth::guest())
                   <li><a href="{{ route('preferences') }}">Preferences</a></li>
                 @endif
-                <li><a href="{{ url('statistics') }}">Statistics</a></li>
-                <li class="hidden-sm"><a href="{{ url('contact') }}">Contact</a></li>
+                <li><a href="{{ route('statistics') }}">Statistics</a></li>
+                <li class="hidden-sm"><a href="{{ route('contact') }}">Contact</a></li>
 
                 <!-- Authentication Links -->
                 @if (Auth::guest())
@@ -38,10 +38,10 @@
                     <li class="dropdown">
                       <a href="#" class="btn btn-primary my-btn my-btn-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My profile <span class="caret"></span></a>
                       <ul class="dropdown-menu my-profile">
-                        <li><a href="{{ route('details') }}">Account Info</a></li>
-                        <li><a href="{{ route('mypreferences') }}">My Preferences</a></li>
-                        <li><a href="{{ route('myproducts') }}">My Products</a></li>
-                        <li><a href="{{ route('mygroups') }}">My Groups</a></li>
+                        <li><a href="{{ route('details') }}">Details</a></li>
+                        <li><a href="{{ route('mypreferences') }}">Preferences</a></li>
+                        <li><a href="{{ route('myproducts') }}">Products</a></li>
+                        <li><a href="{{ route('mygroups') }}">Groups</a></li>
                         <li role="separator" class="divider"></li>
                         <li>
                           <a href="{{ route('logout') }}"

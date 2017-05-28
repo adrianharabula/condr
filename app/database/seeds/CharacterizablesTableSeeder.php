@@ -18,16 +18,13 @@ class CharacterizablesTableSeeder extends Seeder
         $cs = \App\Characteristic::where('id', '>=', 1)
                                 ->where('id', '<=', 7)->get();
 
-        $faker = Faker\Factory::create("en_US");
+        $Faker = Faker\Factory::create("en_US");
         
         for($i = 0; $i < 50; $i++) {
             $psr = $ps[rand(0, count($ps) - 1)];
             $csr = $cs[rand(0, count($cs) - 1)];
 
-            $words = $faker->words(rand(1, 5));
-            $words = implode(', ', $words);
-
-            $psr->characteristics()->attach($csr, ['characteristic_values' => $words]);
+            $psr->characteristics()->attach($csr, ['characteristic_values' => $Faker->word(rand(0, 3) + 1)]);
         }
 
     }
