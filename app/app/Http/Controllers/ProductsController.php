@@ -2,36 +2,77 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductSearchRequest;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
-use \App\Product as Product;
+use App\Repositories\ProductRepository;
 use Auth;
+
+// class ProductsController extends Controller
+// {
+//     private $_productRepository;
+
+//     public function __construct(ProductRepository $products)
+//     {
+//            parent::__construct();
+
+//         $this->_productRepository = $products;
+//     }
+
+//     public function index()
+//     {
+//         $x = $this->_productRepository;
+//         dd($x);
+//         return view('products')->with('products', $this->_productRepository->getAll());
+//     }
+
+//     // function viewProduct(Products $product, Characteristics $cr)
+//     // {
+//     //     $crv = $cr->values($product);
+//     //     return view('product')->with('product', $product)
+//     //                           ->with('crv', $crv);
+//     // }
+
+//     // function search(Request $request)
+//     // {
+//     //     $name = $request->product_name;
+//     //     $products = Product::search($name)->get();
+//     //     return view('products')->with('products', $products);
+//     // }
+
+//     // function store(Product $product, Request $request)
+//     // {
+//     //     Auth::user()->products()->syncWithoutDetaching($product);
+//     //     $request->session()->flash('status', 'You have added this product to your history!');
+//     //     return redirect()->route('viewproduct', ['id' => $product->id]);
+//     // }
+// }
+
 
 class ProductsController extends Controller
 {
-    function index()
-    {
-        $products = Product::all();
-        return view('products')->with('products',$products);
-    }
 
-    function viewProduct(Product $product)
-    {
-        return view('viewProduct')->with('product', $product);
-    }
+    protected $_productRepository;
 
-    function search(Request $request)
-    {
-        $name = $request->product_name;
-        $products = Product::search($name)->get();
-        return view('products')->with('products', $products);
+    public function __construct(ProductRepository $_productRepository){
+        $this->_productRepository = $_productRepository;
     }
-
-    function store(Product $product, Request $request)
+    public function getProductsList(ProductSearchRequest $data)
     {
-        Auth::user()->products()->syncWithoutDetaching($product);
-        $request->session()->flash('status', 'You have added this product to your history!');
-        return redirect()->route('viewproduct', ['id' => $product->id]);
+        return view('product.list')
+            ->with('products',$this->_productRepository->searchProducts($data));
+    }
+    public function getProduct($id){
+        //$x = $this->_productRepository->find($id);
+        //$z = $x->characteristics()->first();
+        //$f = $z->votes()->get();
+        //
+        //    dd($x,$z,$f);
+        //dd('wrong seed relation');
+        return view('product.view')->with('product',$this->_productRepository->find($id));
+    }
+    public function postProductToFavorite(){
+
     }
 }

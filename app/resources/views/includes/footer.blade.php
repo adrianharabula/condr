@@ -8,7 +8,7 @@
         </div>
         <div class="pull-right">
             <ul class="social-media list-inline">
-                <li class="hidden-xs"><a href="{{ route('contact') }}">Contact</a></li>
+                <li class="hidden-xs"><a href="{{ url('contact') }}">Contact</a></li>
                 <li><a href="https://github.com/adrianharabula/condr"><span class="fa fa-github"></span></a></li>
             </ul>
         </div>
