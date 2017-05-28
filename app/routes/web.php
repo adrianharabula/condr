@@ -56,7 +56,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
         'as'   => 'products.listproducts'
     ]);
 
-    Route::post('product/{id}', [
+    Route::any('product/{id}', [
         'uses' => 'User\UserProductsController@addFavoriteProduct',
         'as'   => 'product.add'
     ]);
