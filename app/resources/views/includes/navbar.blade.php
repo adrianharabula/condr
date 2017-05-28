@@ -40,8 +40,8 @@
                       <ul class="dropdown-menu my-profile">
                         <li><a href="{{ route('my.account.index') }}">My Account</a></li>
                         {{--<li><a href="{{ route('mypreferences') }}">My Preferences</a></li>--}}
-                        <li><a href="{{ route('myproducts') }}">My Products</a></li>
-                        <li><a href="{{ route('mygroups') }}">My Groups</a></li>
+                        <li><a href="{{ route('my.products.listproducts') }}">My Products</a></li>
+{{--                        <li><a href="{{ route('mygroups') }}">My Groups</a></li>--}}
                         <li role="separator" class="divider"></li>
                         <li>
                           <a href="{{ route('logout') }}"
