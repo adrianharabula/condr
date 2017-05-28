@@ -3,7 +3,9 @@
 
 <p align="center"><a href="https://stackshare.io/adrianharabula/condr"><img src="https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat" alt="Stackshare"></a></p>
 
-## About the app
+## The app
+
+Tell us your wishes and we'll help you decide! ConDr gives you sugsgestions whether to buy or not a product you are looking for by searching through our database.
 
 ## Contributing
 
