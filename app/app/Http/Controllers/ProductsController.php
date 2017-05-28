@@ -27,10 +27,10 @@ use Auth;
 //         return view('products')->with('products', $this->_productRepository->getAll());
 //     }
 
-//     // function viewProduct(Products $product, Characteristics $cr)
+//     // function viewProduct(Products $products, Characteristics $cr)
 //     // {
-//     //     $crv = $cr->values($product);
-//     //     return view('product')->with('product', $product)
+//     //     $crv = $cr->values($products);
+//     //     return view('products')->with('products', $products)
 //     //                           ->with('crv', $crv);
 //     // }
 
@@ -41,11 +41,11 @@ use Auth;
 //     //     return view('products')->with('products', $products);
 //     // }
 
-//     // function store(Product $product, Request $request)
+//     // function store(Product $products, Request $request)
 //     // {
-//     //     Auth::user()->products()->syncWithoutDetaching($product);
-//     //     $request->session()->flash('status', 'You have added this product to your history!');
-//     //     return redirect()->route('viewproduct', ['id' => $product->id]);
+//     //     Auth::user()->products()->syncWithoutDetaching($products);
+//     //     $request->session()->flash('status', 'You have added this products to your history!');
+//     //     return redirect()->route('viewproduct', ['id' => $products->id]);
 //     // }
 // }
 
@@ -58,11 +58,13 @@ class ProductsController extends Controller
     public function __construct(ProductRepository $_productRepository){
         $this->_productRepository = $_productRepository;
     }
+
     public function getProductsList(ProductSearchRequest $data)
     {
-        return view('product.list')
-            ->with('products',$this->_productRepository->searchProducts($data));
+        return view('products.listproducts')
+            ->with('products', $this->_productRepository->searchProducts($data));
     }
+
     public function getProduct($id){
         //$x = $this->_productRepository->find($id);
         //$z = $x->characteristics()->first();
@@ -70,8 +72,9 @@ class ProductsController extends Controller
         //
         //    dd($x,$z,$f);
         //dd('wrong seed relation');
-        return view('product.view')->with('product',$this->_productRepository->find($id));
+        return view('products.singleview')->with('product', $this->_productRepository->find($id));
     }
+
     public function postProductToFavorite(){
 
     }

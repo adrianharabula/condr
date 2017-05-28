@@ -13,6 +13,6 @@ class PreferencesController extends Controller
     
     function suggestion(\App\Product $product)
     {
-        return view('suggestion')->with('product', $product);
+        return view('suggestion')->with('products', $product);
     }
 }

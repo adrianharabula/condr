@@ -35,25 +35,39 @@ class UserRepository extends EloquentRepository
         return User::class;
     }
 
-    public function toggleFavoriteProduct($productId)
+    public function addFavoriteProduct($productId)
     {
         $productFavored = auth()->user()->products->where('id', $productId)->first();
-        if ($productFavored) {
-            auth()->user()->products()->detach($productId);
-            request()->session()->flash('message', 'You have deleted this product from your history!');
+        if (!$productFavored) {
+            auth()->user()->products()->syncWithoutDetaching($productId);
+            request()->session()->flash('message', 'Product saved for later use!');
         } else {
             auth()->user()->products()->syncWithoutDetaching($productId);
-            request()->session()->flash('message', 'You have added this product to your history!');
+            request()->session()->flash('message', 'Product aleardy in your basket!');
+            request()->session()->flash('alert-class', 'alert-danger');
         }
 
         return true;
     }
 
+    public function deleteFavoriteProduct($productId)
+    {
+        $productFavored = auth()->user()->products->where('id', $productId)->first();
+        if($productFavored) {
+            auth()->user()->products()->detach($productId);
+            request()->session()->flash('message', 'Product deleted from your history!');
+        } else {
+            request()->session()->flash('message', 'Product not in your basket!');
+            request()->session()->flash('alert-class', 'alert-danger');
+        }
+
+        return true;
+
+    }
+
     public function getUserFavorites($userId = null)
     {
-        $user = $this->getUser($userId);
-
-        return $user->products;
+        return $this->getUser($userId)->products;
     }
 
     private function getUser($userId = null)

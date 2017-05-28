@@ -6,25 +6,26 @@
 
 <div class="panel-heading text-center">
   <h3><b>Your selected products</b></h3>
-</div><br>
-
-{{-- <div class="container white">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4 text-center">
-      <form class="form">
-        <div class="form-group col-md-12">
-          <input type="text" class="form-control" id="name" placeholder="Enter the product's name">
-        </div>
-        <div class="col-md-12">
-          <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Search</button>
-        </div>
-      </form>
-    </div>
-  </div>
 </div>
-<br /><br/> --}}
 
 <div class="container">
+
+  @if(Session::has('message'))
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="alert {{ Session::get('alert-class', 'alert-success') }} alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          @if(Session::get('alert-class') === 'alert-danger')
+            <strong>Error: </strong>
+          @else
+            <strong>Success: </strong>
+          @endif
+          {{ Session::get('message') }}
+        </div>
+      </div>
+    </div>
+  @endif
+
   <div class="row">
   @foreach ($products as $product)
     <div class="col-md-4">
@@ -63,7 +64,7 @@
                       <div class="modal-content">
 
                         <div class="modal-body">
-                          {{Form::open(array('url'=> route('myProducts.toggle',$product->id)))}}
+                          {{Form::open(array('method' => 'DELETE', 'url'=> route('my.product.delete', $product->id)))}}
                           {{ csrf_field() }}
                             <div class="form-group">
                               <div style="font-weight:bold; font-size: 17px;text-align:center;">Are you sure that you want to delete this product?</div>

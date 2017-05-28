@@ -22,28 +22,52 @@ Route::get('/', function () {
     return view('static.home');
 });
 
-Route::group(['prefix' => '/products', 'as' => 'products.'], function () {
-    Route::any('/', [
-        'uses' => 'ProductsController@getProductsList',
-        'as'   => 'list'
-    ]);
-    Route::get('/{product}', [
-        'uses' => 'ProductsController@getProduct',
-        'as'   => 'view'
-    ]);
-});
+Route::any('/products', [
+    'uses' => 'ProductsController@getProductsList',
+    'as'   => 'products.listproducts'
+]);
 
-Route::group(['middleware' => 'auth', 'prefix' => '/my-products', 'as' => 'myProducts.'], function () {
-    Route::get('/', [
+Route::get('/product/{products}', [
+    'uses' => 'ProductsController@getProduct',
+    'as'   => 'products.singleview'
+]);
+
+Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function () {
+
+    Route::group(['middleware' => 'auth', 'prefix' => 'account', 'as' => 'account.'], function () {
+        Route::get('/', [
+          'uses' => 'User\UserSettingsController@index',
+          'as' => 'index'
+        ]);
+
+        Route::get('change-password', [
+            'uses' => 'User\UserSettingsController@getEditPassword',
+            'as' => 'change-password'
+        ]);
+
+        Route::post('change-password', [
+            'uses' => 'User\UserSettingsController@postEditPassword',
+            'as' => 'change-password'
+        ]);
+    });
+
+    Route::get('products', [
         'uses' => 'User\UserProductsController@getFavoriteProducts',
-        'as'   => 'list'
+        'as'   => 'products.listproducts'
     ]);
-    Route::post('{id}', [
-        'uses' => 'User\UserProductsController@postToggleFavoriteProduct',
-        'as'   => 'toggle'
+
+    Route::post('product/{id}', [
+        'uses' => 'User\UserProductsController@addFavoriteProduct',
+        'as'   => 'product.add'
+    ]);
+
+    Route::delete('product/{id}', [
+        'uses' => 'User\UserProductsController@deleteFavoriteProduct',
+        'as'   => 'product.delete'
     ]);
 
 });
+
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::post('/groups', 'GroupsController@search')->name('groups');
 
@@ -51,22 +75,28 @@ Route::get('/group/view/{group}', 'GroupsController@viewGroup')->name('viewGroup
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/preferences', 'PreferencesController@index')->name('preferences');
-    Route::get('/details', 'DetailsController@index')->name('details');
+    Route::get('/my-account', 'User\UserSettingsController@index')->name('myaccount');
     Route::get('/myproducts', 'MyProductsController@index')->name('myproducts');
-    Route::post('/myproducts/add/{product}', 'MyProductsController@store')->name('addproduct');
-    Route::post('/myproducts/delete/{product}', 'MyProductsController@delete')->name('deleteproduct');
+    Route::post('/myproducts/add/{products}', 'MyProductsController@store')->name('addproduct');
+    Route::post('/myproducts/delete/{products}', 'MyProductsController@delete')->name('deleteproduct');
     Route::post('/mypreferences/add/{characteristic}', 'MyPreferencesController@store')->name('addcharacteristics');
     Route::get('/group/join/{group}', 'GroupsController@store')->name('joinGroup');
     Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
     Route::get('/mygroups/delete/{group}', 'MyGroupsController@delete')->name('groupdelete');
-    Route::get('/details/editpassword', 'UserSettingsController@editpassword')->name('editpassword');
-    Route::get('/details/preferences', 'PreferencesController@index')->name('preferences');
+    Route::get('/my-account/edit-password', 'User\UserSettingsController@getEditPassword')->name('edit-password');
+    Route::get('/my-account/preferences', 'PreferencesController@index')->name('preferences');
     Route::get('/preferences/suggestion', 'PreferencesController@suggestion')->name('suggestion');
     Route::post('/details/editpassword', 'UserSettingsController@updatepassword')->name('editpassword');
     Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
     Route::get('/mypreferences/addpreferences', 'MyPreferencesController@addPreferences')->name('addpreferences');
 
 });
+
+/**
+ * Admin routes if ever we'll need one
+ */
+/*Route::group(array('prefix' => 'admin', 'before' => 'auth'), function() {
+});*/
 
 Route::group(['prefix' => 'scripts'], function () {
     /*
