@@ -1,4 +1,11 @@
-# ConDr (Consumer Decision Maker) [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/adrianharabula/condr)
+<p align="center">
+<h1>Consumer Decision Maker</h1>
+<img src="https://cloud.githubusercontent.com/assets/2271038/26532430/2a06aad0-4409-11e7-959a-7c580f5fb5b7.png">
+</p>
+
+<p align="center">
+[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/adrianharabula/condr)
+</p>
 
 ## Enunţ
 
