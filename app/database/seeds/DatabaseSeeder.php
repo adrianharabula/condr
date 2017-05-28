@@ -21,6 +21,5 @@ class DatabaseSeeder extends Seeder
         $this->call(CharacteristicsTableSeeder::class);
         $this->call(CharacteristicVoteTableSeeder::class);
         $this->call(ProductCharacteristicVoteTableSeeder::class);
-        //$this->call(CharacterizablesTableSeeder::class);
     }
 }
