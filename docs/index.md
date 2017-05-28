@@ -2,9 +2,14 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+### Developers team:
 
-[Link to another page](another-page).
+Adrian Harabulă  
+Elisa Bulbuc-Aioanei  
+Elena Anghelina  
+Mădălina Buza  
+
+[Click to see invidual work log](another-page).
 
 There should be whitespace between paragraphs.
 
