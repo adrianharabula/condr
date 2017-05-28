@@ -1,11 +1,7 @@
-<p align="center">
-<h1>Consumer Decision Maker</h1>
-<img src="https://cloud.githubusercontent.com/assets/2271038/26532430/2a06aad0-4409-11e7-959a-7c580f5fb5b7.png">
-</p>
+<h1 align="center">Consumer Decision Maker</h1>
+<p align="center"><img src="https://cloud.githubusercontent.com/assets/2271038/26532430/2a06aad0-4409-11e7-959a-7c580f5fb5b7.png"></p>
 
-<p align="center">
-[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/adrianharabula/condr)
-</p>
+<p align="center"><a href="https://stackshare.io/adrianharabula/condr"><img src="https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat" alt="Stackshare"></a></p>
 
 ## Enunţ
 
