@@ -31,17 +31,20 @@ class UserProductsController extends Controller
         $this->_userRepository = $_userRepository;
     }
 
-
-    public function postToggleFavoriteProduct(Request $request)
+    public function addFavoriteProduct(Request $request)
     {
-        $this->_userRepository->toggleFavoriteProduct($request->id);
-
-        return redirect()->route('myProducts.list');
+        $this->_userRepository->addFavoriteProduct($request->id);
+        return redirect()->route('my.products.listproducts');
     }
 
+    public function deleteFavoriteProduct(Request $request)
+    {
+        $this->_userRepository->deleteFavoriteProduct($request->id);
+        return redirect()->route('my.products.listproducts');
+    }
 
     public function getFavoriteProducts()
     {
-        return view('user.favorites-products')->with('products', $this->_userRepository->getUserFavorites());
+        return view('user.favorited-products')->with('products', $this->_userRepository->getUserFavorites());
     }
 }

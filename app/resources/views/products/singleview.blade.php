@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','View product')
+@section('title','products')
 
 @section('content')
 
@@ -24,7 +24,7 @@
                             <h1>{{ $product->name}}</h1>
                         </div>
                         <div class="col-md-6 text-right">
-                            {{Form::open(array('url' => route('myProducts.toggle', $product->id)))}}
+                            {{ Form::open(array('url' => route('my.product.add', $product->id))) }}
                             {{ csrf_field() }}
                             <div class="">
                                 <button class="btn btn-primary my-btn btn-start my-btn-dropdown my-btn-border"><i

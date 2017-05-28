@@ -38,14 +38,14 @@ class MyProductsController extends Controller
     function delete(Product $product, Request $request)
     {
         Auth::user()->products()->detach($product);
-        $request->session()->flash('message', 'You have deleted this product from your history!');
+        $request->session()->flash('message', 'You have deleted this products from your history!');
         return redirect()->route('viewproduct', ['id' => $product->id]);
     }
 
     function store(Product $product, Request $request)
     {
         Auth::user()->products()->syncWithoutDetaching($product);
-        $request->session()->flash('message', 'You have added this product to your history!');
+        $request->session()->flash('message', 'You have added this products to your history!');
         return redirect()->route('viewproduct', ['id' => $product->id]);
     }
 }
