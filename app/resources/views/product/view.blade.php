@@ -52,8 +52,9 @@
                             {{ csrf_field() }}
                             <button class="btn btn-danger btn-circle" data-toggle="tooltip"
                                     title="Add me to your preferences!">
-                                <span class="fa fa-heart"></span>{{ $characteristic->name }}
-                                {{$characteristic->votes()->first()->vote}}
+                                <span class="fa fa-heart"></span>{{ $characteristic->name }}: 
+                                {{ $characteristic->values }}
+                                {{-- {{$characteristic->votes()->first()->vote}} --}}
                             </button>
                             {{ Form::close() }}
                         @empty

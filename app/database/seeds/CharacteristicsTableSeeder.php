@@ -12,7 +12,7 @@ class CharacteristicsTableSeeder extends Seeder
     public function run()
     {
 
-      // characteristics for electronics (1,7)
+      // characteristics for electronics (1,15)
       DB::table('characteristics')->insert([
           'name' => 'Processor', //value will be a (number.number) GHz
           'values' => '2.1 Ghz, 2.6 Ghz, 3.1 Ghz'
@@ -82,7 +82,7 @@ class CharacteristicsTableSeeder extends Seeder
       // }
 
 
-      // characteristics for clothes and footwear (8,16)
+      // characteristics for clothes and footwear (16,39)
       DB::table('characteristics')->insert([
          'name' => 'Material', //value will be cotton, silk, leather etc...
          'values' => 'cotton'
@@ -176,7 +176,7 @@ class CharacteristicsTableSeeder extends Seeder
          'values' => 'summer'
       ]);
 
-      // characteristics for food (17,24)
+      // characteristics for food (40,53)
       DB::table('characteristics')->insert([
          'name' => 'Taste', //value will be sour,sweet,chilli etc
          'values' => 'sour, sweet'
@@ -270,7 +270,7 @@ class CharacteristicsTableSeeder extends Seeder
          'values' => 'salt'
       ]);
 
-      // characteristics for games (25,30)
+      // characteristics for games (54,67)
       DB::table('characteristics')->insert([
          'name' => 'Genre', //value will be sport,arcade,racing,fight etc...
          'values' => 'sport'
@@ -324,7 +324,43 @@ class CharacteristicsTableSeeder extends Seeder
          'values' => 'no'
       ]);
 
-      // characteristics for education (31,35)
+
+      // characteristics for services (68,75)
+      DB::table('characteristics')->insert([
+         'name' => 'Room service', //value will be yes or no
+         'values' => 'yes'
+      ]);
+      DB::table('characteristics')->insert([
+         'name' => 'Room service', //value will be yes or no
+         'values' => 'no'
+      ]);
+      DB::table('characteristics')->insert([
+         'name' => 'Close to town center', //value will be yes or no
+         'values' => 'yes'
+      ]);
+      DB::table('characteristics')->insert([
+         'name' => 'Close to town center', //value will be yes or no
+         'values' => 'no'
+      ]);
+      DB::table('characteristics')->insert([
+         'name' => 'Has direct connection', //value will be yes or no
+         'values' => 'yes'
+      ]);
+      DB::table('characteristics')->insert([
+         'name' => 'Has direct connection', //value will be yes or no
+         'values' => 'no'
+      ]);
+      DB::table('characteristics')->insert([
+         'name' => 'Close to the beach', //value will be yes or no
+         'values' => 'yes'
+      ]);
+      DB::table('characteristics')->insert([
+         'name' => 'Close to the beach', //value will be yes or no
+         'values' => 'no'
+      ]);
+
+
+      // characteristics for education (76,86)
       DB::table('characteristics')->insert([
          'name' => 'Needs founding', //value will be yes or no
          'values' => 'yes'
@@ -366,7 +402,7 @@ class CharacteristicsTableSeeder extends Seeder
          'values' => 'no'
       ]);
 
-      // characteristics for entertainment (36,40)
+      // characteristics for entertainment (87,98)
       DB::table('characteristics')->insert([
          'name' => 'Playing tonight', //value will be yes or no
          'values' => 'yes'
@@ -412,7 +448,7 @@ class CharacteristicsTableSeeder extends Seeder
          'values' => 'from 20e'
       ]);
 
-      // characteristics for every item (41,44)
+      // characteristics for every item (99,109)
       DB::table('characteristics')->insert([
          'name' => 'Price', //value will be a number
          'values' => '30e'
@@ -454,39 +490,6 @@ class CharacteristicsTableSeeder extends Seeder
          'values' => '5e'
       ]);
 
-      // characteristics for services (45,48)
-      DB::table('characteristics')->insert([
-         'name' => 'Room service', //value will be yes or no
-         'values' => 'yes'
-      ]);
-      DB::table('characteristics')->insert([
-         'name' => 'Room service', //value will be yes or no
-         'values' => 'no'
-      ]);
-      DB::table('characteristics')->insert([
-         'name' => 'Close to town center', //value will be yes or no
-         'values' => 'yes'
-      ]);
-      DB::table('characteristics')->insert([
-         'name' => 'Close to town center', //value will be yes or no
-         'values' => 'no'
-      ]);
-      DB::table('characteristics')->insert([
-         'name' => 'Has direct connection', //value will be yes or no
-         'values' => 'yes'
-      ]);
-      DB::table('characteristics')->insert([
-         'name' => 'Has direct connection', //value will be yes or no
-         'values' => 'no'
-      ]);
-      DB::table('characteristics')->insert([
-         'name' => 'Close to the beach', //value will be yes or no
-         'values' => 'yes'
-      ]);
-      DB::table('characteristics')->insert([
-         'name' => 'Close to the beach', //value will be yes or no
-         'values' => 'no'
-      ]);
 
       // etc.... mai adaugati voi....
 
