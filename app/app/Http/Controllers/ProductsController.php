@@ -6,7 +6,13 @@ use App\Http\Requests\ProductSearchRequest;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
+
+
+use Illuminate\Contracts\Pagination\Paginator;
+use \App\Product as Product;
+
 use App\Repositories\ProductRepository;
+
 use Auth;
 
 // class ProductsController extends Controller
@@ -53,10 +59,18 @@ use Auth;
 class ProductsController extends Controller
 {
 
+    function index()
+    {
+        //$products = Product::all();
+        $products = Product::paginate(5);
+        return view('products')->with('products',$products);
+
+
     protected $_productRepository;
 
     public function __construct(ProductRepository $_productRepository){
         $this->_productRepository = $_productRepository;
+
     }
 
     public function getProductsList(ProductSearchRequest $data)
@@ -78,4 +92,5 @@ class ProductsController extends Controller
     public function postProductToFavorite(){
 
     }
+}
 }
