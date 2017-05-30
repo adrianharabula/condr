@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CharacteristicVote extends Model
+class Vote extends Model
 {
-    protected $table = "characteristic_vote";
+    protected $table = "vote";
 
     protected $fillable = ['votes'];
 }

@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/my-products', 'as' => 'myPro
 });
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::post('/groups', 'GroupsController@search')->name('groups');
+Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
 Route::get('/group/view/{group}', 'GroupsController@viewGroup')->name('viewGroup');
 
