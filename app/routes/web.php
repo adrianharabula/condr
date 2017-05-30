@@ -127,13 +127,9 @@ Route::group(['prefix' => 'scripts'], function () {
         Artisan::call('db:seed');
         echo '<pre>'.Artisan::output().'</pre>';
     });
-
-    Route::get('products', function () {
-    return view('products.index')
-        ->with('products', Task::paginate(5));
-});
-
 });
 Route::get('{route}', function ($route) {
     return view('static.'.$route);
 });
+
+
