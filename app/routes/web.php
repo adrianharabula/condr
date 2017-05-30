@@ -91,4 +91,9 @@ Route::group(['prefix' => 'scripts'], function () {
         echo '<pre>' . Artisan::output() . '</pre>';
     });
 
+    Route::get('products', function () {
+    return view('products.index')
+        ->with('products', Task::paginate(5));
+});
+
 });
