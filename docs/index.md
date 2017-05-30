@@ -2,9 +2,18 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+### Original request
 
-[Link to another page](another-page).
+ > A web tool is needed to provide consumers with advice on decisions to purchase goods / services in an ethical way. The system will be able to store and use the simple rules of the form "if <condition> then <action>" - in our case, for example, "we will not buy / use the product P because it contains / uses substance S", or "I will choose P instead of Q because of M (for example, low mobility or unreasonable price)"- to provide suggestions on personal or group resources. The application will also provide statistics on most of the desired resources, restrictions, people with similar preferences, etc. As a source of inspiration, see Buycott. Bonus: using web microservices.
+
+### Developers team:
+
+Adrian Harabulă  
+Elisa Bulbuc-Aioanei  
+Elena Anghelina  
+Mădălina Buza  
+
+[Click to see invidual work log](another-page).
 
 There should be whitespace between paragraphs.
 

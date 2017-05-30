@@ -16,44 +16,80 @@
 
 use Illuminate\Http\Request;
 
-
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
-
-// default route for laravel after login/recoverpassword
-Route::get('/home', function () {
-    return redirect()->route('home');
+Route::get('/', function () {
+    return view('static.home');
 });
 
-Route::get('/about', 'AboutController@index')->name('about');
-Route::get('/contact', 'ContactController@index')->name('contact');
-Route::get('/products', 'ProductsController@index')->name('products');
-Route::post('/products', 'ProductsController@search')->name('products');
-Route::get('/product/view/{product}', 'ProductsController@viewproduct')->name('viewproduct');
+Route::any('/products', [
+    'uses' => 'ProductsController@getProductsList',
+    'as'   => 'products.listproducts'
+]);
+
+Route::get('/product/{products}', [
+    'uses' => 'ProductsController@getProduct',
+    'as'   => 'products.singleview'
+]);
+
+Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function () {
+
+    Route::group(['prefix' => 'account', 'as' => 'account.'], function () {
+        Route::get('/', [
+          'uses' => 'User\UserSettingsController@index',
+          'as' => 'index'
+        ]);
+
+        Route::get('change-password', [
+            'uses' => 'User\UserSettingsController@getEditPassword',
+            'as' => 'change-password'
+        ]);
+
+        Route::post('change-password', [
+            'uses' => 'User\UserSettingsController@postEditPassword',
+            'as' => 'change-password'
+        ]);
+    });
+
+    Route::get('products', [
+        'uses' => 'User\UserProductsController@getFavoriteProducts',
+        'as'   => 'products.listproducts'
+    ]);
+
+    Route::match(['get', 'post'], 'product/{id}', [
+        'uses' => 'User\UserProductsController@addFavoriteProduct',
+        'as'   => 'product.add'
+    ]);
+
+    Route::delete('product/{id}', [
+        'uses' => 'User\UserProductsController@deleteFavoriteProduct',
+        'as'   => 'product.delete'
+    ]);
+
+});
+
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::post('/groups', 'GroupsController@search')->name('groups');
 Route::get('/group/view/{group}', 'GroupsController@viewGroup')->name('viewGroup');
-Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/preferences', 'PreferencesController@index')->name('preferences');
-    Route::get('/details', 'DetailsController@index')->name('details');
-    Route::get('/myproducts', 'MyProductsController@index')->name('myproducts');
-    Route::post('/myproducts/add/{product}', 'MyProductsController@store')->name('addproduct');
-    Route::post('/myproducts/delete/{product}', 'MyProductsController@delete')->name('deleteproduct');
     Route::post('/mypreferences/add/{characteristic}', 'MyPreferencesController@store')->name('addcharacteristics');
     Route::get('/group/join/{group}', 'GroupsController@store')->name('joinGroup');
     Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
     Route::get('/mygroups/delete/{group}', 'MyGroupsController@delete')->name('groupdelete');
-    Route::get('/details/editpassword', 'UsersController@editpassword')->name('editpassword');
-    Route::get('/details/preferences', 'PreferencesController@index')->name('preferences');
+    Route::get('/my-account/preferences', 'PreferencesController@index')->name('preferences');
     Route::get('/preferences/suggestion', 'PreferencesController@suggestion')->name('suggestion');
-    Route::post('/details/editpassword', 'UsersController@updatepassword')->name('editpassword');
     Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
     Route::get('/mypreferences/addpreferences', 'MyPreferencesController@addPreferences')->name('addpreferences');
 
 });
+
+/**
+ * Admin routes if ever we'll need one
+ */
+/*Route::group(array('prefix' => 'admin', 'before' => 'auth'), function() {
+});*/
 
 Route::group(['prefix' => 'scripts'], function () {
     /*
@@ -61,7 +97,7 @@ Route::group(['prefix' => 'scripts'], function () {
     * It is called by GitHub on every new push
     * This updates the server code to the latest code available on GitHub repo
     */
-    Route::post('webhook', function(Request $request){
+    Route::post('webhook', function (Request $request) {
         // get request body
         $content = $request->getContent();
 
@@ -70,8 +106,9 @@ Route::group(['prefix' => 'scripts'], function () {
         $hash = hash_hmac('sha1', $content, env('APP_WEBHOOKKEY'));
 
         // compare it with the one we have in X-Hub-Signature
-        if($request->header('X-Hub-Signature') !== 'sha1=' . $hash)
-        abort(403);
+        if ($request->header('X-Hub-Signature') !== 'sha1='.$hash) {
+            abort(403);
+        }
 
         // execute deploy command
         SSH::run([
@@ -83,12 +120,12 @@ Route::group(['prefix' => 'scripts'], function () {
 
     Route::get('migrate', function () {
         Artisan::call('migrate:refresh');
-        echo '<pre>' . Artisan::output() . '</pre>';
+        echo '<pre>'.Artisan::output().'</pre>';
     });
 
     Route::get('seed', function () {
         Artisan::call('db:seed');
-        echo '<pre>' . Artisan::output() . '</pre>';
+        echo '<pre>'.Artisan::output().'</pre>';
     });
 
     Route::get('products', function () {
@@ -96,4 +133,7 @@ Route::group(['prefix' => 'scripts'], function () {
         ->with('products', Task::paginate(5));
 });
 
+});
+Route::get('{route}', function ($route) {
+    return view('static.'.$route);
 });

@@ -25,10 +25,8 @@
       <div class="login-panel panel panel-default text-center">
         <div class="panel-heading"> <h3> Edit your password! </h3> </div>
         <div class="panel-body">
-
-
-          {{ Form::open(array('url' => route('editpassword'))) }}
-               {{ csrf_field() }}
+          {{ Form::open(array('url' => route('my.account.change-password'))) }}
+              {{ csrf_field() }}
               <div class="form-group">
                 <input class="form-control" placeholder="Type the current password" name="oldpass" type="password" >
               </div>
@@ -47,6 +45,5 @@
       </div><!-- /.col-->
     </div><!-- /.row -->
   </div>
-
 
 @endsection

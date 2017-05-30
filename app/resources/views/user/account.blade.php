@@ -6,17 +6,24 @@
 
 @section('title', 'Details')
 
-@if(session('success_message'))
-  <div class="row">
-  	<div class="col-md-4 col-md-offset-4" style="margin-top: 40px;">
-    	<div class="panel panel-success">
-          <div class="panel-heading">{{ session('success_message')}} </div>
-      </div>
-    </div>
-  </div>
-@endif
-
 <div class="container">
+
+    @if(Session::has('message'))
+        <div class="row page black">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="alert {{ Session::get('alert-class', 'alert-success') }} alert-dismissable">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    @if(Session::get('alert-class') === 'alert-danger')
+                        <strong>Error: </strong>
+                    @else
+                        <strong>Success: </strong>
+                    @endif
+                    {{ Session::get('message') }}
+                </div>
+            </div>
+        </div>
+    @endif
+
   <div class="row page black">
       <div class="col-md-4 col-md-offset-4">
         <div class="login-panel panel panel-default">
@@ -33,7 +40,7 @@
                            <p><span style="color:green"><b>Email: </b></span> {{$user->email}} </p>
                         </div>
                     </div>
-                <div><a href= {{route('editpassword')}} class="btn btn-primary my-btn btn-start my-btn-dropdown btn-block">Edit Password</a></div>
+                <div><a href= {{route('my.account.change-password')}} class="btn btn-primary my-btn btn-start my-btn-dropdown btn-block">Edit Password</a></div>
               </fieldset>
           </div>
         </div>
