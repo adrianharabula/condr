@@ -11,7 +11,7 @@
 
   <form class="form">
     <div class="col-md-12">
-      <a href={{route('addpreferences')}} type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Add preferences</a>
+      <a href={{route('my.preferences.addbyyourself')}} type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Add preferences</a>
     </div>
   </form>
 </div>
@@ -25,16 +25,16 @@
             <div class="row">
               <div class="col-md-10">
 
-                {{ Form::open(array('url' => route('products'))) }}
+                {{ Form::open(array('url' => route('products.listproducts'))) }}
                 {{ csrf_field() }}
 
-                @foreach ($user->characteristics as $characteristic)
+                @foreach ($preferences as $preference)
                 <table class="table table-hover">
                   <tbody>
                     <tr>
-                      <h3> {{ $characteristic->category->name }}</h3>
+                      <h3> {{ $preference->category->name }}</h3>
                       <div class="col-md-10">
-                        <input type="checkbox" name="characteristic_name" value="">{{ $characteristic->name }}: {{ $characteristic->values() }}
+                        <input type="checkbox" name="characteristic_name" value="">{{ $preference->name }}: {{ $preference->values}}
                       </div>
                     </tr>
                   </tbody>

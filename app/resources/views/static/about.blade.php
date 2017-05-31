@@ -54,7 +54,7 @@
   </div>
 </section>
 <div class="content content-nopad">
-    <a href="{{ route('addpreferences') }}" class="btn btn-primary my-btn btn-start my-btn-dropdown">Let's get started!</a> <br /> <br />
+    <a href="{{ route('my.preferences.listpreferences') }}" class="btn btn-primary my-btn btn-start my-btn-dropdown">Let's get started!</a> <br /> <br />
 </div>
 
 <style>

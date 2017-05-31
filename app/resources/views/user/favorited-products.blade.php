@@ -50,7 +50,7 @@
                   <tr>
                       <td><b>Characteristics: </b></td>
                       @foreach ($product->characteristics as $characteristic)
-                          <tr><td> {{ $characteristic->name }}: {{ $characteristic->votes()->first()->vote }}</td></tr>
+                          <tr><td> {{ $characteristic->name }}: {{ $characteristic->values }}</td></tr>
                       @endforeach
                   </tr>
                 </tbody>
