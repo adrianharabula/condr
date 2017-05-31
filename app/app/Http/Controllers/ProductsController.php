@@ -44,24 +44,23 @@ class ProductsController extends Controller
 {
 
     protected $_productRepository;
-    public function __construct(ProductRepository $_productRepository){
+    public function __construct(ProductRepository $_productRepository)
+    {
         $this->_productRepository = $_productRepository;
     }
+    
     public function getProductsList(ProductSearchRequest $data)
     {
         // TODO: add paginate here
         return view('products.listproducts')
             ->with('products', $this->_productRepository->searchProducts($data));
     }
-    public function getProduct($id){
-        //$x = $this->_productRepository->find($id);
-        //$z = $x->characteristics()->first();
-        //$f = $z->votes()->get();
-        //
-        //    dd($x,$z,$f);
-        //dd('wrong seed relation');
+
+    public function getProduct($id)
+    {
         return view('products.singleview')->with('product', $this->_productRepository->find($id));
     }
+
     public function postProductToFavorite(){
     }
 }

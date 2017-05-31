@@ -48,11 +48,11 @@
                         <h5>{{ $product->category->name }}</h5>
                         <h4>Characteristics of the product:</h4>
                         @forelse ($product->characteristics as $characteristic)
-                            {{ Form::open(array('url'=>route('addcharacteristics', $characteristic->id))) }}
+                            {{ Form::open(array('url'=>route('my.preferences.add', $characteristic->id))) }}
                             {{ csrf_field() }}
                             <button class="btn btn-danger btn-circle" data-toggle="tooltip"
                                     title="Add me to your preferences!">
-                                <span class="fa fa-heart"></span>{{ $characteristic->name }}: 
+                                <span class="fa fa-heart"></span>{{ $characteristic->name }}:
                                 {{ $characteristic->values }}
                                 {{-- {{$characteristic->votes()->first()->vote}} --}}
                             </button>

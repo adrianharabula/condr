@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
-class UserProductsController extends Controller
+class UserGroupsController extends Controller
 {
 
     /**
@@ -31,20 +31,20 @@ class UserProductsController extends Controller
         $this->_userRepository = $_userRepository;
     }
 
-    public function addFavoriteProduct(Request $request)
+    public function addFavoriteGroup(Request $request)
     {
-        $this->_userRepository->addFavoriteProduct($request->id);
-        return redirect()->route('my.products.listproducts');
+        $this->_userRepository->addFavoriteGroup($request->id);
+        return redirect()->route('my.groups.listgroups');
     }
 
-    public function deleteFavoriteProduct(Request $request)
+    public function deleteFavoriteGroup(Request $request)
     {
-        $this->_userRepository->deleteFavoriteProduct($request->id);
-        return redirect()->route('my.products.listproducts');
+        $this->_userRepository->deleteFavoriteGroup($request->id);
+        return redirect()->route('my.groups.listgroups');
     }
 
-    public function getFavoriteProducts()
+    public function getFavoriteGroups()
     {
-        return view('user.favorited-products')->with('products', $this->_userRepository->getUserFavoritesProducts());
+        return view('user.favorited-groups')->with('groups', $this->_userRepository->getUserFavoritesGroups());
     }
 }
