@@ -23,7 +23,6 @@ class Product extends Model
 
     public function characteristics()
     {
-        return $this->belongsToMany(Characteristic::class,
-            'product_characteristic_vote', 'product_id', 'characteristic_id');
+        return $this->morphToMany('\App\Characteristic', 'characterizable');
     }
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -11,8 +10,8 @@ class Condrgroup extends Model
         return $this->belongsToMany('\App\User');
     }
 
-    // public function characteristics()
-    // {
-    //     return $this->morphToMany('\App\Characteristic', 'characterizable');
-    // }
+    public function characteristics()
+    {
+        return $this->morphToMany('\App\Characteristic', 'characterizable');
+    }
 }
