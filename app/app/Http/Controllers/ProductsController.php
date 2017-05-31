@@ -4,6 +4,7 @@ use App\Http\Requests\ProductSearchRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\ProductRepository;
+use Illuminate\Contracts\Pagination\Paginator;
 use Auth;
 
 // class ProductsController extends Controller
@@ -48,6 +49,7 @@ class ProductsController extends Controller
     }
     public function getProductsList(ProductSearchRequest $data)
     {
+        // TODO: add paginate here
         return view('products.listproducts')
             ->with('products', $this->_productRepository->searchProducts($data));
     }
