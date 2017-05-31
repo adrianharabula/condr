@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateCharacteristicVote extends Migration
+class CreateVotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +11,11 @@ class CreateCharacteristicVote extends Migration
      */
     public function up()
     {
-        Schema::create('characteristic_vote', function (Blueprint $table) {
+        Schema::create('votes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('vote');
+            $table->integer('value');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -26,6 +23,6 @@ class CreateCharacteristicVote extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('characteristic_vote');
+        Schema::dropIfExists('votes');
     }
 }

@@ -17,6 +17,10 @@ class CreateCharacteristicsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('values');
+            $table->integer('category_id')->unsigned()->nullable();
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->integer('vote_id')->unsigned()->nullable();
+            $table->foreign('vote_id')->references('id')->on('votes');
             $table->timestamps();
         });
     }
