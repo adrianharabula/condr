@@ -1,28 +1,31 @@
-# ConDr (Consumer Decision Maker) [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/adrianharabula/condr)
+<h1 align="center">Consumer Decision Maker</h1>
+<p align="center"><img src="https://cloud.githubusercontent.com/assets/2271038/26532430/2a06aad0-4409-11e7-959a-7c580f5fb5b7.png"></p>
 
-## Enunţ
+<p align="center"><a href="https://stackshare.io/adrianharabula/condr"><img src="https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat" alt="Stackshare"></a></p>
 
- > E necesar un instrument Web pentru a oferi asistenta consumatorilor privind deciziile de achitie a unor bunuri/servicii intr-un mod etic. Sistemul va putea stoca si folosi reguli simple de forma "daca are loc <conditie> atunci <actiune>" -- in cazul nostru, de pilda "nu voi cumpara/folosi produsul P deoarece include/utilizeaza substanta S" ori "voi alege produsul P in loc de Q pe baza motivului M (e.g., mobilitate scazuta ori pret nejustificat de ridicat)" -- in vederea oferirii de sugestii referitoare la resurse de interes personal sau la nivel de grup. Aplicatia va oferi, de asemenea, statistici privind cele mai (in)dezirabile resurse, utilizatorii cu cele mai multe/putine restrictii, persoanele avand preferinte similare etc. Ca inspiratie, a se studia Buycott. Bonus: recurgerea la microservicii Web.
+## The app
 
-## Cuprins
- * documentaţia bazei de date disponibilă [aici](https://docs.condr.me/dbschema/)
- * tema PSGBD, etapa II, conectare la baza de date cu PHP şi oci8, queriuri pe baza de date, cod sursă [aici](https://github.com/adrianharabula/condr/tree/master/psgbd/etapa2)
- 
-## Instrucțiuni instalare
-Aplicaţia nu are nevoie decât de php (am folosit versiunile 7.0, 7.1, 7.1.5) şi librăria oci instalată pentru a funcţiona. Un mediu deja configurat pentru toată aplicaţia, care include şi o bază de date oracle gata configurată este aici [docker.compose.yml](https://github.com/adrianharabula/condr/blob/master/docker-compose.yml). Instrucţiunile detaliate pentru instalare sunt [aici](https://github.com/adrianharabula/condr/wiki/Install-instructions).
+**Tell us your wishes and we'll help you decide!** ConDr gives you suggestions whether to buy or not a product you are looking for by searching through our database.
 
-## Etapa 2
-Codul vechi de la etapa 2, deşi nu îl mai folosim pentru că am trecut pe MVC/Laravel se poate găsi [aici](https://github.com/adrianharabula/condr/tree/ffc29cd1f516ae4ef7075bd65262f22bfde8f2ee/psgbd/etapa2).
+See online app [here](https://condr.me).
 
-### Resurse
- * https://www.programmableweb.com/category/ecommerce/api
- * https://en.wikipedia.org/wiki/Buycott.com
- * http://microservices.io/
+Original request here:
+ > Develop a web tool to provide consumers with advice on decisions to purchase goods / services in an ethical way. The system will be able to store and use the simple rules of the form "if <condition> then <action>" - in our case, for example, "we will not buy / use the product P because it contains / uses substance S", or "I will choose P instead of Q because of M (for example, low mobility or unreasonable price)"- to provide suggestions on personal or group resources. The application will also provide statistics on most of the desired resources, restrictions, people with similar preferences, etc. As a source of inspiration, see Buycott. Bonus: using web microservices.
 
-## Echipa
-Grupa B2, an univ. 2016-2017:
- * Bulbuc-Aioanei Elisa
- * Anghelina Elena
- * Buza Mădălina-Gabriela B2
- * Harabulă Adrian B2
+## Contributing
+
+Thank you for considering contributing to the ConDr app! The contribution guide can be found in the [ConDr documentation](https://docs.condr.me/contributing).
+
+ConDr is using [Laravel PHP](http://laravel.com), a web application framework with expressive, elegant syntax. Come and learn with us programming!
+
+## License
+
+The ConDr app is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+## The Team
+B2 group, academic year 2016-2017:
+ * [Bulbuc-Aioanei Elisa](mailto:elisa.bulbuc-aioanei@students.info.uaic.ro)
+ * [Anghelina Elena](mailto:elena.anghelina@students.info.uaic.ro)
+ * [Buza Mădălina-Gabriela](mailto:madalina.buza@students.info.uaic.ro)
+ * [Harabulă Adrian](mailto:adrian.harabula@students.info.uaic.ro)
  
