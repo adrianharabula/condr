@@ -63,7 +63,6 @@
           </div>
         </div>
       @endforelse
-      {{ $products->links() }}
   </div>
 </div>
 

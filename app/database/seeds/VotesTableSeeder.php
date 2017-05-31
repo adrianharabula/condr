@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CharacteristicVoteTableSeeder extends Seeder
+class VotesTableSeeder extends Seeder
 {
 
     /**
@@ -19,8 +19,8 @@ class CharacteristicVoteTableSeeder extends Seeder
     private function seed($number)
     {
         for ($i = 0; $i <= $number; $i++) {
-            DB::table('characteristic_vote')->insert([
-                'vote' => rand(0, 1000)
+            DB::table('votes')->insert([
+                'value' => rand(0, 1000)
             ]);
         }
     }

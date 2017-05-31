@@ -18,10 +18,10 @@
                  <h4><b>Description : </b><span>{{ $group->description}}</span></h4>
                </div>
                <div class="col-md-2">
-                 <a href={{route('groupdelete', $group->id)}} class="btn btn-primary my-btn btn-start my-btn-dropdown">Delete</a>
+                 <a href={{route('my.group.delete', $group->id)}} class="btn btn-primary my-btn btn-start my-btn-dropdown">Delete</a>
                </div>
                <div class="col-md-2">
-                 <a href={{ route('products') }} class="btn btn-primary my-btn btn-start my-btn-dropdown">View products</a>
+                 <a href={{ route('products.listproducts') }} class="btn btn-primary my-btn btn-start my-btn-dropdown">View products</a>
                </div>
               </div>
             </div>

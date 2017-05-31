@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('static.home');
 });
 
+Route::get('/contact', function () {
+    return view('static.contact');
+});
+
 Route::any('/products', [
     'uses' => 'ProductsController@getProductsList',
     'as'   => 'products.listproducts'
@@ -31,6 +35,17 @@ Route::get('/product/{products}', [
     'uses' => 'ProductsController@getProduct',
     'as'   => 'products.singleview'
 ]);
+
+Route::any('/groups', [
+    'uses' => 'GroupsController@getGroupsList',
+    'as'   => 'groups.listgroups'
+]);
+
+Route::any('/groups/{groups}', [
+    'uses' => 'GroupsController@getGroup',
+    'as'   => 'groups.singleview'
+]);
+
 
 Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function () {
 
@@ -66,24 +81,56 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
         'as'   => 'product.delete'
     ]);
 
+    Route::get('groups', [
+        'uses' => 'User\UserGroupsController@getFavoriteGroups',
+        'as'   => 'groups.listgroups'
+    ]);
+
+    Route::match(['get', 'post'], 'group/{id}', [
+        'uses' => 'User\UserGroupsController@addFavoriteGroup',
+        'as'   => 'group.add'
+    ]);
+
+    Route::delete('group/{id}', [
+        'uses' => 'User\UserGroupsController@deleteFavoriteGroup',
+        'as'   => 'group.delete'
+    ]);
+
+    Route::get('preferences', [
+        'uses' => 'User\UserPreferencesController@getFavoritePreferences',
+        'as'   => 'preferences.listpreferences'
+    ]);
+
+    Route::match(['get', 'post'], 'preferences/add/{id}', [
+        'uses' => 'User\UserPreferencesController@addFavoritePreference',
+        'as'   => 'preferences.add'
+    ]);
+
+    Route::match(['get', 'post'], 'preferences/add/', [
+        'uses' => 'User\UserPreferencesController@addFavoritePreferenceByYourself',
+        'as'   => 'preferences.addbyyourself'
+    ]);
+
+    Route::delete('preferences/{id}', [
+        'uses' => 'User\UserPreferencesController@deleteFavoritePreference',
+        'as'   => 'preferences.delete'
+    ]);
+
 });
 
-Route::get('/groups', 'GroupsController@index')->name('groups');
-Route::post('/groups', 'GroupsController@search')->name('groups');
-Route::get('/group/view/{group}', 'GroupsController@viewGroup')->name('viewGroup');
+Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/preferences', 'PreferencesController@index')->name('preferences');
-    Route::post('/mypreferences/add/{characteristic}', 'MyPreferencesController@store')->name('addcharacteristics');
-    Route::get('/group/join/{group}', 'GroupsController@store')->name('joinGroup');
-    Route::get('/mygroups', 'MyGroupsController@index')->name('mygroups');
-    Route::get('/mygroups/delete/{group}', 'MyGroupsController@delete')->name('groupdelete');
-    Route::get('/my-account/preferences', 'PreferencesController@index')->name('preferences');
-    Route::get('/preferences/suggestion', 'PreferencesController@suggestion')->name('suggestion');
-    Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
-    Route::get('/mypreferences/addpreferences', 'MyPreferencesController@addPreferences')->name('addpreferences');
-
-});
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::get('/preferences', 'PreferencesController@index')->name('preferences');
+//     Route::post('/mypreferences/add/{characteristic}', 'MyPreferencesController@store')->name('addcharacteristics');
+//
+//     Route::get('/mygroups/delete/{group}', 'MyGroupsController@delete')->name('groupdelete');
+//     Route::get('/my-account/preferences', 'PreferencesController@index')->name('preferences');
+//     Route::get('/preferences/suggestion', 'PreferencesController@suggestion')->name('suggestion');
+//     Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
+//     Route::get('/mypreferences/addpreferences', 'MyPreferencesController@addPreferences')->name('addpreferences');
+//
+// });
 
 /**
  * Admin routes if ever we'll need one
@@ -127,12 +174,6 @@ Route::group(['prefix' => 'scripts'], function () {
         Artisan::call('db:seed');
         echo '<pre>'.Artisan::output().'</pre>';
     });
-
-    Route::get('products', function () {
-    return view('products.index')
-        ->with('products', Task::paginate(5));
-});
-
 });
 Route::get('{route}', function ($route) {
     return view('static.'.$route);
