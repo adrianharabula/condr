@@ -22,9 +22,7 @@ Route::get('/', function () {
     return view('static.home');
 });
 
-Route::get('/contact', function () {
-    return view('static.contact');
-});
+Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
 Route::any('/products', [
     'uses' => 'ProductsController@getProductsList',
@@ -41,7 +39,7 @@ Route::any('/groups', [
     'as'   => 'groups.listgroups'
 ]);
 
-Route::any('/groups/{groups}', [
+Route::any('/group/{groups}', [
     'uses' => 'GroupsController@getGroup',
     'as'   => 'groups.singleview'
 ]);
@@ -66,36 +64,55 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
         ]);
     });
 
+    /**
+     * My products routes
+     * GET             /my/products
+     * GET or POST     /my/product/{id}/add
+     * DELETE          /my/product/{id}/delete
+     */
+
     Route::get('products', [
         'uses' => 'User\UserProductsController@getFavoriteProducts',
         'as'   => 'products.listproducts'
     ]);
 
-    Route::match(['get', 'post'], 'product/{id}', [
+    Route::match(['get', 'post'], 'product/{id}/add', [
         'uses' => 'User\UserProductsController@addFavoriteProduct',
         'as'   => 'product.add'
     ]);
 
-    Route::delete('product/{id}', [
+    Route::delete('product/{id}/delete', [
         'uses' => 'User\UserProductsController@deleteFavoriteProduct',
         'as'   => 'product.delete'
     ]);
 
+    /**
+     * My groups routes
+     * GET             /my/groups
+     * GET or POST     /my/group/{id}/add
+     * DELETE          /my/group/{id}/delete
+     */
     Route::get('groups', [
         'uses' => 'User\UserGroupsController@getFavoriteGroups',
         'as'   => 'groups.listgroups'
     ]);
 
-    Route::match(['get', 'post'], 'group/{id}', [
+    Route::match(['get', 'post'], 'group/{id}/add', [
         'uses' => 'User\UserGroupsController@addFavoriteGroup',
         'as'   => 'group.add'
     ]);
 
-    Route::delete('group/{id}', [
+    Route::delete('group/{id}/delete', [
         'uses' => 'User\UserGroupsController@deleteFavoriteGroup',
         'as'   => 'group.delete'
     ]);
 
+    /**
+     * My products routes
+     * GET             /my/products
+     * GET or POST     /my/product/{id}/add
+     * DELETE          /my/product/{id}/delete
+     */
     Route::get('preferences', [
         'uses' => 'User\UserPreferencesController@getFavoritePreferences',
         'as'   => 'preferences.listpreferences'
@@ -117,20 +134,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
     ]);
 
 });
-
-Route::get('/statistics', 'StatisticsController@index')->name('statistics');
-
-// Route::group(['middleware' => 'auth'], function () {
-//     Route::get('/preferences', 'PreferencesController@index')->name('preferences');
-//     Route::post('/mypreferences/add/{characteristic}', 'MyPreferencesController@store')->name('addcharacteristics');
-//
-//     Route::get('/mygroups/delete/{group}', 'MyGroupsController@delete')->name('groupdelete');
-//     Route::get('/my-account/preferences', 'PreferencesController@index')->name('preferences');
-//     Route::get('/preferences/suggestion', 'PreferencesController@suggestion')->name('suggestion');
-//     Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
-//     Route::get('/mypreferences/addpreferences', 'MyPreferencesController@addPreferences')->name('addpreferences');
-//
-// });
 
 /**
  * Admin routes if ever we'll need one
@@ -175,6 +178,7 @@ Route::group(['prefix' => 'scripts'], function () {
         echo '<pre>'.Artisan::output().'</pre>';
     });
 });
+
 Route::get('{route}', function ($route) {
     return view('static.'.$route);
 });
