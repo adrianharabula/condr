@@ -8,11 +8,11 @@ use GuzzleHttp\Client;
 
 class LookupController extends Controller
 {
-    public function index ()
+    public function addProduct ()
     {
-
+        $id = '0885909918188';
         $client = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
-        $request = $client->request('GET', 'https://api.upcitemdb.com/prod/trial/lookup?upc=0885909918188');
+        $request = $client->request('GET', 'https://api.upcitemdb.com/prod/trial/lookup', ['query' => 'upc='.$id]);
         $res = $request->getBody();
 
         $data = json_decode($res, true);
@@ -28,18 +28,14 @@ class LookupController extends Controller
                   {
                       $product = \App\Product::firstOrNew(['ean_code' => $value]);
                       // insert ean_code in products
-                      if($product !=='')
+                      if($product ==='')
                       {
                         $product->ean_code = $value;
                       }
                       else
                       {
-                        echo 'Product already exists in our database!';
-                        // exit;
+                        // echo 'Product already exists in our database!';
                       }
-                      // print_r($key);
-                      // echo '-->';
-                      // print_r($value);
                   }
                   else if ($key === 'title')
                   {
@@ -89,6 +85,57 @@ class LookupController extends Controller
                   else if ($key === 'offers')
                   {
                     //insert into DB the offerers
+                    foreach($value as $i => $offer)
+                    {
+                        // $i = item's number
+                        foreach ($offer as $name => $val)
+                        {
+                          // print_r($name);
+                          // print_r($val);
+                          if ($name ==='merchant')
+                          {
+                              $offerer = \App\offerer::firstOrNew(['name' => $val]);
+
+                              if($offerer ==='')
+                              {
+                                $offerer->name = $val;
+                              }
+                              else
+                              {
+                                // echo 'Product already exists in our database!';
+                                // exit;
+                              }
+                              // print_r($key);
+                              // echo '-->';
+                              // print_r($value);
+                          }
+                          else if ($name === 'domain')
+                          {
+                            $offerer->domain = $val;
+                          }
+                          else if ($name === 'price')
+                          {
+                            $offerer->price = $val;
+                          }
+                          else if ($name === 'shipping')
+                          {
+                            $offerer->shipping = $val;
+                          }
+                          else if ($name === 'condition')
+                          {
+                            $offerer->condition = $val;
+                          }
+                          else if ($name === 'availability')
+                          {
+                            $offerer->availability = $val;
+                          }
+                          else if ($name === 'link')
+                          {
+                            $offerer->link = $val;
+                          }
+                          $offerer->save();
+                        }
+                    }
                   }
             }
         }

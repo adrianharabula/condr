@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
-Route::get('/lookup', 'LookupController@index')->name('lookup');
+Route::any('/lookup', 'LookupController@addProduct')->name('lookup-add');
 
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
