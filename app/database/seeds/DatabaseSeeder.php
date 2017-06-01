@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
         $this->call(CondrGroupsTableSeeder::class);
         $this->call(CategoriesTableSeeder::class);
         $this->call(CondrgroupUserTableSeeder::class);
-        $this->call(CompaniesTableSeeder::class);
-        $this->call(ProductsTableSeeder::class);
+        //$this->call(CompaniesTableSeeder::class);
+        //$this->call(ProductsTableSeeder::class);
         //$this->call(VotesTableSeeder::class);
-        $this->call(CharacteristicsTableSeeder::class);
-        $this->call(CharacterizablesTableSeeder::class);
+        //$this->call(CharacteristicsTableSeeder::class);
+        //$this->call(CharacterizablesTableSeeder::class);
     }
 }

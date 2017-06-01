@@ -22,6 +22,8 @@ class CreateOfferersTable extends Migration
             $table->string('condition')->nullable();
             $table->string('availability')->nullable();
             $table->string('link')->nullable();
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

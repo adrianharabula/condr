@@ -20,10 +20,10 @@
             <div class="panel panel-default panel-product">
                 <div class="panel-heading text-center">
                     <div class="row">
-                        <div class="col-md-6 text-left">
-                            <h1>{{ $product->name}}</h1>
+                        <div class="col-md-8 text-left">
+                            <h1>Some features of the product...</h1>
                         </div>
-                        <div class="col-md-6 text-right">
+                        <div class="col-md-4 text-right">
                             {{ Form::open(array('url' => route('my.product.add', $product->id))) }}
                             {{ csrf_field() }}
                             <div class="">
@@ -38,12 +38,14 @@
 
                 <div class="panel-body">
                     <div class="col-md-3">
-                        <a class="thumbnail pull-left"> <img class="media-object" src="{{ asset($product->image_url) }}"
+                        <a href="{{$product->image_url}}" class="thumbnail pull-left"> <img class="media-object" src="{{ asset($product->image_url) }}"
                                                              style="width:100%;"> </a>
                     </div>
                     <div class="col-md-9">
-                        <h4>Product name: {{ $product->name }}</h4>
-                        <h5>by {{ $product->company->name }} </h5>
+                        <h4>{{ $product->name }}</h4>
+                        <h5>by {{ $product->brand }} </h5>
+                        <h4>Description</h4>
+                        <h5>{{ $product->description }}</h5>
                         <h4>Product category</h4>
                         <h5>{{ $product->category->name }}</h5>
                         <h4>Characteristics of the product:</h4>

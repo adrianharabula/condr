@@ -43,8 +43,8 @@
                      <img class="media-object" src="{{ asset($product->image_url) }}" style="width: 72px; height: 72px;">
                    </a>
                   <div class="media-body" style="padding-left: 10px; padding-top: 2px;">
-                     <h5><b>Name : </b><span>{{ $product->name }}</span></h5>
-                     <h5><b>Description : </b><span>{{ $product->description}}</span></h5>
+                     <h5><b>Name : </b><span>{{ substr($product->name,0,120) }}....</span></h5>
+                     {{-- <h5><b>Description : </b><span>{{ $product->description}}</span></h5> --}}
                   </div>
               </div>
             </div>
@@ -62,7 +62,7 @@
             </div>
           </div>
         </div>
-      @endforelse     
+      @endforelse
   </div>
 </div>
  {{ $products->links() }}

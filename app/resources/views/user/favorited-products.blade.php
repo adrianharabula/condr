@@ -44,7 +44,7 @@
                        <td>  </td>
                   </tr>
                   <tr>
-                      <td><b>Company: </b>{{$product->company->name}}</td>
+                      <td><b>Brand: </b>{{$product->brand}}</td>
                       <td>  </td>
                   </tr>
                   <tr>

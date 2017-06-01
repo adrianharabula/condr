@@ -20,12 +20,8 @@ class CreateProductsTable extends Migration
             $table->string('description')->nullable();
             $table->string('upc_code')->unique();
             $table->string('brand')->nullable();
-            $table->integer('characteristic_id')->unsigned();
-            $table->foreign('characteristic_id')->references('id')->on('characteristics');
             $table->string('lowest_price')->nullable();
             $table->string('image_url')->nullable();
-            $table->integer('offerer_id')->unsigned();
-            $table->foreign('offerer_id')->references('id')->on('offerers');
             $table->integer('views')->unsigned()->nullable();
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
