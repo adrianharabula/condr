@@ -10,7 +10,16 @@ class LookupController extends Controller
 {
     public function addProduct ()
     {
-        $id = '0885909918188';
+
+        // use each $id one time to add products to database
+        
+        $id = '0693804125002'; // dog biscuits
+        // $id = '0885909918188'; // macbook pro
+        // $id = '0752203039690'; //coca cola
+        // $id = '0611269426724'; //red bull
+        // $id = '0715660702828'; //iphone 6
+        // $id = '0635753611328'; //samsung black toner
+
         $client = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
         $request = $client->request('GET', 'https://api.upcitemdb.com/prod/trial/lookup', ['query' => 'upc='.$id]);
         $res = $request->getBody();
@@ -76,10 +85,15 @@ class LookupController extends Controller
                   {
                     //insert characteristic_id in characterizables if it doesn't exist
                     // $characteristic = \App\Characteristic::firstOrCreate(['name' => $key], ['values' => $value]);
-                    $characteristic = \App\Characteristic::firstOrNew(['name' => $key], ['values' => $value]);
+                    $characteristic = \App\Characteristic::firstOrNew(['values' => $value]);
+                    if($characteristic === '')
+                    {
+                      $characteristic->name = $key;
+                      $characteristic->values = $value;
+                      $characteristic->save();
+                    }
                     // $characteristic->name = $key;
                     // $characteristic->values = $value;
-                    $characteristic->save();
 
                   }
                   else if ($key === 'offers')
@@ -143,7 +157,7 @@ class LookupController extends Controller
         // update number of view in products!!!
 
         //insert category "none" if the user doesn't specify it
-        $product->category_id = '1';
+        $product->category_id = '9';
         $product->save();
 
         // $Characteristic->save();

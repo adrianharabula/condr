@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('ean_code')->unique();
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('description',700)->nullable();
             $table->string('upc_code')->unique();
             $table->string('brand')->nullable();
             $table->string('lowest_price')->nullable();
