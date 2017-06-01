@@ -23,7 +23,7 @@
                 <li><a href="{{ route('products.listproducts') }}">Products</a></li>
                 <li><a href="{{ route('groups.listgroups') }}">Groups</a></li>
                 @if(!Auth::guest())
-                  {{--<li><a href="{{ route('preferences') }}">Preferences</a></li>--}}
+                  {{-- <li><a href="{{ route('preferences.search') }}">Preferences</a></li> --}}
                 @endif
                 <li><a href="{{ url('statistics') }}">Statistics</a></li>
                 <li class="hidden-sm"><a href="{{ url('contact') }}">Contact</a></li>

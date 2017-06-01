@@ -19,7 +19,7 @@
                   <p>**Press + to add another preference field :)</p><br>
 
                   <label>Select your preferences from our predefined list...</label><br>
-                  {{Form::open(array('url' => route('mypreferences')))}}
+                  {{Form::open(array('url' => route('my.preferences.listpreferences')))}}
                   <br>
 
                   <select class="form-control">
@@ -45,7 +45,10 @@
                   <div class="control-group" id="fields">
                       <div class="controls" id="profs">
                           <form class="input-append">
-                              <div id="field"><input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
+                              <div id="field">
+                                <input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="" data-items="8"/>
+                                <button id="b1" class="btn add-more" type="button">+</button>
+                              </div>
                           </form><br>
                       </div>
                   </div>

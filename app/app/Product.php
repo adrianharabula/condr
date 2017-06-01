@@ -11,9 +11,9 @@ class Product extends Model
         return $this->belongsToMany('\App\User');
     }
 
-    public function company()
+    public function offerer()
     {
-        return $this->belongsTo('\App\Company');
+        return $this->belongsTo('\App\Offerer');
     }
 
     public function category()

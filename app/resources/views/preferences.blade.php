@@ -46,10 +46,10 @@
 
         <div class="col-md-6 col-md-offset-3">
           {{-- <a href={{ route('suggestion') }} name="submitPreferences" type="submit" class="btn btn-primary my-btn"> Get the results! </a> --}}
-          <a href="{{ route('suggestion') }}" class="col-md-6">
+          {{-- <a href="{{ route('preferences.suggestions') }}" class="col-md-6"> --}}
             <button type="submit" class="btn btn-primary my-btn btn-block">Get the results!</button>
           </a>
-          <a href="{{ route('preferences') }}" class="col-md-6">
+          {{-- <a href="{{ route('preferences.search') }}" class="col-md-6"> --}}
             <button type="submit" class="btn btn-primary my-btn btn-block">Reset form</button>
           </a>
         </div>
