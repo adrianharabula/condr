@@ -62,10 +62,10 @@
             </div>
           </div>
         </div>
-      @endforelse
+      @endforelse     
   </div>
 </div>
-
+ {{ $products->links() }}
 @push('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/products.css') }}">
 @endpush

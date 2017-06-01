@@ -13,7 +13,7 @@
   @if(Session::has('message'))
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <div class="alert {{ Session::get('alert-class', 'alert-success') }} alert-dismissable">
+        <div class="alert {{ Session::get('alert-class', 'alert-success') }} alert-dismissable" style="text-align: center;">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           @if(Session::get('alert-class') === 'alert-danger')
             <strong>Error: </strong>

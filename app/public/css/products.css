@@ -50,6 +50,20 @@ h2 {
   margin-bottom: 10px;
 }
 
+.pagination{
+      padding-left: 90px;
+}
+
+.pagination>.active>span{
+      background-color:#2F937B;
+}
+
+.pagination>.active>span:hover{
+      background-color:#85144B;
+}
+.pagination>li>a{
+      color:#2F937B;
+}
 a.btn.btn-product {
   margin-top: 24px;
   margin-bottom: 24px;

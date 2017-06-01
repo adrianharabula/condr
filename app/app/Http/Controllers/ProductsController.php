@@ -52,8 +52,10 @@ class ProductsController extends Controller
     public function getProductsList(ProductSearchRequest $data)
     {
         // TODO: add paginate here
+        $products = DB::table('Products')->orderBy('id','asc')->paginate(5);
         return view('products.listproducts')
-            ->with('products', $this->_productRepository->searchProducts($data));
+            ->with('products',$products, $this->_productRepository->searchProducts($data));
+       // return view('products.listproducts')->with('products',$products);
     }
 
     public function getProduct($id)
