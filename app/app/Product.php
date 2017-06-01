@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $fillable = ['ean_code'];
+
     public function users()
     {
         return $this->belongsToMany('\App\User');

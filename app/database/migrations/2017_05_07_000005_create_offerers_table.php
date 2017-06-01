@@ -15,7 +15,7 @@ class CreateOfferersTable extends Migration
     {
         Schema::create('offerers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('domain')->nullable();
             $table->string('price')->nullable();
             $table->string('shipping')->nullable();

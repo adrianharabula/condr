@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class Characteristic extends Model
 {
+    protected $fillable = ['name', 'values'];
+
     public function characterizable()
     {
         return $this->morphTo();
