@@ -26,6 +26,10 @@ Route::get('/contact', function () {
     return view('static.contact');
 });
 
+Route::get('/lookup', 'LookupController@index')->name('lookup');
+
+Route::get('/statistics', 'StatisticsController@index')->name('statistics');
+
 Route::any('/products', [
     'uses' => 'ProductsController@getProductsList',
     'as'   => 'products.listproducts'
@@ -117,26 +121,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
     ]);
 
 });
-
-Route::get('/statistics', 'StatisticsController@index')->name('statistics');
-
-// Route::group(['middleware' => 'auth'], function () {
-//     Route::get('/preferences', 'PreferencesController@index')->name('preferences');
-//     Route::post('/mypreferences/add/{characteristic}', 'MyPreferencesController@store')->name('addcharacteristics');
-//
-//     Route::get('/mygroups/delete/{group}', 'MyGroupsController@delete')->name('groupdelete');
-//     Route::get('/my-account/preferences', 'PreferencesController@index')->name('preferences');
-//     Route::get('/preferences/suggestion', 'PreferencesController@suggestion')->name('suggestion');
-//     Route::get('/mypreferences', 'MyPreferencesController@index')->name('mypreferences');
-//     Route::get('/mypreferences/addpreferences', 'MyPreferencesController@addPreferences')->name('addpreferences');
-//
-// });
-
-/**
- * Admin routes if ever we'll need one
- */
-/*Route::group(array('prefix' => 'admin', 'before' => 'auth'), function() {
-});*/
 
 Route::group(['prefix' => 'scripts'], function () {
     /*
