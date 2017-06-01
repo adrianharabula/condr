@@ -15,17 +15,21 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('upc_code')->nullable();
+            $table->string('ean_code')->unique();
             $table->string('name');
             $table->string('description')->nullable();
+            $table->string('upc_code')->unique();
+            $table->string('brand')->nullable();
+            $table->integer('characteristic_id')->unsigned();
+            $table->foreign('characteristic_id')->references('id')->on('characteristics');
+            $table->string('lowest_price')->nullable();
             $table->string('image_url')->nullable();
+            $table->integer('offerer_id')->unsigned();
+            $table->foreign('offerer_id')->references('id')->on('offerers');
             $table->integer('views')->unsigned()->nullable();
-            $table->integer('category_id')->unsigned()->nullable();
+            $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->integer('company_id')->unsigned()->nullable();
-            $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

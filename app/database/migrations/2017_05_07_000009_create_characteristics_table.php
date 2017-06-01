@@ -15,8 +15,11 @@ class CreateCharacteristicsTable extends Migration
     {
         Schema::create('characteristics', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('values');
+            $table->string('color')->nullable();
+            $table->string('size')->nullable();
+            $table->string('dimension')->nullable();
+            $table->string('weight')->nullable();
+            $table->string('currency')->nullable();
             $table->string('votes');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
