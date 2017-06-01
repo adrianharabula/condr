@@ -24,7 +24,7 @@ class GroupsController extends Controller
         return view('groups.singleview')->with('group', $this->_groupRepository->find($id));
     }
 
-    function store(Group $group, Request $request)
+  /*  function store(Group $group, Request $request)
     {
         if ($exists = Auth::user()->groups->contains($group->id)) {
             $request->session()->flash('message', 'You are already in the group!');
@@ -34,7 +34,7 @@ class GroupsController extends Controller
             $request->session()->flash('message', 'You have joined the group succesfully!');
         }
         return redirect()->route('viewGroup', ['id' => $group->id]);
-    }
+    }*/
     
     // public function getGroupsList(/*GroupSearchRequest $data*/)
     // {
