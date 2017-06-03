@@ -28,18 +28,27 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    // relatie many to many
+    // pentru functia favorited products
     public function products()
     {
         return $this->belongsToMany('\App\Product');
     }
 
+    // relatie many to many
+    // un user apartine mai multor grupuri
     public function groups()
     {
-        return $this->belongsToMany('\App\Condrgroup');
+        return $this->hasMany('\App\Condrgroup');
     }
 
+    // relatie many to many polimorfica
+    // pentru a retine preferintele userului
     public function characteristics()
     {
-        return $this->morphToMany('\App\Characteristic', 'characterizable');
+        // hint: access desired values with
+        // $characteristic->pivot->charvalue;
+        return $this->morphToMany('\App\Characteristic', 'characterizable')
+                    ->withPivot('cvalue', 'cvotes');
     }
 }

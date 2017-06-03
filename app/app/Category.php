@@ -6,13 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    // relatie one to many
+    // o categorie are mai multe produse
+    // un produs apartine unei singure categorii
     function products()
     {
-        return $this->hasMany('App\Product');
-    }
-
-    function characteristics()
-    {
-        return $this->hasMany('App\Characteristic')->orderBy('category_id');
+        return $this->hasMany('\App\Product');
     }
 }
