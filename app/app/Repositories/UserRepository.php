@@ -26,8 +26,6 @@ class UserRepository extends EloquentRepository
 
     private $_preferenceRepository;
 
-
-
     /**
      * UserRepository constructor.
      *
@@ -46,6 +44,10 @@ class UserRepository extends EloquentRepository
         return User::class;
     }
 
+    public function getUserFavoritesProducts($userId = null)
+    {
+        return $this->getUser($userId)->products;
+    }
 
     public function addFavoriteProduct($productId)
     {
@@ -62,6 +64,25 @@ class UserRepository extends EloquentRepository
         return true;
     }
 
+    public function deleteFavoriteProduct($productId)
+    {
+        $productFavored = auth()->user()->products->where('id', $productId)->first();
+        if($productFavored) {
+            auth()->user()->products()->detach($productId);
+            request()->session()->flash('message', 'Product deleted from your history!');
+        } else {
+            request()->session()->flash('message', 'Product not in your basket!');
+            request()->session()->flash('alert-class', 'alert-danger');
+        }
+
+        return true;
+    }
+
+    public function getUserFavoritesGroups($userId = null)
+    {
+        return $this->getUser($userId)->groups;
+    }
+
     public function addFavoriteGroup($groupId)
     {
         $groupFavored = auth()->user()->groups->where('id', $groupId)->first();
@@ -71,35 +92,6 @@ class UserRepository extends EloquentRepository
         } else {
             auth()->user()->groups()->syncWithoutDetaching($groupId);
             request()->session()->flash('message', 'You are aleardy registered in the group!');
-            request()->session()->flash('alert-class', 'alert-danger');
-        }
-
-        return true;
-    }
-
-    public function addFavoritePreference($preferenceId)
-    {
-        $preferenceFavored = auth()->user()->characteristics->where('id', $preferenceId)->first();
-        if (!$preferenceFavored) {
-            auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
-            request()->session()->flash('message', 'Preference saved for later use!');
-        } else {
-            auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
-            request()->session()->flash('message', 'Preference already added to your list!');
-            request()->session()->flash('alert-class', 'alert-danger');
-        }
-
-        return true;
-    }
-
-    public function deleteFavoriteProduct($productId)
-    {
-        $productFavored = auth()->user()->products->where('id', $productId)->first();
-        if($productFavored) {
-            auth()->user()->products()->detach($productId);
-            request()->session()->flash('message', 'Product deleted from your history!');
-        } else {
-            request()->session()->flash('message', 'Product not in your basket!');
             request()->session()->flash('alert-class', 'alert-danger');
         }
 
@@ -134,14 +126,19 @@ class UserRepository extends EloquentRepository
         return true;
     }
 
-    public function getUserFavoritesGroups($userId = null)
+    public function addFavoritePreference($preferenceId)
     {
-        return $this->getUser($userId)->groups;
-    }
+        $preferenceFavored = auth()->user()->characteristics->where('id', $preferenceId)->first();
+        if (!$preferenceFavored) {
+            auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
+            request()->session()->flash('message', 'Preference saved for later use!');
+        } else {
+            auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
+            request()->session()->flash('message', 'Preference already added to your list!');
+            request()->session()->flash('alert-class', 'alert-danger');
+        }
 
-    public function getUserFavoritesProducts($userId = null)
-    {
-        return $this->getUser($userId)->products;
+        return true;
     }
 
     public function getUserFavoritesPreferences($userId = null)
