@@ -29,119 +29,66 @@ class LookupController extends Controller
         $items = $data['items'];
         // print_r($items);
 
-        foreach($items as $k => $item)
+        foreach($items as $item)
         {
-            // $k = item's number
-            foreach ($item as $key => $value)
+            $product = \App\Product::firstOrNew(['ean_code' => $item['ean']]);
+            $product->name = $item['title'];
+            $product->brand = $item['brand'];
+            $product->description = $item['description'];
+            $product->lowest_recorded_price = $item['lowest_recorded_price'];
+            // check if an array of images exists first
+            // fix for https://github.com/adrianharabula/condr/issues/169
+            if($item['images'])
             {
-                  if ($key ==='ean')
-                  {
-                      $product = \App\Product::firstOrNew(['ean_code' => $value]);
-                      // insert ean_code in products
-                      if($product ==='')
-                      {
-                        $product->ean_code = $value;
-                      }
-                  }
-                  else if ($key === 'title')
-                  {
-                    // insert name in products
-                    $product->name = $value;
-                  }
-                  else if ($key === 'description')
-                  {
-                    // insert description in products
-                    $product->description = $value;
-                  }
-                  else if ($key ==='upc')
-                  {
-                    // insert upc_code in products
-                    $product->upc_code = $value;
-                  }
-                  else if ($key === 'brand')
-                  {
-                    // insert brand in products
-                    $product->brand = $value;
-                  }
-                  else if ($key === 'lowest_recorded_price')
-                  {
-                    //insert lowest_price into products
-                    $product->lowest_price = $value;
-                  }
-                  else if($key ==='images')
-                  {
-                    // check if an array of images exists first
-                    // fix for https://github.com/adrianharabula/condr/issues/169
-                    if($value)
-                      $product->image_url = $value[0];
-                  }
-                  else if ($key ==='color' || $key === 'size' || $key === 'dimension' || $key === 'weight' || $key === 'currency')
-                  {
-                    $characteristic_name = \App\Characteristic::firstOrNew(['name' => $key]);
-                    // $characteristic_values = \App\Characteristic::firstOrNew(['values' => $value]);
+                $product->image_url = $item['images'][0];
+            }
+            //insert category "none" if the user doesn't specify it
+            $product->category_id = '9';
+            $product->save();
 
-                    if($characteristic_name === '')
-                    {
-                      $characteristic->name = $key;
-                      $characteristic->values = $value;
-                      $characteristic->save();
-                    }
-                  }
-                  else if ($key === 'offers')
-                  {
-                    //insert into DB the offerers
-                    foreach($value as $i => $offer)
-                    {
-                        // $i = item's number
-                        foreach ($offer as $name => $val)
-                        {
-                          if ($name ==='merchant')
-                          {
-                              $offerer = \App\Offerer::firstOrNew(['name' => $val]);
-                              if($offerer ==='')
-                              {
-                                $offerer->name = $val;
-                              }
-                          }
-                          else if ($name === 'domain')
-                          {
-                            $offerer->domain = $val;
-                          }
-                          else if ($name === 'price')
-                          {
-                            $offerer->price = $val;
-                          }
-                          else if ($name === 'shipping')
-                          {
-                            $offerer->shipping = $val;
-                          }
-                          else if ($name === 'condition')
-                          {
-                            $offerer->condition = $val;
-                          }
-                          else if ($name === 'availability')
-                          {
-                            $offerer->availability = $val;
-                          }
-                          else if ($name === 'link')
-                          {
-                            $offerer->link = $val;
-                          }
-                          $offerer->save();
-                        }
-                    }
-                  }
+            if($item['color'])
+            {
+                $cistic = \App\Characteristic::firstOrNew(['name' => 'color']);
+                $cistic->products()->attach($product, ['cvalue' => $item['color']]);
+                $cistic->save();
+            }
+
+            if($item['size'])
+            {
+                $cistic = \App\Characteristic::firstOrNew(['name' => 'size']);
+                $cistic->products()->attach($product, ['cvalue' => $item['size']]);
+                $cistic->save();
+            }
+
+            if($item['dimension'])
+            {
+                $cistic = \App\Characteristic::firstOrNew(['name' => 'dimension']);
+                $cistic->products()->attach($product, ['cvalue' => $item['dimension']]);
+                $cistic->save();
+            }
+
+            if($item['weight'])
+            {
+                $cistic = \App\Characteristic::firstOrNew(['name' => 'weight']);
+                $cistic->products()->attach($product, ['cvalue' => $item['weight']]);
+                $cistic->save();
+            }
+
+            foreach($item['offers'] as $offer) {
+                $offer_model = \App\Offer::firstOrNew(['merchant' => $offer['merchant']]);
+                $offer_model->domain = $offer['domain'];
+                $offer_model->title = $offer['title'];
+                $offer_model->currency = $offer['currency'];
+                $offer_model->price = $offer['price'];
+                $offer_model->shipping = $offer['shipping'];
+                $offer_model->condition = $offer['condition'];
+                $offer_model->availability = $offer['availability'];
+                $offer_model->shop_link = $offer['link'];
+                $offer_model->remote_updated_at = $offer['updated_t'];
+                // associate offer with product
+                $offer_model->product()->associate($product);
+                $offer_model->save();
             }
         }
-
-        // update number of views in products
-        $product->views = '1';
-
-        //insert category "none" if the user doesn't specify it
-
-        $product->category_id = '9';
-
-        $product->save();
-
     }
 }
