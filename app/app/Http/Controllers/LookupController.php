@@ -20,7 +20,7 @@ class LookupController extends Controller
         // $id = '0715660702828'; // iphone 6
         // $id = '0635753611328'; // samsung black toner
 
-        $client = new GuzzleHttpClient(array(
+        $client = new \GuzzleHttp\Client(array(
             'curl' => array(
                 CURLOPT_SSL_VERIFYPEER => env('CURLOPT_SSL_VERIFYPEER') ,
             ) ,
@@ -34,7 +34,7 @@ class LookupController extends Controller
 
         foreach($items as $item)
         {
-            $product = AppProduct::firstOrNew(['ean_code' => $item['ean']]);
+            $product = \App\Product::firstOrNew(['ean_code' => $item['ean']]);
             $product->name = $item['title'];
             $product->brand = $item['brand'];
             $product->description = $item['description'];
@@ -54,7 +54,7 @@ class LookupController extends Controller
             $product->save();
             if ($item['color'])
             {
-                $cistic = AppCharacteristic::firstOrCreate(['name' => 'color']);
+                $cistic = \App\Characteristic::firstOrCreate(['name' => 'color']);
 
                 // alternative way of inserting custom data into pivot
                 // $pivot_data = ['cvalue' => $item['color']];
@@ -67,7 +67,7 @@ class LookupController extends Controller
 
             if ($item['size'])
             {
-                $cistic = AppCharacteristic::firstOrCreate(['name' => 'size']);
+                $cistic = \App\Characteristic::firstOrCreate(['name' => 'size']);
                 $cistic->products()->syncWithoutDetaching([$product->id => ['cvalue' => $item['size']]]);
                 $cistic->save();
             }
@@ -81,14 +81,14 @@ class LookupController extends Controller
 
             if ($item['weight'])
             {
-                $cistic = AppCharacteristic::firstOrCreate(['name' => 'weight']);
+                $cistic = \App\Characteristic::firstOrCreate(['name' => 'weight']);
                 $cistic->products()->syncWithoutDetaching([$product->id => ['cvalue' => $item['weight']]]);
                 $cistic->save();
             }
 
             foreach($item['offers'] as $offer)
             {
-                $offer_model = AppOffer::firstOrNew(['merchant' => $offer['merchant'], 'product_id' => $product->id]);
+                $offer_model = \App\Offer::firstOrNew(['merchant' => $offer['merchant'], 'product_id' => $product->id]);
                 $offer_model->domain = $offer['domain'];
                 $offer_model->title = $offer['title'];
                 $offer_model->currency = $offer['currency'];
