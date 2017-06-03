@@ -16,7 +16,7 @@ class CreateSearchAnalyticsTable extends Migration
         Schema::create('search_analytics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('keyword');
-            $table->integer('number');
+            $table->integer('searches');
         });
     }
 
@@ -27,6 +27,6 @@ class CreateSearchAnalyticsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('search_analytics');
     }
 }
