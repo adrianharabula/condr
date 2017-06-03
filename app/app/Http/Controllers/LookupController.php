@@ -8,13 +8,13 @@ use GuzzleHttp\Client;
 
 class LookupController extends Controller
 {
-    public function addProduct ()
+    public function addProduct (Request $request)
     {
 
         // use each $id one time to add products to database
 
         // $id = '0693804125002'; // dog biscuits
-        $id = '0885909918188'; // macbook pro
+        // $id = '0885909918188'; // macbook pro
         // $id = '0885909918188'; // macbook pro
         // $id = '0752203039690'; //coca cola
         // $id = '0611269426724'; //red bull
@@ -22,7 +22,7 @@ class LookupController extends Controller
         // $id = '0635753611328'; //samsung black toner
 
         $client = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
-        $request = $client->request('GET', 'https://api.upcitemdb.com/prod/trial/lookup', ['query' => 'upc='.$id]);
+        $request = $client->request('GET', 'https://api.upcitemdb.com/prod/trial/lookup', ['query' => 'upc='.$request->upc_code]);
         $res = $request->getBody();
 
         $data = json_decode($res, true);

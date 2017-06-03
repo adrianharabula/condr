@@ -24,9 +24,7 @@ Route::get('/', function () {
 
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
-Route::any('/lookup', 'LookupController@addProduct')->name('lookup-add');
-
-Route::get('/statistics', 'StatisticsController@index')->name('statistics');
+Route::any('/lookup/{upc_code}', 'LookupController@addProduct')->name('lookup');
 
 Route::any('/products', [
     'uses' => 'ProductsController@getProductsList',
