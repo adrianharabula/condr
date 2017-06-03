@@ -6,12 +6,18 @@
 
 @section('content')
 
+</div class="row">
+<div class="col-md-3 col-md-offset-1">
+  <button class="btn btn-primary my-btn btn-block" id="add">Add product to db</button>
+</div>
+</div>
+
 <div class="container page white">
     <div class="row">
       <div class="col-md-12 text-center">
           <h2>A few products...</h2>
       </div>
-</div>
+    </div>
 
     <div class="row">
       <div class="col-md-push-8 col-md-4 black">
