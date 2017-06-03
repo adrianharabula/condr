@@ -33,17 +33,6 @@
         ]) !!};
     </script>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-    $(document).ready(function(){
-        $("#add").click(function(){
-            $.get("http://localhost:8000/lookup/0693804125002", function(){
-                alert("You have just added a product in our database!");
-            });
-        });
-    });
-    </script>
-
     <script type="text/javascript" src="{{ asset('/js/modernizr.custom.js') }}"></script>
 
     @include('includes.analytics')
