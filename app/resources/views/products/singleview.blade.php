@@ -53,11 +53,10 @@
                             {{ Form::open(array('url'=>route('my.preferences.add', $characteristic->id))) }}
                             {{ csrf_field() }}
                             <button class="btn btn-danger btn-circle" data-toggle="tooltip"
-                                    title="Add me to your preferences!">
-                                <span class="fa fa-heart"></span> {{ $characteristic->name }}:
+                                    title="Add me to your preferences!"><span class="fa fa-heart"></span></button> {{ $characteristic->name }} :
                                 {{ $characteristic->pivot->cvalue }} ({{ $characteristic->pivot->cvotes }} votes)
                                 {{-- {{$characteristic->votes()->first()->vote}} --}}
-                            </button>
+                            
                             {{ Form::close() }}
                         @empty
                             <h5> None </h5>
@@ -73,8 +72,9 @@
     <style>
 
         .btn-circle {
-            width: 57%;
+            /*width: 57%;
             height: 35px;
+            */
             text-align: center;
             font-size: 14px;
             line-height: 1.428571429;
