@@ -21,7 +21,7 @@ class LookupController extends Controller
         // $id = '0715660702828'; //iphone 6
         // $id = '0635753611328'; //samsung black toner
 
-        $client = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
+        $client = new \GuzzleHttp\Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => env('CURLOPT_SSL_VERIFYPEER'), ), ));
         $request = $client->request('GET', 'https://api.upcitemdb.com/prod/trial/lookup', ['query' => 'upc='.$request->upc_code]);
         $res = $request->getBody();
 
