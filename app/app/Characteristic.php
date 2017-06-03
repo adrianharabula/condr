@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Characteristic extends Model
 {
-    protected $fillable = ['name', 'values'];
+    protected $fillable = ['name'];
 
     public function products()
     {

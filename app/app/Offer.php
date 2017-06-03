@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['merchant'];
 
     // relatie one to many
     // o oferta apartine unui singur produs

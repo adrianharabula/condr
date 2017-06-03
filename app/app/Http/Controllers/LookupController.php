@@ -75,7 +75,8 @@ class LookupController extends Controller
             }
 
             foreach($item['offers'] as $offer) {
-                $offer_model = \App\Offer::firstOrNew(['merchant' => $offer['merchant']]);
+                $offer_model = \App\Offer::firstOrNew(['merchant' => $offer['merchant'],
+                                                        'product_id' => $product->id]);
                 $offer_model->domain = $offer['domain'];
                 $offer_model->title = $offer['title'];
                 $offer_model->currency = $offer['currency'];

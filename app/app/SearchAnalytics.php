@@ -8,7 +8,7 @@ class SearchAnalytics extends Model
 {
     protected $table="search_analytics";
 
-    protected $fillable=['keyword', 'number'];
+    protected $fillable=['keyword', 'searches'];
 
     public $timestamps=false;
 }
