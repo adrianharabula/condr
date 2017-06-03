@@ -74,7 +74,7 @@ class LookupController extends Controller
 
             if ($item['dimension'])
             {
-                $cistic = AppCharacteristic::firstOrCreate(['name' => 'dimension']);
+                $cistic = \App\Characteristic::firstOrCreate(['name' => 'dimension']);
                 $cistic->products()->syncWithoutDetaching([$product->id => ['cvalue' => $item['dimension']]]);
                 $cistic->save();
             }
