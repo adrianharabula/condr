@@ -14,13 +14,17 @@ class CreateCharacterizablesTable extends Migration
         Schema::create('characterizables', function (Blueprint $table) {
             // TODO: maybe add primary key for this table
             // $table->increments('id');
+
             $table->integer('characteristic_id')->unsigned();
             $table->foreign('characteristic_id')->references('id')->on('characteristics');
+
             // see here https://github.com/yajra/laravel-oci8/issues/283
             // and here https://docs.oracle.com/database/122/ADJSN/creating-a-table-with-a-json-column.htm
+            $table->string('cvalue');           
+            $table->integer('cvotes')->default(0);
             $table->morphs('characterizable');
-            $table->string('votes');
             $table->timestamps();
+
             // TODO: maybe add indexes for this table
             // $table->index('characteristic_id');
             // $table->index('characterizable_id');

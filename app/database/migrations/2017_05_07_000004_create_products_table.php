@@ -15,15 +15,15 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            // $table->string('upc_code')->unique();
             $table->string('ean_code')->unique();
-            $table->string('name');
-            $table->string('description',700)->nullable();
-            $table->string('upc_code')->unique();
+            $table->string('name', 512);
             $table->string('brand')->nullable();
-            $table->string('lowest_price')->nullable();
+            $table->string('description', 3000)->nullable();
             $table->string('image_url')->nullable();
-            $table->integer('views')->unsigned()->nullable();
-            $table->integer('category_id')->unsigned();
+            $table->integer('views')->unsigned()->default(0);
+            $table->string('lowest_recorded_price')->nullable();
+            $table->integer('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
