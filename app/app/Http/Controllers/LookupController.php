@@ -70,8 +70,10 @@ class LookupController extends Controller
                   }
                   else if($key ==='images')
                   {
-                    // $key = record's numbe
-                    $product->image_url = $value[0];
+                    // check if an array of images exists first
+                    // fix for https://github.com/adrianharabula/condr/issues/169
+                    if($value)
+                      $product->image_url = $value[0];
                   }
                   else if ($key ==='color' || $key === 'size' || $key === 'dimension' || $key === 'weight' || $key === 'currency')
                   {
