@@ -76,4 +76,16 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/products.css') }}">
 @endpush
 
+@push('scripts')
+<script>
+$(document).ready(function(){
+    $("#add").click(function(){
+        $.get("/lookup/0693804125002", function(){
+            alert("You have just added a product in our database!");
+        });
+    });
+});
+</script>
+@endpush
+
 @endsection
