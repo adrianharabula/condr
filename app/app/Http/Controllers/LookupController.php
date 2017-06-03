@@ -12,8 +12,8 @@ class LookupController extends Controller
     {
 
         // use each $id one time to add products to database
-        
-        $id = '0693804125002'; // dog biscuits
+
+        // $id = '0693804125002'; // dog biscuits
         // $id = '0885909918188'; // macbook pro
         // $id = '0752203039690'; //coca cola
         // $id = '0611269426724'; //red bull
@@ -41,40 +41,31 @@ class LookupController extends Controller
                       {
                         $product->ean_code = $value;
                       }
-                      else
-                      {
-                        // echo 'Product already exists in our database!';
-                      }
                   }
                   else if ($key === 'title')
                   {
                     // insert name in products
                     $product->name = $value;
-
                   }
                   else if ($key === 'description')
                   {
                     // insert description in products
                     $product->description = $value;
-
                   }
                   else if ($key ==='upc')
                   {
                     // insert upc_code in products
                     $product->upc_code = $value;
-
                   }
                   else if ($key === 'brand')
                   {
                     // insert brand in products
                     $product->brand = $value;
-
                   }
                   else if ($key === 'lowest_recorded_price')
                   {
                     //insert lowest_price into products
                     $product->lowest_price = $value;
-
                   }
                   else if($key ==='images')
                   {
@@ -83,18 +74,15 @@ class LookupController extends Controller
                   }
                   else if ($key ==='color' || $key === 'size' || $key === 'dimension' || $key === 'weight' || $key === 'currency')
                   {
-                    //insert characteristic_id in characterizables if it doesn't exist
-                    // $characteristic = \App\Characteristic::firstOrCreate(['name' => $key], ['values' => $value]);
-                    $characteristic = \App\Characteristic::firstOrNew(['values' => $value]);
-                    if($characteristic === '')
+                    $characteristic_name = \App\Characteristic::firstOrNew(['name' => $key]);
+                    // $characteristic_values = \App\Characteristic::firstOrNew(['values' => $value]);
+
+                    if($characteristic_name === '')
                     {
                       $characteristic->name = $key;
                       $characteristic->values = $value;
                       $characteristic->save();
                     }
-                    // $characteristic->name = $key;
-                    // $characteristic->values = $value;
-
                   }
                   else if ($key === 'offers')
                   {
@@ -104,24 +92,13 @@ class LookupController extends Controller
                         // $i = item's number
                         foreach ($offer as $name => $val)
                         {
-                          // print_r($name);
-                          // print_r($val);
                           if ($name ==='merchant')
                           {
                               $offerer = \App\offerer::firstOrNew(['name' => $val]);
-
                               if($offerer ==='')
                               {
                                 $offerer->name = $val;
                               }
-                              else
-                              {
-                                // echo 'Product already exists in our database!';
-                                // exit;
-                              }
-                              // print_r($key);
-                              // echo '-->';
-                              // print_r($value);
                           }
                           else if ($name === 'domain')
                           {
@@ -154,18 +131,14 @@ class LookupController extends Controller
             }
         }
 
-        // update number of view in products!!!
+        // update number of views in products
+        $product->views = '1';
 
         //insert category "none" if the user doesn't specify it
+
         $product->category_id = '9';
+
         $product->save();
 
-        // $Characteristic->save();
-
-        // Send an asynchronous request.
-        // $promise = $client->sendAsync($request)->then(function ($response) {
-        //     echo 'I completed! ' . $response->getBody();
-        // });
-        // $promise->wait();
     }
 }
