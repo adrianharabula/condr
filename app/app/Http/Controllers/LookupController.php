@@ -15,6 +15,7 @@ class LookupController extends Controller
 
         // $id = '0693804125002'; // dog biscuits
         $id = '0885909918188'; // macbook pro
+        // $id = '0885909918188'; // macbook pro
         // $id = '0752203039690'; //coca cola
         // $id = '0611269426724'; //red bull
         // $id = '0715660702828'; //iphone 6
