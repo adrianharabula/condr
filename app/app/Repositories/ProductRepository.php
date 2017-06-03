@@ -56,11 +56,11 @@ class ProductRepository extends EloquentRepository
         $analyze = $this->_searchAnalytics->where("keyword", "=", strtolower($keyword))->first();
 
         if($analyze) {
-            $analyze->increment("number");
+            $analyze->increment("searches");
         } else {
             $analyze=new SearchAnalytics();
             $analyze->keyword=strtolower($keyword);
-            $analyze->number=1;
+            $analyze->searches=1;
             $analyze->save();
         }
         return true;
