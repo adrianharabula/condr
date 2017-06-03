@@ -64,6 +64,7 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     {{-- <script type="text/javascript" src="{{ asset('/js/jquery-3.0.0.slim.min.js') }}"></script> --}}
+    <script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
