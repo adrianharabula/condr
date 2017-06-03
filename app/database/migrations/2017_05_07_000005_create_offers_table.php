@@ -26,7 +26,7 @@ class CreateOffersTable extends Migration
             $table->string('condition')->nullable();
             $table->string('availability')->nullable();
             $table->string('shop_link')->nullable();
-            $table->timestamp('remote_updated_at')->nullable();
+            $table->integer('remote_updated_at')->unsigned()->nullable();
             $table->timestamps();
         });
     }
