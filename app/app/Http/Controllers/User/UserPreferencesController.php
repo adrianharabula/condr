@@ -20,7 +20,6 @@ class UserPreferencesController extends Controller
      */
     private $_userRepository;
 
-
     /**
      * UserProductsController constructor.
      *
