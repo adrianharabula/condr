@@ -7,7 +7,7 @@
   <div class="container page groups-page">
       <div class="row groups-header">
         <div class="col-md-12 text-center">
-          <h3>A few groups you can join...</h3>
+          <h2>A few groups you can join...</h2>
         </div>
       </div>
 
@@ -27,11 +27,11 @@
       </div>
 --}}
 
-      <div class="row bg-black">
-        <div class="col-md-12 bg-black white">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 bg-black white">
           @foreach($groups as $group)
             <div class="row">
-              <div class="col-sm-12 col-md-8" style="padding:20px;">
+              <div class="col-sm-10 col-md-8" style="padding:20px;">
                 <a href="#" class="name">Group name: <b>{{ $group->name }}</b></a>
                 <p>{{ $group->description}} <span class="badge">{{ $group->ID}}</span></p>
               </div>
