@@ -22,6 +22,7 @@
                     <div class="row">
                         <div class="col-md-8 text-left">
                             <h1>Some features of the product...</h1>
+                            <h4>Already voted by {{$product->users()->count()}} users! <i class="fa fa-smile-o"></i></h4>
                         </div>
                         <div class="col-md-4 text-right">
                             {{ Form::open(array('url' => route('my.product.add', $product->id))) }}
@@ -41,6 +42,7 @@
                         <a href="{{$product->image_url}}" class="thumbnail pull-left"> <img class="media-object" src="{{ asset($product->image_url) }}"
                                                              style="width:100%;"> </a>
                     </div>
+
                     <div class="col-md-9">
                         <h4>{{ $product->name }}</h4>
                         <h5>by {{ $product->brand }} </h5>
@@ -111,6 +113,7 @@
     }
 
     button.btn.btn-primary.my-btn.my-btn-border, a.btn.btn-primary.my-btn.my-btn-border {
+        margin: 15px;
         border: 1px solid #2F937B;
     }
 
