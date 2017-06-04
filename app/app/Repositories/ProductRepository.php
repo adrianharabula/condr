@@ -2,19 +2,16 @@
 
 namespace App\Repositories;
 
-use App\Product;
 use App\Repositories\Eloquent\EloquentRepository;
+use App\Product;
 use App\SearchAnalytics;
-use stdClass;
 
 class ProductRepository extends EloquentRepository
 {
-
     /**
      * @var \App\SearchAnalytics
      */
     private $_searchAnalytics;
-
 
     /**
      * ProductRepository constructor.
