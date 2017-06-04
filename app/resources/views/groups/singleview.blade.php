@@ -38,10 +38,12 @@
 
             <h4>Members of the group: </h4>
             <h5>
-            @foreach ($group->users as $user)
+            @forelse ($group->users as $user)
               {{ $loop->first ? '' : ', '}}
               {{ $user->name }}
-            @endforeach
+            @empty
+              There are no members registered to this group! <i class="fa fa-frown-o"></i>
+            @endforelse
           </h5>
 
             <h4>Characteristics of the group: </h4>
