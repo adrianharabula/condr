@@ -29,9 +29,10 @@ class UserRepository extends EloquentRepository
         return $user;
     }
 
-    /*
-     * Favorite products functions
-     */
+    /**
+      * Favorite products functions
+      * 
+      **/
     public function getUserFavoriteProducts($userId = null)
     {
         return $this->getUser($userId)->products;
@@ -72,36 +73,47 @@ class UserRepository extends EloquentRepository
         return true;
     }
 
+    /**
+      * Favorite groups functions
+      * 
+      **/
+
     public function getUserFavoriteGroups($userId = null)
     {
         return $this->getUser($userId)->groups;
     }
 
-    public function addFavoriteGroup($groupId)
+    public function attachUserFavoriteGroup($groupId, $userId = null)
     {
-        $groupFavored = auth()->user()->groups->where('id', $groupId)->first();
-        if (!$groupFavored) {
-            auth()->user()->groups()->syncWithoutDetaching($groupId);
-            request()->session()->flash('message', 'You have registered the group succesfully!');
-        } else {
-            auth()->user()->groups()->syncWithoutDetaching($groupId);
-            request()->session()->flash('message', 'You are aleardy registered in the group!');
-            request()->session()->flash('alert-class', 'alert-danger');
-        }
+        $this->getUser($userId)->groups()->syncWithoutDetaching($groupId);
+    }
 
+    public function detachUserFavoriteGroup($groupId, $userId = null)
+    {
+        $this->getUser($userId)->groups()->detach($groupId);
+    }
+
+    public function existsUserFavoriteGroup($groupId, $userId = null)
+    {
+        return $this->getUserFavoriteGroups($userId)->contains($groupId);
+    }
+
+    public function addFavoriteGroup($groupId, $userId = null)
+    {
+        if ($this->existsUserFavoriteGroup($groupId, $userId))
+            return false;
+
+        $this->attachUserFavoriteGroup($groupId, $userId);
+        
         return true;
     }
 
-    public function deleteFavoriteGroup($groupId)
+    public function deleteFavoriteGroup($groupId, $userId = null)
     {
-        $groupFavored = auth()->user()->groups->where('id', $groupId)->first();
-        if($groupFavored) {
-            auth()->user()->groups()->detach($groupId);
-            request()->session()->flash('message', 'You have unregistered the group!');
-        } else {
-            request()->session()->flash('message', 'You are not registered to the group!');
-            request()->session()->flash('alert-class', 'alert-danger');
-        }
+        if (!$this->existsUserFavoriteGroup($groupId, $userId))
+            return false;
+        
+        $this->detachUserFavoriteGroup($groupId, $userId);
 
         return true;
     }
