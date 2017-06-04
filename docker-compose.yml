@@ -42,7 +42,6 @@ services:
      image: apache-virtualhosts
      links:
       - app
-      - webhooks
      ports:
       - "80:80"
 
