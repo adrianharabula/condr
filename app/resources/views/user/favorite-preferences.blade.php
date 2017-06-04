@@ -40,7 +40,7 @@
                   </tbody>
                 </table>
               @empty
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-8 col-md-offset-2 text-center">
                   <h4>Unfortunatelly, you have no preferences stored in your history!....</h4>
                   <h4>But you can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 20px;">here</a> to add some!  <i class="fa fa-smile-o"></i></h4>
                 </div><br>
