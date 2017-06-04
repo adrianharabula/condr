@@ -18,11 +18,9 @@ class AjaxController extends Controller
 
       $characterizable = new $characterizable_type();
       $characterizable = $characterizable::find($characterizable_id);
-      // dd($characterizable);
 
       $votes = $characterizable->characteristics()->where('characteristic_id', '=', $characteristic_id)->first()->pivot;
       $votes->cvotes = $votes->cvotes + 1;
       $votes->save();
-      dd($votes);
     }
 }
