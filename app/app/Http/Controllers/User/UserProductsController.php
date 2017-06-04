@@ -51,6 +51,6 @@ class UserProductsController extends Controller
 
     public function getFavoriteProducts()
     {
-        return view('user.favorited-products')->with('products', $this->_userRepository->getUserFavoriteProducts());
+        return view('user.favorite-products')->with('products', $this->_userRepository->getUserFavoriteProducts());
     }
 }
