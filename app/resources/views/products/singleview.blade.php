@@ -50,15 +50,41 @@
                         <h5>{{ $product->category->name }}</h5>
                         <h4>Characteristics of the product:</h4>
                         @forelse ($product->characteristics as $characteristic)
-                            {{ Form::open(array('url'=>route('my.preferences.add', $characteristic->id))) }}
-                            {{ csrf_field() }}
-                            <button class="btn btn-danger btn-circle" data-toggle="tooltip"
-                                    title="Add me to your preferences!">
-                                <span class="fa fa-heart"></span>{{ $characteristic->name }}:
-                                {{ $characteristic->values }}
-                                {{-- {{$characteristic->votes()->first()->vote}} --}}
-                            </button>
-                            {{ Form::close() }}
+                            {{-- {{ Form::open(array('url'=>route('my.preferences.add', $characteristic->id))) }}
+                            {{ csrf_field() }} --}}
+
+                            <button id="vote_characteristic_{{$characteristic->id}}" class="btn btn-danger btn-circle" data-toggle="tooltip"
+                                    title="Add me to your preferences!"><span class="fa fa-heart"></span></button> {{ $characteristic->name }} :
+                                {{ $characteristic->pivot->cvalue }} (<span id="vote_characteristic_value_{{$characteristic->id}}">{{ $characteristic->pivot->cvotes }}</span> votes)<br>
+
+                            {{-- {{ Form::close() }} --}}
+                        @empty
+                            <h5> None </h5>
+                        @endforelse
+                        <br />
+
+                        <h4>Offers:</h4>
+                        <p>Click to see more details!</p><br/>
+                        @forelse ($product->offers as $offer)
+                          <div class="panel-group">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a data-toggle="collapse" href="#collapse_{{$offer->id}}">Name: {{ $offer->merchant }}</a>
+                                </h4>
+                              </div>
+                              <div id="collapse_{{$offer->id}}" class="panel-collapse collapse">
+                                <div class="panel-body"><b>Domain:</b> {{$offer->domain}}</div>
+                                <div class="panel-footer"><b>Title:</b> {{$offer->title}}</div>
+                                <div class="panel-body"><b>Currency:</b> {{$offer->currency}}</div>
+                                <div class="panel-footer"><b>Shipping:</b> {{$offer->shipping}}</div>
+                                <div class="panel-body"><b>Condition:</b> {{$offer->condition}}</div>
+                                <div class="panel-footer"><b>Availability:</b> {{$offer->availability}}</div>
+                                <div class="panel-body"></b>Shop link:</b> <a href="{{$offer->shop_link}}">Click here!</a></div>
+                                {{-- <div class="panel-footer"><b>Updated at:</b> {{$offer->remote_updated_at}}</div> --}}
+                              </div>
+                            </div>
+                          </div>
                         @empty
                             <h5> None </h5>
                         @endforelse
@@ -70,64 +96,99 @@
         </div>
     </div>
 
+    @push('styles')
     <style>
 
-        .btn-circle {
-            width: 57%;
-            height: 35px;
-            text-align: center;
-            font-size: 14px;
-            line-height: 1.428571429;
-            border-radius: 2px;
-        }
+    .btn-circle {
+        /*width: 57%;
+        height: 35px;
+        */
+        margin: 1px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.428571429;
+        border-radius: 50px;
+    }
 
-        button.btn.btn-primary.my-btn.my-btn-border, a.btn.btn-primary.my-btn.my-btn-border {
-            border: 1px solid #2F937B;
-        }
+    button.btn.btn-primary.my-btn.my-btn-border, a.btn.btn-primary.my-btn.my-btn-border {
+        border: 1px solid #2F937B;
+    }
 
-        button.btn.btn-primary.my-btn.my-btn-border:hover, a.btn.btn-primary.my-btn.my-btn-border:hover {
-            border: 1px solid #fff;
-        }
+    button.btn.btn-primary.my-btn.my-btn-border:hover, a.btn.btn-primary.my-btn.my-btn-border:hover {
+        border: 1px solid #fff;
+    }
 
-        .panel-product {
-            /*text-align: center;*/
-            border-color: #85144b;
-        }
+    .panel-product {
+        /*text-align: center;*/
+        border-color: #85144b;
+    }
 
-        .panel-product h1 {
-            margin: 10px 0;
-            font-size: 25px;
-        }
+    .panel-product h1 {
+        margin: 10px 0;
+        font-size: 25px;
+    }
 
-        h4 {
-            margin-bottom: 7px;
-            font-size: 18px;
-            font-weight: 600;
-            color: #2F937B;
-        }
+    h4 {
+        margin-bottom: 7px;
+        font-size: 21px;
+        font-weight: 700;
+        color: #2F937B;
+    }
 
-        h5 {
-            margin-bottom: 25px;
-        }
+    h5 {
+        margin-bottom: 25px;
+        font-size: 16px;
+    }
 
-        .panel-product > .panel-heading {
-            color: white;
-            background-color: #85144B;
+    .panel-product > .panel-heading {
+        color: white;
+        background-color: #85144B;
 
-        }
+    }
 
-        .btn-danger {
-            color: #fff;
-            background-color: #85144B;
-            border-color: #85144B;
-        }
+    .btn-danger {
+        color: #fff;
+        background-color: #85144B;
+        border-color: #85144B;
+    }
 
-        .btn-danger:hover {
-            color: white;
-            background-color: #2F937B;
-            border-color: #2F937B;
-        }
+    .btn-danger:hover {
+        color: white;
+        background-color: #2F937B;
+        border-color: #2F937B;
+    }
+    .panel-group .panel {
+      color: #2F937B;
+      border: 2px solid;
+      width: 52%;
+      border-radius: 4px;
+    }
+    a {
+      word-wrap: break-word;
+    }
     </style>
+    @endpush
+
+    @push('scripts')
+    <script>
+    $(document).ready(function(){
+      @foreach ($product->characteristics as $characteristic)
+      $("#vote_characteristic_{{$characteristic->id}}").click(function(){
+          $.post("/ajax/vote_characteristic",
+           {
+            characteristic_id: "{{$characteristic->id}}",
+            characterizable_id: "{{$product->id}}",
+            characterizable_type: "{{addslashes(get_class($product))}}"
+           },
+           function(){
+              // alert("You have just voted this preference!");
+              document.getElementById('vote_characteristic_value_{{$characteristic->id}}').innerHTML = {{$characteristic->pivot->cvotes}} + 1;
+          });
+      });
+      @endforeach
+    });
+    </script>
+  @endpush
 
 
 @endsection

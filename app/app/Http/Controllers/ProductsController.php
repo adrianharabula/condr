@@ -17,11 +17,10 @@ class ProductsController extends Controller
     {
         $this->_productRepository = $_productRepository;
     }
-    
+
     public function getProductsList(ProductSearchRequest $data)
     {
         // TODO: add paginate here
-        $products = DB::table('Products')->orderBy('id','asc')->paginate(5);
         return view('products.listproducts')
             ->with('products',$products, $this->_productRepository->searchProducts($data));
         // return view('products.listproducts')->with('products',$products);

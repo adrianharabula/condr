@@ -6,12 +6,6 @@
 
 @section('content')
 
-</div class="row">
-<div class="col-md-3 col-md-offset-1">
-  <button class="btn btn-primary my-btn btn-block" id="add">Add product to db</button>
-</div>
-</div>
-
 <div class="container page white">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -71,21 +65,9 @@
       @endforelse
   </div>
 </div>
- {{ $products->links() }}
+{{-- $products->links() --}}
 @push('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/products.css') }}">
-@endpush
-
-@push('scripts')
-<script>
-$(document).ready(function(){
-    $("#add").click(function(){
-        $.get("/lookup/0693804125002", function(){
-            alert("You have just added a product in our database!");
-        });
-    });
-});
-</script>
 @endpush
 
 @endsection
