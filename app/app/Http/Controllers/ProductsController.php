@@ -11,8 +11,8 @@ use Auth;
 
 class ProductsController extends Controller
 {
-
     protected $_productRepository;
+    
     public function __construct(ProductRepository $_productRepository)
     {
         $this->_productRepository = $_productRepository;
@@ -24,14 +24,11 @@ class ProductsController extends Controller
         $products = DB::table('Products')->orderBy('id','asc')->paginate(5);
         return view('products.listproducts')
             ->with('products',$products, $this->_productRepository->searchProducts($data));
-       // return view('products.listproducts')->with('products',$products);
+        // return view('products.listproducts')->with('products',$products);
     }
 
     public function getProduct($id)
     {
         return view('products.singleview')->with('product', $this->_productRepository->find($id));
-    }
-
-    public function postProductToFavorite(){
     }
 }
