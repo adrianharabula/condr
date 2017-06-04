@@ -11,8 +11,8 @@ use Auth;
 
 class ProductsController extends Controller
 {
-
     protected $_productRepository;
+    
     public function __construct(ProductRepository $_productRepository)
     {
         $this->_productRepository = $_productRepository;
@@ -22,14 +22,12 @@ class ProductsController extends Controller
     {
         // TODO: add paginate here
         return view('products.listproducts')
-            ->with('products', $this->_productRepository->searchProducts($data));
+            ->with('products',$products, $this->_productRepository->searchProducts($data));
+        // return view('products.listproducts')->with('products',$products);
     }
 
     public function getProduct($id)
     {
         return view('products.singleview')->with('product', $this->_productRepository->find($id));
-    }
-
-    public function postProductToFavorite(){
     }
 }

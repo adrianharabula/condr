@@ -9,29 +9,17 @@ use Validator;
 
 class UserSettingsController extends Controller
 {
-
-    /**
-     * @return $this
-     *
-     */
-    function index()
+    public function index()
     {
         return view('user.account')->with('user', auth()->user());
     }
 
-
-        function getEditPassword()
+    public function getEditPassword()
     {
         return view('user.change-password')->with('user', auth()->user());
     }
 
-
-    /**
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return $this|\Illuminate\Http\RedirectResponse
-     */
-    function postEditPassword(Request $request)
+    public function postEditPassword(Request $request)
     {
         $user = auth()->user();
 

@@ -39,7 +39,7 @@ class User extends Authenticatable
     // un user apartine mai multor grupuri
     public function groups()
     {
-        return $this->hasMany('\App\Condrgroup');
+        return $this->belongsToMany('\App\Condrgroup');
     }
 
     // relatie many to many polimorfica
