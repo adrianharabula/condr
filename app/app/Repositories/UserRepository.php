@@ -13,30 +13,15 @@ use App\User;
 
 class UserRepository extends EloquentRepository
 {
-
-    /**
-     * @var \App\Repositories\ProductRepository
-     */
-   /**
-    * @var \App\Repositories\GroupRepository
-    */
     private $_productRepository;
-
     private $_groupRepository;
+    // private $_preferenceRepository;
 
-    private $_preferenceRepository;
-
-    /**
-     * UserRepository constructor.
-     *
-     * @param \App\Repositories\ProductRepository $_productRepository
-     */
-
-    public function __construct(GroupRepository $_groupRepository, ProductRepository $_productRepository, PreferenceRepository $_preferenceRepository)
+    public function __construct(GroupRepository $_groupRepository, ProductRepository $_productRepository)
     {
         $this->_groupRepository = $_groupRepository;
         $this->_productRepository = $_productRepository;
-        $this->_preferenceRepository = $_preferenceRepository;
+        // $this->_preferenceRepository = $_preferenceRepository;
     }
 
     public function getModel()
@@ -44,19 +29,46 @@ class UserRepository extends EloquentRepository
         return User::class;
     }
 
-    public function getUserFavoritesProducts($userId = null)
+    private function getUser($userId = null)
+    {
+        if ($userId) {
+            $user = $this->_model->find($userId);
+        } else {
+            $user = auth()->user();
+        }
+
+        return $user;
+    }
+
+    /*
+     * Favorite products functions
+     */
+    public function getUserFavoriteProducts($userId = null)
     {
         return $this->getUser($userId)->products;
     }
 
-    public function addFavoriteProduct($productId)
+    public function attachUserFavoriteProduct($productId, $userId = null)
     {
-        $productFavored = auth()->user()->products->where('id', $productId)->first();
-        if (!$productFavored) {
-            auth()->user()->products()->syncWithoutDetaching($productId);
+        $this->getUser($userId)->products()->syncWithoutDetaching($productId);
+    }
+
+    public function detachUserFavoriteProduct($productId, $userId = null)
+    {
+        $this->getUser($userId)->products()->detach($productId);
+    }
+
+    public function existsUserFavoriteProduct($productId, $userId = null)
+    {
+        return $this->getUserFavoriteProducts($userId)->contains($productId);
+    }
+
+    public function addFavoriteProduct($productId, $userId = null)
+    {
+        if (!$this->existsUserFavoriteProduct($productId, $userId)) {
+            $this->attachUserFavoriteProduct($productId, $userId);
             request()->session()->flash('message', 'Product saved for later use!');
         } else {
-            auth()->user()->products()->syncWithoutDetaching($productId);
             request()->session()->flash('message', 'Product aleardy in your basket!');
             request()->session()->flash('alert-class', 'alert-danger');
         }
@@ -64,11 +76,10 @@ class UserRepository extends EloquentRepository
         return true;
     }
 
-    public function deleteFavoriteProduct($productId)
+    public function deleteFavoriteProduct($productId, $userId = null)
     {
-        $productFavored = auth()->user()->products->where('id', $productId)->first();
-        if($productFavored) {
-            auth()->user()->products()->detach($productId);
+        if ($this->existsUserFavoriteProduct($productId, $userId)) {
+            $this->detachUserFavoriteProduct($productId, $userId);
             request()->session()->flash('message', 'Product deleted from your history!');
         } else {
             request()->session()->flash('message', 'Product not in your basket!');
@@ -78,7 +89,7 @@ class UserRepository extends EloquentRepository
         return true;
     }
 
-    public function getUserFavoritesGroups($userId = null)
+    public function getUserFavoriteGroups($userId = null)
     {
         return $this->getUser($userId)->groups;
     }
@@ -112,48 +123,37 @@ class UserRepository extends EloquentRepository
         return true;
     }
 
-    public function deleteFavoritePreference($preferenceId)
-    {
-        $preferenceFavored = auth()->user()->characteristics->where('id', $preferenceId)->first();
-        if($preferenceFavored) {
-            auth()->user()->characteristics()->detach($preferenceId);
-            request()->session()->flash('message', 'You have deleted this characteristic from your preferences!');
-        } else {
-            request()->session()->flash('message', 'This characteristic is not added to your preferences!');
-            request()->session()->flash('alert-class', 'alert-danger');
-        }
+    // public function deleteFavoritePreference($preferenceId)
+    // {
+    //     $preferenceFavored = auth()->user()->characteristics->where('id', $preferenceId)->first();
+    //     if($preferenceFavored) {
+    //         auth()->user()->characteristics()->detach($preferenceId);
+    //         request()->session()->flash('message', 'You have deleted this characteristic from your preferences!');
+    //     } else {
+    //         request()->session()->flash('message', 'This characteristic is not added to your preferences!');
+    //         request()->session()->flash('alert-class', 'alert-danger');
+    //     }
 
-        return true;
-    }
+    //     return true;
+    // }
 
-    public function addFavoritePreference($preferenceId)
-    {
-        $preferenceFavored = auth()->user()->characteristics->where('id', $preferenceId)->first();
-        if (!$preferenceFavored) {
-            auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
-            request()->session()->flash('message', 'Preference saved for later use!');
-        } else {
-            auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
-            request()->session()->flash('message', 'Preference already added to your list!');
-            request()->session()->flash('alert-class', 'alert-danger');
-        }
+    // public function addFavoritePreference($preferenceId)
+    // {
+    //     $preferenceFavored = auth()->user()->characteristics->where('id', $preferenceId)->first();
+    //     if (!$preferenceFavored) {
+    //         auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
+    //         request()->session()->flash('message', 'Preference saved for later use!');
+    //     } else {
+    //         auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
+    //         request()->session()->flash('message', 'Preference already added to your list!');
+    //         request()->session()->flash('alert-class', 'alert-danger');
+    //     }
 
-        return true;
-    }
+    //     return true;
+    // }
 
-    public function getUserFavoritesPreferences($userId = null)
-    {
-        return $this->getUser($userId)->characteristics;
-    }
-
-    private function getUser($userId = null)
-    {
-        if ($userId) {
-            $user = $this->_model->find($userId);
-        } else {
-            $user = auth()->user();
-        }
-
-        return $user;
-    }
+    // public function getUserFavoritesPreferences($userId = null)
+    // {
+    //     return $this->getUser($userId)->characteristics;
+    // }
 }
