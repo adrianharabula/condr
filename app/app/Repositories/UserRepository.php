@@ -13,17 +13,6 @@ use App\User;
 
 class UserRepository extends EloquentRepository
 {
-    private $_productRepository;
-    private $_groupRepository;
-    // private $_preferenceRepository;
-
-    public function __construct(GroupRepository $_groupRepository, ProductRepository $_productRepository)
-    {
-        $this->_groupRepository = $_groupRepository;
-        $this->_productRepository = $_productRepository;
-        // $this->_preferenceRepository = $_preferenceRepository;
-    }
-
     public function getModel()
     {
         return User::class;
@@ -65,26 +54,20 @@ class UserRepository extends EloquentRepository
 
     public function addFavoriteProduct($productId, $userId = null)
     {
-        if (!$this->existsUserFavoriteProduct($productId, $userId)) {
-            $this->attachUserFavoriteProduct($productId, $userId);
-            request()->session()->flash('message', 'Product saved for later use!');
-        } else {
-            request()->session()->flash('message', 'Product aleardy in your basket!');
-            request()->session()->flash('alert-class', 'alert-danger');
-        }
+        if ($this->existsUserFavoriteProduct($productId, $userId))
+            return false;
 
+        $this->attachUserFavoriteProduct($productId, $userId);
+        
         return true;
     }
 
     public function deleteFavoriteProduct($productId, $userId = null)
     {
-        if ($this->existsUserFavoriteProduct($productId, $userId)) {
-            $this->detachUserFavoriteProduct($productId, $userId);
-            request()->session()->flash('message', 'Product deleted from your history!');
-        } else {
-            request()->session()->flash('message', 'Product not in your basket!');
-            request()->session()->flash('alert-class', 'alert-danger');
-        }
+        if (!$this->existsUserFavoriteProduct($productId, $userId))
+            return false;
+        
+        $this->detachUserFavoriteProduct($productId, $userId);
 
         return true;
     }
