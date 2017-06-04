@@ -9,42 +9,32 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\UserRepository;
+use App\Repositories\GroupRepository;
 use Illuminate\Http\Request;
 
 class UserGroupsController extends Controller
 {
+    private $_groupRepository;
 
-    /**
-     * @var \App\Repositories\UserRepository
-     */
-    private $_userRepository;
-
-
-    /**
-     * UserProductsController constructor.
-     *
-     * @param \App\Repositories\UserRepository $_userRepository
-     */
-    public function __construct(UserRepository $_userRepository)
+    public function __construct(GroupRepository $_groupRepository)
     {
-        $this->_userRepository = $_userRepository;
+        $this->_groupRepository = $_groupRepository;
     }
 
     public function addFavoriteGroup(Request $request)
     {
-        $this->_userRepository->addFavoriteGroup($request->id);
+        $this->_groupRepository->addFavoriteGroup($request->id);
         return redirect()->route('my.groups.listgroups');
     }
 
     public function deleteFavoriteGroup(Request $request)
     {
-        $this->_userRepository->deleteFavoriteGroup($request->id);
+        $this->_groupRepository->deleteFavoriteGroup($request->id);
         return redirect()->route('my.groups.listgroups');
     }
 
     public function getFavoriteGroups()
     {
-        return view('user.favorited-groups')->with('groups', $this->_userRepository->getUserFavoritesGroups());
+        return view('user.favorite-groups')->with('groups', $this->_groupRepository->getUserFavoriteGroups());
     }
 }

@@ -14,18 +14,8 @@ use Illuminate\Http\Request;
 
 class UserProductsController extends Controller
 {
-
-    /**
-     * @var \App\Repositories\UserRepository
-     */
     private $_userRepository;
 
-
-    /**
-     * UserProductsController constructor.
-     *
-     * @param \App\Repositories\UserRepository $_userRepository
-     */
     public function __construct(UserRepository $_userRepository)
     {
         $this->_userRepository = $_userRepository;
@@ -45,6 +35,6 @@ class UserProductsController extends Controller
 
     public function getFavoriteProducts()
     {
-        return view('user.favorited-products')->with('products', $this->_userRepository->getUserFavoritesProducts());
+        return view('user.favorited-products')->with('products', $this->_userRepository->getUserFavoriteProducts());
     }
 }
