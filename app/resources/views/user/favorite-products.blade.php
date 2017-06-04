@@ -92,6 +92,9 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/products.css') }}">
 @endpush
 <style>
+.fa-heart {
+  color: #2F937B;
+}
 .thumbnail {
   border: 2px solid #2F937B;
 }
