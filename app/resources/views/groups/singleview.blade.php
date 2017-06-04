@@ -42,7 +42,8 @@
               {{ $loop->first ? '' : ', '}}
               {{ $user->name }}
             @empty
-              There are no members registered to this group! <i class="fa fa-frown-o"></i>
+              There are no members registered to this group! <i class="fa fa-frown-o"></i><br><br>
+              But you can click <a href="{{ route('my.group.add', $group->id) }}">here</a> to join! <i class="fa fa-smile-o"></i>
             @endforelse
           </h5>
 
