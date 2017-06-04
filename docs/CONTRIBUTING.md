@@ -2,6 +2,9 @@
 
 Hi there! We're thrilled that you'd like to contribute to this project. Your help is essential for keeping it great.
 
+## How to make a pull request in 45 seconds
+![gifrecord_2017-06-04_172436](https://cloud.githubusercontent.com/assets/2271038/26762425/eacc7e48-494a-11e7-84de-076a7cd8d9f3.gif)
+
 ## Submitting a pull request
 
 0. Fork and clone the repository (if you're a developer with push access you can skip this)
@@ -11,12 +14,9 @@ Hi there! We're thrilled that you'd like to contribute to this project. Your hel
 0. Pat your self on the back and wait for your pull request to be reviewed and merged.
 0. We use [Reviewable](https://reviewable.io) to review code
 0. If anything is wrong we comment code in reviewable and wait for someone to fix it
-0. To fix make another commit/s and push them to the my_work remote branch
+0. To fix make another commit/s and push them to the __my_work__ remote branch
 0. Again someone else will review the code with [Reviewable](https://reviewable.io)
 0. If everything is ok, your code will be merged into master
-
-## How to make a pull request in 45 seconds
-![gifrecord_2017-06-04_172436](https://cloud.githubusercontent.com/assets/2271038/26762425/eacc7e48-494a-11e7-84de-076a7cd8d9f3.gif)
 
 Here are a few things you can do that will increase the likelihood of your pull request being accepted:
 
