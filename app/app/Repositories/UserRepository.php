@@ -31,7 +31,7 @@ class UserRepository extends EloquentRepository
 
     /**
       * Favorite products functions
-      * 
+      *
       **/
     public function getUserFavoriteProducts($userId = null)
     {
@@ -59,7 +59,7 @@ class UserRepository extends EloquentRepository
             return false;
 
         $this->attachUserFavoriteProduct($productId, $userId);
-        
+
         return true;
     }
 
@@ -67,7 +67,7 @@ class UserRepository extends EloquentRepository
     {
         if (!$this->existsUserFavoriteProduct($productId, $userId))
             return false;
-        
+
         $this->detachUserFavoriteProduct($productId, $userId);
 
         return true;
@@ -75,7 +75,7 @@ class UserRepository extends EloquentRepository
 
     /**
       * Favorite groups functions
-      * 
+      *
       **/
 
     public function getUserFavoriteGroups($userId = null)
@@ -104,7 +104,7 @@ class UserRepository extends EloquentRepository
             return false;
 
         $this->attachUserFavoriteGroup($groupId, $userId);
-        
+
         return true;
     }
 
@@ -112,7 +112,7 @@ class UserRepository extends EloquentRepository
     {
         if (!$this->existsUserFavoriteGroup($groupId, $userId))
             return false;
-        
+
         $this->detachUserFavoriteGroup($groupId, $userId);
 
         return true;
@@ -147,8 +147,8 @@ class UserRepository extends EloquentRepository
     //     return true;
     // }
 
-    // public function getUserFavoritesPreferences($userId = null)
-    // {
-    //     return $this->getUser($userId)->characteristics;
-    // }
+    public function getUserFavoritesPreferences($userId = null)
+    {
+        return $this->getUser($userId)->characteristics;
+    }
 }

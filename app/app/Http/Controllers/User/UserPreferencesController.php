@@ -39,7 +39,7 @@ class UserPreferencesController extends Controller
     public function addFavoritePreferenceByYourself()
     {
         // $this->_userRepository->addFavoritePreference($request->id);
-        // return redirect()->route('my.preferences.addbyyourself');
+        return view('user.favorite-preferences-add');
     }
 
     public function deleteFavoritePreference(Request $request)
@@ -50,6 +50,6 @@ class UserPreferencesController extends Controller
 
     public function getFavoritePreferences()
     {
-        return view('user.favorited-preferences')->with('preferences', $this->_userRepository->getUserFavoritesPreferences());
+        return view('user.favorite-preferences')->with('preferences', $this->_userRepository->getUserFavoritesPreferences());
     }
 }

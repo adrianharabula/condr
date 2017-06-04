@@ -43,13 +43,13 @@
                      <img class="media-object" src="{{ asset($product->image_url) }}" style="width: 72px; height: 72px;">
                    </a>
                   <div class="media-body" style="padding-left: 10px; padding-top: 2px;">
-                     <h5><b>Name : </b><span>{{ substr($product->name,0,120) }}....</span></h5>
+                     <h5><span style="font-size:19px;">{{ substr($product->name,0,140) }}....</span></h5>
                      {{-- <h5><b>Description : </b><span>{{ $product->description}}</span></h5> --}}
                   </div>
               </div>
             </div>
             <div class="col-md-3">
-              <a href={{ route('products.singleview', $product->id) }} class="btn btn-primary my-btn my-btn-dropdown btn-block btn-product pull-right">View details</a>
+              <a href={{ route('products.singleview', $product->id) }} style="margin-top: 10px;" class="btn btn-primary my-btn my-btn-dropdown btn-block btn-product pull-right">View details</a>
             </div>
         </div>
       @empty
