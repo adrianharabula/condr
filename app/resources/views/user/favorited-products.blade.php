@@ -50,7 +50,7 @@
                   <tr>
                       <td><b>Characteristics: </b></td>
                       @foreach ($product->characteristics as $characteristic)
-                          <tr><td> {{ $characteristic->name }}: {{ $characteristic->values }}</td></tr>
+                          <tr><td> <i class="fa fa-heart"></i> {{ $characteristic->name }}: {{ $characteristic->pivot->cvalue }}</td></tr>
                       @endforeach
                   </tr>
                 </tbody>
