@@ -26,6 +26,12 @@ Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
 Route::any('/lookup/{upc_code}', 'LookupController@addProduct')->name('lookup');
 
+Route::group(['prefix' => 'ajax', 'as' => 'ajax.'], function () {
+
+Route::post('/vote_characteristic', 'AjaxController@voteCharacteristic')->name('vote');
+
+});
+
 Route::any('/products', [
     'uses' => 'ProductsController@getProductsList',
     'as'   => 'products.listproducts'
