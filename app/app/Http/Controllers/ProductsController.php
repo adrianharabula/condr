@@ -17,7 +17,7 @@ class ProductsController extends Controller
     {
         $this->_productRepository = $_productRepository;
     }
-    
+
     public function getProductsList(ProductSearchRequest $data)
     {
         // TODO: add paginate here
