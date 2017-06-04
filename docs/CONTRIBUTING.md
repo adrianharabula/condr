@@ -14,6 +14,9 @@ Please note that this project is released with a [Contributor Code of Conduct][c
 0. Push to your fork and [submit a pull request][pr]
 0. Pat your self on the back and wait for your pull request to be reviewed and merged.
 
+## How to make a pull request in 45 seconds
+![gifrecord_2017-06-04_172436](https://cloud.githubusercontent.com/assets/2271038/26762425/eacc7e48-494a-11e7-84de-076a7cd8d9f3.gif)
+
 Here are a few things you can do that will increase the likelihood of your pull request being accepted:
 
 - Follow the [style guide][style].
