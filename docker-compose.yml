@@ -16,6 +16,7 @@ services:
      image: adrianharabula/php7-with-oci8
      links:
       - oracledb
+      - apache
      volumes:
       - ./app:/var/www/html
      ports:
@@ -35,11 +36,11 @@ services:
      ports:
       - "8000:8000"
 
-   virtualhosts:
+   apache:
      build:
-      context: ./Dockerfiles/apache-virtualhosts/
+      context: ./Dockerfiles/apache/
       dockerfile: Dockerfile
-     image: apache-virtualhosts
+     image: apache
      links:
       - app
      ports:
