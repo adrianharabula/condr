@@ -15,6 +15,7 @@
 // for more info on this routes
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 Auth::routes();
 
@@ -25,6 +26,8 @@ Route::get('/', function () {
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
 Route::any('/lookup/{upc_code}', 'LookupController@addProduct')->name('lookup');
+
+Route::any('/populate', 'LookupController@populateProducts')->name('populate');
 
 Route::group(['prefix' => 'ajax', 'as' => 'ajax.'], function () {
 
@@ -126,14 +129,19 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
         'as'   => 'preferences.listpreferences'
     ]);
 
-    Route::match(['get', 'post'], 'preferences/add/{id}', [
+    Route::match(['get', 'post'], 'preferences/add/{id}/{value}', [
         'uses' => 'User\UserPreferencesController@addFavoritePreference',
         'as'   => 'preferences.add'
     ]);
 
-    Route::match(['get', 'post'], 'preferences/add/', [
+    Route::match(['get'], 'preferences/add/', [
         'uses' => 'User\UserPreferencesController@addFavoritePreferenceByYourself',
         'as'   => 'preferences.addbyyourself'
+    ]);
+
+    Route::match(['post'], 'preferences/add/submit/', [
+        'uses' => 'User\UserPreferencesController@submitAddFavoritePreferenceByYourself',
+        'as'   => 'preferences.addbyyourself.submit'
     ]);
 
     Route::delete('preferences/{id}', [
