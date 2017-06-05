@@ -18,7 +18,7 @@
                     <h5>Pay attention! If you want us to give you the best results, you must provide your preferences consisting in a noun and an attribute, separated by ":" !  <i class="fa fa-smile-o"></i></h5>
                   </div>
                   <br>
-                  
+
                   {{Form::open(array('url' => route('my.preferences.addbyyourself.submit'),  'method' => 'post'))}}
                     <input class="control-group" name="preference_name" type="text" value="">
                     <button name="submitPreferences" type="submit" class="btn btn-primary my-btn">Add to my preferences!</button>

@@ -132,20 +132,23 @@ class UserRepository extends EloquentRepository
     //     return true;
     // }
 
-    // public function addFavoritePreference($preferenceId)
+    // public function addFavoritePreference($preferenceId, $preferenceValue)
     // {
     //     $preferenceFavored = auth()->user()->characteristics->where('id', $preferenceId)->first();
     //     if (!$preferenceFavored) {
     //         auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
+    //         auth()->user()->characteristics()->syncWithoutDetaching($preferenceValue);
+    //
     //         request()->session()->flash('message', 'Preference saved for later use!');
     //     } else {
     //         auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
     //         request()->session()->flash('message', 'Preference already added to your list!');
     //         request()->session()->flash('alert-class', 'alert-danger');
     //     }
-
+    //
     //     return true;
     // }
+
 
     public function getUserFavoritesPreferences($userId = null)
     {
