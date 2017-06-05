@@ -4,7 +4,7 @@
 
 @section('content')
 
-  <div class="container contact">
+  <div class="container">
       <div class="panel panel-default">
         <div class="panel-heading text-center">
           <h3><b>Enter your preferences here and let's get started!</b></h3>
@@ -20,7 +20,7 @@
                   <br>
 
                   {{Form::open(array('url' => route('my.preferences.addbyyourself.submit'),  'method' => 'post'))}}
-                    <input class="control-group" name="preference_name" type="text" value="">
+                    <input class="control-group" name="preference_name" type="text" value=""><br /><br />
                     <button name="submitPreferences" type="submit" class="btn btn-primary my-btn">Add to my preferences!</button>
                   {{Form::close()}}
 
@@ -28,6 +28,7 @@
         </div>
       </div>
     </div>
+  </div>
 
 <style>
  h4 {

@@ -32,26 +32,25 @@
                 <table class="table table-hover">
                   <tbody>
                     <tr>
-                      {{-- <h3> {{ $preference->category->name }}</h3> --}}
                       <div class="col-md-8 col-md-offset-2">
                         <input type="checkbox" name="characteristic_name" value="">{{ $preference->name }}: {{ $preference->pivot->cvalue}}
                       </div>
                     </tr>
                   </tbody>
                 </table>
+
+                <div class="col-md-8 col-md-offset-2">
+                  <h5>*You can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 17px;">here</a> to add more preferences!  <i class="fa fa-smile-o"></i></h5>
+                </div><br /><br />
               @empty
                 <div class="col-md-8 col-md-offset-2 text-center">
                   <h4>Unfortunatelly, you have no preferences stored in your history!....</h4>
                   <h4>But you can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 20px;">here</a> to add some!  <i class="fa fa-smile-o"></i></h4>
                 </div><br>
               @endforelse
-
                 <div class="col-md-7 col-md-offset-2">
                   <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Search by selected preferences</button>
                 </div>
-                {{-- <div class="col-md-6">
-                  <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Delete selected preferences</button>
-                </div> --}}
                 {{ Form::close() }}
             </div>
           </div>

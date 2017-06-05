@@ -31,16 +31,15 @@ class UserPreferencesController extends Controller
     public function submitAddFavoritePreferenceByYourself(Request $request)
     {
         $str = explode(":", $request->preference_name);
-        print_r($str[0]); //nume
-        print_r($str[1]); //valoarea
+        // print_r($str[0]); //nume
+        // print_r($str[1]); //valoarea
 
         $characteristic = \App\Characteristic::firstOrCreate(['name' => $str[0]]);
         $characteristic->save();
-        print_r($characteristic->id);
 
         Auth::user()->characteristics()->syncWithoutDetaching([$characteristic->id => ['cvalue' => $str[1]]]);
 
-        return view('my.preferences.listpreferences');
+        return view('user.favorite-preferences')->with('preferences', $this->_userRepository->getUserFavoritesPreferences());
     }
 
     public function getFavoritePreferences()
