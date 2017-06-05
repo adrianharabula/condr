@@ -134,12 +134,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
         'as'   => 'preferences.add'
     ]);
 
-    Route::match(['get'], 'preferences/add/', [
+    Route::get('preferences/add', [
         'uses' => 'User\UserPreferencesController@addFavoritePreferenceByYourself',
         'as'   => 'preferences.addbyyourself'
     ]);
 
-    Route::match(['post'], 'preferences/add/submit/', [
+    Route::post('preferences/add', [
         'uses' => 'User\UserPreferencesController@submitAddFavoritePreferenceByYourself',
         'as'   => 'preferences.addbyyourself.submit'
     ]);

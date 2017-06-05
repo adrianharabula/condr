@@ -11,32 +11,20 @@
         </div>
         <div class="panel-body">
           <div class="col-md-12">
-            <form role="form">
               <div class="col-md-7 col-md-offset-3">
                 <div class="form-group">
                   <div class="subtitle">
                     <h3>Tell us what to look after!</h3>
                     <h5>Pay attention! If you want us to give you the best results, you must provide your preferences consisting in a noun and an attribute, separated by ":" !  <i class="fa fa-smile-o"></i></h5>
                   </div>
-
-                  {{-- <label>Select your preferences from our predefined list...</label><br> --}}
-
-                  {{Form::open(array('url' => route('my.preferences.addbyyourself.submit')))}}
                   <br>
-
-                  {{-- {{ Form::select('preference_list', ['Charging time: max 1h','Battery: good','Color: black','Color: white','Color: blue','Diagonal: 13inch','Diagonal: 15inch','Size: small','Size: large','Taste: sweet','Taste: chilli' ], null, ['class' => 'form-control']) }} <br> --}}
-
-                  {{-- <label>...or enter your own preferences!*</label><br> --}}
-
-                  {{ Form::text('preference_name', '', array('class' => 'control-group')) }}
-
-                </div><br>
-
-              <button name="submitPreferences" type="submit" class="btn btn-primary my-btn">Add to my preferences!</button>
-              {{Form::close()}}
+                  
+                  {{Form::open(array('url' => route('my.preferences.addbyyourself.submit'),  'method' => 'post'))}}
+                    <input class="control-group" name="preference_name" type="text" value="">
+                    <button name="submitPreferences" type="submit" class="btn btn-primary my-btn">Add to my preferences!</button>
+                  {{Form::close()}}
 
             </div>
-          </form>
         </div>
       </div>
     </div>
