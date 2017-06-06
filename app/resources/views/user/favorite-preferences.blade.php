@@ -8,12 +8,6 @@
   <div class="panel-heading">
     <h2><b>Change/Update your preferences</b></h2>
   </div>
-
-  {{-- <form class="form">
-    <div class="col-md-12">
-      <a href={{route('my.preferences.addbyyourself')}} type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Add preferences</a>
-    </div>
-  </form> --}}
 </div>
 
 <div class="row">
@@ -32,7 +26,6 @@
                 <table class="table table-hover">
                   <tbody>
                     <tr>
-                      {{-- <h3> {{ $preference->category->name }}</h3> --}}
                       <div class="col-md-7 col-md-offset-2">
                         <input type="checkbox" name="characteristic_name" value="">{{ $preference->name }}: {{ $preference->pivot->cvalue}}
                         <button type="button" class="close" aria-label="Close">

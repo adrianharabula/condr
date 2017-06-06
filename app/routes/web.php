@@ -45,6 +45,11 @@ Route::get('/product/{products}', [
     'as'   => 'products.singleview'
 ]);
 
+Route::any('/products/add', [
+    'uses' => 'ProductsController@addProduct',
+    'as'   => 'products.add'
+]);
+
 Route::any('/groups', [
     'uses' => 'GroupsController@getGroupsList',
     'as'   => 'groups.listgroups'
