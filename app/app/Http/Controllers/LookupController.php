@@ -105,12 +105,6 @@ class LookupController extends Controller
             $upc_codes[] = '0611269426724'; // red bull
             $upc_codes[] = '0715660702828'; // iphone 6
             $upc_codes[] = '0635753611328'; // samsung black toner
-            $upc_codes[] = '0693804125002';
-            $upc_codes[] = '0885909918188';
-            $upc_codes[] = '0752203039690';
-            $upc_codes[] = '0611269426724';
-            $upc_codes[] = '0715660702828';
-            $upc_codes[] = '0635753611328';
             $upc_codes[] = '0755179023922';
             $upc_codes[] = '0801248078604';
             $upc_codes[] = '0629227426372';
@@ -144,14 +138,20 @@ class LookupController extends Controller
 
             foreach($upc_codes as $upc) {
                 // create a new request
+                echo 'Inserting ' . $upc . '...';
                 $request = new Request;
                 $request->upc_code = $upc;
 
                 // call the controller directly
                 $this->addProduct($request);
+                echo 'added product. ';
 
                 // sleep a bit, don't flood the api
-                sleep(1);
+                // or else we'll get a Please slow down message.
+                $sec = 10;
+                echo 'Sleeeping for ... ' . $sec;
+                sleep($sec);
+                echo "slept.\n";
             }
     }
 }
