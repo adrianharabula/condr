@@ -8,6 +8,7 @@
   <div class="panel-heading">
     <h2><b>Change/Update your preferences</b></h2>
   </div>
+
 </div>
 
 <div class="row">
@@ -19,18 +20,21 @@
             <div class="row">
               <div class="col-md-10">
 
-                {{ Form::open(array('url' => route('products.listproducts'))) }}
+                {!! Form::open(array('url' => route('my.preferences.searchby'))) !!}
                 {{ csrf_field() }}
 
+                {!! Form::open() !!}
                 @forelse ($preferences as $preference)
                 <table class="table table-hover">
                   <tbody>
                     <tr>
                       <div class="col-md-7 col-md-offset-2">
-                        <input type="checkbox" name="characteristic_name" value="">{{ $preference->name }}: {{ $preference->pivot->cvalue}}
+
+                        {{ Form::checkbox('preferences_name[]',$preference->name.':'.$preference->pivot->cvalue,false) }} {{$preference->name}}: {{$preference->pivot->cvalue}}
                         <button type="button" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
+
                       </div>
                     </tr>
                   </tbody>
@@ -43,9 +47,9 @@
                 </div><br>
               @endforelse
                 <div class="col-md-7 col-md-offset-2">
-                  <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Search by selected preferences</button>
+                  {{ Form::submit('Search by selected preferences', array('class' => 'btn btn-block btn-primary my-btn btn-start my-btn-dropdown')) }}
                 </div>
-                {{ Form::close() }}
+                {!! Form::close() !!}
             </div>
           </div>
         </div>
