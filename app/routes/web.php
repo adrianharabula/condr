@@ -153,11 +153,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
         'uses' => 'User\UserPreferencesController@deleteFavoritePreference',
         'as'   => 'preferences.delete'
     ]);
-
-    Route::any('preferences/searchby', [
-        'uses' => 'User\UserPreferencesController@searchByFavoritePreferences',
-        'as'   => 'preferences.searchby'
-    ]);
+    
+    Route::any('preferences/searchby', [ 
+        'uses' => 'User\UserPreferencesController@searchByFavoritePreferences', 
+        'as'   => 'preferences.searchby' 
+    ]); 
 
 });
 

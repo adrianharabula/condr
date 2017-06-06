@@ -149,9 +149,25 @@ class UserRepository extends EloquentRepository
     //     return true;
     // }
 
-
     public function getUserFavoritesPreferences($userId = null)
     {
         return $this->getUser($userId)->characteristics;
     }
+    public function existsUserFavoritePreferences($preferenceId, $userId = null)
+    {
+        return $this->getUserFavoritesPreferences($userId)->contains($preferenceId);
+    }
+    public function detachUserFavoritePreferences($preferenceId, $userId = null)
+    {
+        $this->getUser($userId)->characteristics()->detach($preferenceId);
+    }
+    public function deleteFavoritePreference($preferenceId, $userId = null)
+    {
+        if (!$this->existsUserFavoritePreferences($preferenceId, $userId))
+            return false;
+
+        $this->detachUserFavoritePreferences($preferenceId, $userId);
+
+        return true;
+     }
 }

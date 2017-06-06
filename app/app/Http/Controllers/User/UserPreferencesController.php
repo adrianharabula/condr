@@ -11,9 +11,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Input; 
+use Illuminate\Support\Facades\DB; 
 use Auth;
 
 class UserPreferencesController extends Controller
@@ -46,31 +45,44 @@ class UserPreferencesController extends Controller
     {
         return view('user.favorite-preferences')->with('preferences', $this->_userRepository->getUserFavoritesPreferences());
     }
-
-    public function searchByFavoritePreferences()
+    public function deleteFavoritePreference(Request $request)
     {
-      $datas = Input::get('preferences_name');
-      // print_r($datas);
-      foreach ($datas as $data)
-      {
-          $str = explode(":", $data);
-          $name = $str[0];
-          $value = $str[1];
+        $response = $this->_userRepository->deleteFavoritePreference($request->id);
 
-          if ($name!='' && $value !='')
-          {
-            $products = DB::table('products')
-            ->select(DB::raw("*"))
-            ->where('name', 'LIKE','%'.$name.'%')
-            ->orWhere('description', 'LIKE','%'.$name.'%')
-            ->orWhere('name', 'LIKE','%'.$value.'%')
-            ->orWhere('description', 'LIKE','%'.$value.'%')
-            ->get();
-          }
-          // print_r($result);
-      }
+        if ($response) {
+            request()->session()->flash('message', 'Preference deleted from your history!');
+        } else {
+            request()->session()->flash('message', 'Preference not in your basket!');
+            request()->session()->flash('alert-class', 'alert-danger');
+        }
 
-      return view('products.listproducts')
-            ->with('products', $products);
+        return redirect()->route('my.preferences.listpreferences');
     }
+
+    public function searchByFavoritePreferences() 
+    { 
+      $datas = Input::get('preferences_name'); 
+      // print_r($datas); 
+      foreach ($datas as $data) 
+      { 
+          $str = explode(":", $data); 
+          $name = $str[0]; 
+          $value = $str[1]; 
+ 
+          if ($name!='' && $value !='') 
+          { 
+            $products = DB::table('products') 
+            ->select(DB::raw("*")) 
+            ->where('name', 'LIKE','%'.$name.'%') 
+            ->orWhere('description', 'LIKE','%'.$name.'%') 
+            ->orWhere('name', 'LIKE','%'.$value.'%') 
+            ->orWhere('description', 'LIKE','%'.$value.'%') 
+            ->get(); 
+          } 
+          // print_r($result); 
+      } 
+ 
+      return view('products.listproducts') 
+            ->with('products', $products); 
+    } 
 }
