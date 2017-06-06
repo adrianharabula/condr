@@ -23,7 +23,6 @@
                 {!! Form::open(array('url' => route('my.preferences.searchby'))) !!}
                 {{ csrf_field() }}
 
-                {!! Form::open() !!}
                 @forelse ($preferences as $preference)
                 <table class="table table-hover">
                   <tbody>
@@ -31,11 +30,10 @@
                       <div class="col-md-7 col-md-offset-2">
 
                         {{ Form::checkbox('preferences_name[]',$preference->name.':'.$preference->pivot->cvalue,false) }} {{$preference->name}}: {{$preference->pivot->cvalue}}
-                        
                         {!! Form::open(['method' => 'DELETE', 'url'=> route('my.preferences.delete', $preference->id)]) !!}
-                                  <button type="button" class="close" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                  </button>
+                        <button type="submit" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                         {!! Form::close() !!}
 
                       </div>
@@ -46,10 +44,11 @@
               @empty
                 <div class="col-md-6 col-md-offset-2">
                   <h4>Unfortunatelly, you have no preferences stored in your history!....</h4>
-                  <h4>But you can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 20px;">here</a> to add some!  <i class="fa fa-smile-o"></i></h4>
                 </div><br>
               @endforelse
                 <div class="col-md-7 col-md-offset-2">
+                  <h4>You can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 20px;">here</a> to add some preferences!  <i class="fa fa-smile-o"></i></h4>
+
                   {{ Form::submit('Search by selected preferences', array('class' => 'btn btn-block btn-primary my-btn btn-start my-btn-dropdown')) }}
                 </div>
                 {!! Form::close() !!}
@@ -80,6 +79,3 @@ h4 {
 </style>
 
 @endsection
-
-
-

@@ -8,9 +8,9 @@
    <div class="col-md-8 col-md-offset-2">
    	  <div class="panel">
    	     <div class="panel-heading text-center">
-   	     <h3><b>Delete/Update your joined groups!</b></h3>
+   	       <h3><b>Delete/Update your joined groups!</b></h3>
    	     </div>
-
+         <br/><br/>
 @if(Session::has('message'))
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -26,7 +26,7 @@
       </div>
     </div>
 @endif
-         @foreach ($groups as $group)
+         @forelse ($groups as $group)
    	      <div class="container">
             <div class="row">
               <div class="col-md-6">
@@ -45,10 +45,16 @@
                </div>
               </div>
             </div>
-          @endforeach
+          @empty
+            <div class="col-md-12 text-center">
+              <h4>Unfortunatelly, you haven't joined any group yet!....</h4>
+              <h4>You can click <a href="{{ route('groups.listgroups')}}" style="font-size: 20px;">here</a> to join some!  <i class="fa fa-smile-o"></i></h4>
+            </div><br>
+          @endforelse
         </div>
      </div>
   </div>
+  <br/><br/>
 <style>
 .row {
     margin-right: 0px;
@@ -62,6 +68,10 @@
 }
 b {
   color:#2F937B;
+}
+h4 {
+  margin: 25px;
+  font-size:19px;
 }
 .col-md-2 {
   margin-top: 17px;
