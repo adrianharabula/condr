@@ -12,6 +12,25 @@ See online app [here](https://condr.me).
 Original request here:
  > Develop a web tool to provide consumers with advice on decisions to purchase goods / services in an ethical way. The system will be able to store and use the simple rules of the form "if <condition> then <action>" - in our case, for example, "we will not buy / use the product P because it contains / uses substance S", or "I will choose P instead of Q because of M (for example, low mobility or unreasonable price)"- to provide suggestions on personal or group resources. The application will also provide statistics on most of the desired resources, restrictions, people with similar preferences, etc. As a source of inspiration, see Buycott. Bonus: using web microservices.
 
+## Relevant links
+
+ * [Online app](http://condr.me)
+ * [User Manual]()
+ * ConDr Technical Book, read [online](https://adrianharabula.gitbooks.io/condr) or download [pdf](https://www.gitbook.com/download/pdf/book/adrianharabula/condr), [epub](https://www.gitbook.com/download/epub/book/adrianharabula/condr), [mobi](https://www.gitbook.com/download/mobi/book/adrianharabula/condr)
+ * ConDr Technical book repo [here](https://github.com/adrianharabula/condr-devbook), feel free to contribute or create an issue.
+ * [Database schema](https://github.com/adrianharabula/condr/blob/master/docs/files/database_sketch_latest.pdf)
+ * [Database schema documentation](https://docs.condr.me/dbschema/)
+ * [Documentation with Scholarly HTML](http://docs.condr.me)
+ * [Early interface mockups](https://github.com/adrianharabula/condr/tree/master/docs/files/interface_mockups)
+
+ ## Byproducts
+
+ Things that came out during development of this project as a side effect:
+
+ * [php7-oci](https://adrianharabula.gitbooks.io/condr/content/pages/php7-oci.html), repo [here](https://github.com/adrianharabula/php7-with-oci8)
+ * [php7cli-oci](https://adrianharabula.gitbooks.io/condr/content/pages/php7cli-oci.html), repo [here](https://github.com/adrianharabula/php7cli-with-oci8)
+ * [super-simple-oci-orm](https://adrianharabula.gitbooks.io/condr/content/pages/oci-orm.html), repo [here](https://github.com/adrianharabula/super-simple-oci-orm)
+
 ## Contributing
 
 Thank you for considering contributing to the ConDr app! The contribution guide can be found in the [ConDr documentation](https://docs.condr.me/contributing).
