@@ -138,7 +138,7 @@ class LookupController extends Controller
 
             foreach($upc_codes as $upc) {
                 // create a new request
-                echo 'Inserting ' . $upc . '...';
+                echo 'Inserting ' . $upc . '... ';
                 $request = new Request;
                 $request->upc_code = $upc;
 
@@ -149,7 +149,7 @@ class LookupController extends Controller
                 // sleep a bit, don't flood the api
                 // or else we'll get a Please slow down message.
                 $sec = 10;
-                echo 'Sleeeping for ... ' . $sec;
+                echo "Sleeeping for $sec seconds... ";
                 sleep($sec);
                 echo "slept.\n";
             }
