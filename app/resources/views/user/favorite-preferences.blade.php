@@ -32,18 +32,19 @@
                 <table class="table table-hover">
                   <tbody>
                     <tr>
-                      <div class="col-md-8 col-md-offset-2">
+                      {{-- <h3> {{ $preference->category->name }}</h3> --}}
+                      <div class="col-md-7 col-md-offset-2">
                         <input type="checkbox" name="characteristic_name" value="">{{ $preference->name }}: {{ $preference->pivot->cvalue}}
+                        <button type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                       </div>
                     </tr>
                   </tbody>
                 </table>
 
-                <div class="col-md-8 col-md-offset-2">
-                  <h5>*You can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 17px;">here</a> to add more preferences!  <i class="fa fa-smile-o"></i></h5>
-                </div><br /><br />
               @empty
-                <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="col-md-6 col-md-offset-2">
                   <h4>Unfortunatelly, you have no preferences stored in your history!....</h4>
                   <h4>But you can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 20px;">here</a> to add some!  <i class="fa fa-smile-o"></i></h4>
                 </div><br>
@@ -62,6 +63,13 @@
 <style>
 input[type=checkbox]{
     margin: 10px 10px 10px;
+}
+span {
+  font-size: xx-large;
+}
+@media (min-width: 992px)
+.col-md-offset-2 {
+    font-size: 17px;
 }
 b {
   color:#2F937B;
