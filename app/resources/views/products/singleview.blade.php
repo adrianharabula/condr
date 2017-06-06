@@ -185,7 +185,8 @@
            },
            function(){
               // alert("You have just voted this preference!");
-              document.getElementById('vote_characteristic_value_{{$characteristic->id}}').innerHTML = {{$characteristic->pivot->cvotes}} + 1;
+              var count = document.getElementById('vote_characteristic_value_{{$characteristic->id}}').innerHTML;
+              document.getElementById('vote_characteristic_value_{{$characteristic->id}}').innerHTML = ++count;
           });
       });
       @endforeach
