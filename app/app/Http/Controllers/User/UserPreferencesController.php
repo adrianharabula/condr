@@ -67,6 +67,7 @@ class UserPreferencesController extends Controller
             ->orWhere('description', 'LIKE','%'.$value.'%')
             ->get();
           }
+          // print_r($result);
       }
 
       return view('products.listproducts')
