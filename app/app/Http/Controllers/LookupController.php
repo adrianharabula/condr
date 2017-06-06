@@ -9,30 +9,13 @@ use GuzzleHttp\Client;
 class LookupController extends Controller
 {
     public function addProduct(Request $request)
-    {
-
-        // use each $id one time to add products to database
-        // $id = '0693804125002'; // dog biscuits
-        // $id = '0885909918188'; // macbook pro
-        // $id = '0885909918188'; // macbook pro
-        // $id = '0752203039690'; // coca cola
-        // $id = '0611269426724'; // red bull
-        // $id = '0715660702828'; // iphone 6
-        // $id = '0635753611328'; // samsung black toner
-
-        $upc_codes = ['0693804125002','0885909918188','0752203039690','0611269426724','0715660702828','0635753611328','825633402287','801248078604','887276076652','022548313527','664911502208', 
-         '755179023922','629227426372','886227369225','613902913806','883349738281','712392149204', 
-         '715757399610','679113203457','760194188471','842217116781','766288179462','846137014325' 
-         , '700580389259','006162240155','815442014887','641427613871', '641427613871','641427614229' 
-         '793573434210','309975963069','797734581904','846137038383','844541073853','740614980137', 
-         '011543602620','050000314744','811369000026','811369000095','888327036083','886059376255']; 
-               
-        
+    {        
         $client = new \GuzzleHttp\Client(array(
             'curl' => array(
                 CURLOPT_SSL_VERIFYPEER => env('CURLOPT_SSL_VERIFYPEER') ,
             ) ,
         ));
+
         $request = $client->request('GET', 'https://api.upcitemdb.com/prod/trial/lookup', ['query' => 'upc=' . $request->upc_code]);
         $res = $request->getBody();
         $data = json_decode($res, true);
@@ -111,5 +94,64 @@ class LookupController extends Controller
                 $offer_model->save();
             }
         }
+    }
+
+    public function populateProducts()
+    {
+            $upc_codes = array();
+            $upc_codes[] = '0693804125002'; // dog biscuits
+            $upc_codes[] = '0885909918188'; // macbook pro
+            $upc_codes[] = '0752203039690'; // coca cola
+            $upc_codes[] = '0611269426724'; // red bull
+            $upc_codes[] = '0715660702828'; // iphone 6
+            $upc_codes[] = '0635753611328'; // samsung black toner
+            $upc_codes[] = '0693804125002';
+            $upc_codes[] = '0885909918188';
+            $upc_codes[] = '0752203039690';
+            $upc_codes[] = '0611269426724';
+            $upc_codes[] = '0715660702828';
+            $upc_codes[] = '0635753611328';
+            $upc_codes[] = '0755179023922';
+            $upc_codes[] = '0801248078604';
+            $upc_codes[] = '0629227426372';
+            $upc_codes[] = '0886227369225';
+            $upc_codes[] = '0613902913806';
+            $upc_codes[] = '0883349738281';
+            $upc_codes[] = '0712392149204';
+            $upc_codes[] = '0715757399610';
+            $upc_codes[] = '0679113203457';
+            $upc_codes[] = '0760194188471';
+            $upc_codes[] = '0842217116781';
+            $upc_codes[] = '0766288179462';
+            $upc_codes[] = '0846137014325';
+            $upc_codes[] = '0700580389259';
+            $upc_codes[] = '0006162240155';
+            $upc_codes[] = '0815442014887';
+            $upc_codes[] = '0641427613871';
+            $upc_codes[] = '0641427614229';
+            $upc_codes[] = '0793573434210';
+            $upc_codes[] = '0309975963069';
+            $upc_codes[] = '0797734581904';
+            $upc_codes[] = '0846137038383';
+            $upc_codes[] = '0844541073853';
+            $upc_codes[] = '0740614980137';
+            $upc_codes[] = '0011543602620';
+            $upc_codes[] = '0050000314744';
+            $upc_codes[] = '0811369000026';
+            $upc_codes[] = '0811369000095';
+            $upc_codes[] = '0888327036083';
+            $upc_codes[] = '0886059376255';
+
+            foreach($upc_codes as $upc) {
+                // create a new request
+                $request = new Request;
+                $request->upc_code = $upc;
+
+                // call the controller directly
+                $this->addProduct($request);
+
+                // sleep a bit, don't flood the api
+                sleep(1);
+            }
     }
 }
