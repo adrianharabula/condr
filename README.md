@@ -16,7 +16,7 @@ Original request here:
 
  * [Online app](http://condr.me)
  * [User Manual](https://github.com/adrianharabula/condr/raw/master/docs/files/Manualul_Utilizatorului_ConDr.pdf)
- * ConDr Technical Book, read [online](https://adrianharabula.gitbooks.io/condr) or download [pdf](https://www.gitbook.com/download/pdf/book/adrianharabula/condr), [epub](https://www.gitbook.com/download/epub/book/adrianharabula/condr), [mobi](https://www.gitbook.com/download/mobi/book/adrianharabula/condr) or view book repository [here](https://github.com/adrianharabula/condr-devbook)
+ * ConDr Technical Book, read [online](https://adrianharabula.gitbooks.io/condr) or download [pdf](https://www.gitbook.com/download/pdf/book/adrianharabula/condr), [epub](https://www.gitbook.com/download/epub/book/adrianharabula/condr), [mobi](https://www.gitbook.com/download/mobi/book/adrianharabula/condr) or view book repository [here](https://github.com/adrianharabula/condr-devbook) or gitbook link [here](https://www.gitbook.com/book/adrianharabula/condr/details)
  * [Database schema](https://github.com/adrianharabula/condr/raw/master/docs/files/database_sketch_latest.pdf) with [documentation](https://docs.condr.me/dbschema/)
  * [Documentation with Scholarly HTML tags](http://docs.condr.me)
  * [Early interface mockups](https://github.com/adrianharabula/condr/tree/master/docs/files/interface_mockups)
