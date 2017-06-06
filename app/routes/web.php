@@ -149,9 +149,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
         'as'   => 'preferences.addbyyourself.submit'
     ]);
 
-    Route::delete('preferences/{id}', [
+    Route::delete('preferences/{id}/delete', [
         'uses' => 'User\UserPreferencesController@deleteFavoritePreference',
         'as'   => 'preferences.delete'
+    ]);
+
+    Route::any('preferences/searchby', [
+        'uses' => 'User\UserPreferencesController@searchByFavoritePreferences',
+        'as'   => 'preferences.searchby'
     ]);
 
 });
