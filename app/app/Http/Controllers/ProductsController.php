@@ -30,4 +30,9 @@ class ProductsController extends Controller
     {
         return view('products.singleview')->with('product', $this->_productRepository->find($id));
     }
+
+    public function addProduct()
+    {
+        return view('products.add');
+    }
 }

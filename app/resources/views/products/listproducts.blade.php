@@ -44,7 +44,6 @@
                    </a>
                   <div class="media-body" style="padding-left: 10px; padding-top: 2px;">
                      <h5><span style="font-size:19px;">{{ substr($product->name,0,140) }}....</span></h5>
-                     {{-- <h5><b>Description : </b><span>{{ $product->description}}</span></h5> --}}
                   </div>
               </div>
             </div>
@@ -53,7 +52,7 @@
             </div>
         </div>
       @empty
-        <div class="row page black">
+        <div class="row">
           <div class="col-md-8 col-md-offset-2">
             <div class="alert alert-danger">
                 <ul>
@@ -61,6 +60,13 @@
                 </ul>
             </div>
           </div>
+        </div><br />
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <h4 style="font-size: 22px;"> Would you like to add a product by its barcode instead?</h4>
+          {{ Form::open(array('url' => route('products.add'))) }}
+          {{ csrf_field() }}
+            <button type="submit" class="btn btn-primary my-btn btn-block">Sure, why not? <i class="fa fa-heart"></i></button>
+          {{ Form::close()}}
         </div>
       @endforelse
   </div>
