@@ -22,16 +22,16 @@
                     <div class="row">
                         <div class="col-md-8 text-left">
                             <h1>Some features of the product...</h1>
-                            <h4>Already voted by {{$product->users()->count()}} users! <i class="fa fa-smile-o"></i></h4>
+                            @if($product->users()->count())
+                            <p class="lime">Already voted by {{$product->users()->count()}} users! <i class="fa fa-smile-o"></i></p>
+                            @endif
                         </div>
-                        <div class="col-md-4 text-right">
+                        <div class="col-md-4 text-right hidden-xs hidden-sm">
                             {{ Form::open(array('url' => route('my.product.add', $product->id))) }}
                             {{ csrf_field() }}
-                            <div class="">
                                 <button class="btn btn-primary my-btn btn-start my-btn-dropdown my-btn-border"><i
                                             class="fa fa-save"></i> Save for later
                                 </button>
-                            </div>
                             {{Form::close()}}
                         </div>
                     </div>
@@ -39,8 +39,49 @@
 
                 <div class="panel-body">
                     <div class="col-md-3">
-                        <a href="{{$product->image_url}}" class="thumbnail pull-left"> <img class="media-object" src="{{ asset($product->image_url) }}"
+                        <a href="{{$product->image_url}}" class="thumbnail"> <img class="media-object" src="{{ asset($product->image_url) }}"
                                                              style="width:100%;"> </a>
+                        
+                        <h3>Offers</h3>
+                        @forelse ($product->offers as $offer)
+                          <div class="panel-group col-md-12">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a data-toggle="collapse" href="#collapse_{{$offer->id}}">{{ $offer->merchant }}</a>
+                                </h4>
+                              </div>
+                              <div id="collapse_{{$offer->id}}" class="panel-collapse collapse">
+                                @if($offer->domain)
+                                <div class="panel-body"><b>Domain:</b> {{$offer->domain}}</div>
+                                @endif
+                                @if($offer->title && 0)
+                                <div class="panel-footer"><b>Title:</b> {{$offer->title}}</div>
+                                @endif
+                                @if($offer->currency)
+                                <div class="panel-body"><b>Currency:</b> {{$offer->currency}}</div>
+                                @endif
+                                @if($offer->shipping)
+                                <div class="panel-footer"><b>Shipping:</b> {{$offer->shipping}}</div>
+                                @endif
+                                @if($offer->condition)
+                                <div class="panel-body"><b>Condition:</b> {{$offer->condition}}</div>
+                                @endif
+                                @if($offer->availability)
+                                <div class="panel-footer"><b>Availability:</b> {{$offer->availability}}</div>
+                                @endif
+                                @if($offer->shop_link)
+                                <div class="panel-body"></b>Shop link:</b> <a href="{{$offer->shop_link}}">Click here!</a></div>
+                                @endif
+                                @if($offer->remote_updated_at)
+                                <div class="panel-footer"><b>Last updated:</b> {{ \Carbon\Carbon::createFromTimestamp((int)trim($offer->remote_updated_at))->diffForHumans() }}</div>
+                                @endif
+                              </div>
+                            </div>
+                          </div>
+                        @empty
+                            <h5> None </h5>
+                        @endforelse
                     </div>
 
                     <div class="col-md-9">
@@ -67,29 +108,7 @@
 
                         <h4>Offers:</h4>
                         <p>Click to see more details!</p><br/>
-                        @forelse ($product->offers as $offer)
-                          <div class="panel-group">
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                                <h4 class="panel-title">
-                                  <a data-toggle="collapse" href="#collapse_{{$offer->id}}">Name: {{ $offer->merchant }}</a>
-                                </h4>
-                              </div>
-                              <div id="collapse_{{$offer->id}}" class="panel-collapse collapse">
-                                <div class="panel-body"><b>Domain:</b> {{$offer->domain}}</div>
-                                <div class="panel-footer"><b>Title:</b> {{$offer->title}}</div>
-                                <div class="panel-body"><b>Currency:</b> {{$offer->currency}}</div>
-                                <div class="panel-footer"><b>Shipping:</b> {{$offer->shipping}}</div>
-                                <div class="panel-body"><b>Condition:</b> {{$offer->condition}}</div>
-                                <div class="panel-footer"><b>Availability:</b> {{$offer->availability}}</div>
-                                <div class="panel-body"></b>Shop link:</b> <a href="{{$offer->shop_link}}">Click here!</a></div>
-                                {{-- <div class="panel-footer"><b>Updated at:</b> {{$offer->remote_updated_at}}</div> --}}
-                              </div>
-                            </div>
-                          </div>
-                        @empty
-                            <h5> None </h5>
-                        @endforelse
+
 
                     </div>
 
@@ -163,7 +182,6 @@
     .panel-group .panel {
       color: #2F937B;
       border: 2px solid;
-      width: 52%;
       border-radius: 4px;
     }
     a {
@@ -185,7 +203,8 @@
            },
            function(){
               // alert("You have just voted this preference!");
-              document.getElementById('vote_characteristic_value_{{$characteristic->id}}').innerHTML = {{$characteristic->pivot->cvotes}} + 1;
+              var count = document.getElementById('vote_characteristic_value_{{$characteristic->id}}').innerHTML;
+              document.getElementById('vote_characteristic_value_{{$characteristic->id}}').innerHTML = ++count;
           });
       });
       @endforeach

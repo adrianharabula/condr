@@ -28,6 +28,8 @@ class ProductsController extends Controller
 
     public function getProduct($id)
     {
-        return view('products.singleview')->with('product', $this->_productRepository->find($id));
+        $product = $this->_productRepository->find($id);
+        $product->increment('views');
+        return view('products.singleview')->with('product', $product);
     }
 }

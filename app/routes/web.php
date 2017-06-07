@@ -28,11 +28,7 @@ Route::get('/lookup/{upc_code}', 'LookupController@addProduct')->name('lookup');
 
 Route::get('/populate', 'LookupController@populateProducts')->name('populate');
 
-Route::group(['prefix' => 'ajax', 'as' => 'ajax.'], function () {
-
-Route::post('/vote_characteristic', 'AjaxController@voteCharacteristic')->name('vote');
-
-});
+Route::post('/contact', 'ContactFormController@postFormController')->name('contact');
 
 Route::any('/products', [
     'uses' => 'ProductsController@getProductsList',
@@ -54,6 +50,10 @@ Route::any('/group/{groups}', [
     'as'   => 'groups.singleview'
 ]);
 
+// AJAX routes
+Route::group(['prefix' => 'ajax', 'as' => 'ajax.'], function () {
+    Route::post('/vote_characteristic', 'AjaxController@voteCharacteristic')->name('vote');
+});
 
 Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function () {
 

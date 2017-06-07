@@ -22,5 +22,8 @@ class AjaxController extends Controller
       $votes = $characterizable->characteristics()->where('characteristic_id', '=', $characteristic_id)->first()->pivot;
       $votes->cvotes = $votes->cvotes + 1;
       $votes->save();
+
+      // TODO: return updated cvote
+      // and fetch it in frontend
     }
 }
