@@ -69,6 +69,7 @@ Route::group(['prefix' => 'ajax', 'as' => 'ajax.'], function () {
 // API Routes
 Route::group(['middleware' => 'api', 'prefix' => 'api', 'as' => 'api.'], function () {
     Route::get('/groups', 'APIController@getGroups')->name('groups');
+    Route::get('/categories', 'APIController@getCategories')->name('categories');
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function () {
