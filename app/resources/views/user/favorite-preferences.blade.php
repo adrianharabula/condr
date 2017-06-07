@@ -10,7 +10,21 @@
   </div>
 
 </div>
-
+@if(Session::has('message'))
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="alert {{ Session::get('alert-class', 'alert-success') }} alert-dismissable" style="text-align: center;">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          @if(Session::get('alert-class') === 'alert-danger')
+            <strong>Error: </strong>
+          @else
+            <strong>Success: </strong>
+          @endif
+          {{ Session::get('message') }}
+        </div>
+      </div>
+    </div>
+@endif
 <div class="row">
   <div class="col-md-10 col-md-offset-2">
     <div class="panel">
@@ -21,29 +35,33 @@
               <div class="col-md-10">
 
                 {!! Form::open(array('url' => route('my.preferences.searchby'))) !!}
-                {{ csrf_field() }}
-
-                {{-- {{ Form::open() }} --}}
+                {{ csrf_field() }}               
                 @forelse ($preferences as $preference)
+                <table class="table table-hover">
+                  <tbody>
+                    <tr>
                       <div class="col-md-7 col-md-offset-2">
 
                         {{ Form::checkbox('preferences_name[]',$preference->name.':'.$preference->pivot->cvalue,false) }} {{$preference->name}}: {{$preference->pivot->cvalue}}
+                        {!! Form::close() !!}
+
                         {!! Form::open(['method' => 'DELETE', 'url'=> route('my.preferences.delete', $preference->id)]) !!}
-                        {{-- {{ csrf_field()}} --}}
+                 {{ csrf_field() }}
                         <button type="submit" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        {{-- {!! Form::close() !!} --}}
-
+                          {!! Form::close() !!}
                       </div>
-              @empty
+                    </tr>
+                  </tbody>
+                </table>
+                @empty
                 <div class="col-md-6 col-md-offset-2">
                   <h4>Unfortunatelly, you have no preferences stored in your history!....</h4>
+                  <h4>But you can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 20px;">here</a> to add some!  <i class="fa fa-smile-o"></i></h4>
                 </div><br>
               @endforelse
                 <div class="col-md-7 col-md-offset-2">
-                  <h4>You can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 20px;">here</a> to add some preferences!  <i class="fa fa-smile-o"></i></h4>
-
                   {{ Form::submit('Search by selected preferences', array('class' => 'btn btn-block btn-primary my-btn btn-start my-btn-dropdown')) }}
                 </div>
                 {!! Form::close() !!}
