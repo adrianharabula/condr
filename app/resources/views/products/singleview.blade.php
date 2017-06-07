@@ -39,7 +39,7 @@
 
                 <div class="panel-body">
                     <div class="col-md-3">
-                        <a href="{{$product->image_url}}" class="<thumbnail></thumbnail>"> <img class="media-object" src="{{ asset($product->image_url) }}"
+                        <a href="{{$product->image_url or 'http://via.placeholder.com/300x400?text=No+picture'}}" class="<thumbnail></thumbnail>"> <img class="media-object" src="{{ asset($product->image_url) }}"
                                                              style="width:100%;"> </a>
                         
                         <h3>Offers</h3>
