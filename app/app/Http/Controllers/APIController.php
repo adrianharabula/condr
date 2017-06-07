@@ -13,6 +13,18 @@ class APIController extends Controller
     // get all groups
     public function getGroups()
     {
-        return \App\Condrgroup::all();
+        $groups = \App\Condrgroup::all();
+        
+        // if no group found show error
+        if (!$groups)
+            return response()->json([
+                'data' => [
+                    'message' => 'No groups found.',
+                    'status_code' => '404'
+                ]
+            ]);
+
+        // return groups array    
+        return response()->json($groups);
     }
 }
