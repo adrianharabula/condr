@@ -13,7 +13,7 @@ class StatisticsController extends Controller
     {
       $wanted_products = DB::table('products')->orderBy('views','desc')->take(7)->get();
       $unwanted_products = DB::table('products')->orderBy('views','asc')->take(7)->get();
-      $keywords = DB::table('search_analytics')->orderBy('searches')->take(5)->get();
+      $keywords = DB::table('search_analytics')->where('searches','>','0')->orderBy('searches')->take(5)->get();
 
       $wanted_names = $wanted_products->pluck('name');
       $unwanted_names = $unwanted_products->pluck('name');
