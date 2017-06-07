@@ -4,7 +4,6 @@ layout: default
 
 # Work log
 
-	##Backend 
+## Backend 
 
-		* MyPreferences (search by selected preferences)
-		
+* MyPreferences (search by selected preferences)
