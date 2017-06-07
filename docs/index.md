@@ -22,58 +22,80 @@ Mădălina Buza
 
 ## Install instructions
 
-  1. Se face clone la repo:
+Se face clone la repo:
+ - Copiați `Dockerfiles/apache/100-condr.conf.example` în __100-condr.conf__ și completați cu date valide
 
-      Copiați Dockerfiles/apache/100-condr.conf.example în 100-condr.conf și completați cu date valide
-      <VirtualHost *:80>
-         ServerName condr.lan
-         ProxyPass / http://app/public/
-      </VirtualHost>
+```sh
+<VirtualHost *:80>
+   ServerName condr.lan
+   ProxyPass / http://app/public/
+</VirtualHost>
+```
 
-        La fel copiaţi şi app/.env.example în .env și completați cu date valide
-        APP_ENV=local
-        # random app_key to be used by default; should be changed
-        APP_KEY=AfotPtr/kdTWeosS03T3Ghtja6llz7fqBBRzxxwFY64=
-        APP_WEBHOOKKEY=
-        APP_DEBUG=true
-        APP_LOG_LEVEL=debug
-        # this also should be changed accordingly
-        APP_URL=http://localhost:8000
+ - La fel copiaţi şi `app/.env.example` în __.env__ și completați cu date valide
 
-        // verify ssl for curl requests
-        // you may disable this in dev environment
-        CURLOPT_SSL_VERIFYPEER=true
+```sh
+APP_ENV=local
+# random app_key to be used by default; should be changed
+APP_KEY=AfotPtr/kdTWeosS03T3Ghtja6llz7fqBBRzxxwFY64=
+APP_WEBHOOKKEY=
+APP_DEBUG=true
+APP_LOG_LEVEL=debug
+# this also should be changed accordingly
+APP_URL=http://localhost:8000
 
-        DB_CONNECTION=oracle
-        # oracledb for docker compose
-        # localhost or anything if else
-        DB_HOST=oracledb
-        DB_PORT=1521
-        DB_USERNAME=condr
-        DB_PASSWORD=condr
+// verify ssl for curl requests
+// you may disable this in dev environment
+CURLOPT_SSL_VERIFYPEER=true
 
-  2. Pornire server:
+DB_CONNECTION=oracle
+# oracledb for docker compose
+# localhost or anything if else
+DB_HOST=oracledb
+DB_PORT=1521
+DB_USERNAME=condr
+DB_PASSWORD=condr
+```
+ 
+### Pentru pornire server:
+ - `docker-compose up -d`
+ - Prima pornire pregăteşte baza de date cu scripturile din [sqlscripts](https://github.com/adrianharabula/condr/tree/master/Dockerfiles/oracledb/sqlscripts).
+ - Pentru reinițializare baza de date rulați `docker-compose stop && docker-compose rm -v && docker-compose build && docker-compose up -d`.
 
-      docker-compose up -d
-      Prima pornire pregăteşte baza de date cu scripturile din sqlscripts.
-      Pentru reinițializare baza de date rulați docker-compose stop && docker-compose rm -v && docker-compose build && docker-compose up -d.
-  
-  3.Install laravel
+### Pentru a instala laravel (se face numai la prima rulare!)
 
-        ->Ne conectăm la containerul aplicaţiei cu
-        docker exec -it condr_app_1 bash
+Ne conectăm la containerul aplicaţiei cu
+```sh
+docker exec -it condr_app_1 bash
+```
+Instalăm composer cu [get-composer.sh](https://github.com/adrianharabula/condr/blob/master/app/get-composer.sh)
+```sh
+./get-composer.sh
+```
+Instalăm laravel cu
+```sh
+php composer.phar install
+```
 
-        ->Instalăm composer cu get-composer.sh
-        ./get-composer.sh
-        php composer.phar install
+### Instrucţiuni adiţionale baza de date
 
-  4.Populate database
+ - mai trebuie create tabele în baza de date şi populate, facem asta cu migrations pentru creeare şi seeding pentru populare
 
-        php artisan migrate:refresh --seed
+Odată pornit docker-compose înseamnă că baza de date s-a şi iniţializat, ce mai urmează este să rulăm peste ea migrările din laravel şi să facem seeding, populând baza de date.
+
+Pentru a rula migrările, ne conectăm la containerul aplicaţiei:
+```sh
+docker exec -it condr_app_1 bash
+```
+Şi din container rulăm
+```sh
+php artisan migrate:refresh --seed
+```
+Tabelele sunt acum create şi populate.
 
 ## Database schema
 
-![](https://github.com/adrianharabula/condr-devbook/blob/master/images/schema_latest_part1.png)```
+![](https://raw.githubusercontent.com/adrianharabula/condr-devbook/master/images/schema_latest_part1.png)```
 
 ## How we make AJAX calls
 
@@ -89,7 +111,7 @@ The AJAX call button
         title="Add me to your preferences!"><span class="fa fa-heart"></span></button> {{ $characteristic->name }} :
     {{ $characteristic->pivot->cvalue }} (<span id="vote_characteristic_value_{{$characteristic->id}}">{{ $characteristic->pivot->cvotes }}</span> votes)<br>
 
-##App URL Routing
+## App URL Routing
 
 ### Products routes
 
@@ -132,13 +154,13 @@ The AJAX call button
 
 ## Future times
 
-Basic functionalities are working. But we want to add (or receieve Pull Requests :) ) for:
+ Basic functionalities are working. But we want to add (or receieve Pull Requests :) ) for:
 
-Mobile app to scan barcode, search product and insert in our database if not exists
-Posibility to attach characteristic with value to user
-Filter products by user preference(a characteristic attached to user becomes a preference)
-Posibility to attach characteristic with value to group
-Filter products by group preference
-Advanced filter by characteristics
-Even more statistics
+ * Mobile app to scan barcode, search product and insert in our database if not exists
+ * Posibility to attach characteristic with value to user
+ * Filter products by user preference(a characteristic attached to user becomes a preference)
+ * Posibility to attach characteristic with value to group
+ * Filter products by group preference
+ * Advanced filter by characteristics
+ * Even more statistics
 
