@@ -7,11 +7,8 @@ layout: default
 Returns json data regarding all groups present in the application.
 ## Warning!
 __Your requests are limited to 50 per minute!__
-<<<<<<< Updated upstream
-Otherwise, you will get a "Too Many Requests" message.
-=======
+
 Otherwise, you will get a "Too Many Attempts" message.
->>>>>>> Stashed changes
 
 * **URL**
 
@@ -139,9 +136,6 @@ Otherwise, you will get a "Too Many Attempts" message.
       }
     });
   ```
-<<<<<<< Updated upstream
-=======
-
 
   * **URL**
 
@@ -252,4 +246,3 @@ Otherwise, you will get a "Too Many Attempts" message.
         }
       });
     ```
->>>>>>> Stashed changes
