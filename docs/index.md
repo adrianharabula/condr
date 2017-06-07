@@ -12,12 +12,12 @@ layout: default
 
 ### Developers team:
 
-Adrian Harabulă  
-Elisa Bulbuc-Aioanei  
-Elena Anghelina  
-Mădălina Buza  
+Adrian Harabulă  : [Click to see invidual work log](adrian) 
+Elisa Bulbuc-Aioanei  [Click to see invidual work log](elisa) 
+Elena Anghelina  [Click to see invidual work log](elena) 
+Mădălina Buza  [Click to see invidual work log](madalina) 
 
-[Click to see invidual work log](another-page).
+
 
 
 ## Install instructions
