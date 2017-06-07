@@ -7,7 +7,11 @@ layout: default
 Returns json data regarding all groups present in the application.
 ## Warning!
 __Your requests are limited to 50 per minute!__
+<<<<<<< Updated upstream
 Otherwise, you will get a "Too Many Requests" message.
+=======
+Otherwise, you will get a "Too Many Attempts" message.
+>>>>>>> Stashed changes
 
 * **URL**
 
@@ -135,3 +139,117 @@ Otherwise, you will get a "Too Many Requests" message.
       }
     });
   ```
+<<<<<<< Updated upstream
+=======
+
+
+  * **URL**
+
+    /api/categories
+
+  * **Method:**
+
+    `GET`
+
+  * **Data Params**
+
+    None
+
+  * **Success Response:**
+
+    * **Code:** 200 <br />
+      **Content:**
+      ```json
+      [
+    {
+    "id": 1,
+    "name": "Electronics",
+    "description": "Electronics can cover a large area of products that work based on electric devices, cables, circuits or others. Usually describes the house keeping or personal use devices that an user may need.",
+    "created_at": null,
+    "updated_at": null
+    },
+    {
+    "id": 2,
+    "name": "Clothes",
+    "description": "Clothes describe a category that includes jackets, sweaters, t-shirts, pants, skirts, hats, accesories and other clothing items.",
+    "created_at": null,
+    "updated_at": null
+    },
+    {
+    "id": 3,
+    "name": "Footwear",
+    "description": "Footwear category includes all items that someone may walk into, like heeled shoes, platforms, casual shoes, sport shoes and others.",
+    "created_at": null,
+    "updated_at": null
+    },
+    {
+    "id": 4,
+    "name": "Food",
+    "description": "Food describes a very large area consisting of fruits, vegetables, meat, lactates, specific recipes and others. Here you may find the best recipes for your regarding your allergies and tastes.",
+    "created_at": null,
+    "updated_at": null
+    },
+    {
+    "id": 5,
+    "name": "Games",
+    "description": "Games category includes games, recreational activities and relaxation technique in order to help you release the stress and gain a new fresh attitude.",
+    "created_at": null,
+    "updated_at": null
+    },
+    {
+    "id": 6,
+    "name": "Services",
+    "description": "Services describe a large area of interests that a person may need or want, like internet, TV cable, mobile services, electricity, water and others.",
+    "created_at": null,
+    "updated_at": null
+    },
+    {
+    "id": 7,
+    "name": "Education",
+    "description": "Education category consists of products that a person may need for educational purposes,like books, records, maps etc, but also includes services that an university can provide, like scholarships, training programs and other.",
+    "created_at": null,
+    "updated_at": null
+    },
+    {
+    "id": 8,
+    "name": "Entertainment",
+    "description": "Entertainment category consists of sports and shows  that anyone should watch after a hard day of work! Just relax and enjoy!",
+    "created_at": null,
+    "updated_at": null
+    },
+    {
+    "id": 9,
+    "name": "Other",
+    "description": "Here you find everything you could not find in the other categories!",
+    "created_at": null,
+    "updated_at": null
+    }
+    ]
+  ```
+
+  * **Error Response:**
+
+    * **Code:** 404  
+      **Content:**
+      ```json
+      {
+        "data": {
+        "message": "No categories found",
+        "status_code": "404"
+          }
+      }
+      ```
+
+  * **Sample Call:**
+
+    ```javascript
+      $.ajax({
+        url: "https://condr.me/api/categories",
+        dataType: "json",
+        type : "GET",
+        success : function(r) {
+          console.log(r);
+        }
+      });
+    ```
+>>>>>>> Stashed changes
