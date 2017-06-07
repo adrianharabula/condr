@@ -97,20 +97,6 @@ Tabelele sunt acum create şi populate.
 
 ![](https://raw.githubusercontent.com/adrianharabula/condr-devbook/master/images/schema_latest_part1.png)```
 
-## How we make AJAX calls
-
-CSRF Token for AJAX queries
-
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-
-The AJAX call button
-
-    <button id="vote_characteristic" class="btn btn-danger btn-circle" data-toggle="tooltip"
-        title="Add me to your preferences!"><span class="fa fa-heart"></span></button> {{ $characteristic->name }} :
-    {{ $characteristic->pivot->cvalue }} (<span id="vote_characteristic_value_{{$characteristic->id}}">{{ $characteristic->pivot->cvotes }}</span> votes)<br>
-
 ## App URL Routing
 
 ### Products routes
