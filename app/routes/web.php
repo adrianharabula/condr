@@ -24,18 +24,27 @@ Route::get('/', function () {
 
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 
-Route::any('/lookup/{upc_code}', 'LookupController@addProduct')->name('lookup');
+Route::get('/lookup/{upc_code}', 'LookupController@addProduct')->name('lookup');
 
-Route::group(['prefix' => 'ajax', 'as' => 'ajax.'], function () {
+Route::get('/populate', 'LookupController@populateProducts')->name('populate');
 
-Route::post('/vote_characteristic', 'AjaxController@voteCharacteristic')->name('vote');
-
-});
+Route::post('/contact', 'ContactFormController@postFormController')->name('contact');
 
 Route::any('/products', [
     'uses' => 'ProductsController@getProductsList',
     'as'   => 'products.listproducts'
 ]);
+
+Route::any('/product/add', [
+    'uses' => 'ProductsController@addProduct',
+    'as'   => 'product.add'
+]);
+
+Route::any('/product/submit', [
+    'uses' => 'ProductsController@submitAddProduct',
+    'as'   => 'product.submitAdd'
+]);
+
 
 Route::get('/product/{products}', [
     'uses' => 'ProductsController@getProduct',
@@ -52,6 +61,10 @@ Route::any('/group/{groups}', [
     'as'   => 'groups.singleview'
 ]);
 
+// AJAX routes
+Route::group(['prefix' => 'ajax', 'as' => 'ajax.'], function () {
+    Route::post('/vote_characteristic', 'AjaxController@voteCharacteristic')->name('vote');
+});
 
 Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function () {
 
@@ -126,19 +139,29 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
         'as'   => 'preferences.listpreferences'
     ]);
 
-    Route::match(['get', 'post'], 'preferences/add/{id}', [
+    Route::match(['get', 'post'], 'preferences/add/{id}/{value}', [
         'uses' => 'User\UserPreferencesController@addFavoritePreference',
         'as'   => 'preferences.add'
     ]);
 
-    Route::match(['get', 'post'], 'preferences/add/', [
-        'uses' => 'User\UserPreferencesController@addFavoritePreferenceByYourself',
+    Route::get('preferences/add', [
+        'uses' => 'User\UserPreferencesController@getAddFavoritePreference',
         'as'   => 'preferences.addbyyourself'
     ]);
 
-    Route::delete('preferences/{id}', [
+    Route::post('preferences/add', [
+        'uses' => 'User\UserPreferencesController@postAddFavoritePreference',
+        'as'   => 'preferences.addbyyourself.submit'
+    ]);
+
+    Route::get('preferences/{id}/{cvalue}/delete', [
         'uses' => 'User\UserPreferencesController@deleteFavoritePreference',
         'as'   => 'preferences.delete'
+    ]);
+
+    Route::any('preferences/searchby', [
+        'uses' => 'User\UserPreferencesController@searchByFavoritePreferences',
+        'as'   => 'preferences.searchby'
     ]);
 
 });

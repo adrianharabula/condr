@@ -9,13 +9,22 @@
     <h2><b>Change/Update your preferences</b></h2>
   </div>
 
-  {{-- <form class="form">
-    <div class="col-md-12">
-      <a href={{route('my.preferences.addbyyourself')}} type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Add preferences</a>
-    </div>
-  </form> --}}
 </div>
-
+@if(Session::has('message'))
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="alert {{ Session::get('alert-class', 'alert-success') }} alert-dismissable" style="text-align: center;">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          @if(Session::get('alert-class') === 'alert-danger')
+            <strong>Error: </strong>
+          @else
+            <strong>Success: </strong>
+          @endif
+          {{ Session::get('message') }}
+        </div>
+      </div>
+    </div>
+@endif
 <div class="row">
   <div class="col-md-10 col-md-offset-2">
     <div class="panel">
@@ -25,33 +34,28 @@
             <div class="row">
               <div class="col-md-10">
 
-                {{ Form::open(array('url' => route('products.listproducts'))) }}
-                {{ csrf_field() }}
-
+                {{ Form::open(array('url' => route('my.preferences.searchby'))) }}
+                {{ csrf_field() }}               
                 @forelse ($preferences as $preference)
-                <table class="table table-hover">
-                  <tbody>
-                    <tr>
-                      {{-- <h3> {{ $preference->category->name }}</h3> --}}
-                      <div class="col-md-8 col-md-offset-2">
-                        <input type="checkbox" name="characteristic_name" value="">{{ $preference->name }}: {{ $preference->pivot->cvalue}}
+
+                      <div class="col-md-7 col-md-offset-2">
+
+                        {{ Form::checkbox('preferences_name[]',$preference->name.':'.$preference->pivot->cvalue,false) }} {{$preference->name}}: {{$preference->pivot->cvalue}}
+
+                        <a href="{{ route('my.preferences.delete', array($preference->id, $preference->pivot->cvalue)) }}" class="close" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                        </a>
                       </div>
-                    </tr>
-                  </tbody>
-                </table>
-              @empty
-                <div class="col-md-8 col-md-offset-2">
+
+                @empty
+                <div class="col-md-7 col-md-offset-2">
                   <h4>Unfortunatelly, you have no preferences stored in your history!....</h4>
-                  <h4>But you can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 20px;">here</a> to add some!  <i class="fa fa-smile-o"></i></h4>
                 </div><br>
               @endforelse
-
                 <div class="col-md-7 col-md-offset-2">
-                  <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Search by selected preferences</button>
+                  <h4>You can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 20px;">here</a> to add more!  <i class="fa fa-smile-o"></i></h4>
+                  {{ Form::submit('Search by selected preferences', array('class' => 'btn btn-block btn-primary my-btn btn-start my-btn-dropdown')) }}
                 </div>
-                {{-- <div class="col-md-6">
-                  <button type="submit" class="btn btn-block btn-primary my-btn btn-start my-btn-dropdown">Delete selected preferences</button>
-                </div> --}}
                 {{ Form::close() }}
             </div>
           </div>
@@ -64,11 +68,18 @@
 input[type=checkbox]{
     margin: 10px 10px 10px;
 }
+span {
+  font-size: xx-large;
+}
+@media (min-width: 992px)
+.col-md-offset-2 {
+    font-size: 17px;
+}
 b {
   color:#2F937B;
 }
 h4 {
-  font-size: 20px;
+  font-size: 19px;
 }
 </style>
 

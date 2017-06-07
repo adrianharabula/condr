@@ -7,7 +7,7 @@
 <div class="panel-heading text-center">
   <h3><b>Your selected products</b></h3>
 </div>
-
+<br><br>
 <div class="container">
 
   @if(Session::has('message'))
@@ -27,7 +27,7 @@
   @endif
 
   <div class="row">
-  @foreach ($products as $product)
+  @forelse ($products as $product)
     <div class="col-md-4">
       <div class="table_product">
         <div class="thumbnail">
@@ -84,14 +84,26 @@
         </div>
       </div>
     </div>
-  @endforeach
+  @empty
+    <div class="col-md-8 col-md-offset-3">
+      <h4>Unfortunatelly, you have no products in your basket!...</h4>
+      <h4>But you can click <a href="{{ route('products.listproducts')}}" style="font-size: 20px;">here</a> to search and add some!  <i class="fa fa-smile-o"></i></h4>
+    </div><br>
+  @endforelse
   </div>
 </div>
+<br><br>
 
 @push('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/products.css') }}">
 @endpush
 <style>
+b {
+  color:#2F937B;
+}
+h4 {
+  font-size: 20px;
+}
 .fa-heart {
   color: #2F937B;
 }

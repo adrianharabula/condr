@@ -132,23 +132,45 @@ class UserRepository extends EloquentRepository
     //     return true;
     // }
 
-    // public function addFavoritePreference($preferenceId)
+    // public function addFavoritePreference($preferenceId, $preferenceValue)
     // {
     //     $preferenceFavored = auth()->user()->characteristics->where('id', $preferenceId)->first();
     //     if (!$preferenceFavored) {
     //         auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
+    //         auth()->user()->characteristics()->syncWithoutDetaching($preferenceValue);
+    //
     //         request()->session()->flash('message', 'Preference saved for later use!');
     //     } else {
     //         auth()->user()->characteristics()->syncWithoutDetaching($preferenceId);
     //         request()->session()->flash('message', 'Preference already added to your list!');
     //         request()->session()->flash('alert-class', 'alert-danger');
     //     }
-
+    //
     //     return true;
     // }
 
     public function getUserFavoritesPreferences($userId = null)
     {
         return $this->getUser($userId)->characteristics;
+    }
+    public function existsUserFavoritePreferences($preferenceId, $userId = null)
+    {
+        // return $this->getUserFavoritesPreferences($userId)->contains($preferenceId);
+        // cautam daca exista deja caracteristica cu valoarea X
+        // $ok = true;
+        // foreach ($this->getUserFavoritesPreferences($userId) as $p) {
+        //     if ($p->pivot->cvalue == $str[1])
+        //         $ok = false;
+        // }
+        return false;
+    }
+
+    public function deleteFavoritePreference($preferenceId, $cvalue, $userId = null)
+    {
+        $this->getUser($userId)->characteristics()
+             ->where('id', $preferenceId)
+             ->wherePivot('cvalue', $cvalue)
+             ->detach($preferenceId);
+        return true;
     }
 }

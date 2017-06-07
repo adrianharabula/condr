@@ -78,4 +78,8 @@ a.btn.btn-product {
     margin-top: 0px;
     margin-bottom: 24px;
   }
+  h4 {
+      font-weight: 700;
+      font-size: 23px;
+  }
 }
