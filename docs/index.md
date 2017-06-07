@@ -12,10 +12,10 @@ layout: default
 
 ### Developers team:
 
-Adrian Harabulă  : [Click to see invidual work log](adrian) 
-Elisa Bulbuc-Aioanei  [Click to see invidual work log](elisa) 
-Elena Anghelina  [Click to see invidual work log](elena) 
-Mădălina Buza  [Click to see invidual work log](madalina) 
+Adrian Harabulă  : [Click to see invidual work log](adrian)  
+Elisa Bulbuc-Aioanei  [Click to see invidual work log](elisa)  
+Elena Anghelina  [Click to see invidual work log](elena)  
+Mădălina Buza  [Click to see invidual work log](madalina)  
 
 
 
