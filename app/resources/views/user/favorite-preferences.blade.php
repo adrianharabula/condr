@@ -23,17 +23,17 @@
                 {!! Form::open(array('url' => route('my.preferences.searchby'))) !!}
                 {{ csrf_field() }}
 
-                {{ Form::open() }}
+                {{-- {{ Form::open() }} --}}
                 @forelse ($preferences as $preference)
                       <div class="col-md-7 col-md-offset-2">
 
                         {{ Form::checkbox('preferences_name[]',$preference->name.':'.$preference->pivot->cvalue,false) }} {{$preference->name}}: {{$preference->pivot->cvalue}}
                         {!! Form::open(['method' => 'DELETE', 'url'=> route('my.preferences.delete', $preference->id)]) !!}
-                        {{ csrf_field()}}
+                        {{-- {{ csrf_field()}} --}}
                         <button type="submit" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        {!! Form::close() !!}
+                        {{-- {!! Form::close() !!} --}}
 
                       </div>
               @empty
