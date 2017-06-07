@@ -94,6 +94,7 @@ class LookupController extends Controller
                 $offer_model->save();
             }
         }
+        return $product->id;
     }
 
     public function populateProducts()
