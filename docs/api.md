@@ -10,6 +10,8 @@ __Your requests are limited to 50 per minute!__
 
 Otherwise, you will get a "Too Many Attempts" message.
 
+## /api/groups
+
 * **URL**
 
   /api/groups
@@ -136,6 +138,8 @@ Otherwise, you will get a "Too Many Attempts" message.
       }
     });
   ```
+
+  ## /api/categories
 
   * **URL**
 
