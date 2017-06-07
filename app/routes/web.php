@@ -50,6 +50,11 @@ Route::any('/products/add', [
     'as'   => 'products.add'
 ]);
 
+Route::any('/products/submit', [
+    'uses' => 'ProductsController@submitAddProduct',
+    'as'   => 'products.submitAdd'
+]);
+
 Route::any('/groups', [
     'uses' => 'GroupsController@getGroupsList',
     'as'   => 'groups.listgroups'
@@ -153,11 +158,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
         'uses' => 'User\UserPreferencesController@deleteFavoritePreference',
         'as'   => 'preferences.delete'
     ]);
-    
-    Route::any('preferences/searchby', [ 
-        'uses' => 'User\UserPreferencesController@searchByFavoritePreferences', 
-        'as'   => 'preferences.searchby' 
-    ]); 
+
+    Route::any('preferences/searchby', [
+        'uses' => 'User\UserPreferencesController@searchByFavoritePreferences',
+        'as'   => 'preferences.searchby'
+    ]);
 
 });
 

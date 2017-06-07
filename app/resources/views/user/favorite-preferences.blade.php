@@ -12,7 +12,7 @@
 </div>
 @if(Session::has('message'))
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-4 col-md-offset-4">
         <div class="alert {{ Session::get('alert-class', 'alert-success') }} alert-dismissable" style="text-align: center;">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           @if(Session::get('alert-class') === 'alert-danger')
@@ -48,12 +48,12 @@
                       </div>
 
                 @empty
-                <div class="col-md-6 col-md-offset-2">
+                <div class="col-md-7 col-md-offset-2">
                   <h4>Unfortunatelly, you have no preferences stored in your history!....</h4>
-                  <h4>But you can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 20px;">here</a> to add some!  <i class="fa fa-smile-o"></i></h4>
                 </div><br>
               @endforelse
                 <div class="col-md-7 col-md-offset-2">
+                  <h4>You can click <a href="{{ route('my.preferences.addbyyourself')}}" style="font-size: 20px;">here</a> to add more!  <i class="fa fa-smile-o"></i></h4>
                   {{ Form::submit('Search by selected preferences', array('class' => 'btn btn-block btn-primary my-btn btn-start my-btn-dropdown')) }}
                 </div>
                 {{ Form::close() }}
@@ -79,7 +79,7 @@ b {
   color:#2F937B;
 }
 h4 {
-  font-size: 20px;
+  font-size: 19px;
 }
 </style>
 

@@ -15,8 +15,11 @@
     </div><br/><br/>
       <div class="col-md-4 col-md-offset-4">
         <div class="form-group">
-          <input class="form-control" placeholder="Type the product's barcode"><br/>
+          {{ Form::open(array('url' => route('products.submitAdd'))) }}
+          {{ csrf_field() }}
+          <input class="form-control" name="barcode" placeholder="Type the product's barcode"><br/>
           <button type="submit" class="btn btn-primary my-btn btn-block">Add product to database!</button>
+          {{ Form::close() }}
         </div>
     </div>
   </div>
