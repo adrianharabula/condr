@@ -39,9 +39,9 @@
 
                 <div class="panel-body">
                     <div class="col-md-3">
-                        <a href="{{$product->image_url or 'http://via.placeholder.com/300x400?text=No+picture'}}" class="<thumbnail></thumbnail>"> <img class="media-object" src="{{ asset($product->image_url) }}"
+                        <a href="{{$product->image_url or 'http://via.placeholder.com/300x400?text=No+picture'}}" class="<thumbnail></thumbnail>"> <img class="media-object" src="{{ $product->image_url or 'http://via.placeholder.com/300x400?text=No+picture'}}"
                                                              style="width:100%;"> </a>
-                        
+                        <h3 class="text-center">Views: {{ $product->views }}</h3>
                         <h3>Offers</h3>
                         @forelse ($product->offers as $offer)
                           <div class="panel-group col-md-12">
@@ -109,11 +109,6 @@
                             <h5> None </h5>
                         @endforelse
                         <br />
-
-                        <h4>Offers:</h4>
-                        <p>Click to see more details!</p><br/>
-
-
                     </div>
 
                 </div>
