@@ -2,6 +2,10 @@
 layout: default
 ---
 
+#### The app
+
+ Tell us your wishes and we'll help you decide! ConDr gives you suggestions whether to buy or not a product you are looking for by searching through our database.
+
 ### Original request
 
  > A web tool is needed to provide consumers with advice on decisions to purchase goods / services in an ethical way. The system will be able to store and use the simple rules of the form "if <condition> then <action>" - in our case, for example, "we will not buy / use the product P because it contains / uses substance S", or "I will choose P instead of Q because of M (for example, low mobility or unreasonable price)"- to provide suggestions on personal or group resources. The application will also provide statistics on most of the desired resources, restrictions, people with similar preferences, etc. As a source of inspiration, see Buycott. Bonus: using web microservices.
@@ -15,118 +19,126 @@ Mădălina Buza
 
 [Click to see invidual work log](another-page).
 
-There should be whitespace between paragraphs.
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+## Install instructions
 
-# [](#header-1)Header 1
+  1. Se face clone la repo:
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+      Copiați Dockerfiles/apache/100-condr.conf.example în 100-condr.conf și completați cu date valide
+      <VirtualHost *:80>
+         ServerName condr.lan
+         ProxyPass / http://app/public/
+      </VirtualHost>
 
-## [](#header-2)Header 2
+        La fel copiaţi şi app/.env.example în .env și completați cu date valide
+        APP_ENV=local
+        # random app_key to be used by default; should be changed
+        APP_KEY=AfotPtr/kdTWeosS03T3Ghtja6llz7fqBBRzxxwFY64=
+        APP_WEBHOOKKEY=
+        APP_DEBUG=true
+        APP_LOG_LEVEL=debug
+        # this also should be changed accordingly
+        APP_URL=http://localhost:8000
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+        // verify ssl for curl requests
+        // you may disable this in dev environment
+        CURLOPT_SSL_VERIFYPEER=true
 
-### [](#header-3)Header 3
+        DB_CONNECTION=oracle
+        # oracledb for docker compose
+        # localhost or anything if else
+        DB_HOST=oracledb
+        DB_PORT=1521
+        DB_USERNAME=condr
+        DB_PASSWORD=condr
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+  2. Pornire server:
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+      docker-compose up -d
+      Prima pornire pregăteşte baza de date cu scripturile din sqlscripts.
+      Pentru reinițializare baza de date rulați docker-compose stop && docker-compose rm -v && docker-compose build && docker-compose up -d.
+  
+  3.Install laravel
 
-#### [](#header-4)Header 4
+        ->Ne conectăm la containerul aplicaţiei cu
+        docker exec -it condr_app_1 bash
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+        ->Instalăm composer cu get-composer.sh
+        ./get-composer.sh
+        php composer.phar install
 
-##### [](#header-5)Header 5
+  4.Populate database
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+        php artisan migrate:refresh --seed
 
-###### [](#header-6)Header 6
+## Database schema
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+![](https://github.com/adrianharabula/condr-devbook/blob/master/images/schema_latest_part1.png)```
 
-### There's a horizontal rule below this.
+## How we make AJAX calls
 
-* * *
+CSRF Token for AJAX queries
 
-### Here is an unordered list:
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
 
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
+The AJAX call button
 
-### And an ordered list:
+    <button id="vote_characteristic" class="btn btn-danger btn-circle" data-toggle="tooltip"
+        title="Add me to your preferences!"><span class="fa fa-heart"></span></button> {{ $characteristic->name }} :
+    {{ $characteristic->pivot->cvalue }} (<span id="vote_characteristic_value_{{$characteristic->id}}">{{ $characteristic->pivot->cvotes }}</span> votes)<br>
 
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
+##App URL Routing
 
-### And a nested list:
+### Products routes
 
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
+| VERB | URI           | ACTION                             | ROUTE                 |
+|------|---------------|------------------------------------|-----------------------|
+| GET  | /products     | ProductsController@getProductsList | products.listproducts |
+| GET  | /product/{id} | ProductsController@getProduct      | products.singleview   |
 
-### Small image
+### Groups routes
 
-![](https://assets-cdn.github.com/images/icons/emoji/octocat.png)
+| VERB | URI           | ACTION                             | ROUTE                 |
+|------|---------------|------------------------------------|-----------------------|
+| GET  | /groups       | GroupsController@getGroupsList     | groups.listgroups     |
+| GET  | /group/{id}   | GroupsController@getGroup          | groups.singleview     |
 
-### Large image
+### My account routes
 
-![](https://guides.github.com/activities/hello-world/branching.png)
+| VERB | URI                         | ACTION                                       | ROUTE                      |
+|------|-----------------------------|----------------------------------------------|----------------------------|
+| GET  | /my/account                 | User\UserSettingsController@index            | my.account.index                |
+| GET  | /my/account/change-password | User\UserSettingsController@getEditPassword  | my.account.change-password |
+| POST | /my/account/change-password | User\UserSettingsController@postEditPassword | my.account.change-password |
+
+### Favored products routes
+
+| VERB   | URI                     | ACTION                                                | ROUTE              |
+|--------|-------------------------|-------------------------------------------------------|--------------------|
+| GET    | /my/products            | User\UserProductsController@getFavoriteProducts       | my.products.listproducts        |
+| POST   | /my/product/{id}/add    | User\UserProductsController@addFavoriteProduct        | my.product.add     |
+| DELETE | /my/product/{id}/delete | User\UserProductsController@deleteFavoriteProduct     | my.product.delete  |
+
+### Groups routes
+
+| VERB   | URI                     | ACTION                                                | ROUTE              |
+|--------|-------------------------|-------------------------------------------------------|--------------------|
+| GET    | /my/groups              | Group\GroupController@getFavoriteGroups               | my.groups.listgroups       |
+| POST   | /my/group/{id}/add      | Group\GroupController@addFavoriteGroup                | my.group.add       |
+| DELETE | /my/group/{id}/delete   | Group\GroupController@deleteFavoriteGroup             | my.group.delete    |
 
 
-### Definition lists can be used with HTML syntax.
+## Future times
 
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
+Basic functionalities are working. But we want to add (or receieve Pull Requests :) ) for:
 
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
+Mobile app to scan barcode, search product and insert in our database if not exists
+Posibility to attach characteristic with value to user
+Filter products by user preference(a characteristic attached to user becomes a preference)
+Posibility to attach characteristic with value to group
+Filter products by group preference
+Advanced filter by characteristics
+Even more statistics
 
-```
-The final element.
-```
