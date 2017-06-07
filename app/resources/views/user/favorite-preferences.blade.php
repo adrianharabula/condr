@@ -23,24 +23,19 @@
                 {!! Form::open(array('url' => route('my.preferences.searchby'))) !!}
                 {{ csrf_field() }}
 
+                {{ Form::open() }}
                 @forelse ($preferences as $preference)
-                <table class="table table-hover">
-                  <tbody>
-                    <tr>
                       <div class="col-md-7 col-md-offset-2">
 
                         {{ Form::checkbox('preferences_name[]',$preference->name.':'.$preference->pivot->cvalue,false) }} {{$preference->name}}: {{$preference->pivot->cvalue}}
                         {!! Form::open(['method' => 'DELETE', 'url'=> route('my.preferences.delete', $preference->id)]) !!}
+                        {{ csrf_field()}}
                         <button type="submit" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         {!! Form::close() !!}
 
                       </div>
-                    </tr>
-                  </tbody>
-                </table>
-
               @empty
                 <div class="col-md-6 col-md-offset-2">
                   <h4>Unfortunatelly, you have no preferences stored in your history!....</h4>

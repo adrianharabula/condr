@@ -26,7 +26,7 @@
                   <li><a href="{{ route('products.add') }}">Add product</a></li>
                 @endif
                 <li><a href="{{ url('statistics') }}">Statistics</a></li>
-                <li class="hidden-sm"><a href="{{ url('contact') }}">Contact</a></li>
+                {{-- <li class="hidden-sm"><a href="{{ url('contact') }}">Contact</a></li> --}}
 
                 <!-- Authentication Links -->
                 @if (Auth::guest())
