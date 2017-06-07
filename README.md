@@ -7,14 +7,14 @@
 
 **Tell us your wishes and we'll help you decide!** ConDr gives you suggestions whether to buy or not a product you are looking for by searching through our database.
 
-Click [here](https://vimeo.com/220605646) for Video Presentation. See online app [here](https://condr.me).
+See online app [here](https://condr.me).
 
 Original request here:
  > Develop a web tool to provide consumers with advice on decisions to purchase goods / services in an ethical way. The system will be able to store and use the simple rules of the form "if <condition> then <action>" - in our case, for example, "we will not buy / use the product P because it contains / uses substance S", or "I will choose P instead of Q because of M (for example, low mobility or unreasonable price)"- to provide suggestions on personal or group resources. The application will also provide statistics on most of the desired resources, restrictions, people with similar preferences, etc. As a source of inspiration, see Buycott. Bonus: using web microservices.
 
 ## Relevant links
 
- * [Online app](http://condr.me)
+ * [Online app](http://condr.me) or [Video Presentation](https://vimeo.com/220605646)
  * [User Manual](https://github.com/adrianharabula/condr/raw/master/docs/files/Manualul_Utilizatorului_ConDr.pdf)
  * ConDr Technical Book, read [online](https://adrianharabula.gitbooks.io/condr) or download [pdf](https://www.gitbook.com/download/pdf/book/adrianharabula/condr), [epub](https://www.gitbook.com/download/epub/book/adrianharabula/condr), [mobi](https://www.gitbook.com/download/mobi/book/adrianharabula/condr) or view book repository [here](https://github.com/adrianharabula/condr-devbook) or gitbook link [here](https://www.gitbook.com/book/adrianharabula/condr/details)
  * [Database schema](https://github.com/adrianharabula/condr/raw/master/docs/files/database_sketch_latest.pdf) with [documentation](https://docs.condr.me/dbschema/)
