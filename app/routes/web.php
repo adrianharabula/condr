@@ -66,6 +66,11 @@ Route::group(['prefix' => 'ajax', 'as' => 'ajax.'], function () {
     Route::post('/vote_characteristic', 'AjaxController@voteCharacteristic')->name('vote');
 });
 
+// API Routes
+Route::group(['middleware' => 'api', 'prefix' => 'api', 'as' => 'api.'], function () {
+    Route::get('/groups', 'APIController@getGroups')->name('groups');
+});
+
 Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function () {
 
     Route::group(['prefix' => 'account', 'as' => 'account.'], function () {
