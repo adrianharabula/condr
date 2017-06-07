@@ -39,7 +39,7 @@
 
                 <div class="panel-body">
                     <div class="col-md-3">
-                        <a href="{{$product->image_url}}" class="thumbnail"> <img class="media-object" src="{{ asset($product->image_url) }}"
+                        <a href="{{$product->image_url}}" class="<thumbnail></thumbnail>"> <img class="media-object" src="{{ asset($product->image_url) }}"
                                                              style="width:100%;"> </a>
                         
                         <h3>Offers</h3>
@@ -52,30 +52,34 @@
                                 </h4>
                               </div>
                               <div id="collapse_{{$offer->id}}" class="panel-collapse collapse">
+                              <div class="panel-body">
+                              <ul>
                                 @if($offer->domain)
-                                <div class="panel-body"><b>Domain:</b> {{$offer->domain}}</div>
+                                <li><b>Domain:</b> {{$offer->domain}}</li>
                                 @endif
                                 @if($offer->title && 0)
-                                <div class="panel-footer"><b>Title:</b> {{$offer->title}}</div>
+                                <li><b>Title:</b> {{$offer->title}}</li>
                                 @endif
                                 @if($offer->currency)
-                                <div class="panel-body"><b>Currency:</b> {{$offer->currency}}</div>
+                                <li><b>Currency:</b> {{$offer->currency}}</li>
                                 @endif
                                 @if($offer->shipping)
-                                <div class="panel-footer"><b>Shipping:</b> {{$offer->shipping}}</div>
+                                <li><b>Shipping:</b> {{$offer->shipping}}</li>
                                 @endif
                                 @if($offer->condition)
-                                <div class="panel-body"><b>Condition:</b> {{$offer->condition}}</div>
+                                <li><b>Condition:</b> {{$offer->condition}}</li>
                                 @endif
                                 @if($offer->availability)
-                                <div class="panel-footer"><b>Availability:</b> {{$offer->availability}}</div>
-                                @endif
-                                @if($offer->shop_link)
-                                <div class="panel-body"></b>Shop link:</b> <a href="{{$offer->shop_link}}">Click here!</a></div>
+                                <li><b>Availability:</b> {{$offer->availability}}</li>
                                 @endif
                                 @if($offer->remote_updated_at)
-                                <div class="panel-footer"><b>Last updated:</b> {{ \Carbon\Carbon::createFromTimestamp((int)trim($offer->remote_updated_at))->diffForHumans() }}</div>
+                                <li><b>Last updated:</b> {{ \Carbon\Carbon::createFromTimestamp((int)trim($offer->remote_updated_at))->diffForHumans() }}</li>
                                 @endif
+                                </ul>
+                                @if($offer->shop_link)
+                                <a href="{{$offer->shop_link}}" class="btn btn-primary my-btn btn-start my-btn-dropdown my-btn-border">Shop NOW</a>
+                                @endif
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -93,7 +97,7 @@
                         <h5>{{ $product->category->name }}</h5>
                         <h4>Characteristics of the product:</h4>
                         @forelse ($product->characteristics as $characteristic)
-                            {{-- {{ Form::open(array('url'=>route('my.preferences.add', $characteristic->id))) }}
+                            {{-- {{ Form::open(array('url'=>route('my.preferences.add', ['id' => $characteristic->id], ['value' => $characteristic->pivot->cvalue]))) }}
                             {{ csrf_field() }} --}}
 
                             <button id="vote_characteristic_{{$characteristic->id}}" class="btn btn-danger btn-circle" data-toggle="tooltip"

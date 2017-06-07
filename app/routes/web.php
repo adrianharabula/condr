@@ -35,6 +35,17 @@ Route::any('/products', [
     'as'   => 'products.listproducts'
 ]);
 
+Route::any('/product/add', [
+    'uses' => 'ProductsController@addProduct',
+    'as'   => 'product.add'
+]);
+
+Route::any('/product/submit', [
+    'uses' => 'ProductsController@submitAddProduct',
+    'as'   => 'product.submitAdd'
+]);
+
+
 Route::get('/product/{products}', [
     'uses' => 'ProductsController@getProduct',
     'as'   => 'products.singleview'
@@ -128,19 +139,29 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
         'as'   => 'preferences.listpreferences'
     ]);
 
-    Route::match(['get', 'post'], 'preferences/add/{id}', [
+    Route::match(['get', 'post'], 'preferences/add/{id}/{value}', [
         'uses' => 'User\UserPreferencesController@addFavoritePreference',
         'as'   => 'preferences.add'
     ]);
 
-    Route::match(['get', 'post'], 'preferences/add/', [
-        'uses' => 'User\UserPreferencesController@addFavoritePreferenceByYourself',
+    Route::get('preferences/add', [
+        'uses' => 'User\UserPreferencesController@getAddFavoritePreference',
         'as'   => 'preferences.addbyyourself'
     ]);
 
-    Route::delete('preferences/{id}', [
+    Route::post('preferences/add', [
+        'uses' => 'User\UserPreferencesController@postAddFavoritePreference',
+        'as'   => 'preferences.addbyyourself.submit'
+    ]);
+
+    Route::get('preferences/{id}/{cvalue}/delete', [
         'uses' => 'User\UserPreferencesController@deleteFavoritePreference',
         'as'   => 'preferences.delete'
+    ]);
+
+    Route::any('preferences/searchby', [
+        'uses' => 'User\UserPreferencesController@searchByFavoritePreferences',
+        'as'   => 'preferences.searchby'
     ]);
 
 });
