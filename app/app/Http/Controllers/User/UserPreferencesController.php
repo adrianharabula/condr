@@ -24,21 +24,37 @@ class UserPreferencesController extends Controller
         $this->_userRepository = $_userRepository;
     }
 
-    public function addFavoritePreferenceByYourself()
+    public function getAddFavoritePreference()
     {
         return view('user.favorite-preferences-add');
     }
 
-    public function submitAddFavoritePreferenceByYourself(Request $request)
+    public function postAddFavoritePreference(Request $request)
     {
         $str = explode(":", $request->preference_name);
 
         $characteristic = \App\Characteristic::firstOrCreate(['name' => $str[0]]);
         $characteristic->save();
 
-        Auth::user()->characteristics()->syncWithoutDetaching([$characteristic->id => ['cvalue' => $str[1]]]);
+        // trim cvalue
+        $str[1] = trim($str[1]);
 
-        return view('user.favorite-preferences')->with('preferences', $this->_userRepository->getUserFavoritesPreferences());
+        // Auth::user()->characteristics()->syncWithoutDetaching([$characteristic->id => ['cvalue' => $str[1]]]);
+
+        // cautam daca exista deja caracteristica cu valoarea X
+        $ok = true;
+        foreach ( auth()->user()->characteristics as $c) {
+            if ($c->pivot->cvalue == $str[1])
+                $ok = false;
+        }
+        if ($ok)
+            auth()->user()->characteristics()->attach($characteristic, ['cvalue' => $str[1]]);
+        else {
+            request()->session()->flash('message', 'Preference already exists');
+            request()->session()->flash('alert-class', 'alert-danger');
+        }
+
+        return redirect()->route('my.preferences.listpreferences');
     }
 
     public function getFavoritePreferences()
@@ -47,7 +63,7 @@ class UserPreferencesController extends Controller
     }
     public function deleteFavoritePreference(Request $request)
     {
-        $response = $this->_userRepository->deleteFavoritePreference($request->id);
+        $response = $this->_userRepository->deleteFavoritePreference($request->id, $request->cvalue);
 
         if ($response) {
             request()->session()->flash('message', 'Preference deleted from your history!');

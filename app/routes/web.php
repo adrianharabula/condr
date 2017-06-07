@@ -140,16 +140,16 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my', 'as' => 'my.'], function
     ]);
 
     Route::get('preferences/add', [
-        'uses' => 'User\UserPreferencesController@addFavoritePreferenceByYourself',
+        'uses' => 'User\UserPreferencesController@getAddFavoritePreference',
         'as'   => 'preferences.addbyyourself'
     ]);
 
     Route::post('preferences/add', [
-        'uses' => 'User\UserPreferencesController@submitAddFavoritePreferenceByYourself',
+        'uses' => 'User\UserPreferencesController@postAddFavoritePreference',
         'as'   => 'preferences.addbyyourself.submit'
     ]);
 
-    Route::delete('preferences/{id}/delete', [
+    Route::get('preferences/{id}/{cvalue}/delete', [
         'uses' => 'User\UserPreferencesController@deleteFavoritePreference',
         'as'   => 'preferences.delete'
     ]);

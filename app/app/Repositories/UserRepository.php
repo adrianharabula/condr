@@ -155,19 +155,22 @@ class UserRepository extends EloquentRepository
     }
     public function existsUserFavoritePreferences($preferenceId, $userId = null)
     {
-        return $this->getUserFavoritesPreferences($userId)->contains($preferenceId);
+        // return $this->getUserFavoritesPreferences($userId)->contains($preferenceId);
+        // cautam daca exista deja caracteristica cu valoarea X
+        // $ok = true;
+        // foreach ($this->getUserFavoritesPreferences($userId) as $p) {
+        //     if ($p->pivot->cvalue == $str[1])
+        //         $ok = false;
+        // }
+        return false;
     }
-    public function detachUserFavoritePreferences($preferenceId, $userId = null)
-    {
-        $this->getUser($userId)->characteristics()->detach($preferenceId);
-    }
-    public function deleteFavoritePreference($preferenceId, $userId = null)
-    {
-        if (!$this->existsUserFavoritePreferences($preferenceId, $userId))
-            return false;
 
-        $this->detachUserFavoritePreferences($preferenceId, $userId);
-
+    public function deleteFavoritePreference($preferenceId, $cvalue, $userId = null)
+    {
+        $this->getUser($userId)->characteristics()
+             ->where('id', $preferenceId)
+             ->wherePivot('cvalue', $cvalue)
+             ->detach($preferenceId);
         return true;
-     }
+    }
 }

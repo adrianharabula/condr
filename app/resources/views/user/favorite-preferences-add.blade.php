@@ -11,17 +11,18 @@
         </div>
         <div class="panel-body">
           <div class="col-md-12">
-              <div class="col-md-7 col-md-offset-3">
+              <div class="col-md-6 col-md-offset-3">
                 <div class="form-group">
                   <div class="subtitle">
                     <h3>Tell us what to look after!</h3>
-                    <h5>Pay attention! If you want us to give you the best results, you must provide your preferences consisting in a noun and an attribute, separated by ":" !  <i class="fa fa-smile-o"></i></h5>
+                    <p>Pay attention! If you want us to give you the best results, you must provide your preferences consisting in a noun and an attribute, separated by ":" !  <i class="fa fa-smile-o"></i></p>
+                    <p><b>Example</b>: color: red</p>
                   </div>
                   <br>
 
                   {{Form::open(array('url' => route('my.preferences.addbyyourself.submit'),  'method' => 'post'))}}
-                    <input class="control-group" name="preference_name" type="text" value=""><br /><br />
-                    <button name="submitPreferences" type="submit" class="btn btn-primary my-btn">Add to my preferences!</button>
+                    <input class="control-group btn-block" name="preference_name" type="text" value=""><br />
+                    <button name="submitPreferences" type="submit" class="btn btn-primary my-btn btn-block">Add to my preferences!</button>
                   {{Form::close()}}
 
             </div>
@@ -31,6 +32,9 @@
   </div>
 
 <style>
+ p {
+   font-size: 14px;
+ }
  h4 {
    font-size: 18px;
    margin-top: 20px;
@@ -53,9 +57,6 @@
     width: 67%;
     line-height: 1.9;
     margin-right: 10px;
-  }
-  .subtitle {
-    width: 67%;
   }
 
 </style>
