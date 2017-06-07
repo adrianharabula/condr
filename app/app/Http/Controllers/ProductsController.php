@@ -30,6 +30,7 @@ class ProductsController extends Controller
     public function getProduct($id)
     {
         $product = $this->_productRepository->find($id);
+        if (!$product) return redirect()->route('products.listproducts');
         $product->increment('views');
         return view('products.singleview')->with('product', $product);
     }
