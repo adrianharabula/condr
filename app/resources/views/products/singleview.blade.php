@@ -22,7 +22,9 @@
                     <div class="row">
                         <div class="col-md-8 text-left">
                             <h1>Some features of the product...</h1>
-                            <h4>Already voted by {{$product->users()->count()}} users! <i class="fa fa-smile-o"></i></h4>
+                            @if($product->users()->count())
+                            <p class="lime">Already voted by {{$product->users()->count()}} users! <i class="fa fa-smile-o"></i></p>
+                            @endif
                         </div>
                         <div class="col-md-4 text-right">
                             {{ Form::open(array('url' => route('my.product.add', $product->id))) }}
