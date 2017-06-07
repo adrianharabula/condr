@@ -35,5 +35,9 @@ layout: default
 ### Database
 * database schema
 * database model
+* Implementation and population database
+
+## Front-end
+    * stylized pages 
 
 

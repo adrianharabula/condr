@@ -9,12 +9,17 @@ layout: default
 	* MyAccountDetails page
 	* ChangePassword
 	* DeleteMyPreferences 
-
-## Database 
-
-	* Populate database with products -> upc_codes
+	* Groups Page
 
 ## Documentation
 
 	* User Manual
 	* Scholary Documentation
+
+## Database
+
+    * Implementation and population database
+    * Populate database with products -> upc_codes
+
+## Front-end
+    * stylized pages 
