@@ -20,10 +20,10 @@ Original request here:
 ## Relevant links
 
  * [Video Presentation](https://vimeo.com/220605646)
- * [User Manual](https://docs.condr.adrianharabula.ro/files/Manualul_Utilizatorului_ConDr.pdf)
+ * [User Manual](https://adrianharabula.github.io/condr/files/Manualul_Utilizatorului_ConDr.pdf)
  * ConDr Technical Book, read [online](https://adrianharabula.gitbooks.io/condr) or download [pdf](https://www.gitbook.com/download/pdf/book/adrianharabula/condr)
- * [Database schema](https://docs.condr.adrianharabula.ro/files/database_sketch_latest.pdf) with [documentation](https://docs.condr.adrianharabula.ro/dbschema/)
- * [Documentation with Scholarly HTML tags](https://docs.condr.adrianharabula.ro/)
+ * [Database schema](https://adrianharabula.github.io/condr/files/database_sketch_latest.pdf) with [documentation](https://adrianharabula.github.io/condr/dbschema/)
+ * [Documentation with Scholarly HTML tags](https://adrianharabula.github.io/condr/)
  * [Early interface mockups](https://github.com/adrianharabula/condr/tree/master/docs/files/interface_mockups)
 
  ## Byproducts
