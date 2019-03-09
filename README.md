@@ -15,7 +15,7 @@ Original request here:
 ## Relevant links
 
  * [Video Presentation](https://vimeo.com/220605646)
- * [User Manual](https:///files/Manualul_Utilizatorului_ConDr.pdf)
+ * [User Manual](https://docs.condr.adrianharabula.ro/files/Manualul_Utilizatorului_ConDr.pdf)
  * ConDr Technical Book, read [online](https://adrianharabula.gitbooks.io/condr) or download [pdf](https://www.gitbook.com/download/pdf/book/adrianharabula/condr), [epub](https://www.gitbook.com/download/epub/book/adrianharabula/condr), [mobi](https://www.gitbook.com/download/mobi/book/adrianharabula/condr) or view book repository [here](https://github.com/adrianharabula/condr-devbook) or gitbook link [here](https://www.gitbook.com/book/adrianharabula/condr/details)
  * [Database schema](https://docs.condr.adrianharabula.ro/files/database_sketch_latest.pdf) with [documentation](https://docs.condr.adrianharabula.ro/dbschema/)
  * [Documentation with Scholarly HTML tags](https://docs.condr.adrianharabula.ro/)
