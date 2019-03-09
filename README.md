@@ -1,7 +1,14 @@
 <h1 align="center">Consumer Decision Maker</h1>
+<h2 align="center">Project started on March 2017 @ UAIC Iaşi</h2>
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/2271038/26532430/2a06aad0-4409-11e7-959a-7c580f5fb5b7.png"></p>
 
 <p align="center"><a href="https://stackshare.io/adrianharabula/condr"><img src="https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat" alt="Stackshare"></a></p>
+
+## Updates
+ * March 2019 - 2 years anniversary, congrats everyone involed!
+ * November 2018 - Our [php7-with-oci8](https://hub.docker.com/r/adrianharabula/php7-with-oci8) docker image got 1M pulls
+ * June 2017 - We presented the project for evaluation.
+ * March 2017 - This project started.
 
 ## The app
 
@@ -23,8 +30,8 @@ Original request here:
 
  Things that came out during development of this project as a side effect:
 
- * [php7-oci](https://adrianharabula.gitbooks.io/condr/content/pages/php7-oci.html), repo [here](https://github.com/adrianharabula/php7-with-oci8)
- * [php7cli-oci](https://adrianharabula.gitbooks.io/condr/content/pages/php7cli-oci.html), repo [here](https://github.com/adrianharabula/php7cli-with-oci8)
+ * [php7-oci](https://adrianharabula.gitbooks.io/condr/content/pages/php7-oci.html), repo [here](https://github.com/adrianharabula/php7-with-oci8), docker image [here](https://hub.docker.com/r/adrianharabula/php7-with-oci8) (this image later got 1M pulls)
+ * [php7cli-oci](https://adrianharabula.gitbooks.io/condr/content/pages/php7cli-oci.html), repo [here](https://github.com/adrianharabula/php7cli-with-oci8) (DEPRECATED!)
  * [super-simple-oci-orm](https://adrianharabula.gitbooks.io/condr/content/pages/oci-orm.html), repo [here](https://github.com/adrianharabula/super-simple-oci-orm)
 
 ## Contributing
