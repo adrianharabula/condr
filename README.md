@@ -5,7 +5,7 @@
 <p align="center"><a href="https://stackshare.io/adrianharabula/condr"><img src="https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat" alt="Stackshare"></a></p>
 
 ## Updates
- * March 2019 - 2 years anniversary, congrats everyone involed!
+ * March 2019 - 2 years anniversary, congrats everyone involved!
  * November 2018 - Our [php7-with-oci8](https://hub.docker.com/r/adrianharabula/php7-with-oci8) docker image got 1M pulls
  * June 2017 - We presented the project for evaluation.
  * March 2017 - This project started.
