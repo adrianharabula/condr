@@ -44,7 +44,7 @@ The ConDr app is open-sourced software licensed under the [MIT license](http://o
 
 ## The Team
 B2 group, academic year 2016-2017:
- * Bulbuc-Aioanei Elisa]
+ * Bulbuc-Aioanei Elisa
  * Anghelina Elena
  * Buza Mădălina-Gabriela
  * Harabulă Adrian
