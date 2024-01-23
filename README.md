@@ -4,6 +4,8 @@
 
 <p align="center"><a href="https://stackshare.io/adrianharabula/condr"><img src="https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat" alt="Stackshare"></a></p>
 
+https://github.com/adrianharabula/condr/assets/2271038/5cdd41b9-ae7a-4278-bed2-ef06ef334eb5
+
 ## Updates
  * March 2019 - 2 years anniversary, congrats everyone involved!
  * November 2018 - Our [php7-with-oci8](https://hub.docker.com/r/adrianharabula/php7-with-oci8) docker image got 1M pulls
@@ -31,7 +33,6 @@ Original request here:
  Things that came out during development of this project as a side effect:
 
  * [php7-oci](https://adrianharabula.gitbooks.io/condr/content/pages/php7-oci.html), repo [here](https://github.com/adrianharabula/php7-with-oci8), docker image [here](https://hub.docker.com/r/adrianharabula/php7-with-oci8) (this image later got 1M pulls)
- * [php7cli-oci](https://adrianharabula.gitbooks.io/condr/content/pages/php7cli-oci.html), repo [here](https://github.com/adrianharabula/php7cli-with-oci8) (DEPRECATED!)
  * [super-simple-oci-orm](https://adrianharabula.gitbooks.io/condr/content/pages/oci-orm.html), repo [here](https://github.com/adrianharabula/super-simple-oci-orm)
 
 ## Contributing
